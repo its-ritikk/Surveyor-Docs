@@ -1,11 +1,18 @@
+import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import Steps from "../../components/Steps";
 
 const toc = [
-  { id: "sign-in", label: "Sign in to CargoClave" },
-  { id: "otp", label: "Verify your OTP" },
-  { id: "troubleshooting", label: "Troubleshooting sign-in" },
+  { id: "overview", label: "Overview" },
+  { id: "purpose", label: "Purpose" },
+  { id: "features", label: "Feature Overview" },
+  { id: "sections", label: "Important Functional Sections" },
+  { id: "sign-in", label: "Detailed Feature Explanation" },
+  { id: "workflow", label: "User Workflow" },
+  { id: "validations", label: "Validation Rules" },
+  { id: "permissions", label: "User Permissions" },
+  { id: "related", label: "Related Features" },
+  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function SignIn() {
@@ -13,84 +20,91 @@ export default function SignIn() {
     <DocPage
       path="/getting-started/sign-in"
       eyebrow="Getting Started"
-      title="Sign In & Verification"
-      description="Every session — web or mobile — starts at the CargoClave portal with a passwordless, OTP-verified sign-in."
+      title="Sign in & Verification"
+      description="The standard passwordless, OTP-verified authentication flow for accessing the Surveyor Management System."
       toc={toc}
     >
-      <Section id="sign-in" title="1.1 Sign in to CargoClave">
+      <Section id="overview" title="Overview">
         <p>
-          Open your browser and go to <code>portal.cargoclave.com</code>.
-          Enter your registered email address or mobile number, then click{" "}
-          <strong>Continue</strong>.
+          Every session starts with a time-sensitive One-Time Password (OTP) verification code dispatched to a pre-registered email inbox or phone number.
         </p>
-        <Callout type="note">
-          Your account must be created by an administrator before you can log
-          in. Self sign-up is not available for the Surveyor Management
-          System — access is provisioned centrally from the CargoClave
-          Portal.
-        </Callout>
       </Section>
 
-      <Section id="otp" title="1.2 Verify your OTP">
+      <Section id="purpose" title="Purpose">
         <p>
-          A 6-digit one-time password is sent to your registered contact.
-          Enter it in the <strong>Enter OTP</strong> field and click{" "}
-          <strong>Verify &amp; Sign In</strong>.
+          CargoClave uses passwordless authentication to maximize session security, preventing credentials sniffing, dictionary attacks, or common password compromise risks.
         </p>
-        <ul>
+      </Section>
+
+      <Section id="features" title="Feature Overview">
+        <p>
+          Includes automatic email and SMS OTP dispatch, multi-input field focus progression, 5-minute code expiration timers, and session authorization tokens.
+        </p>
+      </Section>
+
+      <Section id="sections" title="Important Functional Sections">
+        <p>
+          Authentication depends on the following steps:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
+          <li><strong>Credentials Console</strong> — Where users input registered business emails or mobile lines.</li>
+          <li><strong>Verification Overlay</strong> — Captures the 6-digit OTP code sequentially.</li>
+          <li><strong>OTP Sync Service</strong> — Dispatches codes via transactional SMTP and SMS nodes.</li>
+        </ul>
+      </Section>
+
+      <Section id="sign-in" title="Detailed Feature Explanation">
+        <p>
+          Technical parameters of the verification flow:
+        </p>
+        <ul className="list-disc pl-5 space-y-2.5 my-4 text-[13.5px]">
           <li>
-            If you did not receive the OTP, click <strong>Resend Code</strong>.
+            <strong>Passwordless Mechanics</strong> — Instead of storing a database hash password, CargoClave creates a temporary session record on login request.
           </li>
           <li>
-            If you entered the wrong email or phone, click{" "}
-            <strong>Change Email/Phone</strong> to go back.
-          </li>
-          <li>
-            OTPs expire after a short time — always use the latest one
-            received.
+            <strong>Session Invalidation</strong> — Requesting a new OTP code immediately voids all previously dispatched credentials for that email.
           </li>
         </ul>
       </Section>
 
-      <Section id="troubleshooting" title="Troubleshooting sign-in">
-        <Steps
-          steps={[
-            {
-              title: "OTP not arriving",
-              desc: (
-                <p>
-                  Wait at least 30 seconds, then use <strong>Resend
-                  Code</strong>. Check that the email/phone shown on screen
-                  matches your registered contact exactly.
-                </p>
-              ),
-            },
-            {
-              title: "\u201cInvalid or expired OTP\u201d error",
-              desc: (
-                <p>
-                  This means an older code was used. Request a fresh code
-                  with <strong>Resend Code</strong> and enter only the most
-                  recent one.
-                </p>
-              ),
-            },
-            {
-              title: "Account not found",
-              desc: (
-                <p>
-                  Ask your organization's administrator to verify that your
-                  user has been created and invited from the CargoClave
-                  Portal's user management screen.
-                </p>
-              ),
-            },
-          ]}
-        />
+      <Section id="workflow" title="User Workflow">
+        <ol className="list-decimal pl-5 space-y-2.5 my-4">
+          <li>Navigate to <code>portal.cargoclave.com</code> or launch the Mobile Surveyor App.</li>
+          <li>Enter your pre-registered email address or mobile phone number, then click <strong>Continue</strong>.</li>
+          <li>Locate the 6-digit verification code from your inbox.</li>
+          <li>Input the code into the verification boxes, then click <strong>Verify &amp; Sign In</strong>.</li>
+        </ol>
+      </Section>
+
+      <Section id="validations" title="Validation Rules">
+        <p>
+          Authentication enforces the following constraints:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-3">
+          <li><strong>OTP Format</strong> — Must be exactly 6 numeric digits.</li>
+          <li><strong>Expiry Time</strong> — Code remains active for precisely <strong>5 minutes</strong> before expiring.</li>
+        </ul>
+      </Section>
+
+      <Section id="permissions" title="User Permissions">
+        <p>
+          Available to all pre-registered Surveyor, Coordinator, and Administrator accounts. Access profile mapping is locked to organization definitions.
+        </p>
+      </Section>
+
+      <Section id="related" title="Related Features">
+        <p>
+          Sign in relates directly to:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-3">
+          <li><a href="/getting-started/launch">Launching the Surveyor App</a> — Opening the app cards.</li>
+          <li><a href="/getting-started/roles">Roles &amp; Access</a> — Defining account authorizations.</li>
+        </ul>
+      </Section>
+
+      <Section id="best-practices" title="Best Practices">
         <Callout type="tip">
-          Bookmark <code>portal.cargoclave.com</code> rather than the
-          Surveyor App's direct URL — sign-in and OTP verification always
-          happen at the portal, which then routes you into the app.
+          Avoid requesting multiple codes consecutively. Delayed code delivery is usually due to corporate junk filters. Add <code>no-reply@cargoclave.com</code> to safe lists.
         </Callout>
       </Section>
     </DocPage>

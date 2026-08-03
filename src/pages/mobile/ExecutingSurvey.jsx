@@ -1,96 +1,119 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import Steps from "../../components/Steps";
 import { StatusBadge } from "../../components/StatusBits";
 
 const toc = [
-  { id: "starting", label: "7.3 Starting a survey" },
-  { id: "multiple-entries", label: "7.4 Multiple inspection entries" },
-  { id: "completed", label: "7.5 Completed surveys" },
+  { id: "overview", label: "Overview" },
+  { id: "purpose", label: "Purpose" },
+  { id: "features", label: "Feature Overview" },
+  { id: "sections", label: "Important Functional Sections" },
+  { id: "starting", label: "Detailed Feature Explanation" },
+  { id: "workflow", label: "User Workflow" },
+  { id: "validations", label: "Validation Rules" },
+  { id: "permissions", label: "User Permissions" },
+  { id: "related", label: "Related Features" },
+  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function ExecutingSurvey() {
   return (
     <DocPage
       path="/mobile/executing-a-survey"
-      eyebrow="Mobile Application"
+      eyebrow="Mobile Surveyor"
       title="Executing a Survey"
-      description="From opening a contract to submitting a completed inspection in the field."
+      description="The standardized workflow for executing active checklists, logging coordinates, and submitting cargo inspections."
       toc={toc}
     >
-      <Section id="starting" title="7.3 Starting a Survey (Pending)">
+      <Section id="overview" title="Overview">
         <p>
-          Tap a contract to open Contract Details. Each survey assigned to
-          you is listed here with its status, planned location, date, SLA
-          condition, and Point of Contact.
+          Executing a survey involves opening an assigned contract job on the Mobile Surveyor App, checking in at the scheduled port terminal, and completing the checklist questionnaire.
         </p>
-        <Steps
-          steps={[
-            {
-              title: "Locate the survey with Pending status",
-            },
-            {
-              title: "Review the assignment details",
-              desc: <p>Check the location, assigned date, SLA, and Point of Contact before traveling to site.</p>,
-            },
-            {
-              title: "Tap Start Survey",
-              desc: <p>Only after arriving at the inspection location — this is when the app records your starting GPS position.</p>,
-            },
-            {
-              title: "Complete all required fields",
-              desc: <p>Fields marked <code>*</code> are mandatory — the form will not submit without them.</p>,
-            },
-            {
-              title: "Review your entries carefully",
-            },
-            {
-              title: "Tap Submit Survey",
-              desc: <p>The survey status changes to <StatusBadge color="green">Completed</StatusBadge>.</p>,
-            },
-          ]}
-        />
       </Section>
 
-      <Section id="multiple-entries" title="7.4 Surveys with multiple inspection entries">
+      <Section id="purpose" title="Purpose">
         <p>
-          Some surveys — such as <em>Loading Supervision Shift Wise</em> —
-          require multiple inspection records: one per shift, hatch, or lot.
-          These surveys show as <StatusBadge color="blue">In Progress</StatusBadge>{" "}
-          until every entry is captured and the overall survey is submitted.
+          Provides surveyors with a specialized, mobile-optimized tool to log checklist data, witness signatures, and upload photographic evidence directly from the terminal floor.
         </p>
-        <Steps
-          steps={[
-            { title: "Tap View Inspections", desc: <p>On the In Progress survey card.</p> },
-            { title: "Review previously submitted entries", desc: <p>In the Recorded Inspections list.</p> },
-            { title: "Tap New Inspection", desc: <p>To capture another entry.</p> },
-            {
-              title: "Complete all fields",
-              desc: <p>E.g. Loading Date, Shift, Hatch No., Packages, Weight — as configured for that survey.</p>,
-            },
-            { title: "Tap Submit Survey for each entry" },
-            {
-              title: "Close the overall survey",
-              desc: <p>Once all entries are done, tap <strong>Submit Survey</strong> on the survey overview to close the survey.</p>,
-            },
-          ]}
-        />
-        <Callout type="danger">
-          The <strong>Submit Survey</strong> button on the survey overview
-          closes the entire survey. Only tap it once all individual
-          inspection entries have been captured.
+      </Section>
+
+      <Section id="features" title="Feature Overview">
+        <p>
+          Primary capabilities include coordinate auditing (check-in telemetry), dynamic form validations, offline response caching, camera integration, and graphical signature captures.
+        </p>
+      </Section>
+
+      <Section id="sections" title="Important Functional Sections">
+        <p>
+          Checklist execution relies on the following operational sections:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-4">
+          <li><strong>Location Check-In</strong> — Logs starting GPS telemetry coordinates.</li>
+          <li><strong>Checksheet Questionnaire</strong> — Captures cargo parameters (e.g. seal numbers, temperature, damage status).</li>
+          <li><strong>Evidence Uploads</strong> — Attaches witness signatures and cargo photographs with captions.</li>
+          <li><strong>Sync Manager</strong> — Syncs locally cached sqlite data to the web review console in the background.</li>
+        </ul>
+      </Section>
+
+      <Section id="starting" title="Detailed Feature Explanation">
+        <p>
+          Detailed mechanics of the checklist execution engine:
+        </p>
+        <ul className="list-disc pl-5 space-y-2.5 my-4 text-[13.5px]">
+          <li>
+            <strong>GPS Auditing</strong> — Automatically logs latitude/longitude coordinates on survey launch and submit. The coordinator dashboard uses the Haversine formula to compute coordinate variances and flags distance alerts for mismatches over 1&nbsp;km.
+          </li>
+          <li>
+            <strong>Checksheet Inputs</strong> — Supports rendering of Text, Number, Dropdown, Checkbox, and Date fields dynamically configured from the active survey template.
+          </li>
+          <li>
+            <strong>Witness Signatures</strong> — Utilizes touch-drawn graphical pads for surveyor sign-offs and client receivers signatures.
+          </li>
+        </ul>
+      </Section>
+
+      <Section id="workflow" title="User Workflow">
+        <p>
+          Inspectors navigate the checklist execution using these steps:
+        </p>
+        <ol className="list-decimal pl-5 space-y-1.5 my-4">
+          <li>Select a scheduled survey marked as <StatusBadge color="slate">Pending</StatusBadge> from the Contracts List.</li>
+          <li>Review location and SLA conditions, then tap <strong>Start Survey</strong> to log GPS check-in data.</li>
+          <li>Fill in all checklist fields and capture witness sign-offs.</li>
+          <li>Snap cargo photographs and add descriptive captions.</li>
+          <li>Tap <strong>Submit Survey</strong> to synchronize responses. The survey status will update to <StatusBadge color="green">Completed</StatusBadge>.</li>
+        </ol>
+      </Section>
+
+      <Section id="validations" title="Validation Rules">
+        <p>
+          The mobile client enforces validation rules built into the active template:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-4">
+          <li><strong>Compulsory Fields</strong> — Marked with a red asterisk (*) and block submission until completed.</li>
+          <li><strong>Photo Captions</strong> — Requires caption text logs before allowing image uploads.</li>
+        </ul>
+      </Section>
+
+      <Section id="permissions" title="User Permissions">
+        <p>
+          Restricted to users assigned the <strong>Surveyor</strong> role who are explicitly mapped to the active survey step in the contract's Execution Plan.
+        </p>
+      </Section>
+
+      <Section id="related" title="Related Features">
+        <p>
+          Checklist execution interacts with:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5 my-4">
+          <li><a href="/configuration/surveys">Survey Builder</a> — Where steps, validation parameters, and fields are configured.</li>
+          <li><a href="/operations/inspection-review">Inspection Review</a> — Where supervisors audit submitted answers, photos, and GPS coords.</li>
+        </ul>
+      </Section>
+
+      <Section id="best-practices" title="Best Practices">
+        <Callout type="tip">
+          Enable location permissions on your mobile device before launching the app, and review the clarity of uploaded photos prior to submitting checklist data.
         </Callout>
-      </Section>
-
-      <Section id="completed" title="7.5 Completed surveys">
-        <p>
-          After submission, the survey card displays a green{" "}
-          <StatusBadge color="green">Completed</StatusBadge> badge. You can
-          tap the completed survey to review its details at any time. No
-          further data entry is possible unless the reviewer returns the
-          survey for correction (Request Revision) from{" "}
-          <a href="/operations/inspection-review">Inspection Review</a>.
-        </p>
       </Section>
     </DocPage>
   );
