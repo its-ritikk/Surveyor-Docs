@@ -8,12 +8,12 @@
   }
 
   body {
-    @apply bg-white dark:bg-ink-950 text-ink-900 dark:text-slate-100 antialiased;
+    @apply bg-white dark:bg-[#000000] text-ink-900 dark:text-[#E5E5E5] antialiased;
     font-feature-settings: "cv11", "ss01";
   }
 
   ::selection {
-    @apply bg-signal-200 text-ink-900;
+    @apply bg-cyan-500/20 text-cyan-900 dark:text-cyan-200;
   }
 }
 
@@ -27,49 +27,83 @@
     background: transparent;
   }
   .doc-scroll::-webkit-scrollbar-thumb {
-    @apply bg-ink-900/10 dark:bg-white/10 rounded-full;
+    @apply bg-ink-900/10 dark:bg-[#262626] rounded-full;
   }
-  .doc-scroll::-webkit-scrollbar-thumb:hover {
-    @apply bg-ink-900/20 dark:bg-white/20;
+  /* ── Heading Navigation Highlight Flash ─────────────────── */
+  @keyframes headingFlash {
+    0% {
+      background-color: rgba(6, 182, 212, 0.25);
+      outline: 2px solid rgba(6, 182, 212, 0.6);
+      border-radius: 6px;
+    }
+    100% {
+      background-color: transparent;
+      outline: 2px solid transparent;
+    }
   }
 
-  /* ── Prose ─────────────────────────────────────────────── */
+  .heading-highlight-flash {
+    animation: headingFlash 1.8s ease-out forwards;
+  }
+
+
+  /* ── Typography & Prose ─────────────────────────────────── */
   .prose-doc h2 {
-    @apply font-display text-xl md:text-[22px] font-semibold text-ink-900 dark:text-slate-100
+    @apply font-display text-xl md:text-[22px] font-bold text-ink-900 dark:text-[#FFFFFF]
            mt-12 mb-4 scroll-mt-24 pt-1 first:mt-0;
   }
   .prose-doc h3 {
-    @apply font-display text-base md:text-lg font-semibold text-ink-800 dark:text-slate-200
+    @apply font-display text-base md:text-lg font-semibold text-ink-800 dark:text-[#FFFFFF]
            mt-8 mb-3 scroll-mt-24;
   }
   .prose-doc h4 {
-    @apply text-sm font-semibold text-ink-800 dark:text-slate-300
+    @apply text-sm font-semibold text-ink-800 dark:text-[#E5E5E5]
            mt-6 mb-2 uppercase tracking-wide;
   }
   .prose-doc p {
-    @apply text-[15px] leading-7 text-ink-700/90 dark:text-slate-300/90 mb-4;
+    @apply text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5] mb-4;
   }
   .prose-doc ul {
-    @apply mb-4 space-y-1.5 pl-5 list-disc marker:text-signal-500;
+    @apply mb-4 space-y-1.5 pl-5 list-disc marker:text-cyan-400;
   }
   .prose-doc ol {
-    @apply mb-4 space-y-1.5 pl-5 list-decimal marker:text-signal-600 marker:font-semibold;
+    @apply mb-4 space-y-1.5 pl-5 list-decimal marker:text-cyan-400 marker:font-semibold;
   }
   .prose-doc li {
-    @apply text-[15px] leading-7 text-ink-700/90 dark:text-slate-300/90;
+    @apply text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5];
   }
   .prose-doc li > p {
     @apply mb-0 inline;
   }
   .prose-doc code {
-    @apply px-1.5 py-0.5 rounded bg-ink-900/5 dark:bg-white/10 text-signal-700 dark:text-signal-300
-           font-mono text-[13px];
+    @apply px-1.5 py-0.5 rounded bg-ink-900/5 dark:bg-cyan-500/10 text-signal-700 dark:text-cyan-400
+           dark:border dark:border-cyan-500/20 font-mono text-[13px];
   }
   .prose-doc strong {
-    @apply text-ink-900 dark:text-slate-100 font-semibold;
+    @apply text-ink-900 dark:text-[#FFFFFF] font-semibold;
   }
   .prose-doc a {
-    @apply text-signal-700 dark:text-signal-400 underline decoration-signal-300
-           underline-offset-2 hover:text-signal-600 dark:hover:text-signal-300;
+    @apply text-signal-700 dark:text-cyan-400 underline decoration-cyan-500/40
+           underline-offset-2 hover:text-signal-600 dark:hover:text-cyan-300;
+  }
+
+  /* ── Prose Table Styling ──────────────────────────────── */
+  .prose-doc table {
+    @apply my-6 w-full border-separate border-spacing-0 text-left text-[13.5px] rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] shadow-sm overflow-hidden;
+  }
+  .prose-doc thead {
+    @apply bg-ink-900/[0.03] dark:bg-[#141414];
+  }
+  .prose-doc th {
+    @apply px-4 py-3 font-semibold text-ink-900 dark:text-[#FFFFFF] border-b border-ink-900/10 dark:border-[#262626] text-[13px];
+  }
+  .prose-doc tbody tr {
+    @apply even:bg-ink-900/[0.012] dark:even:bg-[#141414]/50 hover:bg-ink-900/[0.02] dark:hover:bg-[#171717]/60 transition-colors;
+  }
+  .prose-doc td {
+    @apply px-4 py-3 align-top text-ink-700/90 dark:text-[#E5E5E5] leading-relaxed border-b border-ink-900/[0.06] dark:border-[#262626];
+  }
+  .prose-doc tbody tr:last-child td {
+    @apply border-b-0;
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
+import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -37,6 +38,10 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>Designer Behavior:</strong> Statically locked at the top of the canvas, preventing dragging below other body sections.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Toggle fields visibility (BL Number, Vessel Name, Port), and choose left/right logo positioning.</p>
         <p className="mt-2"><strong>Implementation Notes:</strong> Automatically scales corporate logo uploads to fit standard print columns without clipping.</p>
+        <DocMedia
+          mediaId="report-builder-header-element-video"
+          caption="Header Element Configuration Video Tutorial"
+        />
       </Section>
 
       <Section id="label-value" title="Label / Value Element">
@@ -45,6 +50,10 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>Designer Behavior:</strong> Compiles records into 2-column or 4-column grids with text truncation handling.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Columns layout grid density, label text overrides, and binding tags.</p>
         <p className="mt-2"><strong>Supported Interactions:</strong> Double-clicking cell values loads database tags mapping options in the properties editor panel.</p>
+        <DocMedia
+          mediaId="report-builder-label-value-video"
+          caption="Label / Value Element Configuration Video Tutorial"
+        />
       </Section>
 
       <Section id="rich-text" title="Rich Text Element">
@@ -52,6 +61,10 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>When to use:</strong> Adding cargo damage descriptions, terms, and custom clearances.</p>
         <p className="mt-2"><strong>Designer Behavior:</strong> Supports full rich text editing (bold, lists) directly on the designer canvas.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Font sizing, paragraph alignments, and bracket variable injection (e.g. <code>{`{Surveyor_Name}`}</code>).</p>
+        <DocMedia
+          mediaId="report-builder-rich-text-video"
+          caption="Rich Text Element Video Tutorial"
+        />
       </Section>
 
       <Section id="signature" title="Signature Element">
@@ -59,6 +72,10 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>When to use:</strong> Standard at the bottom of the final report page.</p>
         <p className="mt-2"><strong>Designer Behavior:</strong> Places a container showing graphic vector paths, signee name, title, and timestamp logs.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Single or dual signature columns, label designations, and borders toggles.</p>
+        <DocMedia
+          mediaId="report-builder-signature-video"
+          caption="Signature Element Video Tutorial"
+        />
       </Section>
 
       <Section id="photo-grid" title="Photo Grid Element">
@@ -66,49 +83,53 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>When to use:</strong> Visual evidence logs (seals, defects, damage observations).</p>
         <p className="mt-2"><strong>Designer Behavior:</strong> Places placeholder photo grid blocks that dynamically scale columns based on active entries.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Target columns density (2, 3, or 4 columns wide), and photo caption metadata tags.</p>
+        <DocMedia
+          mediaId="report-builder-photo-grid-video"
+          caption="Photo Grid Element Video Tutorial"
+        />
       </Section>
 
       <Section id="tables" title="Tables Section">
         <p>
           Tables compile multi-entry data (such as shifting times, container checks, or hatch loading registers) into a structured grid format:
         </p>
-        <div className="overflow-x-auto my-6 border border-ink-900/10 dark:border-white/10 rounded-lg">
-          <table className="min-w-full divide-y divide-ink-900/10 dark:divide-white/10 text-[12.5px] leading-6">
-            <thead className="bg-ink-900/[0.02] dark:bg-white/[0.02]">
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <th className="px-4 py-2 text-left font-bold">Feature</th>
-                <th className="px-4 py-2 text-left font-bold">Flat Table</th>
-                <th className="px-4 py-2 text-left font-bold">Pivot Table</th>
-                <th className="px-4 py-2 text-left font-bold">Custom Table</th>
+        <div className="overflow-x-auto my-6 border border-ink-900/10 dark:border-[#262626] rounded-xl bg-white dark:bg-[#0A0A0A]">
+          <table className="min-w-full divide-y divide-ink-900/10 dark:divide-[#262626] text-[12.5px] leading-6">
+            <thead className="bg-ink-900/[0.02] dark:bg-[#000000]">
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <th className="px-4 py-2 text-left font-bold text-ink-900 dark:text-[#FFFFFF]">Feature</th>
+                <th className="px-4 py-2 text-left font-bold text-ink-900 dark:text-[#FFFFFF]">Flat Table</th>
+                <th className="px-4 py-2 text-left font-bold text-ink-900 dark:text-[#FFFFFF]">Pivot Table</th>
+                <th className="px-4 py-2 text-left font-bold text-ink-900 dark:text-[#FFFFFF]">Custom Table</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-ink-900/10 dark:divide-white/10">
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <td className="px-4 py-2 font-semibold">Purpose</td>
+            <tbody className="divide-y divide-ink-900/10 dark:divide-[#262626] text-ink-700 dark:text-[#E5E5E5]">
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <td className="px-4 py-2 font-semibold text-ink-900 dark:text-[#FFFFFF]">Purpose</td>
                 <td className="px-4 py-2">Lists logs chronologically.</td>
                 <td className="px-4 py-2">Groups and aggregates data.</td>
                 <td className="px-4 py-2">Specialized custom cell designs.</td>
               </tr>
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <td className="px-4 py-2 font-semibold">Best For</td>
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <td className="px-4 py-2 font-semibold text-ink-900 dark:text-[#FFFFFF]">Best For</td>
                 <td className="px-4 py-2">Itemized cargo listings.</td>
                 <td className="px-4 py-2">Tonnages or averages metrics.</td>
                 <td className="px-4 py-2">Mixed metadata summaries.</td>
               </tr>
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <td className="px-4 py-2 font-semibold">Layout</td>
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <td className="px-4 py-2 font-semibold text-ink-900 dark:text-[#FFFFFF]">Layout</td>
                 <td className="px-4 py-2">Automatic rows generation.</td>
                 <td className="px-4 py-2">Dynamic summary matrix.</td>
                 <td className="px-4 py-2">Fixed manual rows.</td>
               </tr>
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <td className="px-4 py-2 font-semibold">Grouping</td>
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <td className="px-4 py-2 font-semibold text-ink-900 dark:text-[#FFFFFF]">Grouping</td>
                 <td className="px-4 py-2">None.</td>
                 <td className="px-4 py-2">Rows/Columns configurations.</td>
                 <td className="px-4 py-2">Manual coordinate mappings.</td>
               </tr>
-              <tr className="divide-x divide-ink-900/10 dark:divide-white/10">
-                <td className="px-4 py-2 font-semibold">Configuration</td>
+              <tr className="divide-x divide-ink-900/10 dark:divide-[#262626]">
+                <td className="px-4 py-2 font-semibold text-ink-900 dark:text-[#FFFFFF]">Configuration</td>
                 <td className="px-4 py-2">Columns mapping panel.</td>
                 <td className="px-4 py-2">Aggregations setup screen.</td>
                 <td className="px-4 py-2">Cell-by-cell property editor.</td>
@@ -123,30 +144,38 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>Purpose:</strong> Ideal for detailed checklists (e.g. <em>Tug Boat Inspections</em> or <em>Hatch Checks</em>) where aggregates are not required.</p>
         <p className="mt-2"><strong>Supported Data:</strong> Captures String, Decimal, Checkbox, and Timestamp answers.</p>
         <p className="mt-2"><strong>Configuration:</strong> Add columns and map database variables in the properties panel.</p>
-        <p className="mt-2"><strong>Sorting & Filtering:</strong> Configure column sorts (e.g. sorting by timestamp ascending) and add filters to hide null variables.</p>
-        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-white/[0.015] p-4 rounded-lg border border-ink-900/10 dark:border-white/10">
-          <p className="font-semibold">Example Workflow & Best Practices:</p>
-          <ol className="list-decimal pl-5 space-y-1.5 mt-2">
+        <p className="mt-2"><strong>Sorting &amp; Filtering:</strong> Configure column sorts (e.g. sorting by timestamp ascending) and add filters to hide null variables.</p>
+        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-[#0A0A0A] p-4 rounded-xl border border-ink-900/10 dark:border-[#262626]">
+          <p className="font-semibold text-ink-900 dark:text-[#FFFFFF]">Example Workflow &amp; Best Practices:</p>
+          <ol className="list-decimal pl-5 space-y-1.5 mt-2 text-ink-700 dark:text-[#E5E5E5]">
             <li>Insert a Flat Table block and configure 4 columns.</li>
             <li>Map columns to: Hatch Number, Seal Number, Condition, Timestamp.</li>
             <li>Limit columns counts to under 8 to fit standard paper prints correctly.</li>
           </ol>
         </div>
+        <DocMedia
+          mediaId="report-builder-flat-table-video"
+          caption="Flat Table Element Video Tutorial"
+        />
       </Section>
 
       <Section id="pivot-table" title="Pivot Table">
         <p><strong>Overview:</strong> Groups data matrices and runs value computations.</p>
         <p className="mt-2"><strong>Purpose:</strong> Calculates sum weights or total safety defects across surveyors or shifts.</p>
-        <p className="mt-2"><strong>Row & Column Groups:</strong> Drag survey fields to create nested rows (e.g. grouping by Shift &rarr; Hatch Number).</p>
-        <p className="mt-2"><strong>Aggregations & Calculations:</strong> Set value columns to Sum (weights, bags count) or Average (temperature, moisture content).</p>
-        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-white/[0.015] p-4 rounded-lg border border-ink-900/10 dark:border-white/10">
-          <p className="font-semibold">Example Workflow & Best Practices:</p>
-          <ol className="list-decimal pl-5 space-y-1.5 mt-2">
+        <p className="mt-2"><strong>Row &amp; Column Groups:</strong> Drag survey fields to create nested rows (e.g. grouping by Shift &rarr; Hatch Number).</p>
+        <p className="mt-2"><strong>Aggregations &amp; Calculations:</strong> Set value columns to Sum (weights, bags count) or Average (temperature, moisture content).</p>
+        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-[#0A0A0A] p-4 rounded-xl border border-ink-900/10 dark:border-[#262626]">
+          <p className="font-semibold text-ink-900 dark:text-[#FFFFFF]">Example Workflow &amp; Best Practices:</p>
+          <ol className="list-decimal pl-5 space-y-1.5 mt-2 text-ink-700 dark:text-[#E5E5E5]">
             <li>Add a Pivot Table, drag Hatch Number to Rows, and Shift to Columns.</li>
             <li>Set Values field to Gross Weight, and select the Sum aggregator.</li>
             <li>Ensure target calculation columns only contain numeric input variables.</li>
           </ol>
         </div>
+        <DocMedia
+          mediaId="report-builder-pivot-table-video"
+          caption="Pivot Table Element Video Tutorial"
+        />
       </Section>
 
       <Section id="custom-table" title="Custom Table">
@@ -154,14 +183,18 @@ export default function ReportBuilder() {
         <p className="mt-2"><strong>Purpose:</strong> Custom checklists containing custom text labels, merged blocks, and contract parameters.</p>
         <p className="mt-2"><strong>Manual Layout:</strong> Define fixed columns and rows, and merge cells using coordinate spans.</p>
         <p className="mt-2"><strong>Dynamic Variables:</strong> Cells can mix static titles (e.g. <code>"BL Number:"</code>) and dynamic tags (e.g. <code>{`{Contract_BL_Number}`}</code>).</p>
-        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-white/[0.015] p-4 rounded-lg border border-ink-900/10 dark:border-white/10">
-          <p className="font-semibold">Example Workflow & Best Practices:</p>
-          <ol className="list-decimal pl-5 space-y-1.5 mt-2">
+        <div className="my-4 text-[13.5px] bg-ink-900/[0.015] dark:bg-[#0A0A0A] p-4 rounded-xl border border-ink-900/10 dark:border-[#262626]">
+          <p className="font-semibold text-ink-900 dark:text-[#FFFFFF]">Example Workflow &amp; Best Practices:</p>
+          <ol className="list-decimal pl-5 space-y-1.5 mt-2 text-ink-700 dark:text-[#E5E5E5]">
             <li>Create a Custom Table grid of 2 rows by 4 columns.</li>
             <li>Merge row 1 to display the title, and configure row 2 to bind metadata variables.</li>
             <li>Define column widths in percentages rather than fixed pixels to ensure scaling.</li>
           </ol>
         </div>
+        <DocMedia
+          mediaId="report-builder-custom-table-video"
+          caption="Custom Table Element Video Tutorial"
+        />
       </Section>
 
       <Section id="branding" title="Branding">
@@ -172,9 +205,13 @@ export default function ReportBuilder() {
           <li><strong>Organization Logo</strong> — Upload a custom logo (PNG/JPG) which automatically replaces the default header.</li>
           <li><strong>Company Identifiers</strong> — Enter custom address lines, tax registries, contact phone numbers, and taglines.</li>
         </ul>
+        <DocMedia
+          mediaId="report-builder-branding-video"
+          caption="Branding Configuration Video Tutorial"
+        />
       </Section>
 
-      <Section id="publishing" title="Preview & Publishing">
+      <Section id="publishing" title="Preview &amp; Publishing">
         <p>
           Verify the document layout prior to locking it into production:
         </p>
@@ -182,6 +219,10 @@ export default function ReportBuilder() {
           <li><strong>Live Preview Pane</strong> — Simulates final PDF layout sizes, page boundaries, and field wraps.</li>
           <li><strong>Publish Template</strong> — Locks template revisions, making the layout ready for operational contract dispatches.</li>
         </ul>
+        <DocMedia
+          mediaId="report-builder-preview-publishing-video"
+          caption="Preview & Publishing Video Tutorial"
+        />
       </Section>
     </DocPage>
   );

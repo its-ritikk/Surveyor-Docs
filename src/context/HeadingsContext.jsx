@@ -37,6 +37,16 @@ export function HeadingsProvider({ children }) {
       );
       if (headingElements.length === 0) return;
 
+      // Check if user has scrolled to the bottom of the page
+      const isAtBottom =
+        window.innerHeight + Math.round(window.scrollY) >=
+        document.documentElement.scrollHeight - 60;
+
+      if (isAtBottom) {
+        setActiveId(headingElements[headingElements.length - 1].id);
+        return;
+      }
+
       const scrollPosition = window.scrollY + 140; // Offset for header + margin
       let active = headingElements[0].id;
 

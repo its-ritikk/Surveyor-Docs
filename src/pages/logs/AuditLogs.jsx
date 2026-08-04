@@ -1,11 +1,13 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import { StatusTable } from "../../components/StatusBits";
+import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "actions", label: "Tracked actions" },
   { id: "comparison", label: "Activity vs. App Activity vs. Audit" },
+  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function AuditLogs() {
@@ -51,6 +53,13 @@ export default function AuditLogs() {
             { label: "App Activity", color: "teal", desc: "Mobile field events — form changes, inspection submissions." },
             { label: "Audit Logs", color: "purple", desc: "Record-level changes — contracts, surveys, templates, reports." },
           ]}
+        />
+      </Section>
+
+      <Section id="tutorial-video" title="Tutorial Video">
+        <DocMedia
+          mediaId="audit-logs-tutorial-video"
+          caption="Audit Logs Video Tutorial"
         />
       </Section>
     </DocPage>

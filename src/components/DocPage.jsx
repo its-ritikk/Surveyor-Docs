@@ -3,27 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { nav, flatNav } from "../data/nav";
 import { useHeadings as useDocHeadings } from "../context/HeadingsContext";
-import { mediaRegistry } from "../data/mediaRegistry";
-import DocMedia from "./DocMedia";
+import TutorialVideoCard from "./TutorialVideoCard";
+import DocImage from "./DocImage";
 
 export function Section({ id, title, children }) {
-  const location = useLocation();
-  const pageMedia = mediaRegistry[location.pathname];
-  const sectionMedia = pageMedia ? pageMedia[id] : null;
-
   return (
     <section className="mb-14 scroll-mt-24">
       <h2 id={id} className="scroll-mt-24">
         {title}
       </h2>
-      {sectionMedia && (
-        <DocMedia
-          type={sectionMedia.type}
-          src={sectionMedia.src}
-          alt={sectionMedia.alt || title}
-          caption={sectionMedia.caption}
-        />
-      )}
       {children}
     </section>
   );
@@ -35,6 +23,8 @@ export default function DocPage({
   description,
   children,
   path,
+  mediaId,
+  toc,
 }) {
   const idx = flatNav.findIndex((i) => i.to === path);
   const prev = idx > 0 ? flatNav[idx - 1] : null;
@@ -56,6 +46,16 @@ export default function DocPage({
 
   const { headings, activeId } = useDocHeadings();
 
+  // Scroll active TOC item into view inside the right sidebar scroll container
+  useEffect(() => {
+    if (activeId) {
+      const activeEl = document.querySelector(`aside a[href="#${activeId}"]`);
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      }
+    }
+  }, [activeId]);
+
   // Find breadcrumbs info (group + item)
   const findBreadcrumbInfo = (p) => {
     if (p === "/") {
@@ -72,53 +72,67 @@ export default function DocPage({
 
   const breadcrumb = findBreadcrumbInfo(path);
 
+  // Unified TOC list filtering out any Tutorial Video entries
+  const rawList = toc || headings || [];
+  const displayHeadings = rawList.filter(
+    (h) => h.id !== "tutorial-video" && (h.text || h.label || "").toLowerCase() !== "tutorial video"
+  );
+
   return (
-    <div className="flex gap-10 xl:gap-14 mx-auto max-w-[72rem] w-full">
+    <div className="flex gap-10 xl:gap-14 mx-auto max-w-[72rem] w-full pb-36">
       <div className="min-w-0 flex-1 max-w-3xl">
         {/* Breadcrumbs */}
         {breadcrumb && (
-          <nav className="mb-4 flex items-center gap-1.5 text-[12px] font-semibold text-ink-500 dark:text-slate-500 select-none">
+          <nav className="mb-4 flex items-center gap-1.5 text-[12px] font-semibold text-ink-500 dark:text-[#A3A3A3] select-none">
             <Link
               to="/"
-              className="hover:text-signal-600 dark:hover:text-signal-400 transition-colors"
+              className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
               Docs
             </Link>
-            <span className="text-[10px] text-ink-400 dark:text-slate-600">/</span>
-            <span className="text-ink-600 dark:text-slate-400">{breadcrumb.group}</span>
-            <span className="text-[10px] text-ink-400 dark:text-slate-600">/</span>
-            <span className="text-ink-850 dark:text-slate-200">{breadcrumb.label}</span>
+            <span className="text-[10px] text-ink-400 dark:text-[#737373]">/</span>
+            <span className="text-ink-600 dark:text-[#A3A3A3]">{breadcrumb.group}</span>
+            <span className="text-[10px] text-ink-400 dark:text-[#737373]">/</span>
+            <span className="text-ink-850 dark:text-[#E5E5E5]">{breadcrumb.label}</span>
           </nav>
         )}
 
-        <header className="mb-10">
+        <header className="mb-8">
           {eyebrow && (
-            <p className="text-[13px] font-semibold text-signal-600 dark:text-signal-500 tracking-wide uppercase mb-2">
+            <p className="text-[13px] font-semibold text-cyan-600 dark:text-cyan-400 tracking-wide uppercase mb-2">
               {eyebrow}
             </p>
           )}
-          <h1 className="font-display text-3xl md:text-[34px] font-bold text-ink-900 dark:text-slate-100 leading-tight">
+          <h1 className="font-display text-3xl md:text-[34px] font-bold text-ink-900 dark:text-[#FFFFFF] leading-tight">
             {title}
           </h1>
           {description && (
-            <p className="mt-3 text-[16px] leading-7 text-ink-700/80 dark:text-slate-400 max-w-2xl">
+            <p className="mt-3 text-[16px] leading-7 text-ink-700/80 dark:text-[#A3A3A3] max-w-2xl">
               {description}
             </p>
           )}
+
+          {/* Render PNG UI Screenshot Illustration from mediaRegistry if registered */}
+          <DocImage path={path} />
         </header>
+
+        {/* Mobile / Tablet Tutorial Video Companion Placement */}
+        <div className="block xl:hidden mb-8">
+          <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
+        </div>
 
         <div className="prose-doc">{children}</div>
 
-        <div className="mt-16 flex items-stretch justify-between gap-4 border-t border-ink-900/10 dark:border-white/10 pt-6">
+        <div className="mt-16 flex items-stretch justify-between gap-4 border-t border-ink-900/10 dark:border-[#262626] pt-6">
           {prev ? (
             <Link
               to={prev.to}
-              className="group flex-1 rounded-lg border border-ink-900/10 dark:border-white/10 px-4 py-3 hover:border-signal-300 dark:hover:border-signal-600 hover:bg-signal-50/50 dark:hover:bg-signal-900/20 transition-colors"
+              className="group flex-1 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] px-4 py-3 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 hover:bg-cyan-50/30 dark:hover:bg-[#171717] shadow-sm transition-all"
             >
-              <span className="flex items-center gap-1.5 text-[11px] font-semibold text-ink-500 dark:text-slate-500 uppercase tracking-wide">
+              <span className="flex items-center gap-1.5 text-[11px] font-semibold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wide">
                 <ArrowLeft size={12} /> Previous
               </span>
-              <span className="mt-1 block text-[14px] font-semibold text-ink-800 dark:text-slate-200 group-hover:text-signal-700 dark:group-hover:text-signal-400">
+              <span className="mt-1 block text-[14px] font-semibold text-ink-800 dark:text-[#E5E5E5] group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
                 {prev.label}
               </span>
             </Link>
@@ -128,12 +142,12 @@ export default function DocPage({
           {next ? (
             <Link
               to={next.to}
-              className="group flex-1 rounded-lg border border-ink-900/10 dark:border-white/10 px-4 py-3 text-right hover:border-signal-300 dark:hover:border-signal-600 hover:bg-signal-50/50 dark:hover:bg-signal-900/20 transition-colors"
+              className="group flex-1 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] px-4 py-3 text-right hover:border-cyan-500/50 dark:hover:border-cyan-500/50 hover:bg-cyan-50/30 dark:hover:bg-[#171717] shadow-sm transition-all"
             >
-              <span className="flex items-center justify-end gap-1.5 text-[11px] font-semibold text-ink-500 dark:text-slate-500 uppercase tracking-wide">
+              <span className="flex items-center justify-end gap-1.5 text-[11px] font-semibold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wide">
                 Next <ArrowRight size={12} />
               </span>
-              <span className="mt-1 block text-[14px] font-semibold text-ink-800 dark:text-slate-200 group-hover:text-signal-700 dark:group-hover:text-signal-400">
+              <span className="mt-1 block text-[14px] font-semibold text-ink-800 dark:text-[#E5E5E5] group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
                 {next.label}
               </span>
             </Link>
@@ -143,43 +157,57 @@ export default function DocPage({
         </div>
       </div>
 
-      {headings && headings.length > 0 && (
-        <aside className="hidden xl:block w-56 shrink-0">
-          <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto doc-scroll pr-2 pt-1">
-            <p className="text-[11px] font-semibold text-ink-500 dark:text-slate-500 uppercase tracking-wide mb-3 select-none">
-              On this page
-            </p>
-            <ul className="space-y-2.5 border-l border-ink-900/10 dark:border-white/10">
-              {headings.map((h) => {
-                const isActive = activeId === h.id;
-                return (
-                  <li key={h.id}>
-                    <a
-                      href={`#${h.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById(h.id)?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                        window.history.pushState(null, "", `#${h.id}`);
-                      }}
-                      className={`block pl-3.5 -ml-px border-l text-[13px] transition-colors leading-5 py-0.5 ${
-                        h.level === 3 ? "pl-6 text-[12px]" : "font-medium"
-                      } ${
-                        isActive
-                          ? "border-signal-500 text-signal-700 dark:text-signal-400 font-semibold"
-                          : "border-transparent text-ink-600 dark:text-slate-400 hover:text-signal-700 dark:hover:text-signal-400"
-                      }`}
-                    >
-                      {h.text}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+      {/* Desktop Sticky Right Sidebar with Independent TOC Scrolling */}
+      <aside className="hidden xl:block w-60 xl:w-64 shrink-0">
+        <div className="sticky top-20 max-h-[calc(100vh-6rem)] h-[calc(100vh-6rem)] flex flex-col justify-between pt-1 pb-1 gap-3">
+          {/* Scrollable TOC Section */}
+          {displayHeadings && displayHeadings.length > 0 && (
+            <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
+              <p className="text-[11px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2.5 select-none shrink-0">
+                On this page
+              </p>
+              <div className="flex-1 overflow-y-auto doc-scroll pr-2 min-h-0">
+                <ul className="space-y-2 border-l border-ink-900/10 dark:border-[#262626] pb-6">
+                  {displayHeadings.map((h) => {
+                    const isActive = activeId === h.id;
+                    const itemText = h.text || h.label || "";
+                    return (
+                      <li key={h.id}>
+                        <a
+                          href={`#${h.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById(h.id);
+                            if (el) {
+                              const y = el.getBoundingClientRect().top + window.scrollY - 90;
+                              window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                            window.history.pushState(null, "", `#${h.id}`);
+                          }}
+                          className={`block pl-3.5 -ml-px border-l text-[13px] transition-colors leading-5 py-0.5 ${
+                            h.level === 3 ? "pl-6 text-[12px]" : "font-medium"
+                          } ${
+                            isActive
+                              ? "border-cyan-500 text-cyan-700 dark:text-cyan-400 font-semibold"
+                              : "border-transparent text-ink-600 dark:text-[#A3A3A3] hover:text-cyan-600 dark:hover:text-cyan-400"
+                          }`}
+                        >
+                          {itemText}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {/* Fixed Tutorial Video Companion pinned below TOC */}
+          <div className="shrink-0 pt-2 border-t border-ink-900/10 dark:border-[#262626]">
+            <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
           </div>
-        </aside>
-      )}
+        </div>
+      </aside>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
+import DocMedia from "../../components/DocMedia";
 import { Gauge, TrendingUp, Bell, Zap } from "lucide-react";
 
 const toc = [
@@ -10,6 +11,7 @@ const toc = [
   { id: "alerts", label: "Recent Alerts" },
   { id: "quick-actions", label: "Quick Actions" },
   { id: "update-behavior", label: "Update Behavior" },
+  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 const kpis = [
@@ -34,27 +36,29 @@ export default function Dashboard() {
         </p>
       </Section>
 
-      <Section id="kpis" title="KPI Cards Reference">
-        <div className="flex items-center gap-2 mb-3 text-signal-600 dark:text-signal-500">
-          <Gauge size={16} />
-          <span className="text-[13px] font-semibold text-ink-800 dark:text-slate-300">
-            Metric monitoring cards
+      <Section
+        id="kpis"
+        title={
+          <span className="flex items-center gap-2.5">
+            <Gauge size={20} className="text-signal-600 dark:text-signal-500 shrink-0" />
+            <span>KPI Cards Reference</span>
           </span>
-        </div>
+        }
+      >
         <div className="my-5 grid gap-3 sm:grid-cols-2">
           {kpis.map((k) => (
             <div
               key={k.label}
               className={`rounded-lg border p-4 ${
                 k.danger
-                  ? "border-red-200 bg-red-50/40 dark:border-red-900/30 dark:bg-red-900/10"
-                  : "border-ink-900/10 bg-ink-900/[0.01] dark:border-white/10 dark:bg-white/[0.02]"
+                  ? "border-red-200 bg-red-50/40 dark:border-red-900/40 dark:bg-red-950/20"
+                  : "border-ink-900/10 bg-ink-900/[0.01] dark:border-[#262626] dark:bg-[#0A0A0A]"
               }`}
             >
-              <p className={`text-[12.5px] font-bold uppercase tracking-wider ${k.danger ? "text-red-700 dark:text-red-400" : "text-ink-500 dark:text-slate-400"}`}>
+              <p className={`text-[12.5px] font-bold uppercase tracking-wider ${k.danger ? "text-red-700 dark:text-red-400" : "text-ink-500 dark:text-[#A3A3A3]"}`}>
                 {k.label}
               </p>
-              <p className="mt-1 text-[13px] leading-6 text-ink-750 dark:text-slate-300">
+              <p className="mt-1 text-[13px] leading-6 text-ink-750 dark:text-[#E5E5E5]">
                 {k.desc}
               </p>
             </div>
@@ -106,6 +110,13 @@ export default function Dashboard() {
 
       <Section id="update-behavior" title="Update Behavior">
         <p><strong>Behavior:</strong> The dashboard metrics utilize standard API polling to fetch live updates from the backend without full-page reloads. Clicking the manual refresh button triggers immediate query updates.</p>
+      </Section>
+
+      <Section id="tutorial-video" title="Tutorial Video">
+        <DocMedia
+          mediaId="dashboard-operations-tutorial-video"
+          caption="Operations Dashboard Video Tutorial"
+        />
       </Section>
     </DocPage>
   );

@@ -1,8 +1,12 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
+import DocMedia from "../../components/DocMedia";
 import { ShieldAlert } from "lucide-react";
 
-const toc = [{ id: "rules", label: "Important rules" }];
+const toc = [
+  { id: "rules", label: "Important rules" },
+  { id: "tutorial-video", label: "Tutorial Video" },
+];
 
 const rules = [
   "Fields marked * are mandatory — the system will not save or activate without them.",
@@ -37,6 +41,13 @@ export default function Rules() {
           integrity — when in doubt, check the relevant module's page in
           this guide before overriding a warning in the UI.
         </Callout>
+      </Section>
+
+      <Section id="tutorial-video" title="Tutorial Video">
+        <DocMedia
+          mediaId="important-rules-tutorial-video"
+          caption="Important Rules Video Tutorial"
+        />
       </Section>
     </DocPage>
   );

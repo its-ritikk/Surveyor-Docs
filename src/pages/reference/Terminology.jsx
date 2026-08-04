@@ -1,8 +1,10 @@
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
-import { StatusBadge } from "../../components/StatusBits";
+import DocMedia from "../../components/DocMedia";
 
-const toc = [{ id: "terms", label: "Terminology" }];
+const toc = [
+  { id: "terms", label: "Terminology" },
+  { id: "tutorial-video", label: "Tutorial Video" },
+];
 
 const terms = [
   { term: "Contract", desc: "A customer survey assignment. Contains all shipment, cargo, vessel, and survey planning details." },
@@ -29,14 +31,14 @@ export default function Terminology() {
       toc={toc}
     >
       <Section id="terms" title="Terminology">
-        <div className="my-5 overflow-hidden rounded-lg border border-ink-900/10 dark:border-white/10">
+        <div className="my-5 overflow-hidden rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
           <table className="w-full border-collapse text-left text-[13.5px]">
             <thead>
-              <tr className="bg-ink-900/[0.03] dark:bg-white/[0.03]">
-                <th className="px-4 py-2.5 font-semibold text-ink-800 dark:text-slate-200 border-b border-ink-900/10 dark:border-white/10 w-[24%]">
+              <tr className="bg-ink-900/[0.03] dark:bg-[#000000]">
+                <th className="px-4 py-2.5 font-semibold text-ink-800 dark:text-[#FFFFFF] border-b border-ink-900/10 dark:border-[#262626] w-[24%]">
                   Term
                 </th>
-                <th className="px-4 py-2.5 font-semibold text-ink-800 dark:text-slate-200 border-b border-ink-900/10 dark:border-white/10">
+                <th className="px-4 py-2.5 font-semibold text-ink-800 dark:text-[#FFFFFF] border-b border-ink-900/10 dark:border-[#262626]">
                   Definition
                 </th>
               </tr>
@@ -45,12 +47,12 @@ export default function Terminology() {
               {terms.map((t, i) => (
                 <tr
                   key={i}
-                  className="border-b border-ink-900/[0.06] dark:border-white/[0.06] last:border-0 even:bg-ink-900/[0.012] dark:even:bg-white/[0.02]"
+                  className="border-b border-ink-900/[0.06] dark:border-[#262626] last:border-0 even:bg-ink-900/[0.012] dark:even:bg-[#171717]/40"
                 >
-                  <td className="px-4 py-2.5 align-top font-mono text-[12.5px] text-ink-900 dark:text-slate-200 font-semibold">
+                  <td className="px-4 py-2.5 align-top font-mono text-[12.5px] text-ink-900 dark:text-[#FFFFFF] font-medium">
                     {t.term}
                   </td>
-                  <td className="px-4 py-2.5 align-top text-ink-700/90 dark:text-slate-300/90 leading-6">
+                  <td className="px-4 py-2.5 align-top text-ink-700/90 dark:text-[#E5E5E5] leading-6">
                     {t.desc}
                   </td>
                 </tr>
@@ -58,6 +60,13 @@ export default function Terminology() {
             </tbody>
           </table>
         </div>
+      </Section>
+
+      <Section id="tutorial-video" title="Tutorial Video">
+        <DocMedia
+          mediaId="key-terminology-tutorial-video"
+          caption="Key Terminology Video Tutorial"
+        />
       </Section>
     </DocPage>
   );

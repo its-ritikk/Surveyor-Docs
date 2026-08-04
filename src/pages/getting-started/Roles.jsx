@@ -1,19 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
+import DocMedia from "../../components/DocMedia";
+import { User, ClipboardList, Shield, Award } from "lucide-react";
 
 const toc = [
   { id: "overview", label: "Overview" },
-  { id: "purpose", label: "Purpose" },
-  { id: "features", label: "Feature Overview" },
-  { id: "sections", label: "Important Functional Sections" },
+  { id: "purpose", label: "Purpose & RBAC Architecture" },
+  { id: "matrix", label: "Role Matrix Overview" },
   { id: "surveyor", label: "Role: Surveyor" },
   { id: "coordinator", label: "Role: Coordinator" },
   { id: "manager-reviewer", label: "Role: Manager / Reviewer" },
   { id: "administrator", label: "Role: Administrator" },
   { id: "validations", label: "Validation & Route Protection" },
-  { id: "related", label: "Related Features" },
+  { id: "important-notes", label: "Important Security Rules" },
   { id: "best-practices", label: "Best Practices" },
+  { id: "troubleshooting", label: "Troubleshooting & FAQs" },
+  { id: "tutorial-video", label: "Tutorial Video" },
+];
+
+const rolesList = [
+  {
+    icon: User,
+    role: "Field Surveyor",
+    scope: "Mobile App Access",
+    desc: "Executes port inspection checklists, captures evidence photos, logs container seal numbers, and collects recipient sign-offs at berths.",
+  },
+  {
+    icon: ClipboardList,
+    role: "Operational Coordinator",
+    scope: "Web Dispatch Console",
+    desc: "Registers shipping contracts, drafts execution plans, assigns surveyor teams, and monitors daily terminal throughput.",
+  },
+  {
+    icon: Shield,
+    role: "Manager / Reviewer",
+    scope: "Quality Review & Auditing",
+    desc: "Audits submitted checklists, verifies 1.0 km GPS geofence compliance, checks photo evidence, and approves final reports.",
+  },
+  {
+    icon: Award,
+    role: "System Administrator",
+    scope: "Full System Configuration",
+    desc: "Designs survey templates, configures conditional rules, structures operational teams, and reviews security audit logs.",
+  },
 ];
 
 export default function Roles() {
@@ -22,111 +53,136 @@ export default function Roles() {
       path="/getting-started/roles"
       eyebrow="Getting Started"
       title="Roles & Access"
-      description="Role-Based Access Control (RBAC) rules and client permissions for the Surveyor Management System."
+      description="Comprehensive guide to Role-Based Access Control (RBAC), user security profiles, permissions, and daily workflows."
       toc={toc}
     >
       <Section id="overview" title="Overview">
         <p>
-          Access to the Surveyor Management System is controlled through role-based permissions configured centrally in the CargoClave Portal, distributing security scopes to field and office staff.
+          Access to the CargoClave Surveyor Management System is governed by a robust <strong>Role-Based Access Control (RBAC)</strong> framework. Security profiles are provisioned centrally within CargoClave Portal and enforced across both the web management console and the Mobile Surveyor App.
         </p>
       </Section>
 
-      <Section id="purpose" title="Purpose">
+      <Section id="purpose" title="Purpose &amp; RBAC Architecture">
         <p>
-          Ensures operational security and segregation of duties. Inspectors are restricted to field data collection, while planners manage dispatches, and managers audit quality logs.
+          RBAC ensures strict segregation of duties, protecting data integrity and compliance across marine terminal operations. Inspectors are restricted to field data entry, coordinators manage dispatches, reviewers audit evidence quality, and administrators control core template logic.
         </p>
       </Section>
 
-      <Section id="features" title="Feature Overview">
-        <p>
-          Core access control capabilities include UI component shielding (hiding buttons), client-side route protection, and API request validation audits.
-        </p>
-      </Section>
-
-      <Section id="sections" title="Important Functional Sections">
-        <p>
-          User accounts are mapped to one of the following four primary security scopes:
-        </p>
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li><strong>Surveyor</strong> — Field-based operator running active port checklists.</li>
-          <li><strong>Coordinator</strong> — Operational planner dispatching contracts.</li>
-          <li><strong>Manager / Reviewer</strong> — Quality auditor verifying coordinates and photo evidence.</li>
-          <li><strong>Administrator</strong> — Master editor designing templates and surveys.</li>
-        </ul>
+      <Section id="matrix" title="Role Matrix Overview">
+        <p className="mb-4">Summary of the four primary security profiles:</p>
+        <div className="grid gap-4 sm:grid-cols-2 my-5">
+          {rolesList.map((r) => (
+            <div
+              key={r.role}
+              className="rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02]"
+            >
+              <div className="flex items-center gap-3 mb-2.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400">
+                  <r.icon size={18} />
+                </span>
+                <div>
+                  <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100">{r.role}</h4>
+                  <span className="text-[11px] font-mono text-signal-700 dark:text-signal-400">{r.scope}</span>
+                </div>
+              </div>
+              <p className="text-xs leading-5 text-ink-650 dark:text-slate-400">{r.desc}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section id="surveyor" title="Role: Surveyor">
-        <p>
-          <strong>Primary responsibility:</strong> The Surveyor is a field-based user responsible for executing assigned inspections and capturing cargo condition details at port terminals.
-        </p>
-        <p>
-          <strong>Activities &amp; features:</strong> Day-to-day activities include checking assigned cargo, starting scheduled checklists, capturing photographs, logging container seal numbers, and collecting supervisor or receiver sign-offs. They primarily interact with the <em>Mobile Surveyor App</em>.
-        </p>
-        <p>
-          <strong>Actions &amp; workflow:</strong> Surveyors are permitted to start inspections, save local drafts, sync data, and submit final checklists. They receive survey assignments from the Coordinator and submit completed work to the Manager for approval.
-        </p>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950 space-y-3">
+          <p><strong>Purpose:</strong> Field-based data collector executing physical port inspection checklists.</p>
+          <p><strong>Key Responsibilities:</strong> Arriving at assigned vessel berths, performing geotagged check-ins, completing survey steps, capturing container photos, recording seal numbers, and obtaining recipient signatures.</p>
+          <p><strong>Accessible Modules:</strong> Mobile Surveyor App, Assigned Contracts List, Offline Inspection Runner.</p>
+          <p><strong>Daily Workflow:</strong> Logs into Mobile App &rarr; Reviews assigned contracts &rarr; Checks in at terminal berth &rarr; Executes checklist &rarr; Submits completed inspection.</p>
+          <p><strong>Permissions:</strong> Read assigned dispatches, execute survey checklists, save local drafts, upload photos, submit completed surveys. <em>(No access to web administration or report builder)</em>.</p>
+          <p><strong>Best Practices:</strong> Perform a manual mobile sync before entering low-connectivity port berths.</p>
+          <p><strong>Related Modules:</strong> <Link to="/mobile/overview">Mobile Surveyor App</Link>, <Link to="/mobile/executing-a-survey">Executing a Survey</Link>.</p>
+        </div>
       </Section>
 
       <Section id="coordinator" title="Role: Coordinator">
-        <p>
-          <strong>Primary responsibility:</strong> The Coordinator is a back-office planner who schedules logistics contracts and dispatches surveyor assignments.
-        </p>
-        <p>
-          <strong>Activities &amp; features:</strong> They create contracts, select appropriate survey templates, organize surveyor teams, and monitor daily progress through the <em>Operations Dashboard</em> and <em>Contract Management</em> screens.
-        </p>
-        <p>
-          <strong>Actions &amp; workflow:</strong> Coordinators are permitted to draft and activate contracts, schedule survey steps, and assign surveyors or teams. They coordinate directly with administrators for templates and hand off finished submissions to managers.
-        </p>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950 space-y-3">
+          <p><strong>Purpose:</strong> Operational planner managing shipping contracts and surveyor dispatch schedules.</p>
+          <p><strong>Key Responsibilities:</strong> Creating contracts, selecting survey templates, building execution plans, assigning surveyors or teams, and tracking SLA compliance on the dashboard.</p>
+          <p><strong>Accessible Modules:</strong> Operations Dashboard, Contract Management, Team Allocation Boards.</p>
+          <p><strong>Daily Workflow:</strong> Reviews Dashboard metrics &rarr; Registers incoming customer contract &rarr; Selects survey template &rarr; Assigns field surveyor &rarr; Monitors SLA progress.</p>
+          <p><strong>Permissions:</strong> Create/edit/draft contracts, assign surveyors, update dispatch dates, view dashboard analytics. <em>(Cannot alter published templates or audit logs)</em>.</p>
+          <p><strong>Best Practices:</strong> Verify terminal location coordinates before dispatching contracts to ensure accurate GPS geofence checks.</p>
+          <p><strong>Related Modules:</strong> <Link to="/operations/dashboard">Operations Dashboard</Link>, <Link to="/operations/contracts">Contract Management</Link>.</p>
+        </div>
       </Section>
 
       <Section id="manager-reviewer" title="Role: Manager / Reviewer">
-        <p>
-          <strong>Primary responsibility:</strong> The Manager / Reviewer is an operational auditor responsible for checking data quality and verifying terminal inspections.
-        </p>
-        <p>
-          <strong>Activities &amp; features:</strong> Typical tasks include verifying submitted data, auditing photo attachments, and cross-checking actual surveyor check-in coordinates using the GPS verification map. They rely heavily on the <em>Inspection Review</em> and <em>Reports Management</em> modules.
-        </p>
-        <p>
-          <strong>Actions &amp; workflow:</strong> Managers hold the authority to approve inspections, request surveyor revisions, or reject incorrect logs. They interact directly with surveyors to resolve checklist errors and approve data before report generation.
-        </p>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950 space-y-3">
+          <p><strong>Purpose:</strong> Quality assurance auditor verifying data accuracy, evidence photos, and GPS compliance.</p>
+          <p><strong>Key Responsibilities:</strong> Reviewing submitted checklists, auditing photo attachments, verifying surveyor check-in distances (Haversine 1.0 km check), approving surveys, or requesting surveyor revisions.</p>
+          <p><strong>Accessible Modules:</strong> Operations Dashboard, Inspection Review Console, Contract Reports, Reports Management.</p>
+          <p><strong>Daily Workflow:</strong> Opens Inspection Review queue &rarr; Selects submitted survey &rarr; Audits GPS map distance and photos &rarr; Approves inspection or requests revision &rarr; Compiles PDF report.</p>
+          <p><strong>Permissions:</strong> Approve/reject inspection submissions, request surveyor revisions, override minor distance warnings with audit justification, export PDF reports.</p>
+          <p><strong>Best Practices:</strong> Check GPS distance warnings immediately; require explicit surveyor notes if check-in occurred outside the 1.0 km radius.</p>
+          <p><strong>Related Modules:</strong> <Link to="/operations/inspection-review">Inspection Review</Link>, <Link to="/reports/reports-management">Reports Management</Link>.</p>
+        </div>
       </Section>
 
       <Section id="administrator" title="Role: Administrator">
-        <p>
-          <strong>Primary responsibility:</strong> The Administrator oversees platform settings, template configurations, and database variables.
-        </p>
-        <p>
-          <strong>Activities &amp; features:</strong> They design checklist surveys using the <em>Survey Builder</em>, build standard report templates, structure operational teams, and review system access events using the <em>Activity &amp; Audit Logs</em>.
-        </p>
-        <p>
-          <strong>Actions &amp; workflow:</strong> Administrators have full read-write permissions across configuration panels. They establish the operational rules and templates that Coordinators, Surveyors, and Managers use to complete their workflows.
-        </p>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950 space-y-3">
+          <p><strong>Purpose:</strong> Platform administrator controlling template logic, team structures, and security governance.</p>
+          <p><strong>Key Responsibilities:</strong> Designing checklist surveys in Survey Builder, setting up conditional logic rules, configuring inspection templates, managing teams, and auditing system logs.</p>
+          <p><strong>Accessible Modules:</strong> Full platform access including Survey Builder, Teams Management, Inspection Templates, Report Builder, Activity Logs, and Audit Logs.</p>
+          <p><strong>Daily Workflow:</strong> Updates survey templates for new cargo types &rarr; Adjusts conditional logic rules &rarr; Manages team structures &rarr; Reviews security audit logs.</p>
+          <p><strong>Permissions:</strong> Full read/write/publish rights across all system modules, master template locking, audit log review.</p>
+          <p><strong>Best Practices:</strong> Test new survey templates in Draft mode before publishing to live dispatch environments.</p>
+          <p><strong>Related Modules:</strong> <Link to="/configuration/surveys">Survey Builder</Link>, <Link to="/configuration/inspection-templates">Inspection Templates</Link>, <Link to="/logs/audit-logs">Audit Logs</Link>.</p>
+        </div>
       </Section>
 
-      <Section id="validations" title="Validation & Route Protection">
-        <p>
-          The Surveyor Management System gates all features, menus, and buttons behind a permission-based routing engine:
-        </p>
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li><strong>Router Blocking</strong> — Direct URL requests to unauthorized pages will redirect users to a Not Authorized view.</li>
-          <li><strong>Action Protection</strong> — Edit and deletion actions block requests at the API gateway if session tokens lack access scopes.</li>
+      <Section id="validations" title="Validation &amp; Route Protection">
+        <p className="mb-3">The application enforces security at both the client and API level:</p>
+        <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
+          <li><strong>UI Element Shielding:</strong> Buttons, edit controls, and menus are hidden from users lacking required role permissions.</li>
+          <li><strong>Client Route Guards:</strong> Direct URL navigation to restricted pages automatically redirects unauthorized users.</li>
+          <li><strong>API Gateway Scopes:</strong> Server APIs validate session JWT tokens before executing database updates or deletes.</li>
         </ul>
       </Section>
 
-      <Section id="related" title="Related Features">
-        <p>
-          Roles and access associate directly with:
-        </p>
-        <ul className="list-disc pl-5 space-y-1.5 my-3">
-          <li><a href="/getting-started/sign-in">Sign In &amp; Verification</a> — Exchanging credentials for session JWT tokens.</li>
-          <li><a href="/getting-started/launch">Launching the Surveyor App</a> — Mapping app card permissions.</li>
-        </ul>
+      <Section id="important-notes" title="Important Security Rules">
+        <Callout type="important">
+          Role assignments and organization profiles are managed centrally on CargoClave Portal. Permission adjustments must be requested through your corporate IT administrator.
+        </Callout>
       </Section>
 
       <Section id="best-practices" title="Best Practices">
-        <Callout type="note">
-          Roles, permissions, and organization user profiles are managed centrally on the CargoClave Portal. If you require permission adjustments or role changes, submit requests to your corporate system administrator.
-        </Callout>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><strong>Least Privilege:</strong> Assign users the minimum security scope required for their daily operational tasks.</li>
+          <li><strong>Audit Trail:</strong> All administrative updates and inspection approvals are recorded permanently in <Link to="/logs/audit-logs">Audit Logs</Link>.</li>
+        </ul>
+      </Section>
+
+      <Section id="troubleshooting" title="Troubleshooting &amp; FAQs">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: Why cannot I see the Survey Builder menu option?</h4>
+            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
+              Survey Builder is restricted to System Administrators. Coordinators and Managers do not have permission to alter published survey templates.
+            </p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: How do I request a role upgrade?</h4>
+            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
+              Contact your company's CargoClave Portal Administrator to adjust your user security profile.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="tutorial-video" title="Tutorial Video">
+        <DocMedia
+          mediaId="roles-access-tutorial-video"
+          caption="Roles & Access Controls Video Tutorial"
+        />
       </Section>
     </DocPage>
   );
