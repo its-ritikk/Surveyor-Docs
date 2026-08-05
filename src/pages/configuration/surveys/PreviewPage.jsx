@@ -16,6 +16,7 @@ export default function PreviewPage() {
       title="Preview"
       description="Interactive mobile simulator pane for testing checklist layouts, field validations, and conditional logic rules."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>

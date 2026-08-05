@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -11,7 +10,6 @@ const toc = [
   { id: "publishing-versioning", label: "Publishing & Version Control" },
   { id: "template-relationship", label: "Relationship with Inspection Templates" },
   { id: "report-relationship", label: "Relationship with Report Builder" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function SurveyOverview() {
@@ -101,13 +99,6 @@ export default function SurveyOverview() {
         <p>
           Every field configured in the Survey Builder generates a unique database binding tag (e.g., <code>{`{Survey_Hatch1_Condition}`}</code>). These tags map seamlessly into the <a href="/reports/report-builder">Report Builder</a> to automatically populate client PDF certificates.
         </p>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="survey-builder-overview-tutorial-video"
-          caption="Survey Builder Overview Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

@@ -2,20 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
-
+import DocImage from "../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "creating-contracts", label: "Creating Contracts" },
   { id: "contract-details", label: "Contract Details" },
   { id: "survey-assignment", label: "Survey Assignment" },
-  { id: "contract-documents", label: "Contract Documents" },
   { id: "status-management", label: "Status Management" },
-  { id: "timeline", label: "Timeline" },
-  { id: "search-filters", label: "Search & Filters" },
   { id: "permissions", label: "Permissions" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function Contracts() {
@@ -23,9 +18,10 @@ export default function Contracts() {
     <DocPage
       path="/operations/contracts"
       eyebrow="Operations"
-      title="Contract Management Reference"
+      title="Contract Management"
       description="Comprehensive user guide and operational reference for contract creation, surveyor dispatch, document management, status lifecycles, and audit timelines."
       toc={toc}
+      hideImage={true}
     >
       {/* ── SECTION 1: OVERVIEW ────────────────────────────────────────── */}
       <Section id="overview" title="Overview">
@@ -51,48 +47,184 @@ export default function Contracts() {
           </div>
         </div>
 
+        <DocImage path="/operations/contracts" imageKey="overview" />
       </Section>
 
       {/* ── SECTION 2: CREATING CONTRACTS ──────────────────────────────── */}
       <Section id="creating-contracts" title="Creating Contracts">
         <p>
-          New dispatches are created using the <strong>Create Contract Wizard</strong>, a 4-step guided workflow that captures contract metadata, parses cargo packing lists, binds inspection templates, and assigns field surveyors.
+          New dispatches are created using the <strong>Create Contract Console</strong>, a comprehensive form designed to capture commercial contract details, inspection template bindings, shipment specifications, and surveyor execution plans.
         </p>
 
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-2">The 4-Step Contract Creation Wizard</h4>
-        <div className="space-y-3 my-4">
-          <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-semibold text-sm text-ink-900 dark:text-[#FFFFFF]">Step 1: Basic Information</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-[#A3A3A3] mt-0.5">
-              Select customer organization, input Bill of Lading (BL) Number, select Vessel Name from Master Data, choose Cargo Type (Containerized, Break Bulk, Liquid Bulk), and select Destination Terminal.
-            </p>
+        {/* IMAGE 1: Commercial Details & Inspection Template Selection */}
+        <DocImage path="/operations/contracts" imageKey="creation-commercial" />
+
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
+          1. Inspection Template Selection Card
+        </h4>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
+          <p className="text-ink-700 dark:text-slate-300">
+            Start from a reusable inspection template to pre-fill cargo details, survey checklists, and report formats. All fields remain customizable before contract activation.
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+            <li><strong>Shipment Type (Filter):</strong> Filters template library by shipment direction (e.g., <em>Export</em>, <em>Import</em>, <em>Transshipment</em>).</li>
+            <li><strong>Cargo Type (Filter):</strong> Filters template library by cargo classification (e.g., <em>Containerized</em>, <em>Break Bulk</em>, <em>Liquid Bulk</em>).</li>
+            <li><strong>Template Dropdown:</strong> Select a pre-configured template or select <code>CUSTOM</code> to construct a blank dispatch layout from scratch.</li>
+          </ul>
+        </div>
+
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
+          2. Contract Commercial Details Card
+        </h4>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Contract ID</strong>
+              <span className="text-ink-650 dark:text-slate-400">System-generated unique reference number (e.g., <code>TCIS/IN/2026-PROD-0013</code>).</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Contracting Party <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Mandatory dropdown to select the client or customer organization hiring the survey.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Primary Point of Contact <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Mandatory dropdown to select the key client contact receiving real-time notifications.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">PI References</strong>
+              <span className="text-ink-650 dark:text-slate-400">Optional Protection &amp; Indemnity (P&amp;I) insurance club reference number.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Start Date <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Mandatory datepicker setting the planned survey commencement date.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Completion Deadline <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Mandatory datepicker defining the strict SLA completion deadline.</span>
+            </div>
           </div>
-          <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-semibold text-sm text-ink-900 dark:text-[#FFFFFF]">Step 2: Packing List &amp; Cargo Specifications</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-[#A3A3A3] mt-0.5">
-              Upload cargo manifests or manually add packing list rows (Container Numbers, Commodity Type, Gross Weight, Net Weight, Package Quantity, Hazardous Class).
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-semibold text-sm text-ink-900 dark:text-[#FFFFFF]">Step 3: Execution Plan &amp; Template Binding</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-[#A3A3A3] mt-0.5">
-              Select an Inspection Template from the library. The wizard automatically expands required survey steps (e.g., Initial Hatch Inspection, Discharge Supervision, Final Tally).
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-semibold text-sm text-ink-900 dark:text-[#FFFFFF]">Step 4: Surveyor Assignment &amp; Verification</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-[#A3A3A3] mt-0.5">
-              Assign individual field surveyors or operational teams to each step, set SLA target completion dates, configure terminal GPS coordinates, and dispatch.
-            </p>
+          <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+            <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Inspection Location</strong>
+            <span className="text-ink-650 dark:text-slate-400">Search input specifying the designated port terminal, warehouse, or berth facility.</span>
           </div>
         </div>
 
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200 mt-5 mb-2">Validation Rules &amp; Constraints</h4>
-        <ul className="list-disc pl-5 space-y-1.5 text-[13.5px]">
-          <li><strong>BL Number Format:</strong> Must be unique per customer organization; duplicate BL numbers are rejected.</li>
-          <li><strong>Mandatory Template Binding:</strong> Every contract must bind at least one published Inspection Template before dispatch.</li>
-          <li><strong>SLA Date Validation:</strong> Target completion dates must be set in the future relative to contract creation time.</li>
-        </ul>
+        {/* IMAGE 2: Shipment Details & Execution Plan Grid */}
+        <DocImage path="/operations/contracts" imageKey="creation-execution" />
+
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
+          3. Shipment Details Card
+        </h4>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Shipment Type <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Select Export, Import, or Transshipment movement.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Cargo Type <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Select cargo type (e.g., Containerized, Break Bulk, Liquid Bulk).</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Port of Loading</strong>
+              <span className="text-ink-650 dark:text-slate-400">Select origin port terminal from Master Data.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Port of Discharge</strong>
+              <span className="text-ink-650 dark:text-slate-400">Select destination port terminal from Master Data.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Packaging Type</strong>
+              <span className="text-ink-650 dark:text-slate-400">Select cargo packaging (Drums, Pallets, Containers, ISO Tanks).</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Quantity</strong>
+              <span className="text-ink-650 dark:text-slate-400">Enter total cargo package quantity or tonnage weight.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Stage Execution <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Choose <em>Sequential</em> (step-by-step order) or <em>Parallel</em> execution.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Vessel Name</strong>
+              <span className="text-ink-650 dark:text-slate-400">Enter vessel name from Vessel Masters directory.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Voyage Number</strong>
+              <span className="text-ink-650 dark:text-slate-400">Enter ocean carrier voyage identification code.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Berth No. (If Available)</strong>
+              <span className="text-ink-650 dark:text-slate-400">Specific terminal quay or berth docking number.</span>
+            </div>
+            <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01] md:col-span-2">
+              <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">BL Number <span className="text-red-500">*</span></strong>
+              <span className="text-ink-650 dark:text-slate-400">Mandatory unique Bill of Lading primary tracking number.</span>
+            </div>
+          </div>
+        </div>
+
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
+          4. Execution Plan &amp; Surveyor Dispatch Grid
+        </h4>
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
+          <p className="text-ink-700 dark:text-slate-300">
+            The Execution Plan table maps individual survey checklists to physical terminal locations, execution dates, and surveyor assignees.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border border-ink-900/10 dark:border-white/10">
+              <thead className="bg-ink-900/5 dark:bg-white/5 font-semibold text-ink-900 dark:text-slate-100">
+                <tr>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">#</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">Associated Surveys *</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">Assignment</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">Assignee</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">Location *</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">Date *</th>
+                  <th className="p-2 border-b border-ink-900/10 dark:border-white/10">POC</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-ink-900/5 dark:divide-white/5 text-ink-700 dark:text-slate-300">
+                <tr>
+                  <td className="p-2 font-mono text-center">1</td>
+                  <td className="p-2">Select survey checklist from template library dropdown</td>
+                  <td className="p-2">Choose <code>Individual</code> or <code>Team</code> mode</td>
+                  <td className="p-2">Select surveyor user account or operational team</td>
+                  <td className="p-2">Search &amp; select terminal GPS geofence location</td>
+                  <td className="p-2 font-mono">dd-mm-yyyy datepicker</td>
+                  <td className="p-2">Select Point of Contact for berth coordination</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-ink-650 dark:text-slate-400">
+            Click <code>+ Add Row</code> to add multiple survey stages to a single dispatch contract.
+          </p>
+        </div>
+
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
+          5. Action Controls &amp; Keyboard Shortcuts
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs mb-4">
+          <div className="p-3.5 rounded-lg border border-ink-900/10 dark:border-white/10 bg-ink-900/[0.01] dark:bg-white/[0.02]">
+            <strong className="text-ink-900 dark:text-slate-100 block mb-1">Cancel Button</strong>
+            <span className="text-ink-650 dark:text-slate-400">Aborts creation and returns to the Contract Management Console.</span>
+          </div>
+          <div className="p-3.5 rounded-lg border border-ink-900/10 dark:border-white/10 bg-ink-900/[0.01] dark:bg-white/[0.02]">
+            <strong className="text-ink-900 dark:text-slate-100 block mb-1 flex items-center justify-between">
+              <span>Save as Draft</span>
+              <kbd className="px-1.5 py-0.5 rounded bg-ink-900/10 dark:bg-white/10 font-mono text-[10px]">Ctrl + Shift + S</kbd>
+            </strong>
+            <span className="text-ink-650 dark:text-slate-400">Saves incomplete contract setup as a draft without triggering surveyor notifications.</span>
+          </div>
+          <div className="p-3.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
+            <strong className="block mb-1 flex items-center justify-between">
+              <span>Activate Contract</span>
+              <kbd className="px-1.5 py-0.5 rounded bg-cyan-500/20 font-mono text-[10px]">Ctrl + Enter</kbd>
+            </strong>
+            <span className="text-xs">Dispatches contract into Active state and syncs mobile survey checklists to assignees.</span>
+          </div>
+        </div>
       </Section>
 
       {/* ── SECTION 3: CONTRACT DETAILS ────────────────────────────────── */}
@@ -133,37 +265,10 @@ export default function Contracts() {
         </ul>
       </Section>
 
-      {/* ── SECTION 5: CONTRACT DOCUMENTS ──────────────────────────────── */}
-      <Section id="contract-documents" title="Contract Documents">
-        <p>
-          Contracts maintain a centralized repository for external shipping records, reference files, and regulatory certificates uploaded during or after contract creation.
-        </p>
-
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200 mt-4 mb-2">Supported Document Types</h4>
-        <div className="my-3 grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-xs text-ink-900 dark:text-slate-100">Bill of Lading (BL)</p>
-            <p className="text-xs text-ink-650 dark:text-slate-400 mt-0.5">PDF copy of primary shipping contract and cargo ownership certificate.</p>
-          </div>
-          <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-xs text-ink-900 dark:text-slate-100">Packing List &amp; Manifest</p>
-            <p className="text-xs text-ink-650 dark:text-slate-400 mt-0.5">Spreadsheet or PDF breakdown of container numbers, weights, and commodities.</p>
-          </div>
-          <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-xs text-ink-900 dark:text-slate-100">Weight &amp; Draft Certificates</p>
-            <p className="text-xs text-ink-650 dark:text-slate-400 mt-0.5">Official weighbridge or draft survey measurement certificates.</p>
-          </div>
-          <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-xs text-ink-900 dark:text-slate-100">Stowage Plans &amp; Drawings</p>
-            <p className="text-xs text-ink-650 dark:text-slate-400 mt-0.5">Vessel hatch layout diagrams and cargo placement blueprints.</p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ── SECTION 6: STATUS MANAGEMENT ───────────────────────────────── */}
+      {/* ── SECTION 5: STATUS MANAGEMENT ───────────────────────────────── */}
       <Section id="status-management" title="Status Management">
         <p>
-          Contracts transition through four strict operational states across their lifecycle:
+          Contracts transition through three strict operational states across their lifecycle:
         </p>
 
         <div className="my-4 space-y-3">
@@ -179,10 +284,6 @@ export default function Contracts() {
             <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-700 dark:text-blue-300 font-bold text-xs uppercase tracking-wider">Completed</span>
             <p className="text-xs text-ink-700 dark:text-slate-300 mt-1.5">Closed state. Triggered automatically when all execution plan surveys receive coordinator approval in Inspection Review. Final PDF reports are generated.</p>
           </div>
-          <div className="p-3.5 rounded-lg border border-red-200 dark:border-red-900/30 bg-red-50/30 dark:bg-red-950/10">
-            <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-700 dark:text-red-300 font-bold text-xs uppercase tracking-wider">Cancelled</span>
-            <p className="text-xs text-ink-700 dark:text-slate-300 mt-1.5">Voided state. Used to terminate dispatches, revoke mobile app checklists, and record cancellation audit reasons.</p>
-          </div>
         </div>
 
         <Callout type="important">
@@ -190,43 +291,10 @@ export default function Contracts() {
         </Callout>
       </Section>
 
-      {/* ── SECTION 7: TIMELINE ─────────────────────────────────────────── */}
-      <Section id="timeline" title="Timeline">
-        <p>
-          The <strong>Contract Timeline</strong> maintains an immutable, chronological audit trail recording every significant operational event throughout the contract's lifetime.
-        </p>
-
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200 mt-4 mb-2">Tracked Timeline Events</h4>
-        <ul className="list-disc pl-5 space-y-1.5 text-[13.5px]">
-          <li><strong>Contract Created:</strong> Time, user ID, and initial template selection.</li>
-          <li><strong>Surveyor Dispatched:</strong> Assignment timestamp and mobile push confirmation.</li>
-          <li><strong>Field Check-In:</strong> Geotagged check-in timestamp with GPS coordinates.</li>
-          <li><strong>Checklist Submission:</strong> Mobile survey upload timestamp.</li>
-          <li><strong>Quality Review Audit:</strong> Approval or revision request timestamp by reviewer.</li>
-          <li><strong>Report Finalized:</strong> Automated PDF generation completion time.</li>
-        </ul>
-      </Section>
-
-      {/* ── SECTION 8: SEARCH & FILTERS ─────────────────────────────────── */}
-      <Section id="search-filters" title="Search &amp; Filters">
-        <p>
-          The Contract Console includes a multi-attribute search and filtering engine to locate specific contracts across high-volume terminal dispatches.
-        </p>
-
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200 mt-4 mb-2">Search &amp; Filter Capabilities</h4>
-        <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
-          <li><strong>Global Text Search:</strong> Instant full-text search by Contract ID, Customer Name, BL Number, or Vessel Name.</li>
-          <li><strong>Status Filter:</strong> Multi-select filter for Draft, Active, Completed, or Cancelled states.</li>
-          <li><strong>Cargo Type Filter:</strong> Narrow dispatches by Containerized, Break Bulk, or Liquid Bulk cargo.</li>
-          <li><strong>Priority Filter:</strong> Filter by Standard, High Priority, or Urgent SLA risk.</li>
-          <li><strong>Date Range Picker:</strong> Filter contracts by creation date, dispatch date, or completion date.</li>
-        </ul>
-      </Section>
-
-      {/* ── SECTION 9: PERMISSIONS ──────────────────────────────────────── */}
+      {/* ── SECTION 6: PERMISSIONS ──────────────────────────────────────── */}
       <Section id="permissions" title="Permissions">
         <p>
-          Contract Management enforces role-based security permissions across all actions:
+          Contract Management enforces role-based security permissions across built-in system roles and custom Portal operational roles:
         </p>
 
         <div className="my-4 overflow-x-auto">
@@ -234,60 +302,45 @@ export default function Contracts() {
             <thead className="bg-ink-900/5 dark:bg-white/5 font-semibold text-ink-900 dark:text-slate-100">
               <tr>
                 <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Action / Feature</th>
-                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Coordinator</th>
-                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Reviewer</th>
-                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Surveyor</th>
-                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Admin</th>
+                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Portal Administrator (Built-in)</th>
+                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Surveyor (Built-in)</th>
+                <th className="p-2.5 border-b border-ink-900/10 dark:border-white/10">Custom Portal Roles (e.g. Coordinator, Reviewer)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-ink-900/5 dark:divide-white/5 text-ink-700 dark:text-slate-300">
               <tr>
                 <td className="p-2.5 font-medium">Create / Draft Contract</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
-                <td className="p-2.5 text-ink-400">Read Only</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
+                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Configured in Portal (Allowed for Coordinator)</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Dispatch to Active</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
-                <td className="p-2.5 text-ink-400">Read Only</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
+                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Configured in Portal (Allowed for Coordinator)</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Execute Checklist (Mobile)</td>
-                <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-ink-400">No Access</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
+                <td className="p-2.5 text-ink-400">Configured in Portal (No Access by default)</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Approve / Complete Contract</td>
-                <td className="p-2.5 text-ink-400">Read Only</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
+                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Configured in Portal (Allowed for Reviewer)</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Cancel Contract</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
-                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
+                <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Configured in Portal (Allowed for Coordinator/Manager)</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ─────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="contract-management-tutorial-video"
-          caption="Contract Management Operations Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

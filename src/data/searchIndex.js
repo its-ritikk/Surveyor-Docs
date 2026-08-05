@@ -2,6 +2,43 @@ import { nav } from "./nav";
 
 // Rich metadata map for sections, fields, components, and workflows across the app
 const sectionMetadataMap = {
+  // Getting Started - Roles & Access
+  "/getting-started/roles": {
+    pageName: "Roles & Access",
+    sectionName: "Overview",
+    matchedHeading: "Roles & Access Overview",
+    desc: "Portal-based RBAC model, built-in system roles (Portal Administrator, Surveyor), and custom Portal role assignments.",
+    keywords: "roles access control RBAC permissions administrator surveyor custom role portal roles feature access route protection coordinator reviewer manager qc lead",
+  },
+  "/getting-started/roles#portal-administrator": {
+    pageName: "Roles & Access",
+    sectionName: "System Roles",
+    matchedHeading: "Portal Administrator",
+    desc: "Built-in role for complete platform administration, custom role creation, user provisioning, and permission assignment.",
+    keywords: "portal administrator admin users custom roles permissions configure security portal built-in role",
+  },
+  "/getting-started/roles#surveyor": {
+    pageName: "Roles & Access",
+    sectionName: "System Roles",
+    matchedHeading: "Surveyor",
+    desc: "Built-in role for mobile field inspection execution, photo evidence capture, GPS check-in, and offline sync.",
+    keywords: "surveyor mobile inspection photos evidence GPS check-in offline sync submit built-in role field checklist",
+  },
+  "/getting-started/roles#custom-roles": {
+    pageName: "Roles & Access",
+    sectionName: "Custom Roles",
+    matchedHeading: "Custom Portal Roles",
+    desc: "Operational roles created dynamically by the Portal Administrator (e.g., Coordinator, Manager, Reviewer, QC Lead).",
+    keywords: "custom portal roles coordinator manager reviewer qc lead operations executive client manager custom role portal permission scopes",
+  },
+  "/getting-started/roles#permission-model": {
+    pageName: "Roles & Access",
+    sectionName: "Permission Model",
+    matchedHeading: "Permission & Access Model",
+    desc: "How permissions flow from Portal Admin -> Custom Roles -> User Assignment -> UI Modules & Protected Routes.",
+    keywords: "permission model rbac flow protected routes UI modules feature visibility portal tokens gateway scopes",
+  },
+
   // Report Builder
   "/reports/report-builder#overview": {
     pageName: "Report Builder",
@@ -121,8 +158,15 @@ const sectionMetadataMap = {
     pageName: "Contract Reports",
     sectionName: "Best Practices",
     matchedHeading: "Best Practices",
-    desc: "Operational guidelines for auto-mapped field reviews, photo curation, and draft saves.",
-    keywords: "best practices auto mapped fields photo curation draft snapshots report guidelines",
+    desc: "Best practice recommendations for generating clear, professional contract report outputs.",
+    keywords: "best practices recommendations clear professional outputs PDF export clean formatting",
+  },
+  "/configuration/surveys/field-photo#video-upload-operations": {
+    pageName: "Photo Upload Field",
+    sectionName: "Video Upload Operations",
+    matchedHeading: "Video Upload Operations & Parity",
+    desc: "Video Upload field operational workflow, property drawer tabs (Core, Validations, Rules, Media), and validation parity with Photo Upload.",
+    keywords: "video upload video field video recording video camera media validations photo upload parity video duration max file size",
   },
   "/reports/contract-reports#tutorial-video": {
     pageName: "Contract Reports",
@@ -462,13 +506,6 @@ const sectionMetadataMap = {
     matchedHeading: "File Upload",
     desc: "Attach external document files (PDFs, Excel manifests, weighbridge receipts).",
     keywords: "file upload pdf excel manifest weighbridge attachment document",
-  },
-  "/configuration/surveys/field-signature": {
-    pageName: "Survey Builder",
-    sectionName: "Field Types",
-    matchedHeading: "Signature",
-    desc: "Touchscreen digital signature capture for chief surveyor and witness sign-off.",
-    keywords: "signature touch digital vector sign witness chief officer approval pad",
   },
   "/configuration/surveys/field-rating": {
     pageName: "Survey Builder",

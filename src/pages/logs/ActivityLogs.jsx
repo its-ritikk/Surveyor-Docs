@@ -1,12 +1,10 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "what-is-logged", label: "What gets logged" },
   { id: "filters", label: "Filtering activity" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ActivityLogs() {
@@ -58,13 +56,6 @@ export default function ActivityLogs() {
           when" — for "what data actually changed," check{" "}
           <a href="/logs/audit-logs">Audit Logs</a> instead.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="activity-logs-tutorial-video"
-          caption="Activity Logs Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

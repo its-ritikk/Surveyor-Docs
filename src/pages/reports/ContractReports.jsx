@@ -2,7 +2,6 @@ import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -13,7 +12,6 @@ const toc = [
   { id: "export-and-preview", label: "Export & Preview" },
   { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ContractReports() {
@@ -155,14 +153,6 @@ export default function ContractReports() {
             </p>
           </div>
         </div>
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="contract-reports-tutorial-video"
-          caption="Contract Reports Setup & PDF Export Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

@@ -14,6 +14,7 @@ export default function PermissionsPage() {
       title="Permissions"
       description="Role-Based Access Control (RBAC) security rules governing survey creation, editing, publishing, and mobile data entry."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>

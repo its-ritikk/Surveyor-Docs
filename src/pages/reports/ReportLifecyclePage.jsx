@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 import MermaidDiagram from "../../components/MermaidDiagram";
 
 const toc = [
@@ -12,7 +11,6 @@ const toc = [
   { id: "stage-3", label: "Stage 3: Contract Reports" },
   { id: "stage-4", label: "Stage 4: Reports Management" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ReportLifecyclePage() {
@@ -79,13 +77,6 @@ export default function ReportLifecyclePage() {
         <Callout type="best-practice" title="Lifecycle Governance">
           Ensure each stage transitions cleanly: publish workflow templates before binding in Stage 2, complete mobile surveys before publishing in Stage 3, and verify dispatches in Stage 4.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="reports-lifecycle-tutorial-video"
-          caption="Report Lifecycle & Stage Governance Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

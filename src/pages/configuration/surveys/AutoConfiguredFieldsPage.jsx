@@ -15,6 +15,7 @@ export default function AutoConfiguredFieldsPage() {
       title="Auto Configured Fields"
       description="System-managed metadata fields automatically populated by the mobile runtime engine."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>

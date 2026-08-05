@@ -16,6 +16,7 @@ export default function FieldConfigurationPage() {
       title="Field Configuration"
       description="Complete reference manual for configuring field properties, labels, help text, default values, and display orders."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>

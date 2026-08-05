@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -14,7 +13,6 @@ const toc = [
   { id: "important-notes", label: "Important Notes & Workspace Selection" },
   { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting & FAQs" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function Launch() {
@@ -117,13 +115,6 @@ export default function Launch() {
             </p>
           </div>
         </div>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="launching-surveyor-app-tutorial-video"
-          caption="Launching Surveyor App Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

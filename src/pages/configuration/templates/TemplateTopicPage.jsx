@@ -34,6 +34,7 @@ export default function TemplateTopicPage({ topicKey: propTopicKey }) {
       description={data.description}
       mediaId={data.mediaId}
       toc={toc}
+      noMedia={key === "template-lifecycle"}
     >
       {/* 1. OVERVIEW */}
       <Section id="overview" title="Overview">

@@ -25,6 +25,9 @@ export default function DocPage({
   path,
   mediaId,
   toc,
+  hideImage = false,
+  hideVideo = false,
+  noMedia = false,
 }) {
   const idx = flatNav.findIndex((i) => i.to === path);
   const prev = idx > 0 ? flatNav[idx - 1] : null;
@@ -113,13 +116,15 @@ export default function DocPage({
           )}
 
           {/* Render PNG UI Screenshot Illustration from mediaRegistry if registered */}
-          <DocImage path={path} />
+          {!noMedia && !hideImage && <DocImage path={path} />}
         </header>
 
         {/* Mobile / Tablet Tutorial Video Companion Placement */}
-        <div className="block xl:hidden mb-8">
-          <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
-        </div>
+        {!noMedia && !hideVideo && (
+          <div className="block xl:hidden mb-8">
+            <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
+          </div>
+        )}
 
         <div className="prose-doc">{children}</div>
 
@@ -139,7 +144,7 @@ export default function DocPage({
           ) : (
             <div className="flex-1" />
           )}
-          {next ? (
+          {next && (
             <Link
               to={next.to}
               className="group flex-1 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] px-4 py-3 text-right hover:border-cyan-500/50 dark:hover:border-cyan-500/50 hover:bg-cyan-50/30 dark:hover:bg-[#171717] shadow-sm transition-all"
@@ -151,22 +156,19 @@ export default function DocPage({
                 {next.label}
               </span>
             </Link>
-          ) : (
-            <div className="flex-1" />
           )}
         </div>
       </div>
 
-      {/* Desktop Sticky Right Sidebar with Independent TOC Scrolling */}
-      <aside className="hidden xl:block w-60 xl:w-64 shrink-0">
-        <div className="sticky top-20 max-h-[calc(100vh-6rem)] h-[calc(100vh-6rem)] flex flex-col justify-between pt-1 pb-1 gap-3">
-          {/* Scrollable TOC Section */}
-          {displayHeadings && displayHeadings.length > 0 && (
-            <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
-              <p className="text-[11px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2.5 select-none shrink-0">
-                On this page
+      {/* Right Sidebar: On This Page TOC + Tutorial Video Companion Card */}
+      <aside className="hidden xl:block w-64 shrink-0">
+        <div className="sticky top-24 max-h-[calc(100vh-7rem)] flex flex-col gap-6">
+          {displayHeadings.length > 0 && (
+            <div className="min-h-0 flex-1 flex flex-col">
+              <p className="text-[11px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-3 select-none shrink-0">
+                On This Page
               </p>
-              <div className="flex-1 overflow-y-auto doc-scroll pr-2 min-h-0">
+              <div className="doc-scroll overflow-y-auto pr-2 min-h-0 flex-1">
                 <ul className="space-y-2 border-l border-ink-900/10 dark:border-[#262626] pb-6">
                   {displayHeadings.map((h) => {
                     const isActive = activeId === h.id;
@@ -203,9 +205,11 @@ export default function DocPage({
           )}
 
           {/* Fixed Tutorial Video Companion pinned below TOC */}
-          <div className="shrink-0 pt-2 border-t border-ink-900/10 dark:border-[#262626]">
-            <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
-          </div>
+          {!noMedia && !hideVideo && (
+            <div className="shrink-0 pt-2 border-t border-ink-900/10 dark:border-[#262626]">
+              <TutorialVideoCard path={path} pageTitle={title} mediaId={mediaId} />
+            </div>
+          )}
         </div>
       </aside>
     </div>

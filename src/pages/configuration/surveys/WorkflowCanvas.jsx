@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -10,7 +9,6 @@ const toc = [
   { id: "reordering", label: "Reordering & Alignment" },
   { id: "section-breaks", label: "Section Breaks & Multi-Step Tabs" },
   { id: "locked-fields", label: "Locked System Fields" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function WorkflowCanvas() {
@@ -59,13 +57,6 @@ export default function WorkflowCanvas() {
         <Callout type="important">
           Locked system fields cannot be deleted or reordered below step section breaks.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="workflow-canvas-tutorial-video"
-          caption="Workflow Canvas Visual Designer Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

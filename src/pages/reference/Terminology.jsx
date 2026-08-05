@@ -1,9 +1,7 @@
 import DocPage, { Section } from "../../components/DocPage";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "terms", label: "Terminology" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 const terms = [
@@ -60,13 +58,6 @@ export default function Terminology() {
             </tbody>
           </table>
         </div>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="key-terminology-tutorial-video"
-          caption="Key Terminology Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

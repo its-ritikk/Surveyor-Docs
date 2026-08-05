@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -10,7 +9,6 @@ const toc = [
   { id: "inspection-template-reports", label: "2. Inspection Template Reports" },
   { id: "contract-reports", label: "3. Contract Reports" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ReportCreationMethodsPage() {
@@ -115,14 +113,6 @@ export default function ReportCreationMethodsPage() {
         <Callout type="best-practice" title="Best Practice">
           Use <strong>Workflow Reports</strong> for global corporate standards, <strong>Inspection Template Reports</strong> for specific cargo setups, and <strong>Contract Reports</strong> for operational authoring.
         </Callout>
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="reports-creation-methods-tutorial-video"
-          caption="Report Creation Methods Comparison Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

@@ -1,17 +1,17 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
+import DocImage from "../../components/DocImage";
 import { Gauge, TrendingUp, Bell, Zap } from "lucide-react";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "kpis", label: "KPI Cards Reference" },
   { id: "chart", label: "Weekly Performance Chart" },
+  { id: "analytics-ui", label: "Analytics & Alerts Overview" },
   { id: "alerts", label: "Recent Alerts" },
   { id: "quick-actions", label: "Quick Actions" },
   { id: "update-behavior", label: "Update Behavior" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 const kpis = [
@@ -29,11 +29,14 @@ export default function Dashboard() {
       title="Operations Dashboard Reference"
       description="The analytics console displaying active dispatches, key performance metrics, and pending alerts."
       toc={toc}
+      hideImage={true}
+      hideVideo={true}
     >
       <Section id="overview" title="Overview">
         <p>
           The Operations Dashboard provides a centralized panel to monitor port surveys, track surveyor check-ins, and quickly access dispatch actions.
         </p>
+        <DocImage path="/operations/dashboard" imageKey="overview" />
       </Section>
 
       <Section
@@ -79,6 +82,13 @@ export default function Dashboard() {
         <p className="mt-2"><strong>Displayed Information:</strong> Plots completed, pending, and breached surveys chronologically, helping coordinators allocate surveyor resources to high-volume terminals.</p>
       </Section>
 
+      <Section id="analytics-ui" title="Analytics & Alerts Overview">
+        <p>
+          The analytics overview panel provides visual charts and real-time alert notifications for all operational dispatches across active port terminals.
+        </p>
+        <DocImage path="/operations/dashboard" imageKey="analytics" />
+      </Section>
+
       <Section
         id="alerts"
         title={
@@ -110,13 +120,6 @@ export default function Dashboard() {
 
       <Section id="update-behavior" title="Update Behavior">
         <p><strong>Behavior:</strong> The dashboard metrics utilize standard API polling to fetch live updates from the backend without full-page reloads. Clicking the manual refresh button triggers immediate query updates.</p>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="dashboard-operations-tutorial-video"
-          caption="Operations Dashboard Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

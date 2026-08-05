@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../../components/DocPage";
-import DocMedia from "../../../components/DocMedia";
 import { fieldTypesDictionary } from "../../../data/fieldTypesData";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "categories", label: "Field Categories" },
   { id: "field-catalog", label: "Complete Field Catalog (28 Types)" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function FieldLibrary() {
@@ -72,13 +70,6 @@ export default function FieldLibrary() {
             </Link>
           ))}
         </div>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="field-library-tutorial-video"
-          caption="Field Library Catalog Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

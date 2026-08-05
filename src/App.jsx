@@ -13,6 +13,13 @@ import BusinessWorkflows from "./pages/getting-started/BusinessWorkflows";
 import Dashboard from "./pages/operations/Dashboard";
 import Contracts from "./pages/operations/Contracts";
 import InspectionReview from "./pages/operations/InspectionReview";
+import InspectionDashboard from "./pages/operations/InspectionDashboard";
+import InspectionDetails from "./pages/operations/InspectionDetails";
+import ReviewWorkflow from "./pages/operations/ReviewWorkflow";
+import InspectionAttachments from "./pages/operations/InspectionAttachments";
+import InspectionPermissions from "./pages/operations/InspectionPermissions";
+import InspectionBestPractices from "./pages/operations/InspectionBestPractices";
+import InspectionTroubleshooting from "./pages/operations/InspectionTroubleshooting";
 
 import Surveys from "./pages/configuration/Surveys";
 import Teams from "./pages/configuration/Teams";
@@ -91,10 +98,14 @@ export default function App() {
 
             <Route path="/operations/dashboard" element={<Dashboard />} />
             <Route path="/operations/contracts" element={<Contracts />} />
-            <Route
-              path="/operations/inspection-review"
-              element={<InspectionReview />}
-            />
+            <Route path="/operations/inspection-review" element={<InspectionReview />} />
+            <Route path="/operations/inspection-review/dashboard" element={<InspectionDashboard />} />
+            <Route path="/operations/inspection-review/details" element={<InspectionDetails />} />
+            <Route path="/operations/inspection-review/workflow" element={<ReviewWorkflow />} />
+            <Route path="/operations/inspection-review/attachments" element={<InspectionAttachments />} />
+            <Route path="/operations/inspection-review/permissions" element={<InspectionPermissions />} />
+            <Route path="/operations/inspection-review/best-practices" element={<InspectionBestPractices />} />
+            <Route path="/operations/inspection-review/troubleshooting" element={<InspectionTroubleshooting />} />
 
             <Route path="/configuration/surveys" element={<Surveys />} />
             <Route path="/configuration/surveys/overview" element={<SurveyOverview />} />

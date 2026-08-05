@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview & Purpose" },
@@ -12,7 +11,6 @@ const toc = [
   { id: "required-critical", label: "Required & Critical Safety Flags" },
   { id: "multiple-checkboxes", label: "Multiple Checkboxes" },
   { id: "best-practices", label: "Best Practices & Common Mistakes" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function FieldCheckboxPage() {
@@ -117,14 +115,6 @@ export default function FieldCheckboxPage() {
         <Callout type="warning" title="Common Mistake">
           Pre-checking safety checkboxes by default, which can lead to missed hazards during port inspections.
         </Callout>
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="field-checkbox-tutorial-video"
-          caption="Checkbox Field Configuration Tutorial Video"
-        />
       </Section>
     </DocPage>
   );

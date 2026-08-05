@@ -1,13 +1,11 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "lifecycle-states", label: "Draft vs Published States" },
   { id: "publishing-checks", label: "Pre-Publish Validation Checks" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function PublishingPage() {
@@ -16,17 +14,18 @@ export default function PublishingPage() {
       path="/configuration/surveys/publishing"
       eyebrow="Survey Builder"
       title="Publishing"
-      description="Locking survey configurations, schema compilation, and publishing blueprints to live mobile dispatches."
+      description="Transitioning surveys from Draft to Published state, validation checks, and release management."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>
-          <strong>Publishing</strong> compiles a survey design into a production JSON schema payload, immediately releasing it to the contract creation wizard and active mobile app sync queues.
+          Publishing makes a survey blueprint active for contract dispatches.
         </p>
       </Section>
 
       <Section id="lifecycle-states" title="Draft vs Published States">
-        <div className="my-4 space-y-3">
+        <div className="space-y-3 my-4">
           <div className="p-3.5 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/5 dark:bg-[#0A0A0A]">
             <span className="px-2 py-0.5 rounded bg-ink-900/10 dark:bg-[#171717] text-ink-700 dark:text-[#E5E5E5] font-bold text-xs uppercase tracking-wider">Draft</span>
             <p className="text-xs text-ink-700 dark:text-[#E5E5E5] mt-1.5">Work-in-progress state. Admins can add, reorder, or edit fields freely without affecting live mobile dispatches.</p>
@@ -45,13 +44,6 @@ export default function PublishingPage() {
         <Callout type="important">
           Publishing locks active field IDs to preserve audit integrity for completed contract reports.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="publishing-survey-tutorial-video"
-          caption="Survey Publishing & Release Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

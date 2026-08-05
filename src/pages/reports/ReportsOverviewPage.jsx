@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 import MermaidDiagram from "../../components/MermaidDiagram";
 
 const toc = [
@@ -9,7 +8,6 @@ const toc = [
   { id: "key-modules", label: "Core Modules" },
   { id: "how-it-works", label: "How Data Flows" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ReportsOverviewPage() {
@@ -78,13 +76,6 @@ export default function ReportsOverviewPage() {
         <Callout type="best-practice" title="Best Practice">
           Author report templates using published field tags to ensure automated contract data population during mobile survey execution.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="reports-ecosystem-overview-tutorial-video"
-          caption="Reports Ecosystem Architecture Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

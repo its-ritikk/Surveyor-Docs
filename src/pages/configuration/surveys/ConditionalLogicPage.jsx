@@ -1,14 +1,12 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "rule-builder", label: "Visual Rule Builder" },
   { id: "supported-triggers", label: "Supported IF/THEN Triggers" },
   { id: "nested-logic", label: "Nested & Multi-Condition Logic" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ConditionalLogicPage() {
@@ -17,46 +15,37 @@ export default function ConditionalLogicPage() {
       path="/configuration/surveys/conditional-logic"
       eyebrow="Survey Builder"
       title="Conditional Logic"
-      description="Configure dynamic branching rules, IF/THEN question visibility, and threshold triggers."
+      description="Dynamic IF/THEN branching rules, field show/hide triggers, mandatory overrides, and nested logic."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>
-          <strong>Conditional Logic</strong> enables dynamic checklist behavior. Questions and section breaks automatically unhide, hide, or switch to mandatory status based on answers entered in previous steps.
+          <strong>Conditional Logic</strong> allows administrators to create dynamic inspection workflows that adapt based on surveyor answers.
         </p>
       </Section>
 
       <Section id="rule-builder" title="Visual Rule Builder">
         <p>
-          The rule builder interface lets administrators construct logic statements without writing code:
+          The Rule Builder provides a clean <strong>IF / THEN / ELSE</strong> visual constructor. Select a target trigger field, a condition operator (e.g. <code>EQUALS</code>, <code>GREATER THAN</code>, <code>CONTAINS</code>), and target actions.
         </p>
-        <div className="p-4 my-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] font-mono text-xs text-ink-800 dark:text-[#E5E5E5]">
-          IF [Cargo_Condition] EQUALS "Damaged" THEN UNHIDE [Damage_Photos] AND SET_REQUIRED [Damage_Description]
-        </div>
       </Section>
 
       <Section id="supported-triggers" title="Supported IF/THEN Triggers">
         <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
-          <li><strong>Dropdown Triggers:</strong> Unhide fields when specific options (e.g., 'Damaged') are selected.</li>
-          <li><strong>Numeric Threshold Triggers:</strong> Fire rules when numbers exceed bounds (e.g., Moisture &gt; 14.0%).</li>
-          <li><strong>Checkbox Fail Triggers:</strong> Mandate photo evidence when safety checkboxes are unchecked.</li>
+          <li><strong>Show / Hide Field:</strong> Dynamically reveals follow-up questions (e.g., IF <em>Damage = Yes</em>, THEN show <em>Damage Photo</em>).</li>
+          <li><strong>Require Field:</strong> Dynamically changes an optional field to mandatory based on risk parameters.</li>
+          <li><strong>Skip Step:</strong> Bypasses entire wizard steps if cargo type does not require specific testing.</li>
         </ul>
       </Section>
 
       <Section id="nested-logic" title="Nested &amp; Multi-Condition Logic">
         <p>
-          Supports AND / OR boolean logic combinations (e.g., IF <code>Cargo = Grain</code> AND <code>Moisture &gt; 14%</code> THEN trigger <code>High Moisture Warning</code>).
+          Combine multiple trigger rules using <code>AND</code> / <code>OR</code> boolean groups.
         </p>
         <Callout type="tip">
           Keep branching rules straightforward to ensure fast evaluation on mobile hardware.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="conditional-logic-tutorial-video"
-          caption="Conditional Logic Rule Builder Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

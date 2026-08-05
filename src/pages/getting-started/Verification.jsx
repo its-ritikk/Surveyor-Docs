@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -14,7 +13,6 @@ const toc = [
   { id: "important-notes", label: "Important Security Rules" },
   { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting & FAQs" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function Verification() {
@@ -128,13 +126,6 @@ export default function Verification() {
             </p>
           </div>
         </div>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="verification-tutorial-video"
-          caption="OTP Verification Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

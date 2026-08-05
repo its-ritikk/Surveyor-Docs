@@ -19,6 +19,17 @@ export default function DocImage({ path, imageKey, src, alt, caption }) {
         break;
       }
     }
+  } else if (path) {
+    const parentPath = path.substring(0, path.lastIndexOf("/"));
+    if (parentPath && mediaRegistry[parentPath]) {
+      const parentRegistry = mediaRegistry[parentPath];
+      for (const key in parentRegistry) {
+        if (parentRegistry[key]?.type === "image") {
+          imgObj = parentRegistry[key];
+          break;
+        }
+      }
+    }
   }
 
   if (!imgObj || !imgObj.src) return null;

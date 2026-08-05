@@ -2,7 +2,6 @@ import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -11,7 +10,6 @@ const toc = [
   { id: "report-actions", label: "Report Actions" },
   { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ReportsManagement() {
@@ -130,14 +128,6 @@ export default function ReportsManagement() {
             </p>
           </div>
         </div>
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="reports-management-tutorial-video"
-          caption="Reports Management Workspace & Viewer Overview Tutorial"
-        />
       </Section>
     </DocPage>
   );

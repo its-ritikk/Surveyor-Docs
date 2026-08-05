@@ -54,6 +54,18 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
       }
     }
 
+    if (path) {
+      const parentPath = path.substring(0, path.lastIndexOf("/"));
+      if (parentPath && mediaRegistry[parentPath]) {
+        const parentRegistry = mediaRegistry[parentPath];
+        for (const key in parentRegistry) {
+          if (parentRegistry[key]?.type === "video") {
+            return parentRegistry[key];
+          }
+        }
+      }
+    }
+
     const routeKey = path ? path.replace(/\//g, "-").replace(/^-/, "") + "-tutorial-video" : "";
     if (mediaRegistry[routeKey]) {
       return mediaRegistry[routeKey];
@@ -237,9 +249,6 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
     <div className="w-full">
       <div className="flex items-center justify-between text-[11px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2.5 select-none">
         <span>Tutorial Video</span>
-        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">
-          Companion
-        </span>
       </div>
 
       {/* SIDEBAR TUTORIAL VIDEO CARD */}
@@ -248,26 +257,26 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
           {/* Card Media Preview Header */}
           <div
             onClick={openPlayer}
-            className="relative aspect-video w-full cursor-pointer overflow-hidden bg-ink-900/10 dark:bg-[#000000] flex items-center justify-center"
+            className="relative aspect-video w-full cursor-pointer overflow-hidden bg-slate-950 dark:bg-black flex items-center justify-center"
           >
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-10" />
 
             {/* Mesh Grid Backdrop */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:12px_12px] group-hover:scale-110 transition-transform duration-500" />
+            <div className="absolute inset-0 opacity-25 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:12px_12px] group-hover:scale-110 transition-transform duration-500" />
 
             {/* Badges Bar */}
             <div className="absolute top-2.5 left-2.5 right-2.5 z-20 flex items-center justify-between pointer-events-none">
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 backdrop-blur-md flex items-center gap-1">
-                <Sparkles size={10} /> Tutorial
+              <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-950/85 text-cyan-300 border border-cyan-500/50 backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                <Sparkles size={11} className="text-cyan-400" /> Tutorial
               </span>
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold font-mono bg-black/60 text-white/90 border border-white/10 backdrop-blur-md">
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold font-mono bg-black/80 text-white border border-white/20 backdrop-blur-md shadow-md">
                 HD
               </span>
             </div>
 
             {/* Hover Animated Play Button Overlay */}
-            <div className="relative z-20 flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/20 dark:bg-cyan-500/30 text-cyan-400 border border-cyan-400/50 shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-black group-hover:border-cyan-400 transition-all duration-300">
+            <div className="relative z-20 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950/80 text-cyan-400 border border-cyan-400/60 shadow-lg shadow-cyan-500/25 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-black group-hover:border-cyan-400 transition-all duration-300">
               <Play size={20} className="ml-0.5 fill-current" />
             </div>
           </div>

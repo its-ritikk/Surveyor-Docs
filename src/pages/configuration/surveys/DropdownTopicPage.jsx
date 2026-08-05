@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 import { dropdownDocsDictionary } from "../../../data/dropdownDocsData";
 
 export default function DropdownTopicPage({ topicKey }) {
@@ -31,6 +32,32 @@ export default function DropdownTopicPage({ topicKey }) {
       {/* 1. OVERVIEW */}
       <Section id="overview" title="Overview">
         <p className="text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5]">{data.overview}</p>
+
+        {key === "overview" && (
+          <div className="my-6">
+            <p className="text-xs font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">
+              Survey Builder Property Inspector — 4 Configuration Drawer Tabs
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <DocImage
+                path="/configuration/surveys/field-dropdown"
+                imageKey="core-drawer"
+              />
+              <DocImage
+                path="/configuration/surveys/field-dropdown"
+                imageKey="options-drawer"
+              />
+              <DocImage
+                path="/configuration/surveys/field-dropdown"
+                imageKey="validations-drawer"
+              />
+              <DocImage
+                path="/configuration/surveys/field-dropdown"
+                imageKey="rules-drawer"
+              />
+            </div>
+          </div>
+        )}
       </Section>
 
       {/* 2. PURPOSE */}

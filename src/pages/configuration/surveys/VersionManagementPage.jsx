@@ -1,14 +1,12 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "revision-numbers", label: "Revision Numbers (v1.0 vs v2.0)" },
   { id: "backward-compatibility", label: "Backward Compatibility Rules" },
   { id: "cloning-restoring", label: "Version Cloning & Restoring" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function VersionManagementPage() {
@@ -19,6 +17,7 @@ export default function VersionManagementPage() {
       title="Version Management"
       description="Full revision history control (v1.0, v1.1, v2.0), backward compatibility rules, and version cloning."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>
@@ -46,13 +45,6 @@ export default function VersionManagementPage() {
         <Callout type="tip">
           Clone historical survey versions when creating similar checksheet blueprints for new port terminals.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="survey-version-management-tutorial-video"
-          caption="Survey Version Management Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

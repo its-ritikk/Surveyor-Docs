@@ -1,7 +1,6 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -14,7 +13,6 @@ const toc = [
   { id: "permissions", label: "User Permissions" },
   { id: "related", label: "Related Features" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function ExecutingSurvey() {
@@ -116,13 +114,6 @@ export default function ExecutingSurvey() {
         <Callout type="tip">
           Enable location permissions on your mobile device before launching the app, and review the clarity of uploaded photos prior to submitting checklist data.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="executing-survey-tutorial-video"
-          caption="Executing a Survey Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

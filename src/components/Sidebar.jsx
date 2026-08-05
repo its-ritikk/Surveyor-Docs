@@ -83,8 +83,8 @@ function SidebarLink({ item, depth = 0, onNavigate }) {
               isDirectActive
                 ? "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-semibold"
                 : isActive && hasChildren
-                ? "text-ink-900 dark:text-[#FFFFFF] font-semibold"
-                : "text-ink-600 dark:text-[#A3A3A3] hover:text-ink-900 dark:hover:text-[#FFFFFF] hover:bg-ink-900/[0.035] dark:hover:bg-[#171717] font-medium"
+                ? "text-ink-900 dark:text-[#FFFFFF] font-semibold hover:text-cyan-700 dark:hover:text-cyan-400 hover:bg-cyan-500/10"
+                : "text-ink-600 dark:text-[#A3A3A3] hover:text-cyan-700 dark:hover:text-cyan-400 hover:bg-cyan-500/10 font-medium"
             }`}
           >
             {depth > 0 && !hasChildren && (
@@ -92,7 +92,7 @@ function SidebarLink({ item, depth = 0, onNavigate }) {
                 className={`h-1.5 w-1.5 rounded-full shrink-0 transition-colors ${
                   isDirectActive
                     ? "bg-cyan-500 dark:bg-cyan-400"
-                    : "bg-ink-300 dark:bg-[#404040] group-hover:bg-ink-500 dark:group-hover:bg-[#737373]"
+                    : "bg-ink-300 dark:bg-[#404040] group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400"
                 }`}
               />
             )}
@@ -102,7 +102,7 @@ function SidebarLink({ item, depth = 0, onNavigate }) {
           <button
             type="button"
             onClick={toggleOpen}
-            className="flex-1 flex items-center justify-between px-2.5 py-[6.5px] text-[12px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider text-left hover:text-ink-900 dark:hover:text-[#FFFFFF] transition-colors"
+            className="flex-1 flex items-center justify-between px-2.5 py-[6.5px] text-[12px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider text-left hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors"
           >
             <span className="truncate">{item.label}</span>
           </button>
@@ -116,7 +116,7 @@ function SidebarLink({ item, depth = 0, onNavigate }) {
               toggleOpen(e);
             }}
             aria-label={`Toggle ${item.label}`}
-            className="p-1.5 text-ink-400 hover:text-ink-700 dark:text-[#737373] dark:hover:text-[#E5E5E5] transition-colors rounded hover:bg-ink-900/[0.04] dark:hover:bg-[#171717] shrink-0 mr-1"
+            className="p-1.5 text-ink-400 hover:text-cyan-700 dark:text-[#737373] dark:hover:text-cyan-400 transition-colors rounded hover:bg-cyan-500/10 shrink-0 mr-1"
           >
             <ChevronRight
               size={14}

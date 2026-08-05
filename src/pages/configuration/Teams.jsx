@@ -2,13 +2,11 @@ import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import Steps from "../../components/Steps";
 import FieldTable from "../../components/FieldTable";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "adding", label: "Adding a new team" },
   { id: "editing", label: "Editing a team" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function Teams() {
@@ -77,13 +75,6 @@ export default function Teams() {
           Delete a team only when you are certain it is not linked to any
           active contracts or planned surveys.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="teams-management-tutorial-video"
-          caption="Teams Management Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

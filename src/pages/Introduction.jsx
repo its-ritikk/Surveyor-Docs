@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DocPage, { Section } from "../components/DocPage";
 import Callout from "../components/Callout";
-import DocMedia from "../components/DocMedia";
 import {
   LayoutDashboard,
   FileText,
@@ -24,7 +23,6 @@ const toc = [
   { id: "important-notes", label: "Important Notes & Integration Scope" },
   { id: "best-practices", label: "Operational Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting & FAQs" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 const modules = [
@@ -104,26 +102,30 @@ export default function Introduction() {
 
       <Section id="platform" title="Platform &amp; Portal Architecture">
         <p>
-          The Surveyor Management System operates as an core module within the broader <strong>CargoClave Enterprise Ecosystem</strong>:
+          The Surveyor Management System operates as a core module within the broader <strong>CargoClave Enterprise Ecosystem</strong>:
         </p>
-        <div className="my-5 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 font-bold text-xs mb-3">
-              PORTAL
-            </span>
-            <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1">CargoClave Central Portal</h4>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400">
-              Provides Single Sign-On (SSO), organization tenant switching, user account provisioning, role assignment, and master data management (Port Terminals, Customer Registries, Vessel Masters).
-            </p>
+        <div className="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+          <div className="flex flex-col justify-between rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02] min-w-0 h-full">
+            <div>
+              <span className="inline-flex items-center justify-center rounded-md px-2.5 py-1 w-fit bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 font-bold text-[11px] uppercase tracking-wider mb-3 select-none">
+                PORTAL
+              </span>
+              <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1 break-words">CargoClave Central Portal</h4>
+              <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 break-words">
+                Provides Single Sign-On (SSO), organization tenant switching, user account provisioning, role assignment, and master data management (Port Terminals, Customer Registries, Vessel Masters).
+              </p>
+            </div>
           </div>
-          <div className="rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 font-bold text-xs mb-3">
-              SMS
-            </span>
-            <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1">Surveyor Management System</h4>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400">
-              Dedicated operational workspace for contract planning, surveyor dispatch, mobile checklist execution, quality review, and final PDF report generation.
-            </p>
+          <div className="flex flex-col justify-between rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02] min-w-0 h-full">
+            <div>
+              <span className="inline-flex items-center justify-center rounded-md px-2.5 py-1 w-fit bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 font-bold text-[11px] uppercase tracking-wider mb-3 select-none">
+                SMS
+              </span>
+              <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1 break-words">Surveyor Management System</h4>
+              <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 break-words">
+                Dedicated operational workspace for contract planning, surveyor dispatch, mobile checklist execution, quality review, and final PDF report generation.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
@@ -170,22 +172,24 @@ export default function Introduction() {
         <p className="mb-6">
           Explore the documentation for each functional area of the platform:
         </p>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
           {modules.map((m) => (
             <Link
               key={m.to}
               to={m.to}
-              className="group rounded-xl border border-ink-900/10 dark:border-white/10 p-5 hover:border-signal-300 dark:hover:border-signal-600 hover:shadow-card dark:hover:bg-white/[0.02] transition-all"
+              className="group flex flex-col justify-between rounded-xl border border-ink-900/10 dark:border-white/10 p-5 hover:border-signal-300 dark:hover:border-signal-600 hover:shadow-card dark:hover:bg-white/[0.02] transition-all min-w-0 h-full"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 group-hover:bg-signal-100 dark:group-hover:bg-signal-900/60 transition-colors">
-                <m.icon size={19} />
-              </span>
-              <p className="mt-3.5 font-display text-[15px] font-semibold text-ink-900 dark:text-slate-100">
-                {m.title}
-              </p>
-              <p className="mt-1 text-[13.5px] leading-6 text-ink-650 dark:text-slate-400">
-                {m.desc}
-              </p>
+              <div>
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 group-hover:bg-signal-100 dark:group-hover:bg-signal-900/60 transition-colors select-none">
+                  <m.icon size={19} />
+                </span>
+                <p className="mt-3.5 font-display text-[15px] font-semibold text-ink-900 dark:text-slate-100 break-words">
+                  {m.title}
+                </p>
+                <p className="mt-1 text-[13.5px] leading-6 text-ink-650 dark:text-slate-400 break-words">
+                  {m.desc}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
@@ -231,13 +235,6 @@ export default function Introduction() {
             </p>
           </div>
         </div>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="introduction-tutorial-video"
-          caption="System Introduction Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

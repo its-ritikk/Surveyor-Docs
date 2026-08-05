@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -9,7 +8,6 @@ const toc = [
   { id: "drop-zones", label: "Drop Target Highlights" },
   { id: "reordering-rules", label: "Reordering Rules & Indexing" },
   { id: "locked-zones", label: "Locked Zones & System Fields" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function DragAndDrop() {
@@ -17,31 +15,31 @@ export default function DragAndDrop() {
     <DocPage
       path="/configuration/surveys/drag-and-drop"
       eyebrow="Survey Builder"
-      title="Drag & Drop Architecture"
-      description="Detailed technical breakdown of drag-and-drop mechanics, drop targets, canvas reordering rules, and drag restrictions."
+      title="Drag & Drop Interface"
+      description="Visual canvas mechanics, field tile dragging, placement targets, reordering rules, and touch gestures."
       toc={toc}
     >
       <Section id="overview" title="Overview">
         <p>
-          The <strong>Drag &amp; Drop Engine</strong> powers the visual builder canvas. It handles HTML5 drag events, touch drag gestures, active drop zone highlights, and real-time position recalculations.
+          The Survey Builder features an intuitive HTML5 &amp; Touch-driven <strong>Drag &amp; Drop</strong> canvas interface.
         </p>
       </Section>
 
       <Section id="drag-handles" title="Drag Handles &amp; Gestures">
         <p>
-          Each field tile in the library palette and on the canvas features a dedicated <strong>6-dot drag handle icon</strong>. Tapping and holding or dragging the handle initiates the drag operation.
+          Every field tile in the left palette features a 6-dot drag handle. On desktop, click and hold the handle to lift the field tile. On mobile or tablet touchscreens, long-press for 200ms to initiate a drag operation.
         </p>
       </Section>
 
       <Section id="drop-zones" title="Drop Target Highlights">
         <p>
-          As a field is dragged across the canvas, valid <strong>Drop Target Zones</strong> illuminate with a cyan border and insertion line indicating where the field will land.
+          As you drag a tile over the Workflow Canvas, eligible drop target zones illuminate with a cyan outline. Drop target indicators insert placeholder gaps showing exactly where the field will land.
         </p>
       </Section>
 
       <Section id="reordering-rules" title="Reordering Rules &amp; Indexing">
         <p>
-          Dropping a field automatically recalculates sequential <code>display_order</code> indexes (1, 2, 3...) for all fields within that step. Moving a field between steps automatically updates its step parent ID.
+          Existing canvas fields can be reordered at any time by grabbing their drag handle and sliding them up or down. System field sequence indexes update automatically.
         </p>
       </Section>
 
@@ -52,13 +50,6 @@ export default function DragAndDrop() {
         <Callout type="warning">
           Attempting to drop non-compatible field types inside locked system header zones will reject the drop event and bounce the tile back to the palette.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="drag-and-drop-tutorial-video"
-          caption="Drag & Drop Canvas Mechanics Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

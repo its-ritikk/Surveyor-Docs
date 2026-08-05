@@ -17,6 +17,7 @@ export default function ValidationRulesPage() {
       title="Validation Rules"
       description="Deep dive into client-side validation rules, regex pattern matchers, email/phone syntax checks, and range bounds."
       toc={toc}
+      noMedia={true}
     >
       <Section id="overview" title="Overview">
         <p>

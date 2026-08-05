@@ -25,7 +25,6 @@ const toc = [
   { id: "versioning", label: "Versioning" },
   { id: "import-export", label: "Import & Export" },
   { id: "permissions", label: "Permissions" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function InspectionTemplates() {
@@ -500,15 +499,6 @@ export default function InspectionTemplates() {
             </tbody>
           </table>
         </div>
-
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ─────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="inspection-templates-tutorial-video"
-          caption="Inspection Templates Configuration Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

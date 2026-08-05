@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocMedia from "../../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "What is a Dropdown" },
@@ -11,7 +10,6 @@ const toc = [
   { id: "field-settings", label: "Field Settings (Required, Default, Placeholder)" },
   { id: "searchable", label: "Searchable Dropdowns" },
   { id: "best-practices", label: "Best Practices & Common Mistakes" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function FieldDropdownPage() {
@@ -130,14 +128,6 @@ export default function FieldDropdownPage() {
         <Callout type="warning" title="Common Mistake">
           Avoid putting more than 50 options in a static dropdown without enabling the Searchable setting.
         </Callout>
-      </Section>
-
-      {/* ── TUTORIAL VIDEO ────────────────────────────────────────────── */}
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="field-dropdown-tutorial-video"
-          caption="Dropdown Field Setup & Mobile Usage Tutorial Video"
-        />
       </Section>
     </DocPage>
   );

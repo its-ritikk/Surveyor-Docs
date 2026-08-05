@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import DocMedia from "../../components/DocMedia";
 import MermaidDiagram from "../../components/MermaidDiagram";
 
 const toc = [
@@ -15,7 +14,6 @@ const toc = [
   { id: "roles", label: "Role Responsibilities" },
   { id: "lifecycle", label: "Status Lifecycles" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function BusinessWorkflows() {
@@ -118,13 +116,6 @@ export default function BusinessWorkflows() {
         <Callout type="tip">
           Schedule template creation first. Designing comprehensive blueprints guarantees that surveyors receive correct checklist validation checks, and coordinators secure consistent PDF branding.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="business-workflows-tutorial-video"
-          caption="Business Workflows Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

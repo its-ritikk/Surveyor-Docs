@@ -21,14 +21,6 @@ export const mediaRegistry = {
       caption: "Selecting the Surveyor application card in the CargoClave Portal"
     }
   },
-  "/getting-started/roles": {
-    "surveyor": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/surveyor-workflow.png",
-      alt: "Surveyor role workflow",
-      caption: "Overview of surveyor check-ins and field activities"
-    }
-  },
   "/getting-started/workflows": {
     "e2e-workflow": {
       type: "image",
@@ -40,25 +32,59 @@ export const mediaRegistry = {
   "/operations/dashboard": {
     "overview": {
       type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/dashboard.png",
-      alt: "Operations dashboard layout",
-      caption: "Real-time coordinator dashboard with active dispatches and metrics"
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/dashboard-overview.png",
+      alt: "Operations Dashboard Overview UI",
+      caption: "Real-time Operations Dashboard layout displaying active survey contracts, coordinator quick actions, and terminal metrics"
+    },
+    "analytics": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/dashboard-analytics.png",
+      alt: "Dashboard Performance Analytics & Alerts UI",
+      caption: "Weekly performance analytics chart, SLA breach alerts, and real-time terminal exception console"
     }
   },
   "/operations/contracts": {
-    "creation": {
+    "overview": {
       type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/contract-wizard.png",
-      alt: "Contract dispatch wizard",
-      caption: "Five-step contract creation and surveyor dispatch editor"
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/contract-management-overview.png",
+      alt: "Contract Management Workspace Overview",
+      caption: "Contract Management workspace overview displaying active contracts list and operational status metrics"
+    },
+    "creation-commercial": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/contract-creation-commercial.png",
+      alt: "Create Contract - Template Selection & Commercial Details",
+      caption: "Inspection template selection, contract ID, contracting party, point of contact, and start/deadline dates"
+    },
+    "creation-execution": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/contract-creation-execution.png",
+      alt: "Create Contract - Shipment Details & Execution Plan Grid",
+      caption: "Shipment details, BL number, voyage details, execution plan grid, surveyor assignees, and contract activation controls"
     }
   },
   "/operations/inspection-review": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/review-console.png",
+      alt: "Inspection Review Console",
+      caption: "Inspection Review workspace detailing submitted checklists, status cards, and quality review controls"
+    }
+  },
+  "/operations/inspection-review/dashboard": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/inspection-review-dashboard.png",
+      alt: "Inspection Review Dashboard UI Workspace",
+      caption: "Inspection Review Dashboard displaying real-time status cards (Pending, In Progress, Submitted, Approved, Cond. Approved, Rejected), filter toolbar, and inspection queue list"
+    }
+  },
+  "/operations/inspection-review/details": {
     "details": {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/review-console.png",
-      alt: "Inspection audit console",
-      caption: "Supervisor review workspace detailing surveyor checkpoints and photographs"
+      alt: "Inspection Details Audit Console",
+      caption: "Inspection detail view displaying contract info cards, checklist field responses, GPS location verification, and evidence preview"
     }
   },
   "/configuration/surveys": {
@@ -67,6 +93,176 @@ export const mediaRegistry = {
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/builder-canvas.png",
       alt: "Survey builder workspace",
       caption: "The drag-and-drop canvas for structured checksheets design"
+    }
+  },
+  "/configuration/surveys/survey-steps": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/survey-steps.png",
+      alt: "Survey Steps Configuration UI Canvas",
+      caption: "Survey Steps builder workspace showing multi-step wizard sequence, step page titles, field ordering, and skip rule settings"
+    }
+  },
+  "/configuration/surveys/workflow-canvas": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/workflow-canvas.png",
+      alt: "Workflow Canvas Visual Design Surface UI",
+      caption: "Interactive visual design surface showing drag-and-drop canvas layout, drop zones, step section breaks, and field controls"
+    }
+  },
+  "/configuration/surveys/field-text": {
+    "canvas-placement": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-text-canvas-placement.png",
+      alt: "Text Field Placement on Survey Canvas UI",
+      caption: "Text Field placed inside Step 1 of the Survey Canvas with drag handles, settings, duplicate, and delete controls"
+    },
+    "validations-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-text-validations.png",
+      alt: "Text Field Configuration & Validations Drawer UI",
+      caption: "Field Configuration drawer detailing Custom, Format (Container Number, Seal Number), and Text Validations (Min/Max Length)"
+    }
+  },
+  "field-dropdown-overview-tutorial-video": {
+    type: "video",
+    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/dropdown-field-tutorial.mp4",
+    alt: "Dropdown Field configuration tutorial video",
+    caption: "Interactive video walkthrough of Dropdown field setup, option sets, search filter, and validation rules"
+  },
+  "field-checkbox-overview-tutorial-video": {
+    type: "video",
+    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/checkbox-field-tutorial.mp4",
+    alt: "Checkbox Field configuration tutorial video",
+    caption: "Interactive video walkthrough of Checkbox field setup, default states, safety compliance flags, and validation rules"
+  },
+  "/configuration/surveys/field-dropdown": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-workspace.png",
+      alt: "Dropdown Field Configuration Workspace UI",
+      caption: "Dropdown Field configuration interface showing menu label setup, option items, search filter, and validation settings"
+    },
+    "core-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-core.png",
+      alt: "Dropdown Core Settings Drawer UI",
+      caption: "Core Tab: Field name configuration and canvas container placement"
+    },
+    "options-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-options.png",
+      alt: "Dropdown Options & Data Source Drawer UI",
+      caption: "Options Tab: Unique selection rules, dynamic API data sources (Packing List, Contract, MDM), and static option items"
+    },
+    "validations-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-validations.png",
+      alt: "Dropdown Custom & Text Validations Drawer UI",
+      caption: "Validations Tab: Allowed Values, Disallowed Values, Expected Value, and Required * enforcement"
+    },
+    "rules-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-rules.png",
+      alt: "Dropdown Logic & Auto-Fill Rules Drawer UI",
+      caption: "Rules Tab: Visibility Rules (Source field, Comparator, Expected value) and Auto-fill rules"
+    },
+    "tutorial": {
+      type: "video",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/dropdown-field-tutorial.mp4",
+      alt: "Dropdown Field configuration tutorial video",
+      caption: "Interactive video walkthrough of Dropdown field setup, option sets, search filter, and validation rules"
+    }
+  },
+  "/configuration/surveys/field-date": {
+    "core-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-date-core.png",
+      alt: "Date Picker Core Settings & Available Fields Library UI",
+      caption: "Core Tab: Available Fields library (Date picker tile), Survey Canvas Step 1 placement, and Field name setting"
+    },
+    "validations-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-date-validations.png",
+      alt: "Date Picker Format & Text Validations Panel UI",
+      caption: "Validations Tab: Date Format Validations (Future Date Only, Past Date Only, Today or Future) and Required * enforcement"
+    },
+    "rules-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-date-rules.png",
+      alt: "Date Picker Logic & Auto-Fill Rules Panel UI",
+      caption: "Rules Tab: Logic Visibility Rules (Source field, Comparator Equals, Expected value) and Auto-fill rules"
+    }
+  },
+  "/configuration/surveys/field-photo": {
+    "core-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-photo-core.png",
+      alt: "Photo Upload Core Settings & Available Fields Library UI",
+      caption: "Core Tab: Available Fields library (Photo tile), Survey Canvas Step 1 placement, and Field name setting"
+    },
+    "validations-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-photo-validations.png",
+      alt: "Photo Upload Media Validations Panel UI",
+      caption: "Validations Tab: Media Validations (Minimum Files, Maximum Files, Camera Only, Max File Size MB, Quality)"
+    },
+    "rules-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-photo-rules.png",
+      alt: "Photo Upload Logic & Auto-Fill Rules Panel UI",
+      caption: "Rules Tab: Logic Visibility Rules (Source field, Comparator Equals, Expected value) and Auto-fill rules"
+    },
+    "media-drawer": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-photo-media.png",
+      alt: "Photo Upload Example Media Panel UI",
+      caption: "Media Tab: Example media reference upload and preview panel"
+    }
+  },
+  "/configuration/surveys/field-checkbox": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-checkbox-workspace.png",
+      alt: "Checkbox Field Configuration Workspace UI",
+      caption: "Checkbox Field configuration interface showing boolean toggle setup, default checked states, safety compliance flags, and validation rules"
+    },
+    "tutorial": {
+      type: "video",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-checkbox-tutorial.mp4",
+      alt: "Checkbox Field configuration tutorial video",
+      caption: "Interactive video walkthrough of Checkbox field setup, option sets, search filter, and validation rules"
+    }
+  },
+  "/configuration/inspection-templates/document-templates": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/document-templates-overview.png",
+      alt: "Document Templates Management Overview UI",
+      caption: "Document Templates Management Overview: Document library, template categories, and release versioning controls"
+    },
+    "tutorial": {
+      type: "video",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/document-templates-tutorial.mp4",
+      alt: "Document Templates Management Tutorial Video",
+      caption: "Interactive video walkthrough of Document Templates upload, library management, and version control"
+    }
+  },
+  "/configuration/inspection-templates/document-templates/overview": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/document-templates-overview.png",
+      alt: "Document Templates Overview Interface UI",
+      caption: "Document Templates Overview: Pre-attached reference manuals, SOP forms, and mandatory document attachments"
+    }
+  },
+  "/configuration/inspection-templates/document-templates/upload-documents": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/upload-documents.png",
+      alt: "Upload Documents Interface UI",
+      caption: "Upload Documents Interface: Drag-and-drop file upload zone, format validation, and document tagging"
     }
   },
   "/configuration/teams": {

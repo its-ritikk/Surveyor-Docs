@@ -1,7 +1,6 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -14,7 +13,6 @@ const toc = [
   { id: "permissions", label: "User Permissions" },
   { id: "related", label: "Related Features" },
   { id: "best-practices", label: "Best Practices" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function MobileOverview() {
@@ -115,13 +113,6 @@ export default function MobileOverview() {
         <Callout type="note">
           Keep the application running in the background while network coverage is low to allow the offline sync engine to sync pending files automatically when signal is recovered.
         </Callout>
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="mobile-overview-tutorial-video"
-          caption="Mobile Surveyor App Overview Video Tutorial"
-        />
       </Section>
     </DocPage>
   );

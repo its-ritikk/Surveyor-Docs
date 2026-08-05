@@ -1,12 +1,10 @@
 import DocPage, { Section } from "../../components/DocPage";
 import { StatusTable } from "../../components/StatusBits";
-import DocMedia from "../../components/DocMedia";
 
 const toc = [
   { id: "dashboard-kpis", label: "Dashboard KPI statuses" },
   { id: "inspection-status", label: "Inspection statuses" },
   { id: "log-types", label: "Log types" },
-  { id: "tutorial-video", label: "Tutorial Video" },
 ];
 
 export default function StatusGlossary() {
@@ -41,7 +39,8 @@ export default function StatusGlossary() {
             { label: "Pending", color: "slate", desc: "Planned but not yet started." },
             { label: "In Progress", color: "blue", desc: "Surveyor has begun work but not submitted yet." },
             { label: "Submitted", color: "amber", desc: "Surveyor has completed and submitted — needs review." },
-            { label: "Approved", color: "green", desc: "Reviewed and accepted." },
+            { label: "Approved", color: "green", desc: "Reviewed and accepted without conditions." },
+            { label: "Cond. Approved", color: "amber", desc: "Approved with conditional remarks or minor non-blocking overrides." },
             { label: "Rejected", color: "red", desc: "Not accepted — surveyor must correct and resubmit." },
           ]}
         />
@@ -54,13 +53,6 @@ export default function StatusGlossary() {
             { label: "App Activity", color: "teal", desc: "Mobile field events — form changes, inspection submissions." },
             { label: "Audit Logs", color: "purple", desc: "Record-level changes — contracts, surveys, templates, reports." },
           ]}
-        />
-      </Section>
-
-      <Section id="tutorial-video" title="Tutorial Video">
-        <DocMedia
-          mediaId="status-glossary-tutorial-video"
-          caption="Status Glossary Video Tutorial"
         />
       </Section>
     </DocPage>
