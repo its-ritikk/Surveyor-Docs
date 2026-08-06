@@ -190,14 +190,38 @@ export const nav = [
             to: "/configuration/inspection-templates/workflow-stages/overview",
             children: [
               { label: "Overview", to: "/configuration/inspection-templates/workflow-stages/overview" },
-              { label: "Create Stage", to: "/configuration/inspection-templates/workflow-stages/create-stage" },
-              { label: "Edit Stage", to: "/configuration/inspection-templates/workflow-stages/edit-stage" },
-              { label: "Delete Stage", to: "/configuration/inspection-templates/workflow-stages/delete-stage" },
-              { label: "Stage Ordering", to: "/configuration/inspection-templates/workflow-stages/stage-ordering" },
-              { label: "Approval Stage", to: "/configuration/inspection-templates/workflow-stages/approval-stage" },
-              { label: "Review Stage", to: "/configuration/inspection-templates/workflow-stages/review-stage" },
-              { label: "Dependencies", to: "/configuration/inspection-templates/workflow-stages/stage-dependencies" },
-              { label: "Validation", to: "/configuration/inspection-templates/workflow-stages/stage-validation" },
+              {
+                label: "Stage Configuration",
+                to: "/configuration/inspection-templates/workflow-stages/stage-configuration",
+                children: [
+                  { label: "Stage Properties", to: "/configuration/inspection-templates/workflow-stages/stage-properties" },
+                  { label: "Cargo & Process Mapping", to: "/configuration/inspection-templates/workflow-stages/cargo-process-mapping" },
+                  { label: "Entity Scope", to: "/configuration/inspection-templates/workflow-stages/entity-scope" },
+                ],
+              },
+              {
+                label: "Stage Sequence",
+                to: "/configuration/inspection-templates/workflow-stages/stage-sequence",
+                children: [
+                  { label: "Execution Order", to: "/configuration/inspection-templates/workflow-stages/execution-order" },
+                  { label: "Independent Stages", to: "/configuration/inspection-templates/workflow-stages/independent-stages" },
+                  { label: "Stage Dependencies", to: "/configuration/inspection-templates/workflow-stages/stage-dependencies" },
+                ],
+              },
+              {
+                label: "Stage Execution",
+                to: "/configuration/inspection-templates/workflow-stages/stage-execution",
+                children: [
+                  { label: "Survey Assignment", to: "/configuration/inspection-templates/workflow-stages/survey-assignment" },
+                  { label: "Survey Execution", to: "/configuration/inspection-templates/workflow-stages/survey-execution" },
+                  { label: "Required Evidence", to: "/configuration/inspection-templates/workflow-stages/required-evidence" },
+                  { label: "Completion Criteria", to: "/configuration/inspection-templates/workflow-stages/completion-criteria" },
+                ],
+              },
+              { label: "Validation", to: "/configuration/inspection-templates/workflow-stages/validation" },
+              { label: "Permissions", to: "/configuration/inspection-templates/workflow-stages/permissions" },
+              { label: "Best Practices", to: "/configuration/inspection-templates/workflow-stages/best-practices" },
+              { label: "Troubleshooting", to: "/configuration/inspection-templates/workflow-stages/troubleshooting" },
             ],
           },
 
@@ -377,7 +401,6 @@ export const nav = [
         to: "/logs/overview",
         children: [
           { label: "Overview", to: "/logs/overview" },
-          { label: "Activity Logs", to: "/logs/activity-logs" },
           { label: "Audit Logs", to: "/logs/audit-logs" },
           { label: "Search & Filters", to: "/logs/search-and-filters" },
           { label: "Log Details", to: "/logs/log-details" },

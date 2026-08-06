@@ -66,9 +66,9 @@ export default function ReportsOverviewPage() {
         </p>
         <MermaidDiagram
           chart={`flowchart TD
-    A[1. Workflow Reports\nAuthor Template Layouts] --> B[2. Inspection Template Reports\nBind & Map Field Tags]
-    B --> C[3. Contract Reports\nMobile Capture & Live Execution]
-    C --> D[4. Reports Management\nMaster Register & PDF Exports]`}
+    A["1. Workflow Reports<br/>Author Template Layouts"] --> B["2. Inspection Template Reports<br/>Bind & Map Field Tags"]
+    B --> C["3. Contract Reports<br/>Mobile Capture & Live Execution"]
+    C --> D["4. Reports Management<br/>Register & PDF Exports"]`}
         />
       </Section>
 

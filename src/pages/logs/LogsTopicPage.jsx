@@ -93,8 +93,8 @@ export default function LogsTopicPage({ topicKey }) {
       <Section id="related-modules" title="Related Modules">
         <p className="text-xs text-ink-600 dark:text-[#A3A3A3] mb-3">Explore related documentation sections:</p>
         <div className="grid gap-2 sm:grid-cols-3 text-xs font-medium">
-          <Link to="/logs/activity-logs" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
-            Activity Logs →
+          <Link to="/logs/search-and-filters" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
+            Search &amp; Filters →
           </Link>
           <Link to="/logs/audit-logs" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
             Audit Logs →

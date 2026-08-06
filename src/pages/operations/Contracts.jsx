@@ -67,7 +67,7 @@ export default function Contracts() {
             Start from a reusable inspection template to pre-fill cargo details, survey checklists, and report formats. All fields remain customizable before contract activation.
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
-            <li><strong>Shipment Type (Filter):</strong> Filters template library by shipment direction (e.g., <em>Export</em>, <em>Import</em>, <em>Transshipment</em>).</li>
+            <li><strong>Shipment Type (Filter):</strong> Filters template library by shipment direction (e.g., <em>Export</em>, <em>Import</em>).</li>
             <li><strong>Cargo Type (Filter):</strong> Filters template library by cargo classification (e.g., <em>Containerized</em>, <em>Break Bulk</em>, <em>Liquid Bulk</em>).</li>
             <li><strong>Template Dropdown:</strong> Select a pre-configured template or select <code>CUSTOM</code> to construct a blank dispatch layout from scratch.</li>
           </ul>
@@ -119,7 +119,7 @@ export default function Contracts() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
               <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Shipment Type <span className="text-red-500">*</span></strong>
-              <span className="text-ink-650 dark:text-slate-400">Select Export, Import, or Transshipment movement.</span>
+              <span className="text-ink-650 dark:text-slate-400">Select Export or Import movement.</span>
             </div>
             <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
               <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Cargo Type <span className="text-red-500">*</span></strong>

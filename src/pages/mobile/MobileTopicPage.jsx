@@ -99,8 +99,8 @@ export default function MobileTopicPage({ topicKey }) {
           <Link to="/configuration/inspection-templates/overview" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
             Inspection Templates →
           </Link>
-          <Link to="/logs/activity-logs" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
-            App Activity Logs →
+          <Link to="/logs/overview" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
+            System Audit Logs →
           </Link>
         </div>
       </Section>

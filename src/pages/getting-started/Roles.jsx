@@ -104,24 +104,33 @@ export default function Roles() {
           {roleCards.map((r) => (
             <div
               key={r.role}
-              className="rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-white dark:bg-[#0A0A0A] shadow-sm flex flex-col justify-between"
+              className="rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-white dark:bg-[#0A0A0A] shadow-sm hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
-                    <r.icon size={18} />
+                {/* Top Bar: Icon Badge (Left) + Scope Tag (Right) */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400">
+                    <r.icon size={20} />
                   </span>
-                  <div>
-                    <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100">{r.role}</h4>
-                    <span className="text-[10px] font-mono text-cyan-700 dark:text-cyan-400 font-semibold">
-                      {r.scope}
-                    </span>
-                  </div>
+                  <span className="px-2.5 py-1 rounded-md text-[10.5px] font-mono font-semibold bg-cyan-500/10 dark:bg-cyan-500/15 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20 select-none">
+                    {r.scope}
+                  </span>
                 </div>
-                <p className="text-xs leading-5 text-ink-650 dark:text-slate-400">{r.desc}</p>
+
+                {/* Role Title Heading */}
+                <h4 className="font-bold text-[14.5px] text-ink-900 dark:text-slate-100 leading-snug uppercase tracking-wide min-h-[2.6rem] flex items-center mb-2">
+                  {r.role}
+                </h4>
+
+                {/* Role Description */}
+                <p className="text-xs leading-relaxed text-ink-650 dark:text-slate-400">
+                  {r.desc}
+                </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-ink-900/5 dark:border-white/5 flex items-center justify-between text-[11px]">
-                <span className="text-ink-500 dark:text-slate-400">Type</span>
+
+              {/* Card Footer */}
+              <div className="mt-5 pt-3 border-t border-ink-900/10 dark:border-white/10 flex items-center justify-between text-[11px]">
+                <span className="text-ink-500 dark:text-slate-400 font-medium">Type</span>
                 <span className={r.isBuiltIn ? "font-semibold text-cyan-600 dark:text-cyan-400" : "font-semibold text-amber-600 dark:text-amber-400"}>
                   {r.isBuiltIn ? "Built-in Role" : "Portal Configured"}
                 </span>

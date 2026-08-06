@@ -40,9 +40,13 @@ export default function MermaidDiagram({ chart }) {
 
     const renderChart = async () => {
       try {
-        setSvg("");
-        const { svg: renderedSvg } = await mermaid.render(uniqueId.current, chart);
+        let { svg: renderedSvg } = await mermaid.render(uniqueId.current, chart);
         
+        // Ensure responsive width scaling
+        renderedSvg = renderedSvg
+          .replace(/width="[^"]*"/, 'width="100%"')
+          .replace(/style="max-width:[^"]*"/, 'style="max-width:100%;"');
+
         if (isMounted) {
           setSvg(renderedSvg);
         }
@@ -79,7 +83,7 @@ export default function MermaidDiagram({ chart }) {
     <div className="my-6 flex justify-center w-full overflow-x-auto py-2">
       {svg ? (
         <div 
-          className="w-full max-w-full text-center"
+          className="w-full max-w-full text-center overflow-x-auto [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:mx-auto [&>svg]:block"
           dangerouslySetInnerHTML={{ __html: svg }} 
         />
       ) : (

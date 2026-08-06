@@ -69,7 +69,6 @@ import FlatTableElement from "./pages/reports/report-builder/elements/FlatTableE
 import PivotTableElement from "./pages/reports/report-builder/elements/PivotTableElement";
 import CustomTableElement from "./pages/reports/report-builder/elements/CustomTableElement";
 
-import ActivityLogs from "./pages/logs/ActivityLogs";
 import AuditLogs from "./pages/logs/AuditLogs";
 import LogsTopicPage from "./pages/logs/LogsTopicPage";
 
@@ -188,15 +187,23 @@ export default function App() {
 
             {/* Workflow Stages */}
             <Route path="/configuration/inspection-templates/workflow-stages/overview" element={<TemplateTopicPage topicKey="workflow-stages/overview" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/create-stage" element={<TemplateTopicPage topicKey="workflow-stages/create-stage" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/edit-stage" element={<TemplateTopicPage topicKey="workflow-stages/edit-stage" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/delete-stage" element={<TemplateTopicPage topicKey="workflow-stages/delete-stage" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-ordering" element={<TemplateTopicPage topicKey="workflow-stages/stage-ordering" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/sequence-numbers" element={<TemplateTopicPage topicKey="workflow-stages/sequence-numbers" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/approval-stage" element={<TemplateTopicPage topicKey="workflow-stages/approval-stage" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/review-stage" element={<TemplateTopicPage topicKey="workflow-stages/review-stage" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/stage-configuration" element={<TemplateTopicPage topicKey="workflow-stages/stage-configuration" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/stage-properties" element={<TemplateTopicPage topicKey="workflow-stages/stage-properties" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/cargo-process-mapping" element={<TemplateTopicPage topicKey="workflow-stages/cargo-process-mapping" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/entity-scope" element={<TemplateTopicPage topicKey="workflow-stages/entity-scope" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/stage-sequence" element={<TemplateTopicPage topicKey="workflow-stages/stage-sequence" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/execution-order" element={<TemplateTopicPage topicKey="workflow-stages/execution-order" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/independent-stages" element={<TemplateTopicPage topicKey="workflow-stages/independent-stages" />} />
             <Route path="/configuration/inspection-templates/workflow-stages/stage-dependencies" element={<TemplateTopicPage topicKey="workflow-stages/stage-dependencies" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-validation" element={<TemplateTopicPage topicKey="workflow-stages/stage-validation" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/stage-execution" element={<TemplateTopicPage topicKey="workflow-stages/stage-execution" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/survey-assignment" element={<TemplateTopicPage topicKey="workflow-stages/survey-assignment" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/survey-execution" element={<TemplateTopicPage topicKey="workflow-stages/survey-execution" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/required-evidence" element={<TemplateTopicPage topicKey="workflow-stages/required-evidence" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/completion-criteria" element={<TemplateTopicPage topicKey="workflow-stages/completion-criteria" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/validation" element={<TemplateTopicPage topicKey="workflow-stages/validation" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/permissions" element={<TemplateTopicPage topicKey="workflow-stages/permissions" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/best-practices" element={<TemplateTopicPage topicKey="workflow-stages/best-practices" />} />
+            <Route path="/configuration/inspection-templates/workflow-stages/troubleshooting" element={<TemplateTopicPage topicKey="workflow-stages/troubleshooting" />} />
 
             {/* Contract Fields */}
             <Route path="/configuration/inspection-templates/contract-fields/overview" element={<TemplateTopicPage topicKey="contract-fields/overview" />} />
@@ -313,7 +320,6 @@ export default function App() {
 
             {/* Logs & Analytics Sub-Topic Routes */}
             <Route path="/logs/overview" element={<LogsTopicPage topicKey="overview" />} />
-            <Route path="/logs/activity-logs" element={<ActivityLogs />} />
             <Route path="/logs/audit-logs" element={<AuditLogs />} />
             <Route path="/logs/search-and-filters" element={<LogsTopicPage topicKey="search-and-filters" />} />
             <Route path="/logs/log-details" element={<LogsTopicPage topicKey="log-details" />} />

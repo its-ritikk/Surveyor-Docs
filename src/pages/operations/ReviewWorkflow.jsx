@@ -145,7 +145,7 @@ export default function ReviewWorkflow() {
       {/* ── ACTIVITY TIMELINE ────────────────────────────────────────────── */}
       <Section id="activity-timeline" title="Activity Timeline">
         <p>
-          The <strong>Activity Timeline</strong> displays a tamper-proof chronological audit trail recording every event in the inspection lifecycle. All user interactions within the Inspection Review module are automatically recorded. Activity logs are also accessible via the <Link to="/logs/activity-logs" className="text-cyan-600 dark:text-cyan-400 underline">Activity Logs</Link> section.
+          The <strong>Activity Timeline</strong> displays a tamper-proof chronological audit trail recording every event in the inspection lifecycle. All user interactions within the Inspection Review module are automatically recorded. Audit logs are also accessible via the <Link to="/logs/audit-logs" className="text-cyan-600 dark:text-cyan-400 underline">Audit Logs</Link> section.
         </p>
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-3">Timeline Events</h4>

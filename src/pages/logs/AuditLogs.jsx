@@ -47,7 +47,6 @@ export default function AuditLogs() {
       <Section id="comparison" title="Quick comparison">
         <StatusTable
           rows={[
-            { label: "Activity Logs", color: "blue", desc: "Web UI interactions — page views, button clicks, navigation." },
             { label: "App Activity", color: "teal", desc: "Mobile field events — form changes, inspection submissions." },
             { label: "Audit Logs", color: "purple", desc: "Record-level changes — contracts, surveys, templates, reports." },
           ]}

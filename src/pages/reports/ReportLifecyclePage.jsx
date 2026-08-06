@@ -31,9 +31,9 @@ export default function ReportLifecyclePage() {
       <Section id="lifecycle-diagram" title="Lifecycle Diagram">
         <MermaidDiagram
           chart={`flowchart LR
-    A[Stage 1: Workflow Reports\nAuthor Layouts] --> B[Stage 2: Template Reports\nMap Survey Fields]
-    B --> C[Stage 3: Contract Reports\nExecute & Populate]
-    C --> D[Stage 4: Reports Management\nMaster Register & Dispatch]`}
+    A["Stage 1: Workflow Reports<br/>Author Layouts"] --> B["Stage 2: Template Reports<br/>Map Survey Fields"]
+    B --> C["Stage 3: Contract Reports<br/>Execute & Populate"]
+    C --> D["Stage 4: Reports Management"]`}
         />
       </Section>
 

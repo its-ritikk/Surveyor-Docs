@@ -236,12 +236,6 @@ export const mediaRegistry = {
     }
   },
   "/configuration/inspection-templates/document-templates": {
-    "overview": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/document-templates-overview.png",
-      alt: "Document Templates Management Overview UI",
-      caption: "Document Templates Management Overview: Document library, template categories, and release versioning controls"
-    },
     "tutorial": {
       type: "video",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/document-templates-tutorial.mp4",
@@ -265,20 +259,98 @@ export const mediaRegistry = {
       caption: "Upload Documents Interface: Drag-and-drop file upload zone, format validation, and document tagging"
     }
   },
+  "/configuration/inspection-templates": {
+    "tutorial": {
+      type: "video",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/inspection-templates-tutorial.mp4",
+      alt: "Inspection Templates Master Configuration & Workflow Tutorial Video",
+      caption: "Interactive video walkthrough of Inspection Templates, template lifecycle, survey selection, workflow stages, contract field mapping, document templates, and report builder integration"
+    },
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/templates.png",
+      alt: "Inspection templates list",
+      caption: "Managing pre-defined survey checklist templates for logistics lines"
+    }
+  },
+  "/configuration/inspection-templates/overview": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/inspection-templates-overview.png",
+      alt: "Inspection Templates Master Blueprint Workspace UI",
+      caption: "Inspection Templates Designer: Combining Survey Builder, Contract Fields, Document Templates, and Report Builder into reusable blueprints"
+    }
+  },
+  "/configuration/inspection-templates/report-builder-integration/overview": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-builder-step4.png",
+      alt: "New Inspection Template Step 4 Report Builder Workspace UI",
+      caption: "Step 4 Report Builder: Package builder interface featuring '+ Add Report Template' action button, template package draft controls, and 'Publish Template' release button"
+    }
+  },
+  "/configuration/inspection-templates/report-builder-integration/select-report-template": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/new-report-template-modal.png",
+      alt: "New Report Template Creation Modal UI",
+      caption: "New Report Template Modal: Choosing between 'Blank Report' (start from scratch) or 'Supervision Report (Predefined)' (prebuilt structure with auto-filled tables for header facts, weighment, de-stuffing, lot summary, and sampling)"
+    }
+  },
+  "/configuration/inspection-templates/report-builder-integration/report-layout": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/blank-report-designer.png",
+      alt: "Blank Report Designer Canvas & Live Report Preview UI",
+      caption: "Blank Report Designer: Report Content toolbar (Text Box, Data Table, Label / Value, Signatures, Group, Photo Grid) and dual-pane Live Report Preview displaying header letterhead and client footer boundaries"
+    }
+  },
+  "/configuration/inspection-templates/report-builder-integration/field-mapping": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/supervision-report-mapping.png",
+      alt: "Predefined Supervision Report Section Mapping & Live Preview UI",
+      caption: "Predefined Supervision Report Designer: Structured section cards (Primary Details, Equipment Details, Container Weighment Details, De-stuffing Details) bound live to PDF preview table"
+    }
+  },
+  "/configuration/inspection-templates/survey-selection/overview": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/survey-selection-overview.png",
+      alt: "Survey Selection Overview Interface UI",
+      caption: "Survey Selection Overview: Binding published survey checklists, setting sequence order, and mandatory flags"
+    }
+  },
+  "/configuration/inspection-templates/survey-selection/survey-library": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/survey-library.png",
+      alt: "Survey Library Catalog UI",
+      caption: "Survey Library Catalog: Browsing published survey check-sheets, searching by commodity, and question preview"
+    }
+  },
+  "/configuration/inspection-templates/survey-selection/assign-survey": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/assign-survey.png",
+      alt: "Assign Survey Interface UI",
+      caption: "Assign Survey Interface: Binding selected survey checklists to active template payload"
+    }
+  },
+  "/configuration/inspection-templates/survey-selection/remove-survey": {
+    "overview": {
+      type: "image",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/remove-survey.png",
+      alt: "Remove Survey Action UI",
+      caption: "Remove Survey Action: Unbinding survey checklists from draft template configurations and sequence re-indexing"
+    }
+  },
   "/configuration/teams": {
     "overview": {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/teams-setup.png",
       alt: "Teams management setup",
       caption: "Creating inspector groupings and assigning port supervisor coverage"
-    }
-  },
-  "/configuration/inspection-templates": {
-    "overview": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/templates.png",
-      alt: "Inspection templates list",
-      caption: "Managing pre-defined survey checklist templates for logistics lines"
     }
   },
   "/reports/report-builder": {
@@ -561,14 +633,6 @@ export const mediaRegistry = {
     alt: "Reports Management Video Tutorial",
     caption: "Reports Management Workspace & Viewer Overview Tutorial"
   },
-  "/logs/activity-logs": {
-    "overview": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/activity-logs.png",
-      alt: "Activity audit logs",
-      caption: "Audit trail logging user modifications, login events, and template saves"
-    }
-  },
   "/logs/audit-logs": {
     "overview": {
       type: "image",
@@ -626,71 +690,5 @@ export const mediaRegistry = {
     src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/mobile-troubleshooting-demo.mp4",
     alt: "Mobile Troubleshooting Video Tutorial",
     caption: "Mobile Surveyor Troubleshooting Video Tutorial"
-  },
-  "logs-overview-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-overview-demo.mp4",
-    alt: "Logs & Analytics Overview Video Tutorial",
-    caption: "Logs & Analytics Overview Video Tutorial"
-  },
-  "logs-activity-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-activity-demo.mp4",
-    alt: "Activity Logs Video Tutorial",
-    caption: "Activity Logs Navigation Video Tutorial"
-  },
-  "logs-audit-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-audit-demo.mp4",
-    alt: "Audit Logs Video Tutorial",
-    caption: "Audit Logs Compliance Video Tutorial"
-  },
-  "logs-search-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-search-demo.mp4",
-    alt: "Logs Search & Filters Video Tutorial",
-    caption: "Logs Search & Filters Video Tutorial"
-  },
-  "logs-details-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-details-demo.mp4",
-    alt: "Log Details Inspector Video Tutorial",
-    caption: "Log Details & JSON Delta Inspector Video Tutorial"
-  },
-  "logs-bestpractices-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-bestpractices-demo.mp4",
-    alt: "Logs Best Practices Video Tutorial",
-    caption: "Logs & Analytics Best Practices Video Tutorial"
-  },
-  "logs-troubleshooting-tutorial-video": {
-    type: "video",
-    src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/logs-troubleshooting-demo.mp4",
-    alt: "Logs Troubleshooting Video Tutorial",
-    caption: "Logs & Analytics Troubleshooting Video Tutorial"
-  },
-  "/reference/status-glossary": {
-    "inspection-status": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/status-glossary.png",
-      alt: "Status workflow glossary",
-      caption: "Standard status workflow transitions from Draft to Finalized"
-    }
-  },
-  "/reference/terminology": {
-    "terms": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/terminology.png",
-      alt: "Key terms glossary",
-      caption: "Definition table for contracts, inspect runs, and surveys"
-    }
-  },
-  "/reference/rules": {
-    "rules": {
-      type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/rules.png",
-      alt: "Platform operational rules",
-      caption: "Security rules and audit checklists enforced at port terminals"
-    }
   }
 };

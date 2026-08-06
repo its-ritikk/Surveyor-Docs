@@ -45,24 +45,20 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
       return mediaRegistry[mediaId];
     }
 
-    if (path && mediaRegistry[path]) {
-      const pageRegistry = mediaRegistry[path];
-      for (const key in pageRegistry) {
-        if (pageRegistry[key]?.type === "video") {
-          return pageRegistry[key];
-        }
-      }
-    }
-
     if (path) {
-      const parentPath = path.substring(0, path.lastIndexOf("/"));
-      if (parentPath && mediaRegistry[parentPath]) {
-        const parentRegistry = mediaRegistry[parentPath];
-        for (const key in parentRegistry) {
-          if (parentRegistry[key]?.type === "video") {
-            return parentRegistry[key];
+      let currentPath = path;
+      while (currentPath) {
+        if (mediaRegistry[currentPath]) {
+          const registry = mediaRegistry[currentPath];
+          for (const key in registry) {
+            if (registry[key]?.type === "video") {
+              return registry[key];
+            }
           }
         }
+        const lastSlash = currentPath.lastIndexOf("/");
+        if (lastSlash <= 0) break;
+        currentPath = currentPath.substring(0, lastSlash);
       }
     }
 
@@ -77,7 +73,7 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
   const SAMPLE_MP4 = "https://s3.amazonaws.com/cargoclave-surveyor-assets/otp-tutorial.mp4";
 
   const videoInfo = getVideoInfo();
-  const hasVideo = Boolean(videoInfo || mediaId || path);
+  const hasVideo = Boolean(videoInfo || mediaId);
   const videoSrc = videoInfo?.src || SAMPLE_MP4;
   const title = videoInfo?.caption || `${pageTitle || "Feature"} Walkthrough`;
   const description = videoInfo?.alt || "Interactive step-by-step video guide.";
@@ -244,6 +240,11 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
       if (isPlaying) setShowControls(false);
     }, 2500);
   };
+
+  // Do not render video card if no video is registered for this route or parent hierarchy
+  if (!videoInfo && !mediaId) {
+    return null;
+  }
 
   return (
     <div className="w-full">

@@ -142,7 +142,7 @@ export default function InspectionDashboard() {
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Filter by Type</td>
-                <td className="p-2.5">Dropdown to filter by shipment/inspection type badge (e.g., Export, Import, Transshipment).</td>
+                <td className="p-2.5">Dropdown to filter by shipment/inspection type badge (e.g., Export, Import).</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Filter by Surveyor</td>
@@ -191,7 +191,7 @@ export default function InspectionDashboard() {
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">TYPE</td>
-                <td className="p-2.5">Shipment type badge — <code>Export</code>, <code>Import</code>, or <code>Transshipment</code>.</td>
+                <td className="p-2.5">Shipment type badge — <code>Export</code> or <code>Import</code>.</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">CONTRACT</td>

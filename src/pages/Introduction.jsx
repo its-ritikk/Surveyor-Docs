@@ -59,8 +59,8 @@ const modules = [
   {
     icon: History,
     title: "Logs & Analytics",
-    desc: "Maintains comprehensive web UI activity trails and system-wide database audit records for full governance compliance.",
-    to: "/logs/activity-logs",
+    desc: "Maintains comprehensive system-wide database audit records for full governance compliance.",
+    to: "/logs/overview",
   },
   {
     icon: Smartphone,
