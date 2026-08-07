@@ -1,5 +1,4 @@
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
 
 const toc = [
@@ -12,7 +11,6 @@ const toc = [
   { id: "validations", label: "Validation Rules" },
   { id: "permissions", label: "User Permissions" },
   { id: "related", label: "Related Features" },
-  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function MobileOverview() {
@@ -49,7 +47,7 @@ export default function MobileOverview() {
         <ul className="list-disc pl-5 space-y-1.5 my-4">
           <li><strong>Home Dashboard</strong> — Displays workload metrics, sync indicators, and recent dispatcher alerts.</li>
           <li><strong>Contracts Register</strong> — Lists assigned jobs, showing planned locations and cargo parameters.</li>
-          <li><strong>Checksheet Canvas</strong> — Renders checklist questions and maps witness signature pads.</li>
+          <li><strong>Checksheet Form</strong> — Renders checklist questions and maps witness signature pads.</li>
           <li><strong>Local Database</strong> — Implements offline sqlite storage for background synchronization.</li>
         </ul>
       </Section>
@@ -107,12 +105,6 @@ export default function MobileOverview() {
           <li><a href="/operations/contracts">Contract Management</a> — Where dispatchers plan activities and assign surveyors.</li>
           <li><a href="/operations/inspection-review">Inspection Review</a> — Where supervisors verify coordinates and approve or reject submissions.</li>
         </ul>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="note">
-          Keep the application running in the background while network coverage is low to allow the offline sync engine to sync pending files automatically when signal is recovered.
-        </Callout>
       </Section>
     </DocPage>
   );

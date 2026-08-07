@@ -155,7 +155,7 @@ export default function CustomTable() {
 
       <Section id="export" title="Export Behaviour">
         <p>
-          Custom Tables enforce static pixel or percentage widths on PDF generation. This prevents column clipping or text truncation on printed paper, ensuring that manually defined column proportions are preserved exactly in the exported document.
+          Custom Tables enforce static pixel or percentage widths on report generation. This prevents column clipping or text truncation on printed paper, ensuring that manually defined column proportions are preserved exactly in the exported document.
         </p>
         <Callout type="note">
           Set column widths as percentages (e.g. 20%, 40%, 40%) rather than fixed pixels to ensure the table spans correctly across both A4 and Letter paper formats.

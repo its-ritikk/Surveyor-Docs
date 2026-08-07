@@ -16,12 +16,12 @@ export default function DragAndDrop() {
       path="/configuration/surveys/drag-and-drop"
       eyebrow="Survey Builder"
       title="Drag & Drop Interface"
-      description="Visual canvas mechanics, field tile dragging, placement targets, reordering rules, and touch gestures."
+      description="Visual designer mechanics, field tile dragging, placement targets, reordering rules, and touch gestures."
       toc={toc}
     >
       <Section id="overview" title="Overview">
         <p>
-          The Survey Builder features an intuitive HTML5 &amp; Touch-driven <strong>Drag &amp; Drop</strong> canvas interface.
+          The Survey Builder features an intuitive HTML5 &amp; Touch-driven <strong>Drag &amp; Drop</strong> builder interface.
         </p>
       </Section>
 
@@ -33,13 +33,13 @@ export default function DragAndDrop() {
 
       <Section id="drop-zones" title="Drop Target Highlights">
         <p>
-          As you drag a tile over the Workflow Canvas, eligible drop target zones illuminate with a cyan outline. Drop target indicators insert placeholder gaps showing exactly where the field will land.
+          As you drag a tile over the Workflow design area, eligible drop target zones illuminate with a cyan outline. Drop target indicators insert placeholder gaps showing exactly where the field will land.
         </p>
       </Section>
 
       <Section id="reordering-rules" title="Reordering Rules &amp; Indexing">
         <p>
-          Existing canvas fields can be reordered at any time by grabbing their drag handle and sliding them up or down. System field sequence indexes update automatically.
+          Existing survey fields can be reordered at any time by grabbing their drag handle and sliding them up or down. System field sequence indexes update automatically.
         </p>
       </Section>
 

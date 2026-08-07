@@ -15,7 +15,7 @@ export default function InspectionBestPractices() {
     <DocPage
       path="/operations/inspection-review/best-practices"
       eyebrow="Inspection Review"
-      title="Best Practices"
+      title="Operational Guidelines"
       description="Operational guidelines for efficient and accurate inspection reviews — GPS validation, evidence verification, batch processing, and performance recommendations."
       toc={toc}
       hideVideo={true}
@@ -29,7 +29,7 @@ export default function InspectionBestPractices() {
           <li><strong>Prompt Verification:</strong> Audit submitted checklists within 2 hours of mobile transmission to maintain SLA timelines and prevent bottlenecks in the review queue.</li>
           <li><strong>Prioritise by Badge:</strong> Always process <span className="text-rose-600 dark:text-rose-400 font-semibold">High Priority</span> inspections before <span className="text-amber-600 dark:text-amber-400 font-semibold">Medium</span> and <span className="text-cyan-600 dark:text-cyan-400 font-semibold">Low</span> priority ones to avoid SLA breaches.</li>
           <li><strong>Check All Tabs:</strong> Before approving, always visit all four tabs (Inspection Details, Evidence, GPS, Revision History) to ensure nothing is missed.</li>
-          <li><strong>Document Override Justifications:</strong> Whenever overriding a GPS warning or approving an inspection with missing evidence, always enter a detailed justification note in the Internal Reviewer Notes field for compliance traceability.</li>
+          <li><strong>Document Override Justifications:</strong> Whenever overriding a GPS warning or approving an inspection with missing evidence, always enter a detailed justification note in the Internal Inspection Notes field for compliance traceability.</li>
           <li><strong>Shift Handover:</strong> At the end of each shift, review the Statistics Overview KPIs and handover any In Progress inspections to the incoming coordinator with clear internal notes on review status.</li>
         </ul>
       </Section>

@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import MermaidDiagram from "../../components/MermaidDiagram";
 
 const toc = [
@@ -10,7 +9,6 @@ const toc = [
   { id: "stage-2", label: "Stage 2: Inspection Template Reports" },
   { id: "stage-3", label: "Stage 3: Contract Reports" },
   { id: "stage-4", label: "Stage 4: Reports Management" },
-  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function ReportLifecyclePage() {
@@ -71,12 +69,6 @@ export default function ReportLifecyclePage() {
             Coordinators and Quality Managers monitor published reports across all active contracts in a centralized register, performing search filtering, read-only document inspection, vectorized PDF downloads, and direct client dispatches.
           </p>
         </div>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Lifecycle Governance">
-          Ensure each stage transitions cleanly: publish workflow templates before binding in Stage 2, complete mobile surveys before publishing in Stage 3, and verify dispatches in Stage 4.
-        </Callout>
       </Section>
     </DocPage>
   );

@@ -14,7 +14,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -95,7 +94,7 @@ export default function LabelValueElement() {
 
       <Section id="designer-behavior" title="Designer Behaviour">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Click any Label / Value block on the canvas to open its properties panel.</li>
+          <li>Click any Label / Value block in the designer to open its properties panel.</li>
           <li>Drag the block handle to reorder the row within the layout.</li>
           <li>Use the <strong>Duplicate</strong> action to create a new row pre-filled with the same label width and styling — then only change the label text and variable tag.</li>
           <li>The live preview panel updates in real time when you change the variable binding or label text.</li>
@@ -138,15 +137,6 @@ export default function LabelValueElement() {
         </ul>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Set the label width consistently to 35–40% across all rows in a block for visual alignment.</li>
-          <li>Enable <strong>Conditional Visibility</strong> on optional fields to prevent blank rows appearing in client reports.</li>
-          <li>Always set a Fallback Text (e.g. "N/A") for fields that may not be filled in every survey submission.</li>
-          <li>Group related label-value rows under a Rich Text heading for better report readability.</li>
-        </ul>
-      </Section>
-
       <Section id="mistakes" title="Common Mistakes">
         <Callout type="warning">
           Binding two different Label / Value elements to the same variable tag is allowed but creates confusing duplicate data in the report. Use duplication only when the same value needs to appear in different sections.
@@ -163,7 +153,7 @@ export default function LabelValueElement() {
           </thead>
           <tbody>
             <tr><td>Value shows blank in PDF</td><td>Survey field was not answered in the submission</td><td>Set a Fallback Text in the properties panel, or enable Hide If Empty.</td></tr>
-            <tr><td>Broken binding warning on canvas</td><td>Survey field key was renamed or deleted</td><td>Open the element properties and rebind to the correct active field tag.</td></tr>
+            <tr><td>Broken binding warning in designer</td><td>Survey field key was renamed or deleted</td><td>Open the element properties and rebind to the correct active field tag.</td></tr>
             <tr><td>Label column text wrapping unexpectedly</td><td>Label Width is too narrow for the text</td><td>Increase Label Width percentage or shorten the label text.</td></tr>
             <tr><td>Row not visible in report</td><td>Hide If Empty is on and field is blank</td><td>Disable Hide If Empty or ensure the survey submission contains a value for this field.</td></tr>
           </tbody>
@@ -173,7 +163,7 @@ export default function LabelValueElement() {
       <Section id="related" title="Related Elements">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li><a href="/reports/report-builder/elements/header">Header</a> — For displaying contract identity at the top level rather than per-row.</li>
-          <li><a href="/reports/report-builder/elements/rich-text">Rich Text</a> — For narrative paragraphs interspersed between label-value blocks.</li>
+          <li><a href="/reports/report-builder/elements/rich-text">Text</a> — For narrative paragraphs interspersed between label-value blocks.</li>
           <li><a href="/reports/report-builder/elements/flat-table">Flat Table</a> — For displaying many repeating field values in a row-per-record format.</li>
         </ul>
       </Section>

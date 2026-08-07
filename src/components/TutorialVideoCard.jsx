@@ -336,7 +336,7 @@ export default function TutorialVideoCard({ path, pageTitle, mediaId }) {
               </button>
             </div>
 
-            {/* Video Canvas Container */}
+            {/* Video Container */}
             <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
               {/* Buffering Indicator */}
               {isBuffering && !videoError && (

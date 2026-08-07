@@ -5,7 +5,6 @@ import { HeadingsProvider } from "./context/HeadingsContext";
 import Introduction from "./pages/Introduction";
 
 import SignIn from "./pages/getting-started/SignIn";
-import Verification from "./pages/getting-started/Verification";
 import Launch from "./pages/getting-started/Launch";
 import Roles from "./pages/getting-started/Roles";
 import BusinessWorkflows from "./pages/getting-started/BusinessWorkflows";
@@ -31,7 +30,7 @@ import FieldCheckboxPage from "./pages/configuration/surveys/FieldCheckboxPage";
 
 // Survey Builder Modular Pages
 import SurveyOverview from "./pages/configuration/surveys/SurveyOverview";
-import WorkflowCanvas from "./pages/configuration/surveys/WorkflowCanvas";
+import Workflow from "./pages/configuration/surveys/Workflow";
 import SurveySteps from "./pages/configuration/surveys/SurveySteps";
 import FieldLibrary from "./pages/configuration/surveys/FieldLibrary";
 import DragAndDrop from "./pages/configuration/surveys/DragAndDrop";
@@ -39,10 +38,8 @@ import FieldDetailPage from "./pages/configuration/surveys/FieldDetailPage";
 import FieldConfigurationPage from "./pages/configuration/surveys/FieldConfigurationPage";
 import ValidationRulesPage from "./pages/configuration/surveys/ValidationRulesPage";
 import ConditionalLogicPage from "./pages/configuration/surveys/ConditionalLogicPage";
-import AutoConfiguredFieldsPage from "./pages/configuration/surveys/AutoConfiguredFieldsPage";
 import PreviewPage from "./pages/configuration/surveys/PreviewPage";
 import PublishingPage from "./pages/configuration/surveys/PublishingPage";
-import VersionManagementPage from "./pages/configuration/surveys/VersionManagementPage";
 import PermissionsPage from "./pages/configuration/surveys/PermissionsPage";
 
 import ReportBuilder from "./pages/reports/ReportBuilder";
@@ -90,7 +87,7 @@ export default function App() {
             <Route path="/" element={<Introduction />} />
 
             <Route path="/getting-started/sign-in" element={<SignIn />} />
-            <Route path="/getting-started/verification" element={<Verification />} />
+            <Route path="/getting-started/verification" element={<SignIn />} />
             <Route path="/getting-started/launch" element={<Launch />} />
             <Route path="/getting-started/roles" element={<Roles />} />
             <Route path="/getting-started/workflows" element={<BusinessWorkflows />} />
@@ -108,31 +105,28 @@ export default function App() {
 
             <Route path="/configuration/surveys" element={<Surveys />} />
             <Route path="/configuration/surveys/overview" element={<SurveyOverview />} />
-            <Route path="/configuration/surveys/workflow-canvas" element={<WorkflowCanvas />} />
+            <Route path="/configuration/surveys/workflow-workspace" element={<Workflow />} />
             <Route path="/configuration/surveys/survey-steps" element={<SurveySteps />} />
             <Route path="/configuration/surveys/field-library" element={<FieldLibrary />} />
             <Route path="/configuration/surveys/drag-and-drop" element={<DragAndDrop />} />
 
-            {/* Dropdown Field Sub-Topic Routes (7) */}
+            {/* Dropdown Field Sub-Topic Routes (5) */}
             <Route path="/configuration/surveys/field-dropdown/overview" element={<DropdownTopicPage topicKey="overview" />} />
             <Route path="/configuration/surveys/field-dropdown/configuration" element={<DropdownTopicPage topicKey="configuration" />} />
             <Route path="/configuration/surveys/field-dropdown/options-management" element={<DropdownTopicPage topicKey="options-management" />} />
-            <Route path="/configuration/surveys/field-dropdown/search-and-selection" element={<DropdownTopicPage topicKey="search-and-selection" />} />
             <Route path="/configuration/surveys/field-dropdown/validation" element={<DropdownTopicPage topicKey="validation" />} />
-            <Route path="/configuration/surveys/field-dropdown/best-practices" element={<DropdownTopicPage topicKey="best-practices" />} />
             <Route path="/configuration/surveys/field-dropdown/troubleshooting" element={<DropdownTopicPage topicKey="troubleshooting" />} />
 
-            {/* Checkbox Field Sub-Topic Routes (6) */}
-            <Route path="/configuration/surveys/field-checkbox/overview" element={<CheckboxTopicPage topicKey="overview" />} />
-            <Route path="/configuration/surveys/field-checkbox/configuration" element={<CheckboxTopicPage topicKey="configuration" />} />
-            <Route path="/configuration/surveys/field-checkbox/checkbox-group" element={<CheckboxTopicPage topicKey="checkbox-group" />} />
-            <Route path="/configuration/surveys/field-checkbox/validation" element={<CheckboxTopicPage topicKey="validation" />} />
-            <Route path="/configuration/surveys/field-checkbox/best-practices" element={<CheckboxTopicPage topicKey="best-practices" />} />
-            <Route path="/configuration/surveys/field-checkbox/troubleshooting" element={<CheckboxTopicPage topicKey="troubleshooting" />} />
+            {/* Multi Select Field Sub-Topic Routes (5) */}
+            <Route path="/configuration/surveys/field-multiselect/overview" element={<CheckboxTopicPage topicKey="overview" />} />
+            <Route path="/configuration/surveys/field-multiselect/configuration" element={<CheckboxTopicPage topicKey="configuration" />} />
+            <Route path="/configuration/surveys/field-multiselect/options-management" element={<CheckboxTopicPage topicKey="options-management" />} />
+            <Route path="/configuration/surveys/field-multiselect/validation" element={<CheckboxTopicPage topicKey="validation" />} />
+            <Route path="/configuration/surveys/field-multiselect/troubleshooting" element={<CheckboxTopicPage topicKey="troubleshooting" />} />
 
             {/* Explicit Core Field Type Pages */}
             <Route path="/configuration/surveys/field-dropdown" element={<FieldDropdownPage />} />
-            <Route path="/configuration/surveys/field-checkbox" element={<FieldCheckboxPage />} />
+            <Route path="/configuration/surveys/field-multiselect" element={<FieldCheckboxPage />} />
 
             {/* Individual Field Type Pages (Fallback) */}
             <Route path="/configuration/surveys/:fieldKey" element={<FieldDetailPage />} />
@@ -140,10 +134,8 @@ export default function App() {
             <Route path="/configuration/surveys/field-configuration" element={<FieldConfigurationPage />} />
             <Route path="/configuration/surveys/validation-rules" element={<ValidationRulesPage />} />
             <Route path="/configuration/surveys/conditional-logic" element={<ConditionalLogicPage />} />
-            <Route path="/configuration/surveys/auto-configured-fields" element={<AutoConfiguredFieldsPage />} />
             <Route path="/configuration/surveys/preview" element={<PreviewPage />} />
             <Route path="/configuration/surveys/publishing" element={<PublishingPage />} />
-            <Route path="/configuration/surveys/version-management" element={<VersionManagementPage />} />
             <Route path="/configuration/surveys/permissions" element={<PermissionsPage />} />
 
             <Route path="/configuration/teams" element={<Teams />} />

@@ -15,7 +15,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -116,7 +115,7 @@ export default function CustomTableElement() {
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li>Click any cell in the grid to select it and open its properties in the right panel.</li>
           <li>Hold Shift and click multiple adjacent cells to select a range for merging.</li>
-          <li>The designer toolbar switches to cell-editing mode when a Custom Table block is selected on the canvas.</li>
+          <li>The designer toolbar switches to cell-editing mode when a Custom Table block is selected in the workspace.</li>
           <li>Variable tag chips in cells are highlighted in blue — click a chip to change the binding.</li>
           <li>The live preview shows resolved variable placeholders in all bound cells.</li>
         </ul>
@@ -154,15 +153,6 @@ export default function CustomTableElement() {
           <li>Client billing summaries combining static line-item labels with dynamic quantity and weight values.</li>
           <li>Phytosanitary certificate tables with multi-row spanning headers and category shading.</li>
           <li>Mixed cargo manifest tables with different formatting rules per cargo category section.</li>
-        </ul>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Define column widths as percentages before adding content — it is much harder to adjust widths after cells are populated and merged.</li>
-          <li>Apply background shading to header rows first, then configure border weights for the data rows, to maintain a consistent visual hierarchy.</li>
-          <li>Use the <strong>Duplicate</strong> action on a row with consistent formatting to add new data rows without restyling each cell individually.</li>
-          <li>Test the table at both A4 portrait and landscape orientations in the live preview if the client requires multiple paper formats.</li>
         </ul>
       </Section>
 

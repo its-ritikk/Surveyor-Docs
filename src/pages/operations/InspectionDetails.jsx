@@ -90,7 +90,7 @@ export default function InspectionDetails() {
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-3">Tab Navigation</h4>
         <p className="text-[13.5px] text-ink-700 dark:text-[#A3A3A3] mb-3">
-          Below the header, the detail page is organised into four discrete tabs allowing reviewers to focus on one aspect at a time:
+          Below the header, the detail page is organised into four discrete tabs allowing users to focus on one aspect at a time:
         </p>
         <div className="space-y-2 my-3">
           {[
@@ -180,7 +180,7 @@ export default function InspectionDetails() {
         </div>
 
         <Callout type="warning">
-          If the spatial distance between <strong>Survey Location</strong> (Expected) and <strong>Inspection Location</strong> (Actual GPS) exceeds the configured threshold (default: 1.0 km), the system flags a GPS distance warning requiring reviewer override justification before the inspection can be approved.
+          If the spatial distance between <strong>Survey Location</strong> (Expected) and <strong>Inspection Location</strong> (Actual GPS) exceeds the configured threshold (default: 1.0 km), the system flags a GPS distance warning requiring coordinator override justification before the inspection can be approved.
         </Callout>
       </Section>
 
@@ -192,7 +192,7 @@ export default function InspectionDetails() {
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-3">Evidence Counter</h4>
         <p className="text-[13.5px] text-ink-700 dark:text-[#A3A3A3] mb-3">
-          A compact summary widget at the top of the Evidence tab shows an immediate count of all media items attached — without requiring the reviewer to scroll through the full grid:
+          A compact summary widget at the top of the Evidence tab shows an immediate count of all media items attached — without requiring the user to scroll through the full grid:
         </p>
         <div className="my-3 overflow-x-auto">
           <table className="w-full text-left text-xs border border-ink-900/10 dark:border-[#262626]">
@@ -232,14 +232,14 @@ export default function InspectionDetails() {
         </ul>
 
         <Callout type="warning">
-          A <strong>Missing Evidence</strong> indicator means the inspection template required a photo or document for a specific step but the surveyor did not upload one. This must be resolved — by requesting a re-submission or applying a reviewer override justification — before the inspection can be approved.
+          A <strong>Missing Evidence</strong> indicator means the inspection template required a photo or document for a specific step but the surveyor did not upload one. This must be resolved — by requesting a re-submission or applying a coordinator override justification — before the inspection can be approved.
         </Callout>
       </Section>
 
       {/* ── MEDIA PREVIEW ────────────────────────────────────────────────── */}
       <Section id="media-preview" title="Media Preview">
         <p>
-          The <strong>Media Preview</strong> feature enables reviewers to inspect uploaded visual evidence directly in the browser without downloading files. It supports both images and videos.
+          The <strong>Media Preview</strong> feature enables users to inspect uploaded visual evidence directly in the browser without downloading files. It supports both images and videos.
         </p>
 
         <div className="my-4 space-y-3">
@@ -247,7 +247,7 @@ export default function InspectionDetails() {
             { title: "Open Image", desc: "Click any photo thumbnail to open it in a full-screen lightbox at full resolution. Ideal for inspecting container seals, cargo conditions, and barcode labels." },
             { title: "Open Video", desc: "Click a video thumbnail to open the video player in the preview overlay with play/pause, seek, and volume controls." },
             { title: "Full-Screen Preview", desc: "The lightbox occupies the entire viewport. File name, capture timestamp, and EXIF metadata are displayed below the media item." },
-            { title: "Previous / Next Navigation", desc: "Arrow buttons on either side allow reviewers to cycle through all uploaded media files sequentially without closing the preview." },
+            { title: "Previous / Next Navigation", desc: "Arrow buttons on either side allow users to cycle through all uploaded media files sequentially without closing the preview." },
             { title: "Close Preview", desc: "Click the ✕ button, press Escape, or click outside the lightbox to dismiss and return to the Evidence tab." },
           ].map(({ title, desc }) => (
             <div key={title} className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
@@ -257,7 +257,7 @@ export default function InspectionDetails() {
           ))}
         </div>
 
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-2">Reviewer Validation Workflow</h4>
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-2">Inspection Verification Workflow</h4>
         <p className="text-[13.5px] text-ink-700 dark:text-[#A3A3A3]">
           When auditing evidence: open each photo in full-screen, check the EXIF capture timestamp against the expected inspection window, verify container seal numbers match the contract BL manifest, and confirm GPS geotags align with the target berth location.
         </p>
@@ -272,10 +272,10 @@ export default function InspectionDetails() {
         <div className="my-4 space-y-3">
           {[
             { title: "Open Report", desc: "A button on the approved inspection detail triggers the report viewer overlay, loading the generated PDF certificate associated with this inspection." },
-            { title: "Preview", desc: "The report renders as an inline PDF preview inside the browser. Reviewers can scroll through multi-page certificates, verify branding, and confirm all field data was mapped correctly." },
+            { title: "Preview", desc: "The report renders as an inline PDF preview inside the browser. Coordinators can scroll through multi-page certificates, verify branding, and confirm all field data was mapped correctly." },
             { title: "Generated PDF", desc: "Customer-facing PDF certificate produced by the Report Builder engine, applying the template layout configured in the Inspection Template. Contains all approved field values, photos, GPS summary, and witness signatures." },
             { title: "Download", desc: "Saves the generated certificate PDF to the user's local device for client delivery or archival." },
-            { title: "Navigation Back to Inspection", desc: "A Back button within the report viewer returns the reviewer directly to the Inspection Detail Page, preserving the active tab and scroll position." },
+            { title: "Navigation Back to Inspection", desc: "A Back button within the report viewer returns the coordinator directly to the Inspection Detail Page, preserving the active tab and scroll position." },
           ].map(({ title, desc }) => (
             <div key={title} className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
               <p className="font-semibold text-sm text-ink-900 dark:text-[#FFFFFF]">{title}</p>

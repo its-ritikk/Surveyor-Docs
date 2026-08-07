@@ -1,20 +1,18 @@
 import React from "react";
 import DocPage, { Section } from "../../../../components/DocPage";
-import Callout from "../../../../components/Callout";
 import DocImage from "../../../../components/DocImage";
+import Callout from "../../../../components/Callout";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "purpose", label: "Purpose" },
   { id: "business-scenario", label: "Business Scenario" },
-  { id: "when-to-use", label: "When To Use" },
   { id: "how-it-works", label: "How It Works" },
   { id: "configuration", label: "Configuration Options" },
   { id: "designer-behavior", label: "Designer Behaviour" },
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -25,20 +23,20 @@ export default function RichTextElement() {
     <DocPage
       path="/reports/report-builder/elements/rich-text"
       eyebrow="Report Builder · Elements"
-      title="Rich Text"
-      description="The Rich Text element provides a narrative block editor supporting free-form text, formatting, and dynamic variable injection for statements, remarks, and disclaimers."
+      title="Text"
+      description="The Text element provides a narrative block editor supporting free-form text and dynamic variable injection for statements, remarks, and disclaimers."
       toc={toc}
     >
       <Section id="overview" title="Overview">
         <p>
-          The <strong>Rich Text</strong> element adds a free-form paragraph block to the report canvas. Unlike Label / Value which renders discrete data points, Rich Text supports multi-sentence narrative content with inline formatting (bold, italic, underline) and the ability to inject dynamic variable values inline within the paragraph text.
+          The <strong>Text</strong> element adds a free-form paragraph block to the report layout. Unlike Label / Value which renders discrete data points, Text supports multi-sentence narrative content and the ability to inject dynamic variable values inline within the paragraph text.
         </p>
         <DocImage path="/reports/report-builder/elements/rich-text" />
       </Section>
 
       <Section id="purpose" title="Purpose">
         <p>
-          Rich Text exists to handle the narrative portions of a report that cannot be expressed through structured data rows or table cells — inspection conclusions, legal disclaimers, certificate statements, and contextual remarks that read as natural language.
+          Text exists to handle the narrative portions of a report that cannot be expressed through structured data rows or table cells — inspection conclusions, legal disclaimers, certificate statements, and contextual remarks that read as natural language.
         </p>
       </Section>
 
@@ -49,33 +47,21 @@ export default function RichTextElement() {
         <p>
           <em>"We, CargoClave Surveying Ltd., hereby certify that the cargo described as <strong>[commodity]</strong>, shipped under Bill of Lading <strong>[bl_number]</strong> aboard vessel <strong>[vessel_name]</strong>, was inspected on <strong>[inspection_date]</strong> and found to be free from visible signs of contamination."</em>
         </p>
-        <p>
-          The bracketed fields are variable tags that auto-resolve to the actual contract values — no manual typing needed at report generation time.
-        </p>
-      </Section>
-
-      <Section id="when-to-use" title="When To Use">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>For legal disclaimers and certification statements that require fixed phrasing around dynamic data.</li>
-          <li>For inspection conclusions and remarks that are narrative rather than tabular.</li>
-          <li>As section headings or descriptive context between data blocks.</li>
-          <li>For client-facing remarks that include specific contract references.</li>
-        </ul>
       </Section>
 
       <Section id="how-it-works" title="How It Works">
         <p>
-          The Rich Text editor provides a standard rich text toolbar. Within the paragraph, variable tags can be inserted using the tag picker toolbar button. Tags are displayed as highlighted tokens in the editor and resolve at render time to their actual values.
+          The Text editor provides a standard text editing toolbar. Within the paragraph, variable tags can be inserted using the tag picker toolbar button. Tags are displayed as highlighted tokens in the editor and resolve at render time to their actual values.
         </p>
         <table>
           <thead>
             <tr><th>Editor Feature</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><td>Formatting toolbar</td><td>Bold, italic, underline, strikethrough, alignment (left/centre/right), font size.</td></tr>
+            <tr><td>Text toolbar</td><td>Alignment (left/centre/right), font size, and text formatting controls.</td></tr>
             <tr><td>Variable tag insertion</td><td>Click the {"{x}"} button to open the tag picker and insert a dynamic variable inline in the text.</td></tr>
-            <tr><td>Bullet lists</td><td>Ordered and unordered lists are supported within the Rich Text block.</td></tr>
-            <tr><td>Hyperlinks</td><td>Static URLs can be embedded as clickable links in the PDF output (non-interactive in print).</td></tr>
+            <tr><td>Bullet lists</td><td>Ordered and unordered lists are supported within the Text block.</td></tr>
+            <tr><td>Hyperlinks</td><td>Static URLs can be embedded as clickable links in the PDF output.</td></tr>
           </tbody>
         </table>
       </Section>
@@ -86,7 +72,7 @@ export default function RichTextElement() {
             <tr><th>Setting</th><th>Description</th><th>Default</th></tr>
           </thead>
           <tbody>
-            <tr><td>Content</td><td>The rich text body including static text, formatting, and embedded variable tags.</td><td>Empty</td></tr>
+            <tr><td>Content</td><td>The text body including static text and embedded variable tags.</td><td>Empty</td></tr>
             <tr><td>Font Size</td><td>Base font size for the paragraph text (8pt–16pt).</td><td>10pt</td></tr>
             <tr><td>Line Height</td><td>Spacing between lines (1.0x, 1.25x, 1.5x, 2.0x).</td><td>1.25x</td></tr>
             <tr><td>Text Alignment</td><td>Left, centre, right, or justified alignment for the paragraph.</td><td>Left</td></tr>
@@ -99,7 +85,7 @@ export default function RichTextElement() {
 
       <Section id="designer-behavior" title="Designer Behaviour">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Double-click the Rich Text block on the canvas to enter editing mode and modify the content.</li>
+          <li>Double-click the Text block in the designer to enter editing mode and modify the content.</li>
           <li>Variable tags embedded in the text appear as coloured chips inside the editor.</li>
           <li>The block auto-expands vertically to fit its content — there is no fixed height.</li>
           <li>The live preview panel shows resolved variable values as placeholder text while editing.</li>
@@ -112,7 +98,7 @@ export default function RichTextElement() {
             <tr><th>Property</th><th>Type</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><td>content</td><td>HTML string</td><td>The full rich text markup including inline variable tokens.</td></tr>
+            <tr><td>content</td><td>String</td><td>The full text markup including inline variable tokens.</td></tr>
             <tr><td>fontSize</td><td>Number (pt)</td><td>Base paragraph font size.</td></tr>
             <tr><td>lineHeight</td><td>Number (multiplier)</td><td>Line spacing multiplier.</td></tr>
             <tr><td>textAlign</td><td>Enum (left/center/right/justify)</td><td>Paragraph alignment.</td></tr>
@@ -125,10 +111,10 @@ export default function RichTextElement() {
 
       <Section id="validation" title="Validation Rules">
         <Callout type="warning">
-          Variable tags embedded in the Rich Text content must reference active field keys. Stale tags (fields that were deleted from the survey) will display a broken-tag warning in the editor and block publishing.
+          Variable tags embedded in the Text content must reference active field keys. Stale tags (fields that were deleted from the survey) will display a broken-tag warning in the editor and block publishing.
         </Callout>
         <Callout type="note">
-          Rich Text blocks with no content (empty body) are permitted during draft editing but will generate a validation warning at publish time if the block has no static text and no variable tags.
+          Text blocks with no content (empty body) are permitted during draft editing but will generate a validation warning at publish time if the block has no static text and no variable tags.
         </Callout>
       </Section>
 
@@ -141,21 +127,12 @@ export default function RichTextElement() {
         </ul>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Keep disclaimer and legal paragraphs in a single Rich Text block rather than splitting across multiple blocks to maintain consistent font and line spacing.</li>
-          <li>Use <strong>Justified</strong> text alignment for formal certificate statements to match industry document standards.</li>
-          <li>Apply a subtle background shading (#F8F9FA) to disclaimer blocks to visually separate them from cargo data sections.</li>
-          <li>Test variable resolution in the live preview before publishing by toggling sample data mode.</li>
-        </ul>
-      </Section>
-
       <Section id="mistakes" title="Common Mistakes">
         <Callout type="warning">
           Hardcoding vessel names or contract numbers as static text instead of variable tags means the report will always show the same value regardless of the active contract. Always use variable tags for any dynamic data.
         </Callout>
         <Callout type="warning">
-          Pasting content from Microsoft Word can inject hidden formatting markup that distorts the PDF render. Use the "Paste as plain text" option (Shift+Ctrl+V) and re-apply formatting using the editor toolbar.
+          Pasting content from external documents can inject hidden markup. Use the "Paste as plain text" option (Shift+Ctrl+V) and re-apply formatting using the editor toolbar.
         </Callout>
       </Section>
 
@@ -176,8 +153,8 @@ export default function RichTextElement() {
       <Section id="related" title="Related Elements">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li><a href="/reports/report-builder/elements/label-value">Label / Value</a> — For displaying discrete field values in key–value format rather than narrative prose.</li>
-          <li><a href="/reports/report-builder/elements/signature">Signature</a> — Often placed below a Rich Text certification statement to provide the formal sign-off.</li>
-          <li><a href="/reports/report-builder/elements/header">Header</a> — Context for the contract and vessel information that can be referenced via variable tags in Rich Text.</li>
+          <li><a href="/reports/report-builder/elements/signature">Signature</a> — Often placed below a Text certification statement to provide the formal sign-off.</li>
+          <li><a href="/reports/report-builder/elements/header">Header</a> — Context for the contract and vessel information that can be referenced via variable tags in Text.</li>
         </ul>
       </Section>
     </DocPage>

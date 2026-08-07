@@ -14,7 +14,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -95,7 +94,7 @@ export default function FlatTableElement() {
       <Section id="designer-behavior" title="Designer Behaviour">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li>Columns are added by selecting field tags from the tag picker in the properties panel.</li>
-          <li>Drag column header chips in the properties panel to reorder columns without touching the canvas.</li>
+          <li>Drag column header chips in the properties panel to reorder columns without touching the layout.</li>
           <li>The live preview renders a sample 3-row table with placeholder values to simulate the column layout.</li>
           <li>Enabling Row Banding immediately updates the preview with alternating shading.</li>
         </ul>
@@ -133,15 +132,6 @@ export default function FlatTableElement() {
           <li>Container inspection logs: Container No., Seal No., Condition, Surveyor per entry.</li>
           <li>Hatch entry records: Hatch Number, Shift, Bags Loaded, Inspector per entry.</li>
           <li>Laboratory sample logs: Sample ID, Collection Time, Sample Type, Test Result per entry.</li>
-        </ul>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Limit Flat Tables to a maximum of <strong>8 columns</strong> on A4 paper to avoid truncation. Use wider paper orientation or reduce font size for wider tables.</li>
-          <li>Enable <strong>Row Banding</strong> for tables with more than 20 rows to help readers track across columns.</li>
-          <li>Always add a <strong>Row Number</strong> column on tally tables so discrepancies can be referenced by row index.</li>
-          <li>Use <strong>Max Rows</strong> on contracts with hundreds of submissions to keep the report at a manageable page count for client delivery.</li>
         </ul>
       </Section>
 

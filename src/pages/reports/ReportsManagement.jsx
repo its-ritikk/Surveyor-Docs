@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
 
 const toc = [
@@ -8,7 +7,6 @@ const toc = [
   { id: "inspection-reports", label: "Inspection Reports" },
   { id: "search-and-filters", label: "Search & Filters" },
   { id: "report-actions", label: "Report Actions" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting" },
 ];
 
@@ -103,13 +101,6 @@ export default function ReportsManagement() {
             </p>
           </div>
         </div>
-      </Section>
-
-      {/* ── BEST PRACTICES ────────────────────────────────────────────── */}
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Operational Recommendation">
-          Always review draft reports in the read-only Report Viewer prior to publishing to verify that all mandatory inspector signatures and photo captions are present.
-        </Callout>
       </Section>
 
       {/* ── TROUBLESHOOTING ───────────────────────────────────────────── */}

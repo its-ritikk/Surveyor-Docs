@@ -14,7 +14,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -95,9 +94,9 @@ export default function SignatureElement() {
 
       <Section id="designer-behavior" title="Designer Behaviour">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>The Signature block cannot be moved above the Header element. It must remain in the lower section of the canvas.</li>
+          <li>The Signature block cannot be moved above the Header element. It must remain in the lower section of the layout.</li>
           <li>In the live preview, unsigned Signature slots display a placeholder line instead of a graphic signature image.</li>
-          <li>Multiple Signature elements can be added to the canvas for multi-party reports.</li>
+          <li>Multiple Signature elements can be added to the layout for multi-party reports.</li>
           <li>The signing role dropdown only shows roles defined in the linked inspection template workflow.</li>
         </ul>
       </Section>
@@ -138,20 +137,12 @@ export default function SignatureElement() {
         </ul>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Always enable <strong>Show Timestamp</strong> on Signature elements for reports submitted to regulatory bodies — the timestamp provides the legal proof of when the inspection was certified.</li>
-          <li>Use the <strong>Multi-column layout</strong> when collecting 2–3 signatures side by side to save vertical space on the PDF page.</li>
-          <li>Place a Rich Text certification statement directly above the Signature block to provide the formal declaration the signature is attesting to.</li>
-        </ul>
-      </Section>
-
       <Section id="mistakes" title="Common Mistakes">
         <Callout type="warning">
           Linking two separate Signature elements to the same signing role results in duplicate signature blocks for the same party. Each signing role should appear in exactly one Signature element.
         </Callout>
         <Callout type="warning">
-          Do not embed signature placeholders as static images or labels inside a Rich Text block. Only the Signature element correctly resolves the dynamic graphic signature from the mobile capture system.
+          Do not embed signature placeholders as static images or labels inside a Text block. Only the Signature element correctly resolves the dynamic graphic signature from the mobile capture system.
         </Callout>
       </Section>
 
@@ -164,14 +155,14 @@ export default function SignatureElement() {
             <tr><td>Signature image not appearing in PDF</td><td>Signing party has not submitted their signature yet</td><td>Confirm the mobile app submission is complete and the signing step is marked Done.</td></tr>
             <tr><td>Signing role not available in dropdown</td><td>Role not defined in the linked inspection template workflow</td><td>Add the required signing role in the inspection template's Workflow Stages configuration.</td></tr>
             <tr><td>Timestamp showing wrong timezone</td><td>Platform timezone setting is not configured</td><td>Update the organisation timezone in platform settings; timestamps will re-render correctly.</td></tr>
-            <tr><td>Template blocked from publishing</td><td>No Signature element on the canvas</td><td>Add a Signature element linked to the Surveyor role and re-attempt publishing.</td></tr>
+            <tr><td>Template blocked from publishing</td><td>No Signature element in the template</td><td>Add a Signature element linked to the Surveyor role and re-attempt publishing.</td></tr>
           </tbody>
         </table>
       </Section>
 
       <Section id="related" title="Related Elements">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li><a href="/reports/report-builder/elements/rich-text">Rich Text</a> — For the certification statement or declaration text placed above the Signature block.</li>
+          <li><a href="/reports/report-builder/elements/rich-text">Text</a> — For the certification statement or declaration text placed above the Signature block.</li>
           <li><a href="/reports/report-builder/elements/header">Header</a> — The companion opening element that pairs with Signature to frame the document.</li>
           <li><a href="/reports/report-builder/publishing">Preview & Publishing</a> — Signature elements must be present before a template can be published.</li>
         </ul>

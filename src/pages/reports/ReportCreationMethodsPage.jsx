@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -8,7 +7,6 @@ const toc = [
   { id: "workflow-reports", label: "1. Workflow Reports" },
   { id: "inspection-template-reports", label: "2. Inspection Template Reports" },
   { id: "contract-reports", label: "3. Contract Reports" },
-  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function ReportCreationMethodsPage() {
@@ -75,7 +73,7 @@ export default function ReportCreationMethodsPage() {
           <strong>Main Capabilities:</strong> Global stage trigger binding, automated version locking, and multi-port schema reuse.
         </p>
         <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5]">
-          <strong>Relationship with Workflow Builder:</strong> Configured inside Workflow Stage Properties to trigger automated PDF generation upon stage completion.
+          <strong>Relationship with Workflow Builder:</strong> Configured inside Workflow Stage Properties to trigger automated report generation upon stage completion.
         </p>
       </Section>
 
@@ -106,13 +104,6 @@ export default function ReportCreationMethodsPage() {
         <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5] mb-3">
           <strong>Media Capture &amp; Version History:</strong> Photos uploaded by mobile surveyors stream into multi-column photo grids, while every save snapshot is preserved in version history.
         </p>
-      </Section>
-
-      {/* ── BEST PRACTICES ────────────────────────────────────────────── */}
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Best Practice">
-          Use <strong>Workflow Reports</strong> for global corporate standards, <strong>Inspection Template Reports</strong> for specific cargo setups, and <strong>Contract Reports</strong> for operational authoring.
-        </Callout>
       </Section>
     </DocPage>
   );

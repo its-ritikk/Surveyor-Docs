@@ -32,7 +32,7 @@ export default function PreviewPage() {
 
       <Section id="testing-logic" title="Testing Logic &amp; Validations">
         <p>
-          Fill out test data in the simulator to verify that regex rules, required checks, and conditional unhide triggers execute cleanly.
+          Fill out test data in the simulator to verify that format rules, required checks, and conditional unhide triggers execute cleanly.
         </p>
         <Callout type="tip">
           Test edge cases (such as max character limits and invalid formats) in simulator preview prior to publishing.

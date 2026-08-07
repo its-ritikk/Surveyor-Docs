@@ -1,5 +1,4 @@
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
 
 const toc = [
@@ -12,7 +11,6 @@ const toc = [
   { id: "validations", label: "Validation Rules" },
   { id: "permissions", label: "User Permissions" },
   { id: "related", label: "Related Features" },
-  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function ExecutingSurvey() {
@@ -108,12 +106,6 @@ export default function ExecutingSurvey() {
           <li><a href="/configuration/surveys">Survey Builder</a> — Where steps, validation parameters, and fields are configured.</li>
           <li><a href="/operations/inspection-review">Inspection Review</a> — Where supervisors audit submitted answers, photos, and GPS coords.</li>
         </ul>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="tip">
-          Enable location permissions on your mobile device before launching the app, and review the clarity of uploaded photos prior to submitting checklist data.
-        </Callout>
       </Section>
     </DocPage>
   );

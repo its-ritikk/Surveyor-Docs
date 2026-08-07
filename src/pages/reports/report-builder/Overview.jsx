@@ -6,7 +6,7 @@ import DocImage from "../../../components/DocImage";
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "capabilities", label: "Core Capabilities" },
-  { id: "canvas", label: "Designer Canvas" },
+  { id: "designer-workspace", label: "Designer Workspace" },
   { id: "workflow", label: "Workflow Integration" },
   { id: "rules", label: "Validation Rules" },
 ];
@@ -22,7 +22,7 @@ export default function Overview() {
     >
       <Section id="overview" title="Overview">
         <p>
-          The <strong>Report Builder</strong> is a visual template designer that lets coordinators and administrators compose structured PDF report layouts without writing code. Elements are dragged onto a canvas, configured via property panels, and previewed in real time before being published for use in operational dispatches.
+          The <strong>Report Builder</strong> is a visual template designer that lets coordinators and administrators compose structured PDF report layouts without writing code. Elements are dragged onto a workspace, configured via property panels, and previewed in real time before being published for use in operational dispatches.
         </p>
         <DocImage path="/reports/report-builder/overview" />
       </Section>
@@ -37,8 +37,8 @@ export default function Overview() {
           </thead>
           <tbody>
             <tr>
-              <td>Drag-and-Drop Canvas</td>
-              <td>Compose report layouts by dragging element blocks onto a vertical canvas and reordering them freely.</td>
+              <td>Drag-and-Drop Designer</td>
+              <td>Compose report layouts by dragging element blocks onto a vertical workspace and reordering them freely.</td>
             </tr>
             <tr>
               <td>Variable Binding</td>
@@ -50,7 +50,7 @@ export default function Overview() {
             </tr>
             <tr>
               <td>Multi-Element Types</td>
-              <td>Headers, Label/Value rows, Rich Text, Flat Tables, Pivot Tables, Custom Tables, Photo Grids, and Signatures.</td>
+              <td>Headers, Label/Value rows, Text, Flat Tables, Pivot Tables, Custom Tables, Photo Grids, and Signatures.</td>
             </tr>
             <tr>
               <td>Branding Control</td>
@@ -64,12 +64,12 @@ export default function Overview() {
         </table>
       </Section>
 
-      <Section id="canvas" title="Designer Canvas">
+      <Section id="designer-workspace" title="Designer Workspace">
         <p>
-          The canvas is the central workspace. Each element block stacks vertically and can be:
+          The designer is the central workspace. Each element block stacks vertically and can be:
         </p>
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li><strong>Added</strong> — Click an element type from the left panel to insert it at the bottom of the canvas.</li>
+          <li><strong>Added</strong> — Click an element type from the left panel to insert it at the bottom of the workspace.</li>
           <li><strong>Reordered</strong> — Drag the element handle on the left edge to move it up or down.</li>
           <li><strong>Configured</strong> — Click any element to open its properties panel on the right side.</li>
           <li><strong>Duplicated</strong> — Clone an element block with its current settings to repeat a similar structure.</li>

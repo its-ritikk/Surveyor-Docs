@@ -58,7 +58,7 @@
   }
   .prose-doc h4 {
     @apply text-sm font-semibold text-ink-800 dark:text-[#E5E5E5]
-           mt-6 mb-2 uppercase tracking-wide;
+           mt-6 mb-2;
   }
   .prose-doc p {
     @apply text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5] mb-4;

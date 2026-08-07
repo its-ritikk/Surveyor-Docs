@@ -27,7 +27,7 @@ export default function SurveySteps() {
 
       <Section id="step-creation" title="Step Creation &amp; Naming">
         <p>
-          Add new steps by clicking <code>+ Add Step Page</code> on the canvas toolbar. Assign clear, action-oriented step titles (e.g. <em>1. Berth Arrival &amp; Geotag</em>, <em>2. Hatch Integrity</em>, <em>3. Tally Log</em>, <em>4. Signatures</em>).
+          Add new steps by clicking <code>+ Add Step Page</code> on the designer toolbar. Assign clear, action-oriented step titles (e.g. <em>1. Berth Arrival &amp; Geotag</em>, <em>2. Hatch Integrity</em>, <em>3. Tally Log</em>, <em>4. Signatures</em>).
         </p>
       </Section>
 
@@ -45,7 +45,7 @@ export default function SurveySteps() {
 
       <Section id="skip-rules" title="Step Skip Rules">
         <p>
-          Configure conditional skip rules to bypass non-applicable steps (e.g. IF <code>Cargo_Type = Containerized</code> THEN skip <code>Bulk Grain Moisture Step</code>).
+          Configure conditional skip rules to bypass non-applicable steps (e.g. IF <code>Cargo_Type = Container</code> THEN skip <code>Bulk Grain Moisture Step</code>).
         </p>
         <Callout type="tip">
           Keep step pages to under 10 questions each to ensure fast mobile UI rendering.

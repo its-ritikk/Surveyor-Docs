@@ -11,7 +11,7 @@ const rules = [
   "Activate a contract only after all surveys in the Execution Plan are assigned.",
   "Completed contracts are read-only — they cannot be edited.",
   "Do not delete a survey or template that is in use by an active contract.",
-  "Review the GPS location difference in Inspection Details before approving a submission with a large distance variance.",
+  "Review inspection evidence in Inspection Details before approving a submission.",
   "Always use the latest OTP — expired OTPs cannot be used for login.",
   "Mark a team Inactive (instead of deleting) when it is linked to historical operational work.",
 ];

@@ -20,13 +20,13 @@ export default function FieldConfigurationPage() {
     >
       <Section id="overview" title="Overview">
         <p>
-          Selecting any field on the canvas loads its settings inside the <strong>Right Property Inspector Panel</strong>. Field configurations define display text, input constraints, and database bindings.
+          Selecting any field in the workspace loads its settings inside the <strong>Right Property Inspector Panel</strong>. Field configurations define display text, input constraints, and database bindings.
         </p>
       </Section>
 
       <Section id="property-inspector" title="Property Inspector Panel">
         <p>
-          Changes made in the Property Inspector reflect immediately on the center canvas. Properties are saved into the survey JSON schema payload upon tapping Save Draft.
+          Changes made in the Property Inspector reflect immediately in the center workspace. Properties are saved into the survey draft file upon tapping Save Draft.
         </p>
       </Section>
 
@@ -41,7 +41,7 @@ export default function FieldConfigurationPage() {
             { field: "Read Only", required: false, desc: "Locks input from mobile editing." },
             { field: "Hidden", required: false, desc: "Hides input from UI while retaining database tag." },
             { field: "Min / Max Limits", required: false, desc: "Sets numerical or character length boundaries." },
-            { field: "Regex Pattern", required: false, desc: "Regular expression pattern matcher." },
+            { field: "Text Format Rule", required: false, desc: "Text pattern format rule." },
             { field: "Unique", required: false, desc: "Enforces unique entries across contract dispatches." },
             { field: "Display Order", required: true, desc: "Sequential position index on step page." },
             { field: "Conditional Visibility", required: false, desc: "IF/THEN visibility trigger rule." },

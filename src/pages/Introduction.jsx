@@ -14,58 +14,57 @@ import {
 
 const toc = [
   { id: "overview", label: "Overview" },
-  { id: "purpose", label: "Business Purpose" },
-  { id: "platform", label: "Platform & Portal Architecture" },
-  { id: "users", label: "Supported User Profiles" },
-  { id: "workflow", label: "High-Level Business Workflow" },
-  { id: "core-modules", label: "Core System Modules" },
-  { id: "steps", label: "First-Time User Onboarding Journey" },
-  { id: "important-notes", label: "Important Notes & Integration Scope" },
-  { id: "best-practices", label: "Operational Best Practices" },
-  { id: "troubleshooting", label: "Troubleshooting & FAQs" },
+  { id: "purpose", label: "Why Use CargoClave SMS?" },
+  { id: "platform", label: "How CargoClave Fits Into Your Operations" },
+  { id: "users", label: "Who Uses CargoClave?" },
+  { id: "workflow", label: "The Complete Inspection Process" },
+  { id: "core-modules", label: "System Sections" },
+  { id: "steps", label: "First-Time User Setup Guide" },
+  { id: "important-notes", label: "Important Information" },
+  { id: "troubleshooting", label: "Common Questions" },
 ];
 
 const modules = [
   {
     icon: LayoutDashboard,
-    title: "Operations Dashboard",
-    desc: "Provides real-time visibility into active survey contracts, key performance metrics, terminal check-ins, and SLA breach alerts.",
+    title: "Operations Overview",
+    desc: "View active survey contracts, key operational stats, terminal activity, and deadline alerts at a glance.",
     to: "/operations/dashboard",
   },
   {
     icon: FileText,
     title: "Contract Management",
-    desc: "Enables coordinators and planners to draft, validate, assign surveyors, and manage execution plans for shipping contracts.",
+    desc: "Create shipping contracts, set up inspection plans, assign surveyors, and track work progress.",
     to: "/operations/contracts",
   },
   {
     icon: ClipboardCheck,
     title: "Inspection Review",
-    desc: "Provides quality assurance auditors with tools to verify GPS coordinates, inspect photo evidence, and approve or reject surveyor submissions.",
+    desc: "Review submitted checklists, inspect photo evidence, and approve or request updates from surveyors.",
     to: "/operations/inspection-review",
   },
   {
     icon: Settings2,
-    title: "Configuration Workspace",
-    desc: "Contains the visual Survey Builder canvas, conditional logic engine, team allocation boards, and inspection template management.",
+    title: "Setup Workspace",
+    desc: "Design survey checklists, set required rules, manage team assignments, and organize templates.",
     to: "/configuration/surveys",
   },
   {
     icon: FileStack,
     title: "Reports Suite",
-    desc: "Combines dynamic drag-and-drop Report Builder with automated PDF contract report generation for customer sign-off.",
+    desc: "Build custom report templates and automatically generate customer inspection reports for sign-off.",
     to: "/reports/report-builder",
   },
   {
     icon: History,
     title: "Logs & Analytics",
-    desc: "Maintains comprehensive system-wide database audit records for full governance compliance.",
+    desc: "Review complete system audit records and logs for governance and compliance.",
     to: "/logs/overview",
   },
   {
     icon: Smartphone,
-    title: "Mobile Surveyor App",
-    desc: "Native mobile client enabling field surveyors to capture checklist entries, photographs, and GPS check-ins offline or at port berths.",
+    title: "Mobile Survey App",
+    desc: "Perform offline field inspections, capture photos, and sync data seamlessly with the web portal.",
     to: "/mobile/overview",
   },
 ];
@@ -73,46 +72,43 @@ const modules = [
 export default function Introduction() {
   return (
     <DocPage
-      path="/"
+      path="/introduction"
       eyebrow="Getting Started"
-      title="Introduction"
-      description="Comprehensive user guide and operational manual for the CargoClave Surveyor Management System (SMS)."
+      title="Welcome to CargoClave SMS"
+      description="Your complete guide to managing maritime cargo inspections, survey checklists, contract workflows, and customer reports in one unified system."
       toc={toc}
     >
       <Section id="overview" title="Overview">
         <p>
-          The <strong>CargoClave Surveyor Management System (SMS)</strong> is an enterprise-grade port logistics platform designed to digitize cargo survey assignments, streamline field inspection collection, enforce SLA compliance, and generate verified customer inspection reports.
-        </p>
-        <p className="mt-3">
-          By connecting back-office coordinators with field surveyors operating at port berths and container terminals, SMS replaces legacy paper-based checklists with a real-time, geotagged digital workflow.
+          <strong>CargoClave Surveyor Management System (SMS)</strong> is an enterprise web and mobile platform built for maritime cargo inspection companies, survey agencies, and port logistics teams. It connects field surveyors conducting on-site vessel checks with office coordinators managing contracts, quality assurance, and client reporting.
         </p>
       </Section>
 
-      <Section id="purpose" title="Business Purpose">
+      <Section id="purpose" title="Why Use CargoClave SMS?">
         <p>
-          In global maritime trade, independent cargo inspection is critical for verifying shipment volume, condition, and compliance before and after vessel discharge. The Surveyor Management System addresses key industry challenges:
+          Independent cargo inspection is essential for confirming cargo quantities, condition, and quality during vessel loading and unloading. CargoClave SMS makes this process simple and reliable:
         </p>
         <ul className="list-disc pl-5 space-y-2 my-4">
-          <li><strong>Discharge Delay Reduction:</strong> Real-time surveyor check-ins and live data sync eliminate delays in publishing discharge completion certificates.</li>
-          <li><strong>Audit Integrity &amp; Dispute Mitigation:</strong> Geofenced GPS validation (1.0 km radius) and cryptographic audit trails eliminate fraudulent check-ins and evidence tampering.</li>
-          <li><strong>SLA Monitoring:</strong> Automated SLA breach notifications notify operational managers before customer contract deadlines are compromised.</li>
-          <li><strong>Standardized Reporting:</strong> Automated PDF report generation ensures consistent customer branding and compliance across global operations.</li>
+          <li><strong>Faster Vessel Discharge:</strong> Instant data sync between mobile surveyors and office staff speeds up the creation of discharge completion reports.</li>
+          <li><strong>Reliable Dispute Prevention:</strong> Automated time-stamped inspection records protect against missing data and dispute claims.</li>
+          <li><strong>Deadline Monitoring:</strong> Automatic alerts warn operations managers before customer deadlines are missed.</li>
+          <li><strong>Professional Customer Reports:</strong> Clear, standardized report formats ensure consistent company branding for global clients.</li>
         </ul>
       </Section>
 
-      <Section id="platform" title="Platform &amp; Portal Architecture">
+      <Section id="platform" title="How CargoClave Fits Into Your Operations">
         <p>
-          The Surveyor Management System operates as a core module within the broader <strong>CargoClave Enterprise Ecosystem</strong>:
+          CargoClave SMS works seamlessly within your company's broader operational system:
         </p>
         <div className="my-5 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
           <div className="flex flex-col justify-between rounded-xl border border-ink-900/10 dark:border-white/10 p-5 bg-ink-900/[0.01] dark:bg-white/[0.02] min-w-0 h-full">
             <div>
               <span className="inline-flex items-center justify-center rounded-md px-2.5 py-1 w-fit bg-signal-50 dark:bg-signal-900/40 text-signal-600 dark:text-signal-400 font-bold text-[11px] uppercase tracking-wider mb-3 select-none">
-                PORTAL
+                CENTRAL PORTAL
               </span>
               <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1 break-words">CargoClave Central Portal</h4>
               <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 break-words">
-                Provides Single Sign-On (SSO), organization tenant switching, user account provisioning, role assignment, and master data management (Port Terminals, Customer Registries, Vessel Masters).
+                Handles user logins, team member setup, role assignments, and master records like Port Terminals, Customer Lists, and Vessel Registers.
               </p>
             </div>
           </div>
@@ -123,54 +119,50 @@ export default function Introduction() {
               </span>
               <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1 break-words">Surveyor Management System</h4>
               <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 break-words">
-                Dedicated operational workspace for contract planning, surveyor dispatch, mobile checklist execution, quality review, and final PDF report generation.
+                Your primary workspace for creating contracts, dispatching surveyors, performing mobile inspections, auditing quality, and sharing final reports.
               </p>
             </div>
           </div>
         </div>
       </Section>
 
-      <Section id="users" title="Supported User Profiles">
+      <Section id="users" title="Who Uses CargoClave?">
         <p>
-          The system provides tailored interfaces and permission levels for four primary operational roles:
+          The system provides easy-to-use views customized for three main job roles:
         </p>
         <div className="my-4 space-y-3">
           <div className="p-4 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
             <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">1. Field Surveyor</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Operates the Mobile Surveyor App at port berths. Captures inspection entries, container seal checks, damage photos, and recipient signatures.</p>
+            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Uses the Mobile App at the port berth to fill in checklists, record seal numbers, snap damage photos, and collect customer signatures.</p>
           </div>
           <div className="p-4 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">2. Operational Coordinator</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Operates the web console. Registers shipping contracts, creates execution plans, assigns surveyor teams, and monitors daily terminal throughput.</p>
+            <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">2. Operations Coordinator</p>
+            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Uses the web workspace to register shipping contracts, build inspection plans, assign field surveyors, review submissions, and monitor daily progress.</p>
           </div>
           <div className="p-4 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">3. Quality Manager / Reviewer</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Audits submitted checklists in the Inspection Review console, checks GPS distance compliance, approves completed surveys, or requests revisions.</p>
-          </div>
-          <div className="p-4 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-ink-950">
-            <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">4. System Administrator</p>
-            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Configures survey templates, sets up conditional logic rules, manages team structures, and reviews security audit logs.</p>
+            <p className="font-semibold text-sm text-ink-900 dark:text-slate-100">3. System Administrator</p>
+            <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-0.5">Creates survey templates, sets required checklist rules, manages user access, and oversees system security.</p>
           </div>
         </div>
       </Section>
 
-      <Section id="workflow" title="High-Level Business Workflow">
+      <Section id="workflow" title="The Complete Inspection Process">
         <p className="mb-4">
-          Every cargo survey follows a strict 6-stage lifecycle across the platform:
+          Every inspection follows simple steps from start to finish:
         </p>
         <ol className="list-decimal pl-5 space-y-3 text-[14px] leading-6 text-ink-750 dark:text-slate-300">
-          <li><strong>Template Creation:</strong> Administrator designs an Inspection Template in the Survey Builder.</li>
-          <li><strong>Contract Dispatch:</strong> Coordinator registers a new Contract, selects the template, and assigns a Field Surveyor.</li>
-          <li><strong>Mobile Execution:</strong> Surveyor receives push dispatch notification on the Mobile App, arrives at port, verifies GPS location, and completes checklist steps.</li>
-          <li><strong>Submission &amp; Sync:</strong> Surveyor submits completed inspection entries to the cloud gateway.</li>
-          <li><strong>Quality Audit:</strong> Reviewer inspects submitted evidence, checks GPS tolerance, and approves or requests revision.</li>
-          <li><strong>Report Finalization:</strong> Approved data compiles into a branded PDF report for customer delivery.</li>
+          <li><strong>Template Creation:</strong> An Administrator builds a reusable survey checklist template.</li>
+          <li><strong>Contract Setup:</strong> A Coordinator creates a contract, links the checklist template, and assigns a Field Surveyor.</li>
+          <li><strong>Mobile Inspection:</strong> The Surveyor gets a mobile notification, goes to the port, and completes the checklist steps.</li>
+          <li><strong>Data Submission:</strong> The Surveyor submits the completed checklist and photos right from the mobile app.</li>
+          <li><strong>Operations Review:</strong> A Coordinator checks the submitted answers and photo evidence, then approves the survey.</li>
+          <li><strong>Report Delivery:</strong> The system creates a clean, branded inspection report ready for the customer.</li>
         </ol>
       </Section>
 
-      <Section id="core-modules" title="Core System Modules">
+      <Section id="core-modules" title="System Sections">
         <p className="mb-6">
-          Explore the documentation for each functional area of the platform:
+          Explore the guides for each area of the CargoClave system:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
           {modules.map((m) => (
@@ -195,43 +187,35 @@ export default function Introduction() {
         </div>
       </Section>
 
-      <Section id="steps" title="First-Time User Onboarding Journey">
-        <p className="mb-3">New users should complete the following steps to get started:</p>
+      <Section id="steps" title="First-Time User Setup Guide">
+        <p className="mb-3">New to CargoClave? Follow these quick steps to get started:</p>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Obtain account provisioning from your organization administrator.</li>
-          <li>Review the <Link to="/getting-started/sign-in">Sign In guide</Link> for passwordless OTP access.</li>
-          <li>Complete verification and launch the SMS application card from the <Link to="/getting-started/launch">CargoClave Portal</Link>.</li>
-          <li>Familiarize yourself with your role permissions in the <Link to="/getting-started/roles">Roles &amp; Access guide</Link>.</li>
-          <li>Access the <Link to="/operations/dashboard">Operations Dashboard</Link> to view live operational metrics.</li>
+          <li>Ask your administrator to set up your user account.</li>
+          <li>Read the <Link to="/getting-started/sign-in">Sign In guide</Link> to log in securely with a one-time password (OTP).</li>
+          <li>Open the SMS application card from the <Link to="/getting-started/launch">CargoClave Portal</Link>.</li>
+          <li>Check your access rights in the <Link to="/getting-started/roles">Roles &amp; Access guide</Link>.</li>
+          <li>Go to the <Link to="/operations/dashboard">Operations Overview</Link> to see live inspection stats.</li>
         </ol>
       </Section>
 
-      <Section id="important-notes" title="Important Notes &amp; Integration Scope">
+      <Section id="important-notes" title="Important Information">
         <Callout type="note">
-          Master data entities (vessel registers, port berth definitions, customer tax details) are synchronized automatically from CargoClave Master Management. Read-only fields cannot be edited directly within the SMS workspace.
+          Core operational records (such as vessel lists, port berth locations, and customer names) are updated automatically from Central Management. If you need to edit these items, contact your master data manager.
         </Callout>
       </Section>
 
-      <Section id="best-practices" title="Operational Best Practices">
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>Browser Compatibility:</strong> Use modern Evergreen browsers (Chrome, Edge, Safari, Firefox) for the coordinator web console.</li>
-          <li><strong>Mobile Sync:</strong> Field surveyors should perform a manual sync on the mobile app before entering low-connectivity port berths.</li>
-          <li><strong>Theme Preference:</strong> Dark mode can be toggled via the Top Bar theme switch to reduce eye strain during night shifts.</li>
-        </ul>
-      </Section>
-
-      <Section id="troubleshooting" title="Troubleshooting &amp; FAQs">
+      <Section id="troubleshooting" title="Common Questions">
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: Why cannot I edit port terminal names in the contract wizard?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Why cannot I edit port terminal names in the contract wizard?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
-              Port terminal master data is maintained centrally in CargoClave Master Management. Contact your master data administrator to add or update terminal definitions.
+              Port names are managed centrally to avoid typos across contracts. Contact your master data manager to add or update terminal entries.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: What happens if a surveyor loses cellular connectivity during an inspection?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">What happens if a surveyor loses mobile signal during an inspection?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
-              The Mobile Surveyor App stores checklist data, photos, and geotags locally in encrypted storage. All entries automatically sync to the server once cellular or Wi-Fi connectivity is restored.
+              The mobile app saves all checklist responses and photos securely on the phone. Once internet connectivity returns, the app automatically uploads everything to the system.
             </p>
           </div>
         </div>

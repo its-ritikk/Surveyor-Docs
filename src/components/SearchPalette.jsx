@@ -1,32 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, X, CornerDownLeft, FileText, ChevronRight, Clock, Sparkles, BookOpen, Layers } from "lucide-react";
+import { Search, X, CornerDownLeft, FileText, ChevronRight, Clock, BookOpen, Layers } from "lucide-react";
 import { searchIndex } from "../data/searchIndex";
-
-// Synonyms map for enterprise intelligent search
-const SYNONYMS = {
-  photo: ["image", "picture", "photograph", "media", "camera", "evidence", "attachment"],
-  photos: ["image", "picture", "photograph", "media", "camera", "evidence", "attachment"],
-  image: ["photo", "picture", "photograph", "media", "camera", "evidence"],
-  picture: ["photo", "image", "photograph", "media", "evidence"],
-  report: ["reports", "pdf", "export", "pick report", "survey report", "document"],
-  reports: ["report", "pdf", "export", "document"],
-  pdf: ["report", "reports", "export", "document", "print"],
-  media: ["photo", "image", "attachment", "evidence", "upload"],
-  attachment: ["media", "photo", "image", "evidence", "file"],
-  checksheet: ["checklist", "survey", "questionnaire", "form"],
-  checklist: ["checksheet", "survey", "questionnaire", "form"],
-  survey: ["checklist", "checksheet", "questionnaire", "inspection"],
-  mobile: ["app", "flutter", "tablet", "smartphone", "offline", "field"],
-  app: ["mobile", "flutter", "tablet", "client"],
-  contract: ["contracts", "job", "dispatch", "vessel", "consignment"],
-  contracts: ["contract", "job", "dispatch", "vessel"],
-  log: ["logs", "audit", "history", "activity", "telemetry"],
-  logs: ["log", "audit", "history", "activity", "telemetry"],
-  audit: ["log", "logs", "history", "security", "compliance"],
-  template: ["templates", "inspection", "wizard", "builder"],
-  templates: ["template", "inspection", "wizard", "builder"],
-};
 
 // Popular Hub Pages shown on empty search
 const POPULAR_PAGES = [
@@ -35,54 +10,7 @@ const POPULAR_PAGES = [
   { label: "Reports Ecosystem Overview", path: "/reports/overview", desc: "Unified reporting architecture, templates, and dispatches." },
   { label: "Contract Operations", path: "/operations/contracts", desc: "Manage contracts, assignments, and vessel schedules." },
   { label: "Mobile Surveyor App", path: "/mobile/overview", desc: "Field client execution, offline caching, and media uploads." },
-  { label: "Logs & Analytics", path: "/logs/overview", desc: "Activity telemetry, audit history, and security logs." },
 ];
-
-const SUGGESTED_PAGES = [
-  { label: "Survey Builder", path: "/configuration/surveys" },
-  { label: "Reports Ecosystem", path: "/reports/overview" },
-  { label: "Mobile Surveyor", path: "/mobile/overview" },
-];
-
-// Highlight component for search matching terms
-function HighlightText({ text, query }) {
-  if (!text) return null;
-  if (!query || !query.trim()) return <span>{text}</span>;
-
-  const rawTokens = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  if (rawTokens.length === 0) return <span>{text}</span>;
-
-  const expanded = new Set();
-  rawTokens.forEach((tok) => {
-    expanded.add(tok);
-    if (SYNONYMS[tok]) {
-      SYNONYMS[tok].forEach((syn) => expanded.add(syn));
-    }
-  });
-
-  const escapedTokens = Array.from(expanded)
-    .filter((t) => t.length >= 2)
-    .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-
-  if (escapedTokens.length === 0) return <span>{text}</span>;
-
-  const regex = new RegExp(`(${escapedTokens.join("|")})`, "gi");
-  const parts = text.split(regex);
-
-  return (
-    <span>
-      {parts.map((part, i) =>
-        regex.test(part) ? (
-          <mark key={i} className="bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 font-semibold px-0.5 rounded">
-            {part}
-          </mark>
-        ) : (
-          part
-        )
-      )}
-    </span>
-  );
-}
 
 export default function SearchPalette({ open, setOpen }) {
   const [query, setQuery] = useState("");
@@ -144,22 +72,12 @@ export default function SearchPalette({ open, setOpen }) {
     } catch {}
   };
 
-  // Search matching logic with partial matching & synonyms
+  // Clean, fast search filtering logic
   const filteredResults = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
 
-    const rawTokens = q.split(/\s+/).filter(Boolean);
-    const searchTokens = new Set();
-
-    rawTokens.forEach((tok) => {
-      searchTokens.add(tok);
-      if (SYNONYMS[tok]) {
-        SYNONYMS[tok].forEach((syn) => searchTokens.add(syn));
-      }
-    });
-
-    const tokenArray = Array.from(searchTokens);
+    const tokens = q.split(/\s+/).filter(Boolean);
 
     return searchIndex.filter((item) => {
       const pageName = (item.pageName || "").toLowerCase();
@@ -170,7 +88,7 @@ export default function SearchPalette({ open, setOpen }) {
       const group = (item.group || "").toLowerCase();
       const fullText = `${pageName} ${sectionName} ${matchedHeading} ${keywords} ${desc} ${group}`;
 
-      return tokenArray.some((token) => fullText.includes(token));
+      return tokens.every((token) => fullText.includes(token));
     });
   }, [query]);
 
@@ -194,15 +112,11 @@ export default function SearchPalette({ open, setOpen }) {
     return groupedResults.flatMap((g) => g.items);
   }, [groupedResults]);
 
-  // UNIFIED NAVIGABLE LIST (Handles empty query popular hubs, search results, and empty state suggestions)
   const navList = useMemo(() => {
     if (!query.trim()) {
       return POPULAR_PAGES.map((hub) => ({ type: "hub", to: hub.path, label: hub.label, desc: hub.desc }));
     }
-    if (flatResults.length > 0) {
-      return flatResults.map((item) => ({ type: "search", to: item.to, item }));
-    }
-    return SUGGESTED_PAGES.map((sug) => ({ type: "suggested", to: sug.path, label: sug.label }));
+    return flatResults.map((item) => ({ type: "search", to: item.to, item }));
   }, [query, flatResults]);
 
   // Reset active index to 0 whenever search query changes
@@ -210,7 +124,7 @@ export default function SearchPalette({ open, setOpen }) {
     setActive(navList.length > 0 ? 0 : -1);
   }, [navList.length, query]);
 
-  // Auto-scroll selected item into view whenever active index changes
+  // Auto-scroll selected item into view
   useEffect(() => {
     if (active >= 0 && itemRefs.current[active]) {
       itemRefs.current[active].scrollIntoView({
@@ -220,7 +134,6 @@ export default function SearchPalette({ open, setOpen }) {
     }
   }, [active]);
 
-  // Navigate & Smooth Scroll + Destination Flash Highlight
   const go = (to) => {
     if (query.trim()) {
       saveRecentSearch(query);
@@ -245,7 +158,6 @@ export default function SearchPalette({ open, setOpen }) {
     setOpen(false);
   };
 
-  // Keyboard navigation handler with wrap-around navigation
   const onKeyDown = (e) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -300,7 +212,7 @@ export default function SearchPalette({ open, setOpen }) {
             aria-expanded="true"
             aria-controls="search-results-listbox"
             aria-activedescendant={active >= 0 ? `search-option-${active}` : undefined}
-            placeholder="Search documentation, fields, tables, workflows..."
+            placeholder="Search documentation, fields, topics..."
             className="w-full bg-transparent text-[15px] text-ink-900 dark:text-[#FFFFFF] placeholder:text-ink-500/70 dark:placeholder:text-[#737373] focus:outline-none"
           />
           {query && (
@@ -309,7 +221,7 @@ export default function SearchPalette({ open, setOpen }) {
                 setQuery("");
                 inputRef.current?.focus();
               }}
-              className="text-xs text-ink-500 hover:text-ink-900 dark:hover:text-[#FFFFFF] px-1.5 py-0.5 rounded bg-ink-900/5 dark:bg-[#171717]"
+              className="text-xs text-ink-500 hover:text-ink-900 dark:hover:text-[#FFFFFF] px-2 py-0.5 rounded bg-ink-900/5 dark:bg-[#171717]"
             >
               Clear
             </button>
@@ -324,10 +236,10 @@ export default function SearchPalette({ open, setOpen }) {
         </div>
 
         {/* Scrollable Search Body */}
-        <div id="search-results-listbox" role="listbox" className="max-h-[65vh] overflow-y-auto doc-scroll py-3">
+        <div id="search-results-listbox" role="listbox" className="max-h-[65vh] overflow-y-auto doc-scroll py-2">
           {/* EMPTY QUERY STATE */}
           {!query.trim() && (
-            <div className="px-4 space-y-5">
+            <div className="px-4 py-2 space-y-4">
               {/* Recent Searches */}
               {recentSearches.length > 0 && (
                 <div>
@@ -354,13 +266,12 @@ export default function SearchPalette({ open, setOpen }) {
                 </div>
               )}
 
-              {/* Popular Pages (Navigable Cards) */}
+              {/* Popular Pages */}
               <div>
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2.5">
-                  <Sparkles size={13} className="text-cyan-600 dark:text-cyan-400" />
-                  <span>Popular Documentation Hubs</span>
+                <div className="text-xs font-semibold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">
+                  Popular Documentation Hubs
                 </div>
-                <div className="grid gap-2 sm:grid-cols-2">
+                <div className="space-y-1.5">
                   {POPULAR_PAGES.map((hub, idx) => {
                     const itemIndex = flatIndexCounter++;
                     const isSelected = active === itemIndex;
@@ -374,19 +285,19 @@ export default function SearchPalette({ open, setOpen }) {
                         ref={(el) => (itemRefs.current[itemIndex] = el)}
                         onClick={() => go(hub.path)}
                         onMouseEnter={() => setActive(itemIndex)}
-                        className={`p-3 text-left rounded-xl border transition-all ${
+                        className={`w-full flex items-center justify-between p-2.5 rounded-xl border transition-all text-left ${
                           isSelected
-                            ? "bg-cyan-500/10 dark:bg-[#171717] border-cyan-500/40 dark:border-cyan-500/50 shadow-sm ring-1 ring-cyan-500/30"
-                            : "border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] hover:bg-cyan-500/[0.03] dark:hover:bg-[#171717]"
+                            ? "bg-cyan-500/10 dark:bg-[#171717] border-cyan-500/40 dark:border-cyan-500/50"
+                            : "border-ink-900/5 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] hover:bg-ink-900/[0.02] dark:hover:bg-[#171717]"
                         }`}
                       >
-                        <div className="flex items-center justify-between">
-                          <span className={`text-xs font-bold ${isSelected ? "text-cyan-700 dark:text-cyan-400" : "text-ink-900 dark:text-[#FFFFFF]"}`}>
+                        <div>
+                          <div className={`text-xs font-semibold ${isSelected ? "text-cyan-700 dark:text-cyan-400" : "text-ink-900 dark:text-[#FFFFFF]"}`}>
                             {hub.label}
-                          </span>
-                          <ChevronRight size={14} className={isSelected ? "text-cyan-600 dark:text-cyan-400 translate-x-0.5" : "text-ink-400 dark:text-[#737373]"} />
+                          </div>
+                          <p className="text-[11.5px] text-ink-500 dark:text-[#A3A3A3] mt-0.5">{hub.desc}</p>
                         </div>
-                        <p className="mt-1 text-[11.5px] text-ink-500 dark:text-[#A3A3A3] line-clamp-1">{hub.desc}</p>
+                        <ChevronRight size={14} className={isSelected ? "text-cyan-600 dark:text-cyan-400" : "text-ink-400 dark:text-[#737373]"} />
                       </button>
                     );
                   })}
@@ -398,48 +309,19 @@ export default function SearchPalette({ open, setOpen }) {
           {/* NO RESULTS FOUND STATE */}
           {query.trim() && flatResults.length === 0 && (
             <div className="px-4 py-8 text-center">
-              <BookOpen size={32} className="mx-auto text-ink-400 dark:text-[#737373] mb-3 opacity-60" />
+              <BookOpen size={28} className="mx-auto text-ink-400 dark:text-[#737373] mb-2 opacity-60" />
               <p className="text-sm font-semibold text-ink-900 dark:text-[#FFFFFF]">
                 No documentation results found for "{query}"
               </p>
-              <p className="text-xs text-ink-500 dark:text-[#A3A3A3] mt-1 max-w-sm mx-auto">
-                Try searching for related keywords like <strong>"survey"</strong>, <strong>"contract"</strong>, <strong>"photo"</strong>, <strong>"pdf"</strong>, or <strong>"mobile"</strong>.
+              <p className="text-xs text-ink-500 dark:text-[#A3A3A3] mt-1">
+                Try searching for general keywords like <strong>survey</strong>, <strong>contract</strong>, <strong>report</strong>, or <strong>mobile</strong>.
               </p>
-
-              <div className="mt-6 text-left border-t border-ink-900/10 dark:border-[#262626] pt-4">
-                <p className="text-xs font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">Suggested Pages:</p>
-                <div className="grid gap-2 sm:grid-cols-3 text-xs font-medium">
-                  {SUGGESTED_PAGES.map((sug, idx) => {
-                    const itemIndex = flatIndexCounter++;
-                    const isSelected = active === itemIndex;
-
-                    return (
-                      <button
-                        key={idx}
-                        id={`search-option-${itemIndex}`}
-                        role="option"
-                        aria-selected={isSelected}
-                        ref={(el) => (itemRefs.current[itemIndex] = el)}
-                        onClick={() => go(sug.path)}
-                        onMouseEnter={() => setActive(itemIndex)}
-                        className={`p-2.5 rounded-lg border text-cyan-700 dark:text-cyan-400 transition-all ${
-                          isSelected
-                            ? "bg-cyan-500/20 border-cyan-500/50 shadow-sm ring-1 ring-cyan-500/30"
-                            : "border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/10"
-                        }`}
-                      >
-                        {sug.label} →
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
           )}
 
           {/* GROUPED SEARCH RESULTS */}
           {query.trim() && flatResults.length > 0 && (
-            <div className="space-y-4">
+            <div className="space-y-3">
               {groupedResults.map((group) => (
                 <div key={group.groupName}>
                   {/* Module Group Heading */}
@@ -463,7 +345,7 @@ export default function SearchPalette({ open, setOpen }) {
                           ref={(el) => (itemRefs.current[itemIndex] = el)}
                           onClick={() => go(item.to)}
                           onMouseEnter={() => setActive(itemIndex)}
-                          className={`flex w-full items-start gap-3 px-4 py-3 text-left transition-colors relative border-l-2 ${
+                          className={`flex w-full items-start gap-3 px-4 py-2.5 text-left transition-colors relative border-l-2 ${
                             isSelected
                               ? "bg-cyan-500/10 dark:bg-[#171717] border-cyan-500 dark:border-cyan-400"
                               : "border-transparent hover:bg-ink-900/[0.025] dark:hover:bg-[#171717]/60"
@@ -479,28 +361,28 @@ export default function SearchPalette({ open, setOpen }) {
                           />
                           <div className="min-w-0 flex-1">
                             {/* Breadcrumb Navigation */}
-                            <div className="flex items-center gap-1 text-[11.5px] font-semibold text-cyan-700 dark:text-cyan-400 flex-wrap">
-                              <span><HighlightText text={item.pageName} query={query} /></span>
+                            <div className="flex items-center gap-1 text-[12px] font-semibold text-cyan-700 dark:text-cyan-400 flex-wrap">
+                              <span>{item.pageName}</span>
                               {item.sectionName && (
                                 <>
                                   <ChevronRight size={12} className="text-ink-400 dark:text-[#737373] shrink-0" />
-                                  <span><HighlightText text={item.sectionName} query={query} /></span>
+                                  <span>{item.sectionName}</span>
                                 </>
                               )}
                               {item.matchedHeading && item.matchedHeading !== item.sectionName && item.matchedHeading !== item.pageName && (
                                 <>
                                   <ChevronRight size={12} className="text-ink-400 dark:text-[#737373] shrink-0" />
                                   <span className="text-ink-900 dark:text-[#FFFFFF] font-bold">
-                                    <HighlightText text={item.matchedHeading} query={query} />
+                                    {item.matchedHeading}
                                   </span>
                                 </>
                               )}
                             </div>
 
-                            {/* Snippet Description */}
+                            {/* Description Snippet */}
                             {item.desc && (
-                              <p className="mt-1 text-[12.5px] leading-5 text-ink-650 dark:text-[#A3A3A3] line-clamp-2">
-                                <HighlightText text={item.desc} query={query} />
+                              <p className="mt-0.5 text-[12px] leading-5 text-ink-650 dark:text-[#A3A3A3] line-clamp-1">
+                                {item.desc}
                               </p>
                             )}
                           </div>
@@ -519,19 +401,18 @@ export default function SearchPalette({ open, setOpen }) {
         </div>
 
         {/* Footer Shortcut Bar */}
-        <div className="flex items-center justify-between border-t border-ink-900/10 dark:border-[#262626] px-4 py-2.5 bg-ink-900/[0.015] dark:bg-[#0A0A0A] text-[11px] text-ink-500 dark:text-[#A3A3A3]">
+        <div className="flex items-center justify-between border-t border-ink-900/10 dark:border-[#262626] px-4 py-2 bg-ink-900/[0.015] dark:bg-[#0A0A0A] text-[11px] text-ink-500 dark:text-[#A3A3A3]">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] shadow-2xs font-mono">↑</kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] shadow-2xs font-mono">↓</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] font-mono">↑↓</kbd>
               Navigate
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] shadow-2xs font-mono">↵</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] font-mono">↵</kbd>
               Select
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] shadow-2xs font-mono">ESC</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-[#171717] border border-ink-900/10 dark:border-[#262626] font-mono">ESC</kbd>
               Close
             </span>
           </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import { StatusBadge } from "../../components/StatusBits";
 
 const toc = [
@@ -10,7 +9,6 @@ const toc = [
   { id: "media-and-attachments", label: "Media & Attachments" },
   { id: "version-history", label: "Version History" },
   { id: "export-and-preview", label: "Export & Preview" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "troubleshooting", label: "Troubleshooting" },
 ];
 
@@ -128,13 +126,6 @@ export default function ContractReports() {
             </p>
           </div>
         </div>
-      </Section>
-
-      {/* ── BEST PRACTICES ────────────────────────────────────────────── */}
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Best Practice">
-          Verify that all contract surveys are marked Complete before generating the Final Supervision Report to ensure 100% of inspection data and photos are included.
-        </Callout>
       </Section>
 
       {/* ── TROUBLESHOOTING ───────────────────────────────────────────── */}

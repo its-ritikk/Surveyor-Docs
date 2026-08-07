@@ -15,7 +15,7 @@ export default function VersionManagementPage() {
       path="/configuration/surveys/version-management"
       eyebrow="Survey Builder"
       title="Version Management"
-      description="Full revision history control (v1.0, v1.1, v2.0), backward compatibility rules, and version cloning."
+      description="Full revision history control (v1.0, v2.0), backward compatibility rules, and version cloning."
       toc={toc}
       noMedia={true}
     >
@@ -27,7 +27,6 @@ export default function VersionManagementPage() {
 
       <Section id="revision-numbers" title="Revision Numbers (v1.0 vs v2.0)">
         <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
-          <li><strong>Minor Revisions (v1.1):</strong> Non-breaking edits (updating help text or adding optional fields).</li>
           <li><strong>Major Revisions (v2.0):</strong> Structural changes (adding compulsory fields or modifying database tags).</li>
         </ul>
       </Section>

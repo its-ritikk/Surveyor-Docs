@@ -90,33 +90,33 @@ export const mediaRegistry = {
   "/configuration/surveys": {
     "fields": {
       type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/builder-canvas.png",
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/builder-survey.png",
       alt: "Survey builder workspace",
-      caption: "The drag-and-drop canvas for structured checksheets design"
+      caption: "The drag-and-drop survey for structured checksheets design"
     }
   },
   "/configuration/surveys/survey-steps": {
     "overview": {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/survey-steps.png",
-      alt: "Survey Steps Configuration UI Canvas",
+      alt: "Survey Steps Configuration UI Survey",
       caption: "Survey Steps builder workspace showing multi-step wizard sequence, step page titles, field ordering, and skip rule settings"
     }
   },
-  "/configuration/surveys/workflow-canvas": {
+  "/configuration/surveys/workflow-workspace": {
     "overview": {
       type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/workflow-canvas.png",
-      alt: "Workflow Canvas Visual Design Surface UI",
-      caption: "Interactive visual design surface showing drag-and-drop canvas layout, drop zones, step section breaks, and field controls"
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/workflow-workspace.png",
+      alt: "Workflow Visual Design Surface UI",
+      caption: "Interactive visual design surface showing drag-and-drop layout, drop zones, step section breaks, and field controls"
     }
   },
   "/configuration/surveys/field-text": {
-    "canvas-placement": {
+    "survey-placement": {
       type: "image",
-      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-text-canvas-placement.png",
-      alt: "Text Field Placement on Survey Canvas UI",
-      caption: "Text Field placed inside Step 1 of the Survey Canvas with drag handles, settings, duplicate, and delete controls"
+      src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-text-survey-placement.png",
+      alt: "Text Field Placement on Survey UI",
+      caption: "Text Field placed inside Step 1 of the Survey with drag handles, settings, duplicate, and delete controls"
     },
     "validations-drawer": {
       type: "image",
@@ -148,7 +148,7 @@ export const mediaRegistry = {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-dropdown-core.png",
       alt: "Dropdown Core Settings Drawer UI",
-      caption: "Core Tab: Field name configuration and canvas container placement"
+      caption: "Core Tab: Field name configuration and survey container placement"
     },
     "options-drawer": {
       type: "image",
@@ -180,7 +180,7 @@ export const mediaRegistry = {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-date-core.png",
       alt: "Date Picker Core Settings & Available Fields Library UI",
-      caption: "Core Tab: Available Fields library (Date picker tile), Survey Canvas Step 1 placement, and Field name setting"
+      caption: "Core Tab: Available Fields library (Date picker tile), Survey Step 1 placement, and Field name setting"
     },
     "validations-drawer": {
       type: "image",
@@ -200,7 +200,7 @@ export const mediaRegistry = {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/field-photo-core.png",
       alt: "Photo Upload Core Settings & Available Fields Library UI",
-      caption: "Core Tab: Available Fields library (Photo tile), Survey Canvas Step 1 placement, and Field name setting"
+      caption: "Core Tab: Available Fields library (Photo tile), Survey Step 1 placement, and Field name setting"
     },
     "validations-drawer": {
       type: "image",
@@ -301,7 +301,7 @@ export const mediaRegistry = {
     "overview": {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/blank-report-designer.png",
-      alt: "Blank Report Designer Canvas & Live Report Preview UI",
+      alt: "Blank Report Designer & Live Report Preview UI",
       caption: "Blank Report Designer: Report Content toolbar (Text Box, Data Table, Label / Value, Signatures, Group, Photo Grid) and dual-pane Live Report Preview displaying header letterhead and client footer boundaries"
     }
   },
@@ -368,14 +368,14 @@ export const mediaRegistry = {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-builder-overview.png",
       alt: "Report Builder Overview",
-      caption: "The drag-and-drop canvas workspace for composing PDF report layouts"
+      caption: "The drag-and-drop survey workspace for composing PDF report layouts"
     }
   },
   "reports-report-builder-overview-tutorial-video": {
     type: "video",
     src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-builder-overview-demo.mp4",
     alt: "Report Builder Overview Tutorial",
-    caption: "Report Builder Canvas Overview Video Tutorial"
+    caption: "Report Builder Survey Overview Video Tutorial"
   },
 
   "/reports/report-builder/elements": {
@@ -383,7 +383,7 @@ export const mediaRegistry = {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-elements.png",
       alt: "Report Elements Panel",
-      caption: "Native layout blocks available on the designer canvas"
+      caption: "Native layout blocks available on the designer survey"
     }
   },
   "reports-report-builder-elements-tutorial-video": {
@@ -519,15 +519,15 @@ export const mediaRegistry = {
     "screenshot": {
       type: "image",
       src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-element-rich-text.png",
-      alt: "Rich Text Element Editor",
-      caption: "Rich Text editor block supporting narrative content and dynamic variable injection"
+      alt: "Text Element Editor",
+      caption: "Text editor block supporting narrative content and dynamic variable injection"
     }
   },
   "reports-report-builder-elements-rich-text-tutorial-video": {
     type: "video",
     src: "https://s3.amazonaws.com/cargoclave-surveyor-assets/report-element-rich-text-tutorial.mp4",
-    alt: "Rich Text Element Tutorial",
-    caption: "Configuring the Rich Text Element — Narrative Blocks & Variable Mapping"
+    alt: "Text Element Tutorial",
+    caption: "Configuring the Text Element — Narrative Blocks & Variable Mapping"
   },
 
   "/reports/report-builder/elements/signature": {

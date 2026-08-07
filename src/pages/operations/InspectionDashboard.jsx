@@ -85,12 +85,12 @@ export default function InspectionDashboard() {
                 <td className="p-2.5">Aggregate count of all inspection records in the system for the active filter period. Provides operations managers a baseline volume metric.</td>
               </tr>
               <tr>
-                <td className="p-2.5 font-mono font-medium">Pending Reviews</td>
-                <td className="p-2.5">Inspections received from the Mobile App that have not yet been opened by any reviewer. A rising Pending count signals a review bottleneck requiring coordinator attention.</td>
+                <td className="p-2.5 font-semibold text-amber-700 dark:text-amber-300">Pending</td>
+                <td className="p-2.5">Inspections received from the Mobile App that have not yet been opened. A rising Pending count signals a bottleneck requiring coordinator attention.</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Approved</td>
-                <td className="p-2.5">Inspections that have passed quality verification and been approved. Locked and forwarded to the Report Builder for PDF generation.</td>
+                <td className="p-2.5">Inspections that have passed quality verification and been approved. Locked and forwarded to the Report Builder for report publishing.</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Cond. Approved</td>
@@ -187,7 +187,7 @@ export default function InspectionDashboard() {
             <tbody className="divide-y divide-ink-900/5 dark:divide-[#262626] text-ink-700 dark:text-[#E5E5E5]">
               <tr>
                 <td className="p-2.5 font-mono font-medium">ID</td>
-                <td className="p-2.5">System-generated unique inspection identifier (e.g., <code>INSP_2452F4D8</code>). Sortable column.</td>
+                <td className="p-2.5">System-generated unique inspection ID with an optional administrator-defined reference ID (e.g., <code>INSP_2452F4D8</code>). Sortable column.</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">TYPE</td>
@@ -227,7 +227,7 @@ export default function InspectionDashboard() {
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-6 mb-3">Priority Indicator</h4>
         <p className="text-[13.5px] text-ink-700 dark:text-[#A3A3A3] mb-3">
-          Each row displays a <strong>Priority Indicator</strong> badge to help reviewers triage their workload:
+          Each row displays a <strong>Priority Indicator</strong> badge to help coordinators triage their workload:
         </p>
         <div className="my-3 space-y-2">
           <div className="p-3 rounded-lg border border-rose-200 dark:border-rose-500/30 bg-rose-50/30 dark:bg-rose-500/10">

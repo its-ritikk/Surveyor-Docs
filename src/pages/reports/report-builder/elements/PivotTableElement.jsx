@@ -15,7 +15,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -154,15 +153,6 @@ export default function PivotTableElement() {
           <li>Weight distribution: Cargo Type × Vessel Hold → Sum of Gross Weight.</li>
           <li>Container count: Port of Origin × Condition Grade → Count of Containers.</li>
           <li>Shift productivity: Crew Team × Day → Average Containers Inspected.</li>
-        </ul>
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Keep the number of unique column dimension values under 8 to ensure all columns fit on A4 width without overflow.</li>
-          <li>Always enable the <strong>Grand Total Row</strong> on summary reports — clients typically expect a bottom-line total.</li>
-          <li>Use <strong>Include Filters</strong> to exclude null or "N/A" entries from the source data before pivoting, preventing empty cells in the grid.</li>
-          <li>Label the value field clearly in the table caption (e.g. "Sum of Bags Loaded (mt)") so the unit of measure is clear.</li>
         </ul>
       </Section>
 

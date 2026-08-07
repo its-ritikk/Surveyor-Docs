@@ -26,7 +26,7 @@ export default function InspectionReview() {
           The <strong>Inspection Review</strong> module is the quality assurance gateway within the CargoClave Surveyor Management System. It aggregates all survey checklist submissions from field surveyors operating the Mobile Surveyor App and provides portal coordinators with a structured workspace to audit, verify, and act on each inspection before it advances to the Report Builder for certificate generation.
         </p>
         <p className="mt-3">
-          The module is accessible from <strong>Operations → Inspection Review</strong> and is designed for operations coordinators, quality reviewers, and portal administrators who are responsible for maintaining inspection data integrity and SLA compliance.
+          The module is accessible from <strong>Operations → Inspection Review</strong> and is designed for operations coordinators and portal administrators who are responsible for maintaining inspection data integrity and SLA compliance.
         </p>
 
         <div className="my-5 grid gap-3 sm:grid-cols-3">
@@ -99,7 +99,7 @@ export default function InspectionReview() {
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Approved</td>
-                <td className="p-2.5">Inspection passed quality review. Data is locked and pushed to the Report Builder for PDF generation.</td>
+                <td className="p-2.5">Inspection passed quality review. Data is locked and pushed to the Report Builder for report publishing.</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-mono font-medium">Cond. Approved</td>

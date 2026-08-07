@@ -1,11 +1,9 @@
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
-import { StatusTable } from "../../components/StatusBits";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "actions", label: "Tracked actions" },
-  { id: "comparison", label: "Activity vs. App Activity vs. Audit" },
 ];
 
 export default function AuditLogs() {
@@ -42,15 +40,6 @@ export default function AuditLogs() {
           <li><strong>PUBLISH</strong> — a survey or report template was published, creating a new version.</li>
           <li><strong>DUPLICATE</strong> — a report template was cloned as a starting point for a new one.</li>
         </ul>
-      </Section>
-
-      <Section id="comparison" title="Quick comparison">
-        <StatusTable
-          rows={[
-            { label: "App Activity", color: "teal", desc: "Mobile field events — form changes, inspection submissions." },
-            { label: "Audit Logs", color: "purple", desc: "Record-level changes — contracts, surveys, templates, reports." },
-          ]}
-        />
       </Section>
     </DocPage>
   );

@@ -11,8 +11,7 @@ const toc = [
   { id: "validations", label: "Validation Rules & Failure Handling" },
   { id: "session", label: "Session Activation & Token Security" },
   { id: "important-notes", label: "Important Security Rules" },
-  { id: "best-practices", label: "Best Practices" },
-  { id: "troubleshooting", label: "Troubleshooting & FAQs" },
+  { id: "troubleshooting", label: "Common Questions" },
 ];
 
 export default function Verification() {
@@ -90,7 +89,7 @@ export default function Verification() {
 
       <Section id="session" title="Session Activation &amp; Token Security">
         <p>
-          Upon successful verification, the client receives a cryptographically signed <strong>JSON Web Token (JWT)</strong>.
+          Upon successful verification, the client receives a <strong>secure login session token</strong>.
         </p>
         <ul className="list-disc pl-5 space-y-2 my-3">
           <li><strong>Token Lifespan:</strong> Mobile tokens remain active for 24 hours; web tokens expire after 8 hours of inactivity.</li>
@@ -104,23 +103,16 @@ export default function Verification() {
         </Callout>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>Resend Rate Limits:</strong> Avoid clicking "Resend Code" repeatedly. Wait at least 30 seconds for email gateway delivery.</li>
-          <li><strong>Code Copying:</strong> You can paste the entire 6-digit string into the first input box to populate all boxes simultaneously.</li>
-        </ul>
-      </Section>
-
-      <Section id="troubleshooting" title="Troubleshooting &amp; FAQs">
+      <Section id="troubleshooting" title="Common Questions">
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: Why did I not receive the OTP email?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Why did I not receive the OTP email?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
-              Check your junk/spam folder or corporate mail filter. Ensure <code>no-reply@cargoclave.com</code> is added to trusted sender lists.
+              Check your spam or junk folder. Ensure <code>no-reply@cargoclave.com</code> is whitelisted by your corporate email firewall.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: What should I do if the timer expires before I enter the code?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">What should I do if the timer expires before I enter the code?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
               Click the <strong>Resend Code</strong> link below the verification box to dispatch a fresh 6-digit code.
             </p>

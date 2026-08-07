@@ -73,7 +73,7 @@ export default function InspectionAttachments() {
 
         <ul className="list-disc pl-5 space-y-2 my-4 text-[13.5px]">
           <li><strong>Inline Preview:</strong> PDF files open in an inline browser viewer without requiring a separate download.</li>
-          <li><strong>Download:</strong> A download button saves the attachment file to the reviewer's local device.</li>
+          <li><strong>Download:</strong> A download button saves the attachment file to the user's local device.</li>
           <li><strong>File Metadata:</strong> Each attachment displays the file name, file type, upload timestamp, and the name of the user who uploaded it.</li>
           <li><strong>Delete:</strong> Attachments can be deleted by users with the appropriate portal permission. Deleted attachments are removed from the inspection record permanently.</li>
         </ul>

@@ -11,8 +11,7 @@ const toc = [
   { id: "applications", label: "Available Applications & Subscription Statuses" },
   { id: "landing", label: "Landing Dashboard & First Screen Overview" },
   { id: "important-notes", label: "Important Notes & Workspace Selection" },
-  { id: "best-practices", label: "Best Practices" },
-  { id: "troubleshooting", label: "Troubleshooting & FAQs" },
+  { id: "troubleshooting", label: "Common Questions" },
 ];
 
 export default function Launch() {
@@ -80,7 +79,7 @@ export default function Launch() {
         </p>
         <p className="mt-3">The first screen layout includes:</p>
         <ul className="list-disc pl-5 space-y-2 my-3 text-[13.5px]">
-          <li><strong>Top Navigation Bar:</strong> Features breadcrumbs, quick global search (Ctrl+K), and dark/light theme switch.</li>
+          <li><strong>Top Navigation Bar:</strong> Features breadcrumbs and quick global search (Ctrl+K).</li>
           <li><strong>Left Sidebar:</strong> Navigation tree categorized by Operations, Configuration, Reports, Logs, and Reference.</li>
           <li><strong>Main Operations Panel:</strong> Metric monitoring KPI cards, 7-day dispatch chart, recent alerts, and quick actions.</li>
           <li><strong>On This Page Sidebar:</strong> Table of Contents anchors for quick scrolling within long documentation and operational views.</li>
@@ -93,23 +92,16 @@ export default function Launch() {
         </Callout>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-2">
-          <li><strong>Bookmark Launcher:</strong> Bookmark <code>portal.cargoclave.com</code> for quick single-click access across shifts.</li>
-          <li><strong>Multi-Organization Users:</strong> Always check your active organization selector before launching contracts to prevent assigning surveys to the wrong tenant.</li>
-        </ul>
-      </Section>
-
-      <Section id="troubleshooting" title="Troubleshooting &amp; FAQs">
+      <Section id="troubleshooting" title="Common Questions">
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: Why is the "Launch App" button disabled?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Why is the "Launch App" button disabled?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
               The Launch button is disabled if your organization's subscription has expired or if your user role has not been granted access by an administrator.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">Q: How do I switch to another company tenant?</h4>
+            <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200">How do I switch to another company tenant?</h4>
             <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 mt-1">
               Click your organization name in the top right header of the portal to open the company switcher dropdown.
             </p>

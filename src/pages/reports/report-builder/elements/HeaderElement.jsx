@@ -14,7 +14,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -51,7 +50,7 @@ export default function HeaderElement() {
       <Section id="when-to-use" title="When To Use">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li>Every report template must include exactly <strong>one Header element</strong> — it is mandatory.</li>
-          <li>Place the Header as the first element on the canvas before any other content blocks.</li>
+          <li>Place the Header as the first element in the layout before any other content blocks.</li>
           <li>Use the Header to establish corporate identity and tie the report to a specific contract or dispatch.</li>
         </ul>
       </Section>
@@ -94,7 +93,7 @@ export default function HeaderElement() {
 
       <Section id="designer-behavior" title="Designer Behaviour">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>The Header block is always <strong>pinned to the first position</strong> on the canvas and cannot be reordered below other elements.</li>
+          <li>The Header block is always <strong>pinned to the first position</strong> in the layout and cannot be reordered below other elements.</li>
           <li>Clicking the Header block opens its properties panel on the right side of the designer.</li>
           <li>Changes to the Header are previewed in real time in the right-hand PDF simulation panel.</li>
           <li>If no logo is uploaded in Branding settings, the logo slot displays a grey placeholder box in the preview.</li>
@@ -136,36 +135,13 @@ export default function HeaderElement() {
         </ul>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Use a PNG logo with a transparent background to prevent white boxes on coloured header bands.</li>
-          <li>Enable <strong>Repeat on Pages</strong> for reports longer than 3 pages so recipients can always identify the document.</li>
-          <li>Keep metadata fields to 4–6 maximum to avoid crowding the header band on A4 paper.</li>
-          <li>Set the header background to match the primary brand colour for a professional appearance.</li>
-        </ul>
-      </Section>
-
       <Section id="mistakes" title="Common Mistakes">
         <Callout type="warning">
-          Do not add a second Header element manually. The canvas enforces one Header per template. Adding a Label/Value block with logo-like content at the top as a workaround will break the PDF layout alignment on all pages.
+          Do not add a second Header element manually. The designer enforces one Header per template. Adding a Label/Value block with logo-like content at the top as a workaround will break the PDF layout alignment on all pages.
         </Callout>
         <Callout type="warning">
           Uploading a JPEG logo with a white background on a coloured header band produces a visible white box around the logo. Always use PNG with transparency.
         </Callout>
-      </Section>
-
-      <Section id="troubleshooting" title="Troubleshooting">
-        <table>
-          <thead>
-            <tr><th>Issue</th><th>Cause</th><th>Resolution</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Logo not showing in PDF</td><td>S3 asset URL is unreachable at render time</td><td>Re-upload the logo in Branding settings and verify the S3 bucket is publicly accessible.</td></tr>
-            <tr><td>Header not repeating on page 2</td><td>Repeat on Pages is disabled</td><td>Enable the Repeat on Pages toggle in the Header properties panel.</td></tr>
-            <tr><td>BL Number showing as blank</td><td>Contract has no BL Number set</td><td>Ensure the active contract has a BL Number field populated before generating the report.</td></tr>
-            <tr><td>Header missing from template</td><td>Template was created without a Header block</td><td>Open the template in the Report Builder, add a Header element from the elements panel, and re-publish.</td></tr>
-          </tbody>
-        </table>
       </Section>
 
       <Section id="related" title="Related Elements">

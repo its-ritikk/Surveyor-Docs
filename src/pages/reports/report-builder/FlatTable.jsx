@@ -94,7 +94,7 @@ export default function FlatTable() {
       </Section>
 
       <Section id="config-options" title="Configuration Options">
-        <p>Open the element properties panel by clicking the Flat Table block on the canvas. Available settings:</p>
+        <p>Open the element properties panel by clicking the Flat Table block in the designer. Available settings:</p>
         <table>
           <thead>
             <tr>

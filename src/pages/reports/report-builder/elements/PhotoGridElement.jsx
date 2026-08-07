@@ -14,7 +14,6 @@ const toc = [
   { id: "properties", label: "Supported Properties" },
   { id: "validation", label: "Validation Rules" },
   { id: "use-cases", label: "Common Use Cases" },
-  { id: "best-practices", label: "Best Practices" },
   { id: "mistakes", label: "Common Mistakes" },
   { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Elements" },
@@ -138,15 +137,6 @@ export default function PhotoGridElement() {
         </ul>
       </Section>
 
-      <Section id="best-practices" title="Best Practices">
-        <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
-          <li>Use <strong>2 columns per row</strong> for most reports — it keeps images large enough to see detail while fitting A4 page width.</li>
-          <li>Enable GPS captions when submitting reports to port authorities who require geo-stamped photographic evidence.</li>
-          <li>Set <strong>Max Images per Group</strong> to 12–20 for large contracts to prevent excessively long photo sections.</li>
-          <li>Use the <strong>Standard image quality</strong> for reports shared electronically; use <strong>High quality</strong> only for printed copies to control PDF file size.</li>
-        </ul>
-      </Section>
-
       <Section id="mistakes" title="Common Mistakes">
         <Callout type="warning">
           Setting Columns per Row to 4 on A4 paper produces very small thumbnails (approximately 40mm wide). At this size, cargo markings, seal numbers, and damage detail are unreadable. Use 2 columns for inspection evidence photos.
@@ -173,7 +163,7 @@ export default function PhotoGridElement() {
       <Section id="related" title="Related Elements">
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li><a href="/reports/report-builder/elements/flat-table">Flat Table</a> — Often used alongside Photo Grid to show the data rows that correspond to the photographic evidence.</li>
-          <li><a href="/reports/report-builder/elements/rich-text">Rich Text</a> — For a photographic evidence summary statement placed above the Photo Grid.</li>
+          <li><a href="/reports/report-builder/elements/rich-text">Text</a> — For a photographic evidence summary statement placed above the Photo Grid.</li>
           <li><a href="/mobile/media-capture">Mobile Media Capture</a> — Where surveyors upload the photos that the Photo Grid element renders.</li>
         </ul>
       </Section>

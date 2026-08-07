@@ -67,10 +67,10 @@ export default function InspectionTemplates() {
         <div className="my-4">
           <FieldTable
             rows={[
-              { field: "Template Name", required: true, desc: "Alphanumeric name (e.g., Containerized Rice Discharge V2)." },
+              { field: "Template Name", required: true, desc: "Alphanumeric name (e.g., Container Rice Discharge V2)." },
               { field: "Description", required: false, desc: "Operational guidance specifying when this blueprint should be applied." },
               { field: "Process Type", required: true, desc: "Flow direction: Import Discharge, Export Loading, or Storage Audit." },
-              { field: "Cargo Type", required: true, desc: "Target commodity category: Containerized, Break Bulk, Liquid Bulk, or Dry Bulk." },
+              { field: "Cargo Type", required: true, desc: "Target commodity category: Container, Break-Bulk, or Bulk." },
               { field: "Default SLA (Hours)", required: true, desc: "Standard target turnaround time assigned to dispatches using this template." },
             ]}
           />
@@ -118,7 +118,7 @@ export default function InspectionTemplates() {
         <DocMedia
           type="image"
           src="s3://cargoclave-docs-assets/inspection-templates/template-sections-builder.png"
-          alt="Template Section Reordering & Structuring Canvas"
+          alt="Template Section Reordering & Structuring Workspace"
           caption="Figure 3.1: Drag-and-drop section builder allowing administrators to organize checklist phases."
         />
         <DocMedia
@@ -132,7 +132,7 @@ export default function InspectionTemplates() {
       {/* ── FIELD TYPES OVERVIEW ────────────────────────────────────────── */}
       <Section id="field-types" title="Field Types Overview">
         <p>
-          The system supports <strong>9 specialized input field types</strong> to capture diverse operational data during field inspections. Every field supports properties for mandatory validation, report variable binding, and conditional display rules.
+          The system supports <strong>specialized input field types</strong> to capture diverse operational data during field inspections. Every field supports properties for mandatory validation, report variable binding, and conditional display rules.
         </p>
 
         {/* Text Field */}
@@ -143,13 +143,13 @@ export default function InspectionTemplates() {
           </h4>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Purpose:</strong> Single-line or multi-line text input for freeform comments, vessel call signs, and serial numbers.</p>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Configuration:</strong> Placeholder text, max character limit (1–1000 chars), multiline toggle.</p>
-          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Optional Regex pattern matching (e.g., container serial number regex <code>^[A-Z]{4}\d{7}$</code>).</p>
+          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Optional text format matching (e.g., container serial number format <code>MSKU1234567</code>).</p>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Examples:</strong> Container Seal Number, Hatch Condition Remarks, Driver License Number.</p>
           <DocMedia
             type="image"
             src="s3://cargoclave-docs-assets/inspection-templates/field-text-config.png"
             alt="Text Field Configuration Interface"
-            caption="Figure 4.1: Text field property panel showing character limits and regex pattern validator."
+            caption="Figure 4.1: Text field property panel showing character limits and text format rule validator."
           />
         </div>
 
@@ -232,14 +232,14 @@ export default function InspectionTemplates() {
             Field: GPS Location
           </h4>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Purpose:</strong> Geotagged location capture verifying physical surveyor presence at port berths.</p>
-          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Configuration:</strong> Target latitude/longitude, Geofence radius tolerance (default: 1.0 km), Auto-capture on check-in toggle.</p>
-          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Distance audit against planned contract coordinates using the Haversine formula. Variance over 1.0 km flags a warning on the review dashboard.</p>
+          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Configuration:</strong> Target latitude/longitude, Auto-capture on check-in toggle.</p>
+          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Coordinate signal accuracy check.</p>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Examples:</strong> Berth 4 Check-In Geotag, Terminal Gate Arrival Location.</p>
           <DocMedia
             type="image"
             src="s3://cargoclave-docs-assets/inspection-templates/field-gps-config.png"
-            alt="GPS Geofence Property Configurator"
-            caption="Figure 4.6: GPS location field properties with geofence radius settings."
+            alt="GPS Property Configurator"
+            caption="Figure 4.6: GPS location field properties."
           />
         </div>
 
@@ -269,7 +269,7 @@ export default function InspectionTemplates() {
           </h4>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Purpose:</strong> Touchscreen or mouse digital signature capture box for legal sign-off and receipt acknowledgment.</p>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Configuration:</strong> Signatory role label (Surveyor, Vessel Chief Officer, Terminal Representative), Name text field binding.</p>
-          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Ensures non-empty canvas vector path data before checklist approval.</p>
+          <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Validation:</strong> Ensures non-empty signature drawing data before checklist approval.</p>
           <p className="text-xs leading-5 text-ink-700 dark:text-[#E5E5E5]"><strong>Examples:</strong> Chief Surveyor Sign-Off, Recipient Representative Signature.</p>
           <DocMedia
             type="image"
@@ -309,7 +309,6 @@ export default function InspectionTemplates() {
           <li><strong>Mandatory Field Constraints:</strong> Prevents advancing to subsequent checklist steps if required fields are blank.</li>
           <li><strong>Regex Pattern Matchers:</strong> Validates string formats (e.g., container numbers, phone numbers, tax IDs).</li>
           <li><strong>Numeric Bound Range Checks:</strong> Ensures inputs stay within realistic physical thresholds (e.g., cargo temperature between -30°C and +50°C).</li>
-          <li><strong>GPS Geofence Radius Audit:</strong> Automatically flags check-ins occurring more than 1.0 km away from target port terminal coordinates.</li>
         </ul>
 
         <DocMedia
@@ -400,14 +399,13 @@ export default function InspectionTemplates() {
       {/* ── VERSIONING ─────────────────────────────────────────────────── */}
       <Section id="versioning" title="Versioning">
         <p>
-          The template engine maintains full <strong>Version Control</strong> (e.g., <code>v1.0</code>, <code>v1.1</code>, <code>v2.0</code>) for every published blueprint.
+          The template engine maintains full <strong>Version Control</strong> (e.g., <code>v1.0</code>, <code>v2.0</code>) for every published blueprint.
         </p>
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-4 mb-2">Version Control Rules</h4>
         <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
-          <li><strong>Minor Revisions (v1.1):</strong> Non-breaking edits (updating description text or adding optional help notes).</li>
-          <li><strong>Major Revisions (v2.0):</strong> Breaking structural edits (adding mandatory fields or modifying report variable bindings).</li>
-          <li><strong>Backward Compatibility:</strong> Active contracts continue using the exact template version selected during dispatch creation, ensuring ongoing surveys are never disrupted by template updates.</li>
+          <li><strong>Major Revisions (v2.0):</strong> Blueprint revisions (updating structure, fields, or report variable bindings).</li>
+          <li><strong>Backward Compatibility:</strong> Active contracts continue using the original template version selected during dispatch creation, ensuring ongoing surveys are never disrupted by template updates.</li>
         </ul>
 
         <DocMedia
@@ -424,36 +422,36 @@ export default function InspectionTemplates() {
         />
       </Section>
 
-      {/* ── IMPORT & EXPORT ────────────────────────────────────────────── */}
+      {/* ── IMPORT / EXPORT ───────────────────────────────────────────── */}
       <Section id="import-export" title="Import &amp; Export">
         <p>
-          Template configurations can be exported as standardized <strong>JSON Schema Files</strong> or imported to replicate blueprint structures across multi-tenant enterprise environments.
+          Templates can be exported and imported to facilitate sharing standardized inspection blueprints across operational branches.
         </p>
 
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-4 mb-2">Schema Tools</h4>
+        <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-4 mb-2">Template Tools</h4>
         <ul className="list-disc pl-5 space-y-2 text-[13.5px]">
-          <li><strong>Export JSON Schema:</strong> Downloads the complete template structure including sections, field types, validation rules, and conditional logic.</li>
-          <li><strong>Import JSON Schema:</strong> Uploads an exported template schema, creating a new Draft template in the target workspace.</li>
+          <li><strong>Export Template File:</strong> Downloads the complete template structure including sections, field types, validation rules, and conditional logic.</li>
+          <li><strong>Import Template File:</strong> Uploads an exported template file, creating a new Draft template in the target workspace.</li>
         </ul>
 
         <DocMedia
           type="image"
           src="s3://cargoclave-docs-assets/inspection-templates/import-export-modal.png"
-          alt="Template Schema Import & Export Interface"
-          caption="Figure 9.1: Template JSON schema import/export dialogue."
+          alt="Template File Import & Export Interface"
+          caption="Figure 9.1: Template file import/export dialogue."
         />
         <DocMedia
           type="video"
           src="s3://cargoclave-docs-assets/inspection-templates/import-export-tutorial.mp4"
-          alt="Template Schema Import & Export Video Tutorial"
-          caption="Video 9.1: Demonstration of exporting template JSON schemas and importing across tenants."
+          alt="Template File Import & Export Video Tutorial"
+          caption="Video 9.1: Demonstration of exporting template files and importing across branches."
         />
       </Section>
 
       {/* ── PERMISSIONS ────────────────────────────────────────────────── */}
       <Section id="permissions" title="Permissions">
         <p>
-          Inspection Template configuration is governed by strict Role-Based Access Control (RBAC):
+          Inspection Template configuration is governed by user role permissions:
         </p>
 
         <div className="my-4 overflow-x-auto">
@@ -463,7 +461,6 @@ export default function InspectionTemplates() {
                 <th className="p-2.5 border-b border-ink-900/10 dark:border-[#262626]">Action</th>
                 <th className="p-2.5 border-b border-ink-900/10 dark:border-[#262626]">Administrator</th>
                 <th className="p-2.5 border-b border-ink-900/10 dark:border-[#262626]">Coordinator</th>
-                <th className="p-2.5 border-b border-ink-900/10 dark:border-[#262626]">Reviewer</th>
                 <th className="p-2.5 border-b border-ink-900/10 dark:border-[#262626]">Surveyor</th>
               </tr>
             </thead>
@@ -472,7 +469,6 @@ export default function InspectionTemplates() {
                 <td className="p-2.5 font-medium">Create / Edit Template</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-ink-400">Read Only</td>
-                <td className="p-2.5 text-ink-400">Read Only</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
               </tr>
               <tr>
@@ -480,19 +476,16 @@ export default function InspectionTemplates() {
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
-                <td className="p-2.5 text-ink-400">No Access</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Bind Template to Contract</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
-                <td className="p-2.5 text-ink-400">Read Only</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
               </tr>
               <tr>
                 <td className="p-2.5 font-medium">Export / Import Schema</td>
                 <td className="p-2.5 text-green-600 dark:text-green-400 font-bold">Allowed</td>
-                <td className="p-2.5 text-ink-400">No Access</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
                 <td className="p-2.5 text-ink-400">No Access</td>
               </tr>

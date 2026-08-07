@@ -1,13 +1,11 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
-import Callout from "../../components/Callout";
 import MermaidDiagram from "../../components/MermaidDiagram";
 
 const toc = [
   { id: "overview", label: "Reports Ecosystem Overview" },
   { id: "key-modules", label: "Core Modules" },
   { id: "how-it-works", label: "How Data Flows" },
-  { id: "best-practices", label: "Best Practices" },
 ];
 
 export default function ReportsOverviewPage() {
@@ -70,12 +68,6 @@ export default function ReportsOverviewPage() {
     B --> C["3. Contract Reports<br/>Mobile Capture & Live Execution"]
     C --> D["4. Reports Management<br/>Register & PDF Exports"]`}
         />
-      </Section>
-
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Best Practice">
-          Author report templates using published field tags to ensure automated contract data population during mobile survey execution.
-        </Callout>
       </Section>
     </DocPage>
   );

@@ -21,13 +21,13 @@ export default function ReportElements() {
     >
       <Section id="overview" title="Overview">
         <p>
-          Report designs are composed by stacking modular content blocks vertically on the canvas. Each block handles a distinct type of output — headers, text fields, tables, photo grids, and signatures — and can be independently configured and reordered.
+          Report designs are composed by stacking modular content blocks vertically in the designer. Each block handles a distinct type of output — headers, text fields, tables, photo grids, and signatures — and can be independently configured and reordered.
         </p>
         <DocImage path="/reports/report-builder/elements" />
       </Section>
 
       <Section id="supported-elements" title="Supported Elements">
-        <p>The following element types are available in the Report Builder canvas:</p>
+        <p>The following element types are available in the Report Builder workspace:</p>
         <table>
           <thead>
             <tr>
@@ -48,7 +48,7 @@ export default function ReportElements() {
               <td>Key–value pair</td>
             </tr>
             <tr>
-              <td><strong>Rich Text</strong></td>
+              <td><strong>Text</strong></td>
               <td>A narrative text editor block supporting free text and variable mapping for dynamic statements or legal disclaimers.</td>
               <td>Paragraph</td>
             </tr>
@@ -73,7 +73,7 @@ export default function ReportElements() {
 
       <Section id="configuration" title="Element Configuration">
         <p>
-          Clicking any element on the designer canvas opens its properties panel on the right side. From there you can:
+          Clicking any element in the designer opens its properties panel on the right side. From there you can:
         </p>
         <ul className="list-disc pl-5 space-y-1.5 my-3 text-[13.5px]">
           <li>Map element variables to specific survey field database tags.</li>
@@ -88,7 +88,7 @@ export default function ReportElements() {
           Each report template must contain at least one <strong>Header</strong> element and one <strong>Signature</strong> block before it can be published. Templates missing these elements will be blocked from dispatch.
         </Callout>
         <Callout type="note">
-          Elements can be freely reordered by dragging their handle on the left of the canvas block. Changes auto-save to a draft state and require an explicit publish action to go live.
+          Elements can be freely reordered by dragging their handle on the left of the element block. Changes auto-save to a draft state and require an explicit publish action to go live.
         </Callout>
       </Section>
     </DocPage>

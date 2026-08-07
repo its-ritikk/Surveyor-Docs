@@ -6,7 +6,7 @@ const toc = [
   { id: "overview", label: "Overview" },
   { id: "header", label: "Header Element" },
   { id: "label-value", label: "Label / Value Element" },
-  { id: "rich-text", label: "Rich Text Element" },
+  { id: "rich-text", label: "Text Element" },
   { id: "signature", label: "Signature Element" },
   { id: "photo-grid", label: "Photo Grid Element" },
   { id: "tables", label: "Tables Section" },
@@ -28,14 +28,14 @@ export default function ReportBuilder() {
     >
       <Section id="overview" title="Overview">
         <p>
-          The Report Builder workspace compiles surveyor responses and contract parameters into paginated PDF layouts, featuring a drag-and-drop canvas and a live print preview panel.
+          The Report Builder workspace compiles surveyor responses and contract parameters into paginated PDF layouts, featuring a drag-and-drop designer and a live print preview panel.
         </p>
       </Section>
 
       <Section id="header" title="Header Element">
         <p><strong>Purpose:</strong> Renders the document heading, including logos and shipping dispatches metadata.</p>
         <p className="mt-2"><strong>When to use:</strong> Mandatory at the very top of first-page templates.</p>
-        <p className="mt-2"><strong>Designer Behavior:</strong> Statically locked at the top of the canvas, preventing dragging below other body sections.</p>
+        <p className="mt-2"><strong>Designer Behavior:</strong> Statically locked at the top of the designer workspace, preventing dragging below other body sections.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Toggle fields visibility (BL Number, Vessel Name, Port), and choose left/right logo positioning.</p>
         <p className="mt-2"><strong>Implementation Notes:</strong> Automatically scales corporate logo uploads to fit standard print columns without clipping.</p>
         <DocMedia
@@ -56,14 +56,14 @@ export default function ReportBuilder() {
         />
       </Section>
 
-      <Section id="rich-text" title="Rich Text Element">
-        <p><strong>Purpose:</strong> A narrative free-text block supporting markdown styling and dynamic variable interpolation.</p>
+      <Section id="rich-text" title="Text Element">
+        <p><strong>Purpose:</strong> A narrative free-text block supporting text styling and dynamic variable interpolation.</p>
         <p className="mt-2"><strong>When to use:</strong> Adding cargo damage descriptions, terms, and custom clearances.</p>
-        <p className="mt-2"><strong>Designer Behavior:</strong> Supports full rich text editing (bold, lists) directly on the designer canvas.</p>
+        <p className="mt-2"><strong>Designer Behavior:</strong> Supports text editing directly on the designer workspace.</p>
         <p className="mt-2"><strong>Available Configurations:</strong> Font sizing, paragraph alignments, and bracket variable injection (e.g. <code>{`{Surveyor_Name}`}</code>).</p>
         <DocMedia
           mediaId="report-builder-rich-text-video"
-          caption="Rich Text Element Video Tutorial"
+          caption="Text Element Video Tutorial"
         />
       </Section>
 

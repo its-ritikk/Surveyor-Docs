@@ -13,7 +13,6 @@ export default function MobileTopicPage({ topicKey }) {
     { id: "when-to-use", label: "When To Use" },
     { id: "how-it-works", label: "How It Works" },
     { id: "main-features", label: "Main Features" },
-    { id: "best-practices", label: "Best Practices" },
     { id: "common-mistakes", label: "Common Mistakes & Troubleshooting" },
     { id: "related-modules", label: "Related Modules" },
   ];
@@ -66,19 +65,12 @@ export default function MobileTopicPage({ topicKey }) {
           </div>
           <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
             <p className="font-semibold text-ink-900 dark:text-[#FFFFFF]">Validation Rules &amp; Access Controls</p>
-            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Validation: {data.validationRules} | RBAC: {data.permissions}</p>
+            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Validation: {data.validationRules} | Permissions: {data.permissions}</p>
           </div>
         </div>
       </Section>
 
-      {/* 6. BEST PRACTICES */}
-      <Section id="best-practices" title="Best Practices">
-        <Callout type="best-practice" title="Recommended Best Practice">
-          {data.bestPractices}
-        </Callout>
-      </Section>
-
-      {/* 7. COMMON MISTAKES & TROUBLESHOOTING */}
+      {/* 6. COMMON MISTAKES & TROUBLESHOOTING */}
       <Section id="common-mistakes" title="Common Mistakes &amp; Troubleshooting">
         <Callout type="warning" title="Common Mistake to Avoid">
           {data.commonMistakes}
