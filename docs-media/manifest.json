@@ -1,0 +1,436 @@
+{
+  "getting-started/01_Sign_in Section.png": {
+    "docPath": "/getting-started/sign-in",
+    "sectionKey": "sign-in",
+    "module": "Getting Started",
+    "alt": "Sign-in screen screenshot",
+    "caption": "Passwordless sign-in screen at portal.cargoclave.com"
+  },
+  "getting-started/01_Sign_in_Section.png": {
+    "docPath": "/getting-started/sign-in",
+    "sectionKey": "sign-in",
+    "module": "Getting Started",
+    "alt": "Sign-in screen screenshot",
+    "caption": "Passwordless sign-in screen at portal.cargoclave.com"
+  },
+  "getting-started/02_Launching_Surveyor.png": {
+    "docPath": "/getting-started/launch",
+    "sectionKey": "portal",
+    "module": "Getting Started",
+    "alt": "Application portal workspace",
+    "caption": "Selecting the Surveyor application card in the CargoClave Portal"
+  },
+  "getting-started/02_Launching Surveyor.png": {
+    "docPath": "/getting-started/launch",
+    "sectionKey": "portal",
+    "module": "Getting Started",
+    "alt": "Application portal workspace",
+    "caption": "Selecting the Surveyor application card in the CargoClave Portal"
+  },
+  "operational-dashboard/03_Opeartion_Db1.png": {
+    "docPath": "/operations/dashboard",
+    "sectionKey": "overview",
+    "module": "Operations",
+    "alt": "Operations Dashboard Overview UI",
+    "caption": "Real-time Operations Dashboard layout displaying active survey contracts, coordinator quick actions, and terminal metrics"
+  },
+  "operational-dashboard/03_operation_DB2.png": {
+    "docPath": "/operations/dashboard",
+    "sectionKey": "analytics",
+    "module": "Operations",
+    "alt": "Dashboard Performance Analytics & Alerts UI",
+    "caption": "Weekly performance analytics chart, SLA breach alerts, and real-time terminal exception console"
+  },
+  "contract-management/04_contract_mg1.png": {
+    "docPath": "/operations/contracts",
+    "sectionKey": "overview",
+    "module": "Operations",
+    "alt": "Contract Management Overview Workspace UI",
+    "caption": "Contract Management workspace overview displaying active contracts list, status metrics, and search controls"
+  },
+  "contract-management/04_contract_mg2.png": {
+    "docPath": "/operations/contracts",
+    "sectionKey": "creation-commercial",
+    "module": "Operations",
+    "alt": "Create Contract - Template Selection & Commercial Details",
+    "caption": "Inspection template selection, contract ID, contracting party, point of contact, and start/deadline dates"
+  },
+  "contract-management/04_contract_mg3.png": {
+    "docPath": "/operations/contracts",
+    "sectionKey": "creation-shipment",
+    "module": "Operations",
+    "alt": "Create Contract - Shipment Details & Vessel Data",
+    "caption": "Shipment details console displaying Export/Import selection, cargo classification, ports of loading/discharge, BL number, and vessel voyage details"
+  },
+  "contract-management/04_contract_mg4.png": {
+    "docPath": "/operations/contracts",
+    "sectionKey": "creation-execution",
+    "module": "Operations",
+    "alt": "Create Contract - Execution Plan Grid & Surveyor Assignment",
+    "caption": "Execution plan grid displaying survey checklist pairings, surveyor assignee selection, location dates, and Activate Contract action buttons"
+  },
+  "contract-management/04_contract_mg5.png": {
+    "docPath": "/operations/contracts",
+    "sectionKey": "contract-details",
+    "module": "Operations",
+    "alt": "Contract Details View Screen UI",
+    "caption": "Contract Details view screen displaying header summary bar, cargo specifications, survey progress tracker, and attached documents"
+  },
+  "inspection-Review/05_innspection_RW.png": {
+    "docPath": "/operations/inspection-review",
+    "sectionKey": "overview",
+    "module": "Operations",
+    "alt": "Inspection Review Console Workspace UI",
+    "caption": "Inspection Review workspace detailing submitted checklists, status cards, and quality review controls"
+  },
+  "inspection-Review/05_inspection_VIEW.png": {
+    "docPath": "/operations/inspection-review/dashboard",
+    "sectionKey": "overview",
+    "module": "Operations",
+    "alt": "Inspection Dashboard Workspace UI",
+    "caption": "Inspection Dashboard displaying real-time status cards, filter toolbar, and inspection queue list"
+  },
+  "survey-reference/06_survey_rp1.png": {
+    "docPath": "/configuration/surveys/survey-steps",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Steps Builder Workspace UI",
+    "caption": "Survey Steps builder workspace showing multi-step wizard sequence, step page titles, field ordering, and skip rule settings"
+  },
+  "survey-builder/06_Survey_Builder1.png": {
+    "docPath": "/configuration/surveys/workflow-workspace",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Builder Workflow Canvas UI",
+    "caption": "Survey Builder Workflow workspace showing 3-panel interactive drag-and-drop design canvas"
+  },
+  "survey-builder/06_Survey_Builder2 - Copy.png": {
+    "docPath": "/configuration/surveys/survey-steps",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Steps Configuration UI",
+    "caption": "Survey Steps configuration panel displaying step pages, drag reordering, and step-level validations"
+  },
+  "text-field/6.1_txt_fld1.png": {
+    "docPath": "/configuration/surveys/field-text",
+    "sectionKey": "core-drawer",
+    "module": "Configuration",
+    "alt": "Text Field Core Settings Drawer UI",
+    "caption": "Text Field core settings drawer displaying field label, placeholder text, and basic properties"
+  },
+  "text-field/6.1_txt_fld2.png": {
+    "docPath": "/configuration/surveys/field-text",
+    "sectionKey": "layout-drawer",
+    "module": "Configuration",
+    "alt": "Text Field Layout & Display Properties UI",
+    "caption": "Text Field layout drawer displaying column width, alignment, and display order parameters"
+  },
+  "text-field/6.1_txt_fld3.png": {
+    "docPath": "/configuration/surveys/field-text",
+    "sectionKey": "rules-drawer",
+    "module": "Configuration",
+    "alt": "Text Field Conditional Logic Rules UI",
+    "caption": "Text Field rules drawer displaying IF/THEN conditional visibility and branching rules"
+  },
+  "text-field/6.1_txt_fld_vld.png": {
+    "docPath": "/configuration/surveys/field-text",
+    "sectionKey": "validations-drawer",
+    "module": "Configuration",
+    "alt": "Text Field Validation Rules UI",
+    "caption": "Text Field validations drawer displaying min/max length, regex format patterns, and uppercase rules"
+  },
+  "dropdown/6.2_DPDN_MAIN.png": {
+    "docPath": "/configuration/surveys/field-dropdown",
+    "sectionKey": "main-workspace",
+    "module": "Configuration",
+    "alt": "Dropdown Field Survey Builder 3-Panel Workspace UI",
+    "caption": "Dropdown Field 3-panel Survey Builder workspace displaying available fields palette, survey steps, and property inspector"
+  },
+  "dropdown/6.2_DPDN1.png": {
+    "docPath": "/configuration/surveys/field-dropdown",
+    "sectionKey": "core-drawer",
+    "module": "Configuration",
+    "alt": "Dropdown Core Settings Drawer UI",
+    "caption": "Dropdown field core settings tab displaying field name, placeholder text, and required status"
+  },
+  "dropdown/6.2DPDN2.png": {
+    "docPath": "/configuration/surveys/field-dropdown",
+    "sectionKey": "options-drawer",
+    "module": "Configuration",
+    "alt": "Dropdown Options Management & API Data Source UI",
+    "caption": "Dropdown options management tab displaying unique selection checkbox, API data sources, and option list"
+  },
+  "dropdown/6.2_DPDN3.png": {
+    "docPath": "/configuration/surveys/field-dropdown",
+    "sectionKey": "validations-drawer",
+    "module": "Configuration",
+    "alt": "Dropdown Validation Rules Drawer UI",
+    "caption": "Dropdown validations tab displaying allowed values, disallowed values, and required field rules"
+  },
+  "dropdown/6.2_DPDN4.png": {
+    "docPath": "/configuration/surveys/field-dropdown",
+    "sectionKey": "rules-drawer",
+    "module": "Configuration",
+    "alt": "Dropdown Conditional Logic Rules Drawer UI",
+    "caption": "Dropdown rules tab displaying IF/THEN visibility rules and dynamic auto-fill conditions"
+  },
+  "dates/6.3_DATE1.png": {
+    "docPath": "/configuration/surveys/field-date",
+    "sectionKey": "core-drawer",
+    "module": "Configuration",
+    "alt": "Date Picker Core Settings UI",
+    "caption": "Date Picker core settings drawer displaying label, format parameters, and timezone settings"
+  },
+  "dates/6.3_DATE2.png": {
+    "docPath": "/configuration/surveys/field-date",
+    "sectionKey": "validations-drawer",
+    "module": "Configuration",
+    "alt": "Date Picker Validation Rules UI",
+    "caption": "Date Picker validation rules drawer displaying min/max date constraints and past/future restrictions"
+  },
+  "dates/6.3_DATE3.png": {
+    "docPath": "/configuration/surveys/field-date",
+    "sectionKey": "rules-drawer",
+    "module": "Configuration",
+    "alt": "Date Picker Conditional Logic Rules UI",
+    "caption": "Date Picker rules drawer displaying IF/THEN visibility and auto-fill logic"
+  },
+  "photos/6.4_Photo1.png": {
+    "docPath": "/configuration/surveys/field-photo",
+    "sectionKey": "core-drawer",
+    "module": "Configuration",
+    "alt": "Photo Upload Core Settings UI",
+    "caption": "Photo Upload core settings drawer displaying label, camera source mandatory toggle, and resolution controls"
+  },
+  "photos/6.4_photo2.png": {
+    "docPath": "/configuration/surveys/field-photo",
+    "sectionKey": "validations-drawer",
+    "module": "Configuration",
+    "alt": "Photo Upload Media Validations UI",
+    "caption": "Photo Upload media validations drawer displaying min/max photo count, timestamp geotagging, and file size limits"
+  },
+  "photos/6.4_photo3.png": {
+    "docPath": "/configuration/surveys/field-photo",
+    "sectionKey": "rules-drawer",
+    "module": "Configuration",
+    "alt": "Photo Upload Conditional Rules UI",
+    "caption": "Photo Upload conditional rules drawer displaying IF/THEN visibility and photo requirement rules"
+  },
+  "photos/6.4_Photo4.png": {
+    "docPath": "/configuration/surveys/field-photo",
+    "sectionKey": "media-drawer",
+    "module": "Configuration",
+    "alt": "Photo Upload Example Media Gallery UI",
+    "caption": "Photo Upload reference gallery displaying example defect photos and mandatory camera capture guidelines"
+  },
+  "gps-detection/6.4_GPS_Detection.png": {
+    "docPath": "/configuration/surveys/field-gps",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "GPS Geofence & Location Detection Field UI",
+    "caption": "GPS Location Detection field configuration interface showing coordinate accuracy threshold and geotagging controls"
+  },
+  "video-upload/6.6_Video_upload.png": {
+    "docPath": "/configuration/surveys/field-video",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Video Upload Field UI",
+    "caption": "Video Upload field configuration console displaying max duration, bitrate, and camera recording controls"
+  },
+  "file-upload/6.7_File_Upload.png": {
+    "docPath": "/configuration/surveys/field-file",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "File Upload Field UI",
+    "caption": "File Upload field configuration console displaying PDF/document file extensions and max upload size constraints"
+  },
+  "preview/6.8_preview.png": {
+    "docPath": "/configuration/surveys/preview",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Interactive Preview UI",
+    "caption": "Survey Builder interactive mobile & tablet preview console"
+  },
+  "publishing/6.9_publishing.png": {
+    "docPath": "/configuration/surveys/publishing",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Publishing & Version Release UI",
+    "caption": "Survey publishing console showing version numbers, release notes, and dispatch controls"
+  },
+  "teams-management/7_teams_management.png": {
+    "docPath": "/configuration/teams",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Teams Management Workspace UI",
+    "caption": "Teams Management console displaying surveyor roster, terminal assignments, and role permissions"
+  },
+  "inspection-template/8.0_inspection_temp.png": {
+    "docPath": "/configuration/inspection-templates/overview",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Inspection Templates Management Console UI",
+    "caption": "Inspection Templates overview displaying active template library and lifecycle status cards"
+  },
+  "inspection-template/8.1_inspection_temp.png": {
+    "docPath": "/configuration/inspection-templates/basic-details",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Template Basic Details Configuration UI",
+    "caption": "Basic Details configuration displaying template title, cargo type, process type, and client mapping"
+  },
+  "inspection-template/8.2_inspection _temp.png": {
+    "docPath": "/configuration/inspection-templates/document-templates/overview",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Document Templates Library UI",
+    "caption": "Document Templates library showing associated PDF reports, version history, and upload controls"
+  },
+  "inspection-template/upload document.png": {
+    "docPath": "/configuration/inspection-templates/document-templates/upload-documents",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Upload Documents - Template Attachment Console UI",
+    "caption": "Upload Documents interface for attaching PDF report layouts and document templates to inspection blueprints"
+  },
+  "inspection-template/8.3_inspection_temp.png": {
+    "docPath": "/configuration/inspection-templates/survey-selection/overview",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Survey Selection & Sequence UI",
+    "caption": "Survey Selection console showing assigned check-sheets, mandatory flags, and execution sequence"
+  },
+  "inspection-survey/8.4_inspection_survey.png": {
+    "docPath": "/configuration/inspection-templates/workflow-stages/overview",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Workflow Stages Configuration UI",
+    "caption": "Workflow Stages overview displaying stage sequence cards, cargo process mapping, and entity scope"
+  },
+  "inspection-survey/8.5_inspection_survey2.png": {
+    "docPath": "/configuration/inspection-templates/workflow-stages/stage-configuration",
+    "sectionKey": "overview",
+    "module": "Configuration",
+    "alt": "Stage Configuration Properties UI",
+    "caption": "Stage Properties drawer detailing stage title, independent execution order, and stage dependencies"
+  },
+  "reports/8.6_Report_Builder.png": {
+    "docPath": "/reports/builder",
+    "sectionKey": "overview",
+    "module": "Reports",
+    "alt": "Report Builder Workspace UI",
+    "caption": "Report Builder drag-and-drop workspace displaying report canvas, component palette, and property inspector"
+  },
+  "reports/8.6_Report_builder_header.png": {
+    "docPath": "/reports/builder",
+    "sectionKey": "header",
+    "module": "Reports",
+    "alt": "Report Builder Header & Metadata UI",
+    "caption": "Report header settings displaying report title, logo placement, document ID, and header metadata"
+  },
+  "reports/8.6_blank_report.png": {
+    "docPath": "/reports/templates",
+    "sectionKey": "blank",
+    "module": "Reports",
+    "alt": "Blank Report Canvas UI",
+    "caption": "Blank Report template canvas for custom document layout creation"
+  },
+  "reports/8.6_patterned_report.png": {
+    "docPath": "/reports/templates",
+    "sectionKey": "patterned",
+    "module": "Reports",
+    "alt": "Patterned Report Template UI",
+    "caption": "Pre-formatted Patterned Report template layout"
+  },
+  "reports/8.6_selection_report.png": {
+    "docPath": "/reports/templates",
+    "sectionKey": "selection",
+    "module": "Reports",
+    "alt": "Report Template Selection Modal UI",
+    "caption": "Template selection modal for picking standard inspection report layouts"
+  },
+  "reports/8.7_table_typr.png": {
+    "docPath": "/reports/tables",
+    "sectionKey": "table-types",
+    "module": "Reports",
+    "alt": "Report Table Types Console UI",
+    "caption": "Selecting table components (Flat Table, Pivot Table, Custom Table) in Report Builder"
+  },
+  "reports/8.8_flat_tables.png": {
+    "docPath": "/reports/tables",
+    "sectionKey": "flat-tables",
+    "module": "Reports",
+    "alt": "Flat Data Table Component UI",
+    "caption": "Flat Table layout displaying survey response key-value columns"
+  },
+  "reports/8.9_pivot_tables.png": {
+    "docPath": "/reports/tables",
+    "sectionKey": "pivot-tables",
+    "module": "Reports",
+    "alt": "Pivot Data Table Component UI",
+    "caption": "Pivot Table layout summarizing multi-entry tally survey metrics"
+  },
+  "reports/8.10_custom_tables.png": {
+    "docPath": "/reports/tables",
+    "sectionKey": "custom-tables",
+    "module": "Reports",
+    "alt": "Custom Data Table Component UI",
+    "caption": "Custom Table designer displaying cell formatting, formulas, and column merging"
+  },
+  "reports/8.11_choose_labelvalue.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "choose-label-value",
+    "module": "Reports",
+    "alt": "Choose Label & Value Field Selector UI",
+    "caption": "Selecting survey fields to bind to report label-value pairs"
+  },
+  "reports/8.12_label_value.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "label-value",
+    "module": "Reports",
+    "alt": "Label-Value Pair Component UI",
+    "caption": "Label-Value component displaying formatted inspection attributes"
+  },
+  "reports/8.13_signature.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "signature",
+    "module": "Reports",
+    "alt": "Digital Signature Component UI",
+    "caption": "Digital Signature component displaying surveyor sign-off and timestamp"
+  },
+  "reports/8.14_insert_variable.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "variables",
+    "module": "Reports",
+    "alt": "Insert Variable Picker UI",
+    "caption": "Dynamic variable picker for injecting contract IDs, dates, and surveyor names"
+  },
+  "reports/8.15_group.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "grouping",
+    "module": "Reports",
+    "alt": "Component Grouping Container UI",
+    "caption": "Component Grouping container for aligning multi-field report sections"
+  },
+  "reports/8.16_photo.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "photo",
+    "module": "Reports",
+    "alt": "Photo Grid Component UI",
+    "caption": "Photo Grid component displaying evidence photos with captions and GPS tags"
+  },
+  "reports/8.17_select_photo_survey.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "select-photo-survey",
+    "module": "Reports",
+    "alt": "Select Photo from Survey Modal UI",
+    "caption": "Selecting uploaded survey photos to include in final PDF report"
+  },
+  "reports/8.18_select_show_photo.png": {
+    "docPath": "/reports/components",
+    "sectionKey": "show-photo",
+    "module": "Reports",
+    "alt": "Photo Display Properties UI",
+    "caption": "Configuring photo display width, thumbnail size, and caption alignment"
+  }
+}

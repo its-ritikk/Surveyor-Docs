@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import FieldTable from "../../components/FieldTable";
+import DocImage from "../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -21,11 +22,14 @@ export default function Surveys() {
       title="Survey Builder Reference"
       description="Detailed configurations, field types reference, 3-panel builder layout, and operational rules for designing survey templates in the Surveyor Management System."
       toc={toc}
+      hideImage={true}
     >
       <Section id="overview" title="Overview">
         <p>
           The <strong>Survey Builder</strong> is the central tool used to configure digital inspection check-sheets in the Surveyor Management System. The check-sheets, process types, cargo classifications, and field validation parameters defined here control the mobile surveyor app forms and downstream client report generation.
         </p>
+
+        <DocImage path="/configuration/surveys" imageKey="overview" />
       </Section>
 
       <Section id="surveys-management" title="Surveys List &amp; Management">

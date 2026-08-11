@@ -7,7 +7,6 @@ const toc = [
   { id: "contract-report", label: "Contract Report Workspace" },
   { id: "survey-report", label: "Survey Report Types" },
   { id: "media-and-attachments", label: "Media & Attachments" },
-  { id: "version-history", label: "Version History" },
   { id: "export-and-preview", label: "Export & Preview" },
   { id: "troubleshooting", label: "Troubleshooting" },
 ];
@@ -94,13 +93,6 @@ export default function ContractReports() {
       <Section id="media-and-attachments" title="Media &amp; Attachments">
         <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5]">
           All inspection photos captured on mobile devices automatically sync into the contract's media repository. The Photograph Report automatically arranges photos into a multi-column photo grid complete with timestamps, GPS tags, and inspector captions.
-        </p>
-      </Section>
-
-      {/* ── VERSION HISTORY ────────────────────────────────────────────── */}
-      <Section id="version-history" title="Version History">
-        <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5]">
-          Every time a superintendent saves or updates a contract report summary, a new version snapshot is saved. Users can view historic revisions in the <strong>Version History</strong> panel and restore previous draft revisions if needed.
         </p>
       </Section>
 

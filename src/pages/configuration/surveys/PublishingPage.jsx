@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -16,12 +17,17 @@ export default function PublishingPage() {
       title="Publishing"
       description="Transitioning surveys from Draft to Published state, validation checks, and release management."
       toc={toc}
-      noMedia={true}
+      hideImage={true}
     >
       <Section id="overview" title="Overview">
         <p>
           Publishing makes a survey blueprint active for contract dispatches.
         </p>
+        <DocImage
+          path="/configuration/surveys/publishing"
+          imageKey="overview"
+          hideCaption={true}
+        />
       </Section>
 
       <Section id="lifecycle-states" title="Draft vs Published States">

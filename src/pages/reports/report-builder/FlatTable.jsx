@@ -1,17 +1,17 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "purpose", label: "Purpose" },
-  { id: "how-it-works", label: "How It Works" },
-  { id: "supported-data", label: "Supported Data" },
-  { id: "config-options", label: "Configuration Options" },
-  { id: "user-actions", label: "User Actions" },
-  { id: "validations", label: "Validation Rules" },
-  { id: "limitations", label: "Limitations" },
+  { id: "column-configuration", label: "Column Configuration" },
+  { id: "calculated-columns", label: "Calculated Columns" },
+  { id: "sorting-display", label: "Sorting & Display Options" },
+  { id: "rules", label: "Validation Rules" },
+  { id: "use-cases", label: "Common Use Cases" },
+  { id: "mistakes", label: "Common Mistakes" },
+  { id: "troubleshooting", label: "Troubleshooting" },
   { id: "related", label: "Related Features" },
 ];
 
@@ -28,7 +28,6 @@ export default function FlatTable() {
         <p>
           The <strong>Flat Table</strong> element displays survey checklist entries as a straightforward grid — one row per submission record, one column per selected survey field. It is the simplest and most common table type for exporting raw inspection data to PDF.
         </p>
-        <DocImage path="/reports/report-builder/tables/flat" />
       </Section>
 
       <Section id="purpose" title="Purpose">

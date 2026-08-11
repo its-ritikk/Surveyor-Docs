@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -24,7 +23,6 @@ export default function Overview() {
         <p>
           The <strong>Report Builder</strong> is a visual template designer that lets coordinators and administrators compose structured PDF report layouts without writing code. Elements are dragged onto a workspace, configured via property panels, and previewed in real time before being published for use in operational dispatches.
         </p>
-        <DocImage path="/reports/report-builder/overview" />
       </Section>
 
       <Section id="capabilities" title="Core Capabilities">

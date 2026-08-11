@@ -114,28 +114,6 @@ export const mobileDocsDictionary = {
     relatedModules: ["/mobile/overview", "/mobile/offline-workflow"],
   },
 
-  "best-practices": {
-    id: "best-practices",
-    title: "Mobile Surveyor Best Practices",
-    eyebrow: "Mobile Surveyor",
-    path: "/mobile/best-practices",
-    description: "Essential tips for battery care, network handling, photo quality, and pre-submission checks.",
-    hasVideo: true,
-    mediaId: "mobile-bestpractices-tutorial-video",
-    overview: "Best Practices offers field-tested tips for surveyors working on mobile tablets and smartphones.",
-    purpose: "Helps preserve phone battery life, avoids data entry errors, and ensures high-quality customer reports.",
-    businessScenario: "Preparing a tablet for an 8-hour cargo inspection shift at a remote port berth.",
-    howItWorks: "Follow 5 simple rules: 1. Full battery charge & power bank, 2. Pre-sync templates on Wi-Fi, 3. Clear captions, 4. Check in at berth, 5. Verify post-shift sync.",
-    workflow: "Pre-Shift Setup -> On-Site Inspection -> Post-Shift Verification.",
-    configuration: "Field Guidelines.",
-    validationRules: "None.",
-    permissions: "All Field Surveyors.",
-    dependencies: "None.",
-    bestPractices: "Always charge mobile devices fully and carry a portable battery pack during long port shifts.",
-    commonMistakes: "Taking blurry or dark photos for critical damage verification.",
-    troubleshooting: "Following these guidelines prevents most mobile field issues.",
-    relatedModules: ["/mobile/overview"],
-  },
 
   "troubleshooting": {
     id: "troubleshooting",

@@ -22,7 +22,8 @@ const toc = [
 export default function HeaderElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/header"
+hideImage={true}
+            path="/reports/report-builder/elements/header"
       eyebrow="Report Builder · Elements"
       title="Header"
       description="The Header element renders the organisation logo, dispatch reference, vessel details, and port metadata at the top of every report page."
@@ -32,7 +33,7 @@ export default function HeaderElement() {
         <p>
           The <strong>Header</strong> is the first visible block in every report layout. It anchors the document with corporate branding and key operational identifiers, ensuring recipients can immediately identify the report's origin and the contract it relates to.
         </p>
-        <DocImage path="/reports/report-builder/elements/header" />
+        <DocImage path="/reports/report-builder/elements/header" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

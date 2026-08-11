@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -16,12 +17,17 @@ export default function PreviewPage() {
       title="Preview"
       description="Interactive mobile simulator pane for testing checklist layouts, field validations, and conditional logic rules."
       toc={toc}
-      noMedia={true}
+      hideImage={true}
     >
       <Section id="overview" title="Overview">
         <p>
           The <strong>Preview Simulator</strong> provides an interactive mobile frame right inside the web designer. It renders the exact mobile layout, allowing administrators to test field entries and conditional logic before publishing.
         </p>
+        <DocImage
+          path="/configuration/surveys/preview"
+          imageKey="overview"
+          hideCaption={true}
+        />
       </Section>
 
       <Section id="simulator-modes" title="Mobile Simulator Modes">

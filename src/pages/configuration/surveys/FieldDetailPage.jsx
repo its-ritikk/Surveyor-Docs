@@ -11,9 +11,18 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
   const fieldKey = propFieldKey || params.fieldKey || "field-text";
   const data = fieldTypesDictionary[fieldKey] || fieldTypesDictionary["field-text"];
 
+  const hasPlacementImages = [
+    "field-text",
+    "field-date",
+    "field-photo",
+    "field-gps",
+    "field-video",
+    "field-file",
+  ].includes(fieldKey);
+
   const toc = [
     { id: "overview", label: "Overview & Business Purpose" },
-    ...(fieldKey === "field-date" || fieldKey === "field-photo"
+    ...(hasPlacementImages
       ? [{ id: "builder-placement", label: "Builder Placement & UI Layout" }]
       : []),
     ...(fieldKey === "field-photo"
@@ -35,7 +44,7 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
       eyebrow="Field Library"
       title={data.title}
       description={data.description}
-      hideImage={fieldKey === "field-date" || fieldKey === "field-photo" || fieldKey === "field-text"}
+      hideImage={true}
       toc={toc}
     >
       {/* ── OVERVIEW & BUSINESS PURPOSE ────────────────────────────────── */}
@@ -46,61 +55,335 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
         </p>
       </Section>
 
-      {/* ── BUILDER PLACEMENT & UI LAYOUT (DATE / PHOTO ONLY) ─────────── */}
-      {(fieldKey === "field-date" || fieldKey === "field-photo") && (
+      {/* ── BUILDER PLACEMENT & UI LAYOUT ──────────────────────────────── */}
+      {hasPlacementImages && (
         <Section id="builder-placement" title="Builder Placement &amp; UI Layout">
-          {fieldKey === "field-date" && (
-            <div className="my-6 space-y-4">
-              <p className="text-xs font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">
-                Survey Builder Interfaces — Available Fields, Core Settings, Validations &amp; Logic Rules
-              </p>
-              {/* Top Horizontal Full-Width Image */}
-              <div className="w-full">
+          {/* TEXT FIELD DRAWER STACK & STEPS */}
+          {fieldKey === "field-text" && (
+            <div className="my-6 space-y-8">
+              {/* IMAGE 1: CORE SETTINGS DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">1</span>
+                  Core Settings Drawer
+                </h4>
                 <DocImage
-                  path="/configuration/surveys/field-date"
+                  path="/configuration/surveys/field-text"
                   imageKey="core-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Set Field Label:</strong> Enter the survey prompt title (e.g., <code>Container ID / Seal Number</code>) displayed to field surveyors.</li>
+                    <li><strong>Define Variable Identifier:</strong> Assign a unique database field key used for report bindings and API exports.</li>
+                    <li><strong>Set Placeholder Text:</strong> Enter prompt guidance (e.g., <code>e.g. MSKU1234567</code>) inside the input box.</li>
+                    <li><strong>Toggle Required Status:</strong> Turn on the mandatory toggle if surveyors must fill out this field before moving to the next step.</li>
+                  </ol>
+                </div>
               </div>
-              {/* Two Images Side-by-Side in One Frame / 2-Column Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* IMAGE 2: LAYOUT & DISPLAY DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">2</span>
+                  Layout &amp; Display Properties Drawer
+                </h4>
                 <DocImage
-                  path="/configuration/surveys/field-date"
+                  path="/configuration/surveys/field-text"
+                  imageKey="layout-drawer"
+                  hideCaption={true}
+                />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Select Column Width:</strong> Choose Full Width (100%), Half Width (50%), or Custom Grid Span for mobile screen layout.</li>
+                    <li><strong>Set Label Alignment:</strong> Choose Top-aligned or Left-aligned label position for clear mobile screen readability.</li>
+                    <li><strong>Add Inline Tooltip Guidance:</strong> Enter helper notes that display when surveyors tap the inline information icon.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 3: VALIDATION RULES DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">3</span>
+                  Validation Rules Drawer
+                </h4>
+                <DocImage
+                  path="/configuration/surveys/field-text"
                   imageKey="validations-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Set Min &amp; Max Length Constraints:</strong> Specify minimum and maximum character limits (e.g., Min: 4, Max: 11).</li>
+                    <li><strong>Configure Regex Pattern:</strong> Apply regex format validation for ISO Container codes or BL tracking numbers.</li>
+                    <li><strong>Enable Auto-Uppercase Transformation:</strong> Turn on automatic text capitalization to ensure clean, standardized data entry.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 4: CONDITIONAL LOGIC RULES DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">4</span>
+                  Conditional Logic Rules Drawer
+                </h4>
                 <DocImage
-                  path="/configuration/surveys/field-date"
+                  path="/configuration/surveys/field-text"
                   imageKey="rules-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Define Trigger Condition:</strong> Select the source field and operator (e.g., <code>IF "Has Damage?" EQUALS "Yes"</code>).</li>
+                    <li><strong>Select Action Target:</strong> Choose the target action to Show, Hide, Require, or Disable this text field dynamically on mobile devices.</li>
+                    <li><strong>Verify Rule Execution:</strong> Test rule execution in the Preview Simulator prior to publishing the survey blueprint.</li>
+                  </ol>
+                </div>
               </div>
             </div>
           )}
 
+          {/* DATE PICKER FIELD DRAWER STACK & STEPS */}
+          {fieldKey === "field-date" && (
+            <div className="my-6 space-y-8">
+              {/* IMAGE 1: CORE SETTINGS DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">1</span>
+                  Core Settings Drawer
+                </h4>
+                <DocImage
+                  path="/configuration/surveys/field-date"
+                  imageKey="core-drawer"
+                  hideCaption={true}
+                />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Set Date Label:</strong> Define the field label (e.g., <code>Inspection Date &amp; Time</code>).</li>
+                    <li><strong>Select Date &amp; Time Format:</strong> Choose presentation format (<code>DD/MM/YYYY</code>, <code>MM/DD/YYYY</code>, or <code>DD/MM/YYYY HH:mm</code>).</li>
+                    <li><strong>Set Default Date Value:</strong> Select default behavior (Today's Date, Custom Date, or Blank).</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 2: VALIDATIONS DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">2</span>
+                  Validation Rules Drawer
+                </h4>
+                <DocImage
+                  path="/configuration/surveys/field-date"
+                  imageKey="validations-drawer"
+                  hideCaption={true}
+                />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Set Allowed Date Bounds:</strong> Define minimum and maximum date boundaries for valid selections.</li>
+                    <li><strong>Enforce Past/Future Restrictions:</strong> Restrict selection to past dates or future dates only.</li>
+                    <li><strong>Configure Required Alert:</strong> Specify custom validation error message when left blank.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 3: RULES DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">3</span>
+                  Conditional Logic Rules Drawer
+                </h4>
+                <DocImage
+                  path="/configuration/surveys/field-date"
+                  imageKey="rules-drawer"
+                  hideCaption={true}
+                />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Configure Trigger Condition:</strong> Set conditional trigger (e.g., <code>IF Shipment Mode EQUALS "Export"</code>).</li>
+                    <li><strong>Assign Action:</strong> Choose action to show date picker, require entry, or auto-fill current date.</li>
+                    <li><strong>Save Rule:</strong> Save and test logic rule in simulator preview.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* PHOTO UPLOAD FIELD DRAWER STACK & STEPS */}
           {fieldKey === "field-photo" && (
-            <div className="my-6 space-y-4">
-              <p className="text-xs font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">
-                Survey Builder Interfaces — Core Settings, Media Validations, Logic Rules &amp; Example Media
-              </p>
-              {/* Top Horizontal Full-Width Image */}
-              <div className="w-full">
+            <div className="my-6 space-y-8">
+              {/* IMAGE 1: CORE SETTINGS DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">1</span>
+                  Core Settings Drawer
+                </h4>
                 <DocImage
                   path="/configuration/surveys/field-photo"
                   imageKey="core-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Define Photo Field Title:</strong> Set prompt label (e.g., <code>Cargo Damage Evidence Photos</code>).</li>
+                    <li><strong>Enforce Real-Time Camera Capture:</strong> Turn on mandatory live camera capture to prevent selecting stale photos from device gallery.</li>
+                    <li><strong>Select Photo Quality Profile:</strong> Choose image resolution and compression level.</li>
+                  </ol>
+                </div>
               </div>
-              {/* Three Images Side-by-Side in Row Frame */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+              {/* IMAGE 2: MEDIA VALIDATIONS DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">2</span>
+                  Media Validations Drawer
+                </h4>
                 <DocImage
                   path="/configuration/surveys/field-photo"
                   imageKey="validations-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Set Min &amp; Max Photo Count:</strong> Specify required minimum and maximum photo uploads (e.g., Min: 2, Max: 6).</li>
+                    <li><strong>Enforce GPS Geotagging &amp; Timestamps:</strong> Enable mandatory location coordinates and timestamp overlays.</li>
+                    <li><strong>Set Max File Size Limits:</strong> Restrict max upload size per photo file.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 3: RULES DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">3</span>
+                  Conditional Rules Drawer
+                </h4>
                 <DocImage
                   path="/configuration/surveys/field-photo"
                   imageKey="rules-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Configure Conditional Trigger:</strong> Set rule condition (e.g., <code>IF "Discrepancy Found?" EQUALS "Yes"</code>).</li>
+                    <li><strong>Set Dynamic Requirement Action:</strong> Make photo upload mandatory only when damage or discrepancy is flagged.</li>
+                    <li><strong>Save Rule Logic:</strong> Apply rule and test in preview mode.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* IMAGE 4: REFERENCE GALLERY DRAWER */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">4</span>
+                  Reference Guide &amp; Example Gallery Drawer
+                </h4>
                 <DocImage
                   path="/configuration/surveys/field-photo"
                   imageKey="media-drawer"
+                  hideCaption={true}
                 />
+                <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                  <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                    Step-by-Step Configuration Steps:
+                  </strong>
+                  <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                    <li><strong>Upload Reference Guide Photos:</strong> Add example photo samples showing acceptable vs rejected photo quality.</li>
+                    <li><strong>Add Mandatory Photo Angle Prompts:</strong> Specify required camera angles (e.g., Front View, Close-up Seal, Side Profile).</li>
+                    <li><strong>Preview Guidance Cards:</strong> Test reference photo guide display in the mobile simulator.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* SINGLE IMAGE FIELD TYPES (GPS, VIDEO, FILE) */}
+          {fieldKey === "field-gps" && (
+            <div className="my-4 space-y-3">
+              <DocImage
+                path="/configuration/surveys/field-gps"
+                imageKey="overview"
+                hideCaption={true}
+              />
+              <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                  Step-by-Step Configuration Steps:
+                </strong>
+                <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                  <li><strong>Set GPS Field Label:</strong> Define location capture prompt title (e.g., <code>Terminal Berth Geofence Location</code>).</li>
+                  <li><strong>Configure Accuracy Threshold:</strong> Specify required GPS accuracy threshold (e.g., within 10 meters).</li>
+                  <li><strong>Set Automatic Capture Mode:</strong> Enable automatic background geotagging upon checklist start.</li>
+                </ol>
+              </div>
+            </div>
+          )}
+
+          {fieldKey === "field-video" && (
+            <div className="my-4 space-y-3">
+              <DocImage
+                path="/configuration/surveys/field-video"
+                imageKey="overview"
+                hideCaption={true}
+              />
+              <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                  Step-by-Step Configuration Steps:
+                </strong>
+                <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                  <li><strong>Define Video Field Prompt:</strong> Set title (e.g., <code>Cargo Loading Video Stream</code>).</li>
+                  <li><strong>Set Max Duration Limit:</strong> Specify max allowed video duration (e.g. 60 seconds).</li>
+                  <li><strong>Configure Compression &amp; Resolution:</strong> Set video bitrate and frame rate for efficient mobile upload.</li>
+                </ol>
+              </div>
+            </div>
+          )}
+
+          {fieldKey === "field-file" && (
+            <div className="my-4 space-y-3">
+              <DocImage
+                path="/configuration/surveys/field-file"
+                imageKey="overview"
+                hideCaption={true}
+              />
+              <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+                <strong className="text-ink-900 dark:text-slate-100 block font-semibold mb-1.5 text-[13px]">
+                  Step-by-Step Configuration Steps:
+                </strong>
+                <ol className="list-decimal pl-5 space-y-1.5 text-ink-700 dark:text-slate-300">
+                  <li><strong>Set File Upload Label:</strong> Define document prompt (e.g., <code>Bill of Lading PDF Document</code>).</li>
+                  <li><strong>Select Allowed File Extensions:</strong> Restrict uploads to specific formats (e.g., <code>.pdf</code>, <code>.xlsx</code>, <code>.docx</code>).</li>
+                  <li><strong>Set Maximum File Size:</strong> Specify max file size constraint (e.g., 25 MB).</li>
+                </ol>
               </div>
             </div>
           )}

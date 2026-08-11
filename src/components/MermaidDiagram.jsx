@@ -42,10 +42,10 @@ export default function MermaidDiagram({ chart }) {
       try {
         let { svg: renderedSvg } = await mermaid.render(uniqueId.current, chart);
         
-        // Ensure responsive width scaling
+        // Ensure responsive width scaling without blowing up vertical diagrams
         renderedSvg = renderedSvg
-          .replace(/width="[^"]*"/, 'width="100%"')
-          .replace(/style="max-width:[^"]*"/, 'style="max-width:100%;"');
+          .replace(/width="100%"/, '')
+          .replace(/style="max-width:[^"]*"/, 'style="max-width:100%; height:auto;"');
 
         if (isMounted) {
           setSvg(renderedSvg);
@@ -80,10 +80,10 @@ export default function MermaidDiagram({ chart }) {
   }
 
   return (
-    <div className="my-6 flex justify-center w-full overflow-x-auto py-2">
+    <div className="my-6 flex justify-center w-full overflow-x-auto py-4 px-2 rounded-2xl bg-ink-900/[0.02] dark:bg-[#0A0A0A] border border-ink-900/10 dark:border-[#262626] shadow-sm">
       {svg ? (
         <div 
-          className="w-full max-w-full text-center overflow-x-auto [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:mx-auto [&>svg]:block"
+          className="w-full max-w-xl mx-auto text-center overflow-x-auto [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:mx-auto [&>svg]:block [&_g.node_rect]:rx-2 [&_g.node_rect]:ry-2 [&_g.node_rect]:stroke-cyan-500/40 dark:[&_g.node_rect]:stroke-cyan-500/30 [&_g.node_rect]:fill-white dark:[&_g.node_rect]:fill-[#141414] [&_span]:text-sm [&_span]:font-medium [&_span]:text-ink-900 dark:[&_span]:text-slate-100"
           dangerouslySetInnerHTML={{ __html: svg }} 
         />
       ) : (

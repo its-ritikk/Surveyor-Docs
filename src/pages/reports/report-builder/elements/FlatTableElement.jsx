@@ -22,7 +22,8 @@ const toc = [
 export default function FlatTableElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/flat-table"
+hideImage={true}
+            path="/reports/report-builder/elements/flat-table"
       eyebrow="Report Builder · Elements"
       title="Flat Table"
       description="The Flat Table element displays survey checklist entries in a simple chronological row-per-record, column-per-field grid — the most common table format for inspection data."
@@ -32,7 +33,7 @@ export default function FlatTableElement() {
         <p>
           The <strong>Flat Table</strong> element is the simplest and most frequently used table in the Report Builder. It renders one row per survey submission record and one column per selected survey field, producing a clean, scrollable data grid that captures every individual inspection entry in chronological order.
         </p>
-        <DocImage path="/reports/report-builder/elements/flat-table" />
+        <DocImage path="/reports/report-builder/elements/flat-table" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

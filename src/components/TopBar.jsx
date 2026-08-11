@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Search, Menu, BookOpen } from "lucide-react";
+import { Search, Menu, BookOpen, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 function LogoWithFallback() {
   const [imgError, setImgError] = useState(false);
@@ -26,6 +27,10 @@ function LogoWithFallback() {
 }
 
 export default function TopBar({ onMenuClick, onSearchClick }) {
+  const themeContext = useTheme();
+  const theme = themeContext?.theme || "dark";
+  const toggle = themeContext?.toggle || (() => {});
+
   return (
     <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-ink-900/10 dark:border-[#262626] bg-white/80 dark:bg-[#000000]/90 backdrop-blur-md px-4 md:px-8 transition-colors">
       {/* Left: Branding */}
@@ -76,6 +81,20 @@ export default function TopBar({ onMenuClick, onSearchClick }) {
           aria-label="Search"
         >
           <Search size={18} />
+        </button>
+
+        {/* Dark / Light Mode Toggle Button */}
+        <button
+          onClick={toggle}
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.02] dark:bg-[#0A0A0A] text-ink-700 dark:text-[#A3A3A3] hover:text-ink-900 dark:hover:text-white hover:border-cyan-500/40 transition-all shadow-sm"
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          aria-label="Toggle theme"
+        >
+          {theme === "dark" ? (
+            <Sun size={15} className="text-amber-400" />
+          ) : (
+            <Moon size={15} className="text-slate-700" />
+          )}
         </button>
 
         {/* Version Badge */}

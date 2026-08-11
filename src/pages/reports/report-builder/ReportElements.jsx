@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -23,7 +22,6 @@ export default function ReportElements() {
         <p>
           Report designs are composed by stacking modular content blocks vertically in the designer. Each block handles a distinct type of output — headers, text fields, tables, photo grids, and signatures — and can be independently configured and reordered.
         </p>
-        <DocImage path="/reports/report-builder/elements" />
       </Section>
 
       <Section id="supported-elements" title="Supported Elements">

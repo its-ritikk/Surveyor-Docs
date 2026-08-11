@@ -22,7 +22,8 @@ const toc = [
 export default function SignatureElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/signature"
+hideImage={true}
+            path="/reports/report-builder/elements/signature"
       eyebrow="Report Builder · Elements"
       title="Signature"
       description="The Signature element places a formal sign-off block displaying graphic signatures, printed names, roles, and verification timestamps for all signing parties."
@@ -32,7 +33,7 @@ export default function SignatureElement() {
         <p>
           The <strong>Signature</strong> element is the formal document closure block. It renders the graphic signature images captured by surveyors and authorising parties via the mobile app, alongside printed name, job title, organisation, and the timestamp of when the signature was applied. It provides a legally traceable sign-off trail within the PDF report.
         </p>
-        <DocImage path="/reports/report-builder/elements/signature" />
+        <DocImage path="/reports/report-builder/elements/signature" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

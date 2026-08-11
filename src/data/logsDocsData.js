@@ -91,28 +91,6 @@ export const logsDocsDictionary = {
     relatedModules: ["/logs/overview", "/logs/audit-logs"],
   },
 
-  "best-practices": {
-    id: "best-practices",
-    title: "Logs & Analytics Best Practices",
-    eyebrow: "Logs & Analytics",
-    path: "/logs/best-practices",
-    description: "Tips for operational log monitoring, security reviews, regulatory compliance, and record retention.",
-    hasVideo: false,
-    mediaId: null,
-    overview: "Best Practices provides guidelines for managing system logs and compliance auditing.",
-    purpose: "Helps organizations maintain high security standards and satisfy maritime audit requirements.",
-    businessScenario: "Establishing a monthly log review process for ISO quality certification.",
-    howItWorks: "Follow 4 simple rules: 1. Review audit logs weekly, 2. Monitor failed login attempts, 3. Export monthly archives, 4. Protect access rights.",
-    workflow: "Review Rules -> Schedule Periodic Audits -> Store Logs for Later.",
-    configuration: "Governance Guide.",
-    validationRules: "None.",
-    permissions: "Quality Managers and Admins.",
-    dependencies: "None.",
-    bestPractices: "Store audit logs in secure backup storage annually for long-term record keeping.",
-    commonMistakes: "Ignoring failed action logs, which may indicate permission setup issues.",
-    troubleshooting: "Following these tips ensures smooth compliance during maritime audit inspections.",
-    relatedModules: ["/logs/overview"],
-  },
 
   "troubleshooting": {
     id: "troubleshooting",

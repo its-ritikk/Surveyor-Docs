@@ -68,17 +68,27 @@ export default function ReviewWorkflow() {
         </div>
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-3">Full Review Workflow</h4>
-        <div className="my-4 p-5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] font-mono text-xs text-ink-700 dark:text-[#A3A3A3] text-center space-y-1">
-          <div className="font-semibold text-ink-900 dark:text-white">Open inspection from Dashboard</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Review Header, Checklist Data, GPS &amp; Evidence tabs</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Add Internal Inspection Notes</div>
-          <div className="text-cyan-500">↓</div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div className="p-2 rounded border border-cyan-500/30 bg-cyan-500/5 text-cyan-600 dark:text-cyan-400">Approve → Locked → Report Builder</div>
-            <div className="p-2 rounded border border-amber-500/30 bg-amber-50/5 text-amber-600 dark:text-amber-400">Cond. Approve → Flagged → Report Builder</div>
-            <div className="p-2 rounded border border-rose-500/30 bg-rose-500/5 text-rose-600 dark:text-rose-400">Reject → Notification → Re-submit</div>
+        <div className="my-4 p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] space-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-mono">
+            <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.02] dark:bg-white/[0.02] text-ink-900 dark:text-white font-semibold">1. Open Inspection</div>
+            <span className="text-cyan-500 font-bold">→</span>
+            <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.02] dark:bg-white/[0.02] text-ink-800 dark:text-slate-200">2. Audit Header, GPS &amp; Evidence</div>
+            <span className="text-cyan-500 font-bold">→</span>
+            <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.02] dark:bg-white/[0.02] text-ink-800 dark:text-slate-200">3. Add Internal Notes</div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 font-mono text-xs text-center">
+            <div className="p-2.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
+              <strong className="block font-bold">Approve</strong>
+              <span className="text-[11px] opacity-80">Lock Data → Report Builder</span>
+            </div>
+            <div className="p-2.5 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300">
+              <strong className="block font-bold">Cond. Approve</strong>
+              <span className="text-[11px] opacity-80">Flagged → Report Builder</span>
+            </div>
+            <div className="p-2.5 rounded-lg border border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300">
+              <strong className="block font-bold">Reject</strong>
+              <span className="text-[11px] opacity-80">Notify → Mobile Re-submit</span>
+            </div>
           </div>
         </div>
       </Section>
@@ -128,16 +138,12 @@ export default function ReviewWorkflow() {
         </div>
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-[#E5E5E5] mt-5 mb-3">Revision Flow</h4>
-        <div className="my-4 p-5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] font-mono text-xs text-ink-700 dark:text-[#A3A3A3] text-center space-y-1">
-          <div className="font-semibold text-ink-900 dark:text-white">Initial Mobile Submission (Rev 0)</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Coordinator requests correction / edits field</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Change committed → Rev 1 created</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Previous &amp; Updated values logged with Changed By + Timestamp</div>
-          <div className="text-cyan-500">↓</div>
-          <div>Repeat for each subsequent edit</div>
+        <div className="my-4 flex flex-wrap items-center gap-2 text-xs font-mono">
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">Rev 0 (Initial)</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">Edit / Correction</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 font-semibold">Commit Rev 1 (Audit Logged)</div>
         </div>
       </Section>
 

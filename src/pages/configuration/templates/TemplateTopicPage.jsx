@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 import { templateDocsDictionary } from "../../../data/templateDocsData";
 
 export default function TemplateTopicPage({ topicKey: propTopicKey }) {
@@ -9,11 +10,19 @@ export default function TemplateTopicPage({ topicKey: propTopicKey }) {
 
   let key = propTopicKey;
   if (!key) {
-    const relativePath = location.pathname.replace("/configuration/inspection-templates/", "");
+    let relativePath = location.pathname.replace("/configuration/inspection-templates", "");
+    relativePath = relativePath.replace(/^\/+|\/+$/g, "");
     key = relativePath || "overview";
   }
 
-  const data = templateDocsDictionary[key] || templateDocsDictionary["overview"];
+  // Smart resolution for subsection root paths (e.g. document-templates -> document-templates/overview)
+  let data = templateDocsDictionary[key];
+  if (!data && templateDocsDictionary[`${key}/overview`]) {
+    data = templateDocsDictionary[`${key}/overview`];
+  }
+  if (!data) {
+    data = templateDocsDictionary["overview"];
+  }
 
   const toc = [
     { id: "overview", label: "Overview" },
@@ -33,11 +42,14 @@ export default function TemplateTopicPage({ topicKey: propTopicKey }) {
       description={data.description}
       mediaId={data.mediaId}
       toc={toc}
-      noMedia={key === "template-lifecycle"}
+      hideImage={true}
     >
       {/* 1. OVERVIEW */}
       <Section id="overview" title="Overview">
-        <p className="text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5]">{data.overview}</p>
+        <div className="flex flex-col gap-4">
+          <p className="text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5]">{data.overview}</p>
+          <DocImage path={data.path} imageKey="overview" hideCaption={true} />
+        </div>
       </Section>
 
       {/* 2. PURPOSE */}

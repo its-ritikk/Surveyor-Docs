@@ -1,17 +1,18 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "purpose", label: "Purpose" },
-  { id: "how-it-works", label: "How It Works" },
-  { id: "aggregations", label: "Supported Aggregations" },
-  { id: "rows-cols", label: "Row & Column Config" },
-  { id: "filters-sorting", label: "Filters & Sorting" },
-  { id: "export", label: "Export Behaviour" },
-  { id: "rules", label: "Validation Rules" },
+  { id: "grouping-aggregations", label: "Grouping & Aggregations" },
+  { id: "supported-aggregations", label: "Supported Aggregations" },
+  { id: "configuration", label: "Configuration" },
+  { id: "rules", label: "Rules" },
+  { id: "use-cases", label: "Common Use Cases" },
+  { id: "mistakes", label: "Common Mistakes" },
+  { id: "troubleshooting", label: "Troubleshooting" },
+  { id: "related", label: "Related Features" },
 ];
 
 export default function PivotTable() {
@@ -27,7 +28,6 @@ export default function PivotTable() {
         <p>
           The <strong>Pivot Table</strong> element summarises checklist records by grouping inputs across two dimensions — rows and columns — and calculating consolidated numeric totals, counts, or averages. Unlike the Flat Table (which lists every record), the Pivot Table collapses repeated entries into meaningful summary cells.
         </p>
-        <DocImage path="/reports/report-builder/tables/pivot" />
       </Section>
 
       <Section id="purpose" title="Purpose">

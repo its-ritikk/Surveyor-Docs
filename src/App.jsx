@@ -100,7 +100,6 @@ export default function App() {
             <Route path="/operations/inspection-review/workflow" element={<ReviewWorkflow />} />
             <Route path="/operations/inspection-review/attachments" element={<InspectionAttachments />} />
             <Route path="/operations/inspection-review/permissions" element={<InspectionPermissions />} />
-            <Route path="/operations/inspection-review/best-practices" element={<InspectionBestPractices />} />
             <Route path="/operations/inspection-review/troubleshooting" element={<InspectionTroubleshooting />} />
 
             <Route path="/configuration/surveys" element={<Surveys />} />
@@ -141,6 +140,7 @@ export default function App() {
             <Route path="/configuration/teams" element={<Teams />} />
 
             {/* ── Inspection Templates – Level 2 & Level 3 Routes ─────────── */}
+            <Route path="/configuration/inspection-templates" element={<TemplateTopicPage topicKey="overview" />} />
             <Route path="/configuration/inspection-templates/overview" element={<TemplateTopicPage topicKey="overview" />} />
             <Route path="/configuration/inspection-templates/template-lifecycle" element={<TemplateTopicPage topicKey="template-lifecycle" />} />
 
@@ -162,7 +162,6 @@ export default function App() {
             <Route path="/configuration/inspection-templates/document-templates/delete-documents" element={<TemplateTopicPage topicKey="document-templates/delete-documents" />} />
             <Route path="/configuration/inspection-templates/document-templates/preview-documents" element={<TemplateTopicPage topicKey="document-templates/preview-documents" />} />
             <Route path="/configuration/inspection-templates/document-templates/supported-formats" element={<TemplateTopicPage topicKey="document-templates/supported-formats" />} />
-            <Route path="/configuration/inspection-templates/document-templates/version-control" element={<TemplateTopicPage topicKey="document-templates/version-control" />} />
             <Route path="/configuration/inspection-templates/document-templates/document-mapping" element={<TemplateTopicPage topicKey="document-templates/document-mapping" />} />
 
             {/* Survey Selection */}
@@ -177,37 +176,9 @@ export default function App() {
             <Route path="/configuration/inspection-templates/survey-selection/execution-order" element={<TemplateTopicPage topicKey="survey-selection/execution-order" />} />
             <Route path="/configuration/inspection-templates/survey-selection/workflow-integration" element={<TemplateTopicPage topicKey="survey-selection/workflow-integration" />} />
 
-            {/* Workflow Stages */}
-            <Route path="/configuration/inspection-templates/workflow-stages/overview" element={<TemplateTopicPage topicKey="workflow-stages/overview" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-configuration" element={<TemplateTopicPage topicKey="workflow-stages/stage-configuration" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-properties" element={<TemplateTopicPage topicKey="workflow-stages/stage-properties" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/cargo-process-mapping" element={<TemplateTopicPage topicKey="workflow-stages/cargo-process-mapping" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/entity-scope" element={<TemplateTopicPage topicKey="workflow-stages/entity-scope" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-sequence" element={<TemplateTopicPage topicKey="workflow-stages/stage-sequence" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/execution-order" element={<TemplateTopicPage topicKey="workflow-stages/execution-order" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/independent-stages" element={<TemplateTopicPage topicKey="workflow-stages/independent-stages" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-dependencies" element={<TemplateTopicPage topicKey="workflow-stages/stage-dependencies" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/stage-execution" element={<TemplateTopicPage topicKey="workflow-stages/stage-execution" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/survey-assignment" element={<TemplateTopicPage topicKey="workflow-stages/survey-assignment" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/survey-execution" element={<TemplateTopicPage topicKey="workflow-stages/survey-execution" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/required-evidence" element={<TemplateTopicPage topicKey="workflow-stages/required-evidence" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/completion-criteria" element={<TemplateTopicPage topicKey="workflow-stages/completion-criteria" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/validation" element={<TemplateTopicPage topicKey="workflow-stages/validation" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/permissions" element={<TemplateTopicPage topicKey="workflow-stages/permissions" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/best-practices" element={<TemplateTopicPage topicKey="workflow-stages/best-practices" />} />
-            <Route path="/configuration/inspection-templates/workflow-stages/troubleshooting" element={<TemplateTopicPage topicKey="workflow-stages/troubleshooting" />} />
-
             {/* Contract Fields */}
+            <Route path="/configuration/inspection-templates/contract-fields" element={<TemplateTopicPage topicKey="contract-fields/overview" />} />
             <Route path="/configuration/inspection-templates/contract-fields/overview" element={<TemplateTopicPage topicKey="contract-fields/overview" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/customer-fields" element={<TemplateTopicPage topicKey="contract-fields/customer-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/container-fields" element={<TemplateTopicPage topicKey="contract-fields/container-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/cargo-fields" element={<TemplateTopicPage topicKey="contract-fields/cargo-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/port-fields" element={<TemplateTopicPage topicKey="contract-fields/port-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/vessel-fields" element={<TemplateTopicPage topicKey="contract-fields/vessel-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/reference-fields" element={<TemplateTopicPage topicKey="contract-fields/reference-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/custom-fields" element={<TemplateTopicPage topicKey="contract-fields/custom-fields" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/auto-mapping" element={<TemplateTopicPage topicKey="contract-fields/auto-mapping" />} />
-            <Route path="/configuration/inspection-templates/contract-fields/manual-mapping" element={<TemplateTopicPage topicKey="contract-fields/manual-mapping" />} />
 
             {/* Report Builder Integration */}
             <Route path="/configuration/inspection-templates/report-builder-integration/overview" element={<TemplateTopicPage topicKey="report-builder-integration/overview" />} />
@@ -238,12 +209,10 @@ export default function App() {
             <Route path="/configuration/inspection-templates/publishing/update-published-template" element={<TemplateTopicPage topicKey="publishing/update-published-template" />} />
             <Route path="/configuration/inspection-templates/publishing/rollback" element={<TemplateTopicPage topicKey="publishing/rollback" />} />
             <Route path="/configuration/inspection-templates/publishing/deployment" element={<TemplateTopicPage topicKey="publishing/deployment" />} />
-            <Route path="/configuration/inspection-templates/publishing/version-history" element={<TemplateTopicPage topicKey="publishing/version-history" />} />
             <Route path="/configuration/inspection-templates/publishing/publishing-restrictions" element={<TemplateTopicPage topicKey="publishing/publishing-restrictions" />} />
 
             {/* Standalone Level 2 pages */}
             <Route path="/configuration/inspection-templates/permissions" element={<TemplateTopicPage topicKey="permissions" />} />
-            <Route path="/configuration/inspection-templates/best-practices" element={<TemplateTopicPage topicKey="best-practices" />} />
             
             {/* Troubleshooting */}
             <Route path="/configuration/inspection-templates/troubleshooting" element={<TemplateTopicPage topicKey="troubleshooting" />} />
@@ -256,6 +225,7 @@ export default function App() {
 
             {/* Legacy single-page route redirect to overview */}
             <Route path="/configuration/inspection-templates" element={<TemplateTopicPage topicKey="overview" />} />
+            <Route path="/configuration/inspection-templates/*" element={<TemplateTopicPage />} />
 
             {/* Reports Ecosystem Routes */}
             <Route path="/reports/overview" element={<ReportsOverviewPage />} />
@@ -267,22 +237,18 @@ export default function App() {
             <Route path="/reports/workflow-reports/workflow-assignment" element={<ReportTopicPage topicKey="workflow-reports/workflow-assignment" />} />
             <Route path="/reports/workflow-reports/version-management" element={<ReportTopicPage topicKey="workflow-reports/version-management" />} />
             <Route path="/reports/workflow-reports/publishing" element={<ReportTopicPage topicKey="workflow-reports/publishing" />} />
-            <Route path="/reports/workflow-reports/best-practices" element={<ReportTopicPage topicKey="workflow-reports/best-practices" />} />
 
             {/* Inspection Template Reports */}
             <Route path="/reports/inspection-template-reports/overview" element={<ReportTopicPage topicKey="inspection-template-reports/overview" />} />
             <Route path="/reports/inspection-template-reports/report-selection" element={<ReportTopicPage topicKey="inspection-template-reports/report-selection" />} />
             <Route path="/reports/inspection-template-reports/report-configuration" element={<ReportTopicPage topicKey="inspection-template-reports/report-configuration" />} />
-            <Route path="/reports/inspection-template-reports/best-practices" element={<ReportTopicPage topicKey="inspection-template-reports/best-practices" />} />
 
             {/* Contract Reports */}
             <Route path="/reports/contract-reports/overview" element={<ReportTopicPage topicKey="contract-reports/overview" />} />
             <Route path="/reports/contract-reports/contract-report" element={<ReportTopicPage topicKey="contract-reports/contract-report" />} />
             <Route path="/reports/contract-reports/survey-report" element={<ReportTopicPage topicKey="contract-reports/survey-report" />} />
             <Route path="/reports/contract-reports/media-attachments" element={<ReportTopicPage topicKey="contract-reports/media-attachments" />} />
-            <Route path="/reports/contract-reports/version-history" element={<ReportTopicPage topicKey="contract-reports/version-history" />} />
             <Route path="/reports/contract-reports/preview-and-export" element={<ReportTopicPage topicKey="contract-reports/preview-and-export" />} />
-            <Route path="/reports/contract-reports/best-practices" element={<ReportTopicPage topicKey="contract-reports/best-practices" />} />
 
             {/* Reports Management */}
             <Route path="/reports/reports-management/overview" element={<ReportTopicPage topicKey="reports-management/overview" />} />
@@ -315,7 +281,6 @@ export default function App() {
             <Route path="/logs/audit-logs" element={<AuditLogs />} />
             <Route path="/logs/search-and-filters" element={<LogsTopicPage topicKey="search-and-filters" />} />
             <Route path="/logs/log-details" element={<LogsTopicPage topicKey="log-details" />} />
-            <Route path="/logs/best-practices" element={<LogsTopicPage topicKey="best-practices" />} />
             <Route path="/logs/troubleshooting" element={<LogsTopicPage topicKey="troubleshooting" />} />
 
             {/* Mobile Surveyor Sub-Topic Routes */}
@@ -324,7 +289,6 @@ export default function App() {
             <Route path="/mobile/offline-workflow" element={<MobileTopicPage topicKey="offline-workflow" />} />
             <Route path="/mobile/media-capture" element={<MobileTopicPage topicKey="media-capture" />} />
             <Route path="/mobile/synchronization" element={<MobileTopicPage topicKey="synchronization" />} />
-            <Route path="/mobile/best-practices" element={<MobileTopicPage topicKey="best-practices" />} />
             <Route path="/mobile/troubleshooting" element={<MobileTopicPage topicKey="troubleshooting" />} />
 
             <Route

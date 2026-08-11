@@ -140,26 +140,12 @@ const sectionMetadataMap = {
     desc: "Step-by-step workflow for selecting formats, populating summaries, and reviewing live previews.",
     keywords: "building a pick report workflow add report summary authoring live preview import contracts",
   },
-  "/reports/contract-reports#version-history": {
-    pageName: "Contract Reports",
-    sectionName: "Version History",
-    matchedHeading: "Version History",
-    desc: "Version tracking and draft history snapshots for contract report summaries.",
-    keywords: "version history draft snapshots revisions incremental saves report drafts pick report",
-  },
   "/reports/contract-reports#permissions": {
     pageName: "Contract Reports",
     sectionName: "Permissions",
     matchedHeading: "Permissions",
     desc: "Access control matrix governing creation, editing, exporting, and viewing contract reports.",
     keywords: "permissions access control admin coordinator surveyor client read only",
-  },
-  "/reports/contract-reports#best-practices": {
-    pageName: "Contract Reports",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Best practice recommendations for generating clear, professional contract report outputs.",
-    keywords: "best practices recommendations clear professional outputs PDF export clean formatting",
   },
   "/configuration/surveys/field-photo#video-upload-operations": {
     pageName: "Photo Upload Field",
@@ -372,13 +358,6 @@ const sectionMetadataMap = {
     desc: "Enforcing required selection rules, custom error messages, and choice compliance.",
     keywords: "dropdown validation required flag custom error message mandatory selection choice compliance",
   },
-  "/configuration/surveys/field-dropdown/best-practices": {
-    pageName: "Dropdown Field",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Design recommendations for building clear, high-efficiency dropdown menus.",
-    keywords: "dropdown best practices design rules concise list logical order clear placeholders common mistakes",
-  },
   "/configuration/surveys/field-dropdown/troubleshooting": {
     pageName: "Dropdown Field",
     sectionName: "Troubleshooting",
@@ -422,13 +401,6 @@ const sectionMetadataMap = {
     matchedHeading: "Validation",
     desc: "User-facing validation: Required Check Enforcement and Critical Safety Fail alert triggers.",
     keywords: "checkbox validation required check critical safety fail alert mandatory photo evidence trigger",
-  },
-  "/configuration/surveys/field-checkbox/best-practices": {
-    pageName: "Checkbox Field",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Enterprise design guidelines for effective safety check-sheets and compliance forms.",
-    keywords: "checkbox best practices design rules affirmative labels unchecked default common mistakes",
   },
   "/configuration/surveys/field-checkbox/troubleshooting": {
     pageName: "Checkbox Field",
@@ -856,13 +828,6 @@ const sectionMetadataMap = {
     desc: "User Role Permissions matrix governing review console actions across Admins, Coordinators, and Surveyors.",
     keywords: "permissions admin coordinator surveyor access rights security matrix",
   },
-  "/operations/inspection-review#best-practices": {
-    pageName: "Inspection Review",
-    sectionName: "Best Practices",
-    matchedHeading: "Operational Best Practices",
-    desc: "Guidelines for prompt checklist reviews, clear rejection feedback, and daily SLA monitoring.",
-    keywords: "best practices SLA monitoring feedback prompt reviews quality guidelines",
-  },
   "/operations/inspection-review#troubleshooting": {
     pageName: "Inspection Review",
     sectionName: "Troubleshooting",
@@ -998,13 +963,6 @@ const sectionMetadataMap = {
     matchedHeading: "Supported Formats",
     desc: "Permitted document file formats, MIME types, and size constraints: PDF, DOCX, XLSX, PNG, JPG.",
     keywords: "supported formats PDF DOCX XLSX PNG JPG file types MIME extensions allowed",
-  },
-  "/configuration/inspection-templates/document-templates/version-control": {
-    pageName: "Document Templates",
-    sectionName: "Version Control",
-    matchedHeading: "Version Control",
-    desc: "Tracking revision history, change logs, and author metadata for document attachments.",
-    keywords: "version control document revision history changelog author audit trail",
   },
   "/configuration/inspection-templates/document-templates/document-mapping": {
     pageName: "Document Templates",
@@ -1199,13 +1157,6 @@ const sectionMetadataMap = {
     matchedHeading: "Permissions",
     desc: "User Role Permissions governing stage configuration, contract execution, and review gates.",
     keywords: "permissions role access control administrator coordinator surveyor",
-  },
-  "/configuration/inspection-templates/workflow-stages/best-practices": {
-    pageName: "Workflow Stages",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Recommendations for designing efficient workflow sequences, stage ordering, reusable workflows, and avoiding unnecessary stage complexity.",
-    keywords: "best practices recommendations workflow design stage ordering reusable concise 3-5 stages",
   },
   "/configuration/inspection-templates/workflow-stages/troubleshooting": {
     pageName: "Workflow Stages",
@@ -1460,13 +1411,6 @@ const sectionMetadataMap = {
     desc: "Deploying published template packages across regional port branch offices.",
     keywords: "deployment regional branch office scope visibility template dispatch",
   },
-  "/configuration/inspection-templates/publishing/version-history": {
-    pageName: "Publishing",
-    sectionName: "Version History",
-    matchedHeading: "Version History",
-    desc: "Audit trail log of all published template revisions, release dates, and authors.",
-    keywords: "version history audit log revision release date author changelog template",
-  },
   "/configuration/inspection-templates/publishing/publishing-restrictions": {
     pageName: "Publishing",
     sectionName: "Publishing Restrictions",
@@ -1482,13 +1426,6 @@ const sectionMetadataMap = {
     matchedHeading: "Permissions",
     desc: "User Role Permissions matrix governing template creation, editing, publishing, and archival.",
     keywords: "permissions roles access control admin coordinator surveyor security",
-  },
-  "/configuration/inspection-templates/best-practices": {
-    pageName: "Inspection Templates",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Recommended design guidelines for building efficient, maintainable inspection templates.",
-    keywords: "best practices guidelines design efficient maintainable template architecture",
   },
   "/configuration/inspection-templates/troubleshooting": {
     pageName: "Inspection Templates",
@@ -1590,13 +1527,6 @@ const sectionMetadataMap = {
     desc: "Publishing, locking, and deploying workflow report templates for live contract operations.",
     keywords: "publishing workflow reports lock template schema pre-flight validation production deployment",
   },
-  "/reports/workflow-reports/best-practices": {
-    pageName: "Workflow Reports",
-    sectionName: "Best Practices",
-    matchedHeading: "Workflow Reports Best Practices",
-    desc: "Proven design and configuration guidelines for enterprise workflow report templates.",
-    keywords: "workflow reports best practices design guidelines modular blocks field mapping tags",
-  },
   "/reports/inspection-template-reports/overview": {
     pageName: "Inspection Template Reports",
     sectionName: "Overview",
@@ -1617,13 +1547,6 @@ const sectionMetadataMap = {
     matchedHeading: "Report Configuration",
     desc: "Mapping survey checklist fields and contract fields to report template placeholder tags.",
     keywords: "report configuration field mapping survey checklist tags placeholder mapping engine",
-  },
-  "/reports/inspection-template-reports/best-practices": {
-    pageName: "Inspection Template Reports",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Guidelines for configuring seamless report integrations inside Inspection Templates.",
-    keywords: "inspection template reports best practices simulator testing fallback values error free",
   },
   "/reports/contract-reports/overview": {
     pageName: "Contract Reports",
@@ -1653,26 +1576,12 @@ const sectionMetadataMap = {
     desc: "Managing photo grids, evidence captions, GPS coordinates, and document attachments in contract reports.",
     keywords: "media attachments photo grid evidence captions GPS coordinates document uploads cloud sync",
   },
-  "/reports/contract-reports/version-history": {
-    pageName: "Contract Reports",
-    sectionName: "Version History",
-    matchedHeading: "Version History",
-    desc: "Tracking draft revisions, published snapshots, and version restores in contract reports.",
-    keywords: "version history draft revisions snapshot restore revision log audit trail",
-  },
   "/reports/contract-reports/preview-and-export": {
     pageName: "Contract Reports",
     sectionName: "Preview & Export",
     matchedHeading: "Preview & Export",
     desc: "On-screen preview, vectorized PDF export, and direct printing of contract reports.",
     keywords: "preview export vectorized PDF print A4 layout page break client dispatch",
-  },
-  "/reports/contract-reports/best-practices": {
-    pageName: "Contract Reports",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Proven operational guidelines for authoring and dispatching contract reports.",
-    keywords: "contract reports best practices pre-generation checklist publish lock client dispatch",
   },
   "/reports/reports-management/overview": {
     pageName: "Reports Management",
@@ -1746,13 +1655,6 @@ const sectionMetadataMap = {
     desc: "Automatic background data synchronization, manual sync triggers, sync status indicators, and retry mechanisms.",
     keywords: "synchronization auto sync background upload manual sync status pending failed retry wifi cellular",
   },
-  "/mobile/best-practices": {
-    pageName: "Mobile Surveyor",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Essential operational guidelines for battery management, network handling, photo quality, and pre-submission checks.",
-    keywords: "mobile best practices battery power bank Wi-Fi pre sync photo quality GPS check-in post shift",
-  },
   "/mobile/troubleshooting": {
     pageName: "Mobile Surveyor",
     sectionName: "Troubleshooting",
@@ -1790,13 +1692,6 @@ const sectionMetadataMap = {
     matchedHeading: "Log Details Inspector",
     desc: "Inspecting detailed event metadata, user IP, timestamp, target object ID, and JSON field deltas.",
     keywords: "log details side drawer inspector event metadata user IP timestamp JSON delta old new value",
-  },
-  "/logs/best-practices": {
-    pageName: "Logs & Analytics",
-    sectionName: "Best Practices",
-    matchedHeading: "Best Practices",
-    desc: "Guidelines for operational log monitoring, security reviews, regulatory compliance, and audit archiving.",
-    keywords: "logs best practices governance monitoring weekly review failed logins security compliance audit",
   },
   "/logs/troubleshooting": {
     pageName: "Logs & Analytics",

@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -24,7 +23,6 @@ export default function Publishing() {
         <p>
           Before a report template can be selected for active cargo contracts, it must pass the <strong>Preview & Publishing</strong> step. This process lets coordinators verify that all variable bindings, layout widths, and branding configurations render correctly in the PDF output before locking the template for production use.
         </p>
-        <DocImage path="/reports/report-builder/publishing" />
       </Section>
 
       <Section id="live-preview" title="Live Preview Panel">

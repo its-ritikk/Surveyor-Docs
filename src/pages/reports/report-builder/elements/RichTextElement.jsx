@@ -1,6 +1,5 @@
 import React from "react";
 import DocPage, { Section } from "../../../../components/DocPage";
-import DocImage from "../../../../components/DocImage";
 import Callout from "../../../../components/Callout";
 
 const toc = [
@@ -21,6 +20,7 @@ const toc = [
 export default function RichTextElement() {
   return (
     <DocPage
+      hideImage={true}
       path="/reports/report-builder/elements/rich-text"
       eyebrow="Report Builder · Elements"
       title="Text"
@@ -31,7 +31,6 @@ export default function RichTextElement() {
         <p>
           The <strong>Text</strong> element adds a free-form paragraph block to the report layout. Unlike Label / Value which renders discrete data points, Text supports multi-sentence narrative content and the ability to inject dynamic variable values inline within the paragraph text.
         </p>
-        <DocImage path="/reports/report-builder/elements/rich-text" />
       </Section>
 
       <Section id="purpose" title="Purpose">

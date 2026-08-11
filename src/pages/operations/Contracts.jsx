@@ -32,6 +32,13 @@ export default function Contracts() {
           Contracts hold all basic shipment information (Bill of Lading numbers, vessel names, cargo weight), attach standardized survey checklists, assign field surveyors or teams, set completion deadlines, and generate final customer reports.
         </p>
 
+        {/* IMAGE 1: Contract Management Workspace Overview */}
+        <DocImage
+          path="/operations/contracts"
+          imageKey="overview"
+          hideCaption={true}
+        />
+
         <div className="my-5 grid gap-3 sm:grid-cols-3">
           <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.01] dark:bg-[#0A0A0A]">
             <p className="font-bold text-xs text-signal-600 dark:text-cyan-400 uppercase tracking-wider">Inspection Container</p>
@@ -46,8 +53,6 @@ export default function Contracts() {
             <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Feeds verified survey responses into the Report Builder to create customer reports.</p>
           </div>
         </div>
-
-        <DocImage path="/operations/contracts" imageKey="overview" />
       </Section>
 
       {/* ── SECTION 2: CREATING CONTRACTS ──────────────────────────────── */}
@@ -56,11 +61,15 @@ export default function Contracts() {
           To start a new inspection job, open the <strong>Create Contract Console</strong>. This simple form captures customer details, checklist templates, shipment information, and surveyor assignments.
         </p>
 
-        {/* IMAGE 1: Commercial Details & Inspection Template Selection */}
-        <DocImage path="/operations/contracts" imageKey="creation-commercial" />
+        {/* IMAGE 2: Commercial Details & Inspection Template Selection */}
+        <DocImage
+          path="/operations/contracts"
+          imageKey="creation-commercial"
+          hideCaption={true}
+        />
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
-          1. Select Inspection Template
+          1. Select Inspection Template &amp; Commercial Info
         </h4>
         <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
           <p className="text-ink-700 dark:text-slate-300">
@@ -73,14 +82,11 @@ export default function Contracts() {
           </ul>
         </div>
 
-        <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
-          2. Customer &amp; Basic Information
-        </h4>
         <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
               <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Contract ID</strong>
-              <span className="text-ink-650 dark:text-slate-400">Unique reference code created automatically by the system (e.g., <code>TCIS/IN/2026-PROD-0013</code>).</span>
+              <span className="text-ink-650 dark:text-slate-400 leading-relaxed block">Auto-generated or custom unique reference code (e.g., <code className="text-[11px] inline-block px-1.5 py-0.5 rounded bg-ink-900/5 dark:bg-cyan-500/10 text-signal-700 dark:text-cyan-400 border border-ink-900/10 dark:border-cyan-500/20 font-mono align-baseline">TCIS/IN/2026-PROD-0013</code>).</span>
             </div>
             <div className="p-3 rounded-lg border border-ink-900/5 dark:border-white/5 bg-ink-900/[0.01] dark:bg-white/[0.01]">
               <strong className="text-ink-900 dark:text-slate-100 block mb-0.5">Contracting Party <span className="text-red-500">*</span></strong>
@@ -109,11 +115,15 @@ export default function Contracts() {
           </div>
         </div>
 
-        {/* IMAGE 2: Shipment Details & Execution Plan Grid */}
-        <DocImage path="/operations/contracts" imageKey="creation-execution" />
+        {/* IMAGE 3: Shipment Details & Vessel Data */}
+        <DocImage
+          path="/operations/contracts"
+          imageKey="creation-shipment"
+          hideCaption={true}
+        />
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
-          3. Shipment Details
+          2. Shipment &amp; Vessel Details
         </h4>
         <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -164,8 +174,15 @@ export default function Contracts() {
           </div>
         </div>
 
+        {/* IMAGE 4: Execution Plan Grid & Surveyor Assignment */}
+        <DocImage
+          path="/operations/contracts"
+          imageKey="creation-execution"
+          hideCaption={true}
+        />
+
         <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
-          4. Inspection Steps &amp; Surveyor Assignment
+          3. Inspection Steps &amp; Surveyor Assignment Grid
         </h4>
         <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs mb-6">
           <p className="text-ink-700 dark:text-slate-300">
@@ -203,7 +220,7 @@ export default function Contracts() {
         </div>
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 mt-6 mb-3">
-          5. Save &amp; Activation Buttons
+          4. Save &amp; Activation Controls
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs mb-4">
           <div className="p-3.5 rounded-lg border border-ink-900/10 dark:border-white/10 bg-ink-900/[0.01] dark:bg-white/[0.02]">
@@ -217,12 +234,12 @@ export default function Contracts() {
             </strong>
             <span className="text-ink-650 dark:text-slate-400">Saves an incomplete setup as a draft without sending dispatches to surveyors.</span>
           </div>
-          <div className="p-3.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
+          <div className="p-3.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:border-emerald-500 hover:bg-emerald-500/20 hover:text-emerald-800 dark:hover:text-emerald-200 transition-all duration-150 cursor-pointer">
             <strong className="block mb-1 flex items-center justify-between">
               <span>Activate Contract</span>
-              <kbd className="px-1.5 py-0.5 rounded bg-cyan-500/20 font-mono text-[10px]">Ctrl + Enter</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 font-mono text-[10px]">Ctrl + Enter</kbd>
             </strong>
-            <span className="text-xs">Activates the contract and sends mobile checklists to assigned surveyors.</span>
+            <span className="text-xs text-emerald-800/90 dark:text-emerald-300/90">Activates the contract and sends mobile checklists to assigned surveyors.</span>
           </div>
         </div>
       </Section>
@@ -232,6 +249,13 @@ export default function Contracts() {
         <p>
           The <strong>Contract Details Screen</strong> gives you a complete summary of a single job, showing inspection progress, vessel details, container lists, and uploaded documents.
         </p>
+
+        {/* IMAGE 5: Contract Details View Screen */}
+        <DocImage
+          path="/operations/contracts"
+          imageKey="contract-details"
+          hideCaption={true}
+        />
 
         <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-200 mt-4 mb-2">Key Screen Panels</h4>
         <div className="space-y-3">

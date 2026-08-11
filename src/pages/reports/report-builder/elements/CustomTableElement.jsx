@@ -23,7 +23,8 @@ const toc = [
 export default function CustomTableElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/custom-table"
+hideImage={true}
+            path="/reports/report-builder/elements/custom-table"
       eyebrow="Report Builder · Elements"
       title="Custom Table"
       description="The Custom Table element provides a fully manual cell-by-cell layout builder, supporting merged headers, mixed static text, dynamic variable bindings, and per-cell formatting."
@@ -33,7 +34,7 @@ export default function CustomTableElement() {
         <p>
           The <strong>Custom Table</strong> element gives designers complete manual control over a table's structure. Unlike Flat and Pivot Tables which auto-populate from survey data, the Custom Table starts as a blank grid that you build yourself — defining rows, merging cells, applying shading, and binding individual cells to either static text or dynamic variable tags.
         </p>
-        <DocImage path="/reports/report-builder/elements/custom-table" />
+        <DocImage path="/reports/report-builder/elements/custom-table" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

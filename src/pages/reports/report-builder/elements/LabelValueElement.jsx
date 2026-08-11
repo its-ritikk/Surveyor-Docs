@@ -22,7 +22,8 @@ const toc = [
 export default function LabelValueElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/label-value"
+hideImage={true}
+            path="/reports/report-builder/elements/label-value"
       eyebrow="Report Builder · Elements"
       title="Label / Value"
       description="The Label / Value element displays individual survey field answers or contract variables as clean two-column key–value summary rows."
@@ -32,7 +33,7 @@ export default function LabelValueElement() {
         <p>
           The <strong>Label / Value</strong> element is the most commonly used building block for displaying named data points in a report. It renders as a two-column row — the left column shows a fixed label (field name) and the right column shows the dynamically resolved value from survey data or contract metadata.
         </p>
-        <DocImage path="/reports/report-builder/elements/label-value" />
+        <DocImage path="/reports/report-builder/elements/label-value" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

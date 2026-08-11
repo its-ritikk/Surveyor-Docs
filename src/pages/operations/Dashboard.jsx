@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../components/DocPage";
 import Callout from "../../components/Callout";
+import DocImage from "../../components/DocImage";
 import { Gauge, TrendingUp, Bell, Zap } from "lucide-react";
 
 const toc = [
@@ -124,7 +125,6 @@ export default function Dashboard() {
       title="Operations Dashboard"
       description="Your central view of all active contracts, inspections, surveyor status, performance trends, and alerts — updated in real time."
       toc={toc}
-      hideImage={true}
       hideVideo={true}
     >
       <Section id="overview" title="Overview">
@@ -196,6 +196,8 @@ export default function Dashboard() {
         <p>
           Below the KPI cards you will find the <strong>Weekly Performance Metrics</strong> chart. This chart shows a rolling 7-day view of inspection activity across your organization.
         </p>
+
+        <DocImage path="/operations/dashboard" imageKey="analytics" />
 
         <div className="my-4 grid gap-3 sm:grid-cols-3">
           <div className="p-4 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-ink-900/[0.01] dark:bg-[#0A0A0A]">

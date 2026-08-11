@@ -23,7 +23,8 @@ const toc = [
 export default function PivotTableElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/pivot-table"
+hideImage={true}
+            path="/reports/report-builder/elements/pivot-table"
       eyebrow="Report Builder · Elements"
       title="Pivot Table"
       description="The Pivot Table element groups and aggregates repeated survey entries across two configurable dimensions — rows and columns — producing consolidated numeric summaries."
@@ -33,7 +34,7 @@ export default function PivotTableElement() {
         <p>
           The <strong>Pivot Table</strong> element summarises survey checklist records by collapsing many individual entries into a two-dimensional summary grid. Unlike the Flat Table (which lists every record), the Pivot Table groups records by two categorical dimensions and calculates an aggregated numeric result at each intersection cell — delivering high-level operational summaries in a compact format.
         </p>
-        <DocImage path="/reports/report-builder/elements/pivot-table" />
+        <DocImage path="/reports/report-builder/elements/pivot-table" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

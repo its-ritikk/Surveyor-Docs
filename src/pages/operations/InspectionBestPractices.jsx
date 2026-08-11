@@ -13,7 +13,7 @@ const toc = [
 export default function InspectionBestPractices() {
   return (
     <DocPage
-      path="/operations/inspection-review/best-practices"
+      path="/operations/inspection-review/guidelines"
       eyebrow="Inspection Review"
       title="Operational Guidelines"
       description="Operational guidelines for efficient and accurate inspection reviews — GPS validation, evidence verification, batch processing, and performance recommendations."

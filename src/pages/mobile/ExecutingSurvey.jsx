@@ -73,6 +73,17 @@ export default function ExecutingSurvey() {
         <p>
           Inspectors navigate the checklist execution using these steps:
         </p>
+        <div className="my-4 flex flex-wrap items-center gap-2 text-xs font-mono">
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">1. Select Pending Survey</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">2. Start Survey (GPS Check-In)</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">3. Fill Checklist &amp; Signatures</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">4. Photos &amp; Captions</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-3 py-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-semibold">5. Submit (Completed)</div>
+        </div>
         <ol className="list-decimal pl-5 space-y-1.5 my-4">
           <li>Select a scheduled survey marked as <StatusBadge color="slate">Pending</StatusBadge> from the Contracts List.</li>
           <li>Review location and SLA conditions, then tap <strong>Start Survey</strong> to log GPS check-in data.</li>

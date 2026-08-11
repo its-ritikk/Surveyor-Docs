@@ -110,27 +110,6 @@ export const reportsEcosystemDictionary = {
     troubleshooting: "If publish fails, review error list in the Validation Inspector panel.",
   },
 
-  "workflow-reports/best-practices": {
-    id: "workflow-reports/best-practices",
-    title: "Workflow Reports Best Practices",
-    eyebrow: "Reports › Workflow Reports",
-    path: "/reports/workflow-reports/best-practices",
-    description: "Proven design and configuration guidelines for enterprise workflow report templates.",
-    hasVideo: true,
-    mediaId: "reports-workflow-bestpractices-tutorial-video",
-    overview: "Best Practices compile architectural recommendations for managing workflow report templates at scale.",
-    purpose: "Helps administrators maintain high report compilation speeds and clean data formatting.",
-    businessScenario: "Standardizing workflow reports across 50 regional maritime port branch offices.",
-    howItWorks: "Follow 4 rules: 1. Modular layout blocks, 2. Strict field mapping tags, 3. Version notes logging, 4. Pre-publish verification.",
-    workflow: "Review Guidelines -> Configure Templates -> Verify Output.",
-    configuration: "Architecture Guidelines Catalog.",
-    validationRules: "None.",
-    permissions: "All Designers.",
-    dependencies: "None.",
-    bestPractices: "Keep headers and footers consistent across all workflow report templates.",
-    commonMistakes: "Creating duplicate workflow templates for minor text variations instead of using dynamic variables.",
-    troubleshooting: "Following guidelines prevents 98% of workflow report generation failures.",
-  },
 
   // ── INSPECTION TEMPLATE REPORTS ─────────────────────────────────────
   "inspection-template-reports/overview": {
@@ -199,27 +178,6 @@ export const reportsEcosystemDictionary = {
     troubleshooting: "If report preview shows blank cells, verify field key names match exactly.",
   },
 
-  "inspection-template-reports/best-practices": {
-    id: "inspection-template-reports/best-practices",
-    title: "Inspection Template Reports Best Practices",
-    eyebrow: "Reports › Inspection Template Reports",
-    path: "/reports/inspection-template-reports/best-practices",
-    description: "Guidelines for configuring seamless report integrations inside Inspection Templates.",
-    hasVideo: true,
-    mediaId: "reports-inspectiontemplate-bestpractices-tutorial-video",
-    overview: "Best Practices for ensuring reliable data flow between Inspection Templates and generated reports.",
-    purpose: "Helps authors build error-free template packages that execute smoothly in port operations.",
-    businessScenario: "Designing standardized Inspection Template report mappings for bulk grain supervision.",
-    howItWorks: "Follow 4 rules: 1. Use published report layouts, 2. Verify all field mappings, 3. Set clear fallback values, 4. Test with sample contract data.",
-    workflow: "Review Guidelines -> Configure Step 4 -> Validate Output.",
-    configuration: "Best Practices Checklist.",
-    validationRules: "None.",
-    permissions: "Template Authors.",
-    dependencies: "None.",
-    bestPractices: "Always test report generation in the Inspection Template Simulator before publishing.",
-    commonMistakes: "Leaving field mappings incomplete in Step 4 of the wizard.",
-    troubleshooting: "Following guidelines eliminates 99% of template report rendering issues.",
-  },
 
   // ── CONTRACT REPORTS ───────────────────────────────────────────────
   "contract-reports/overview": {
@@ -310,27 +268,6 @@ export const reportsEcosystemDictionary = {
     troubleshooting: "If photos are missing, tap 'Force Sync' on mobile surveyor app.",
   },
 
-  "contract-reports/version-history": {
-    id: "contract-reports/version-history",
-    title: "Contract Report Version History",
-    eyebrow: "Reports › Contract Reports",
-    path: "/reports/contract-reports/version-history",
-    description: "Tracking draft revisions, published snapshots, and version restores in contract reports.",
-    hasVideo: true,
-    mediaId: "reports-contract-versioning-tutorial-video",
-    overview: "Version History maintains a complete audit trail of every saved revision of a contract report.",
-    purpose: "Ensures superintendents can review historical draft changes and restore previous text summaries if needed.",
-    businessScenario: "Reverting to a draft version saved yesterday before un-approved summary edits were made.",
-    howItWorks: "Click 'Version History' in report header -> Select Revision -> Click Preview or Restore.",
-    workflow: "Open Version History -> Select Revision Snapshot -> Click Restore Version.",
-    configuration: "Revision Log, Timestamp, Author Name, Revision Note, Restore Action.",
-    validationRules: "Restoring a version creates a new revision entry; old entries are never deleted.",
-    permissions: "Coordinators and Superintendents.",
-    dependencies: "Audit Log System.",
-    bestPractices: "Enter brief revision notes when saving major draft updates.",
-    commonMistakes: "Mistaking a draft version snapshot for a published client dispatch.",
-    troubleshooting: "If version history list is empty, ensure report was saved at least once.",
-  },
 
   "contract-reports/preview-and-export": {
     id: "contract-reports/preview-and-export",
@@ -354,27 +291,6 @@ export const reportsEcosystemDictionary = {
     troubleshooting: "If PDF download fails to start, disable browser popup blocker.",
   },
 
-  "contract-reports/best-practices": {
-    id: "contract-reports/best-practices",
-    title: "Contract Reports Best Practices",
-    eyebrow: "Reports › Contract Reports",
-    path: "/reports/contract-reports/best-practices",
-    description: "Proven operational guidelines for authoring and dispatching contract reports.",
-    hasVideo: true,
-    mediaId: "reports-contract-bestpractices-tutorial-video",
-    overview: "Best Practices for superintendents and contract coordinators authoring contract reports.",
-    purpose: "Ensures contract reports are accurate, professional, and dispatched on schedule.",
-    businessScenario: "Standardizing contract report completion workflows across all regional port operations.",
-    howItWorks: "Follow 4 rules: 1. Complete all surveys before reporting, 2. Edit photo captions, 3. Review live preview, 4. Publish before exporting.",
-    workflow: "Review Guidelines -> Author Report -> Validate & Export.",
-    configuration: "Operational Checklist.",
-    validationRules: "None.",
-    permissions: "Superintendents.",
-    dependencies: "None.",
-    bestPractices: "Always publish contract reports to lock the final document state in system audit logs.",
-    commonMistakes: "Sending un-published draft PDFs to external clients.",
-    troubleshooting: "Following guidelines prevents 99% of contract report dispatch errors.",
-  },
 
   // ── REPORTS MANAGEMENT ─────────────────────────────────────────────
   "reports-management/overview": {

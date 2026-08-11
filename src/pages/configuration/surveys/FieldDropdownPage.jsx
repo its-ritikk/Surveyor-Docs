@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import { Link } from "react-router-dom";
+import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview & 3-Panel Workspace" },
@@ -20,6 +21,7 @@ export default function FieldDropdownPage() {
       title="Dropdown Field Guide"
       description="Functional documentation for configuring Dropdown fields across the 4 Property Inspector tabs: Core, Options, Validations, and Rules."
       toc={toc}
+      hideImage={true}
     >
       {/* ── OVERVIEW & 3-PANEL WORKSPACE ────────────────────────────────── */}
       <Section id="overview" title="Overview &amp; 3-Panel Workspace">
@@ -27,6 +29,12 @@ export default function FieldDropdownPage() {
           The <strong>Dropdown Field</strong> presents a single-choice picklist menu on the survey form.
           When building a survey, the 3-panel workspace displays:
         </p>
+
+        <DocImage
+          path="/configuration/surveys/field-dropdown"
+          imageKey="main-workspace"
+          hideCaption={true}
+        />
 
         <ul className="mt-3 space-y-2 text-xs text-ink-700 dark:text-[#E5E5E5] list-disc pl-5">
           <li><strong>Left Panel (Available Fields):</strong> Contains 18 draggable field element tiles (Number, Calculated Field, Comparison Field, Dropdown, Multi Select, Radio, etc.).</li>
@@ -38,10 +46,10 @@ export default function FieldDropdownPage() {
       {/* ── 4 CONFIGURATION PANEL TABS ────────────────────────────────── */}
       <Section id="drawer-tabs" title="4 Configuration Panel Tabs">
         <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5] mb-4">
-          Selecting a Dropdown card on the Survey Builder activates the right panel with 4 drawer tabs:
+          Selecting a Dropdown card on the Survey Builder activates the right panel with 4 Property Inspector drawer tabs:
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
           <div className="p-3.5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
             <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-mono">Tab 1</span>
             <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mt-1.5">Core</h4>
@@ -80,6 +88,11 @@ export default function FieldDropdownPage() {
 
       {/* ── 2. OPTIONS MANAGEMENT & API DATA SOURCES ────────────────────── */}
       <Section id="options-tab" title="2. Options Management &amp; API Data Sources">
+        <DocImage
+          path="/configuration/surveys/field-dropdown"
+          imageKey="options-drawer"
+          hideCaption={true}
+        />
         <div className="space-y-3 text-xs">
           <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
             <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Unique Selection Checkbox</p>
@@ -113,6 +126,11 @@ export default function FieldDropdownPage() {
 
       {/* ── 3. CUSTOM & TEXT VALIDATIONS ──────────────────────────────── */}
       <Section id="validations-tab" title="3. Custom &amp; Text Validations">
+        <DocImage
+          path="/configuration/surveys/field-dropdown"
+          imageKey="validations-drawer"
+          hideCaption={true}
+        />
         <div className="grid gap-3 sm:grid-cols-2 text-xs">
           <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
             <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mb-2">CUSTOM VALIDATIONS</p>
@@ -140,6 +158,11 @@ export default function FieldDropdownPage() {
 
       {/* ── 4. LOGIC RULES (VISIBILITY & AUTO-FILL) ────────────────────── */}
       <Section id="rules-tab" title="4. Logic Rules (Visibility &amp; Auto-Fill)">
+        <DocImage
+          path="/configuration/surveys/field-dropdown"
+          imageKey="rules-drawer"
+          hideCaption={true}
+        />
         <div className="space-y-3 text-xs">
           <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
             <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Visibility Rules (+ Add Rule)</p>

@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -18,11 +19,14 @@ export default function SurveySteps() {
       title="Survey Steps"
       description="How to divide long survey checklists into structured sequential steps, wizard pages, and skip logic routines."
       toc={toc}
+      hideImage={true}
     >
       <Section id="overview" title="Overview">
         <p>
           <strong>Survey Steps</strong> structure long checklists into logical pages. Dividing a 50-question survey into 4 concise steps accelerates mobile completion speed and reduces surveyor cognitive fatigue.
         </p>
+
+        <DocImage path="/configuration/surveys/survey-steps" imageKey="overview" />
       </Section>
 
       <Section id="step-creation" title="Step Creation &amp; Naming">

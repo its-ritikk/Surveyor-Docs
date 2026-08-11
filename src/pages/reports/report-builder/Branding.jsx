@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -24,7 +23,6 @@ export default function Branding() {
         <p>
           The <strong>Branding</strong> section of the Report Builder ensures that all exported PDF reports carry the customer's corporate identity — including logos, colour schemes, company details, and page headers — making reports presentation-ready for clients and port authorities.
         </p>
-        <DocImage path="/reports/report-builder/branding" />
       </Section>
 
       <Section id="logo-specs" title="Logo Specifications">

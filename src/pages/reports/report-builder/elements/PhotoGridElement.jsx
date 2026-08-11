@@ -22,7 +22,8 @@ const toc = [
 export default function PhotoGridElement() {
   return (
     <DocPage
-      path="/reports/report-builder/elements/photo-grid"
+hideImage={true}
+            path="/reports/report-builder/elements/photo-grid"
       eyebrow="Report Builder · Elements"
       title="Photo Grid"
       description="The Photo Grid element compiles surveyor-uploaded inspection images into a structured visual evidence grid with optional captions, GPS stamps, and group headings."
@@ -32,7 +33,7 @@ export default function PhotoGridElement() {
         <p>
           The <strong>Photo Grid</strong> element aggregates images uploaded by surveyors during mobile field inspections and lays them out in a structured rows-and-columns grid within the PDF report. Rather than appending raw image files as attachments, the Photo Grid presents photographic evidence in a clean, labelled, professionally arranged format.
         </p>
-        <DocImage path="/reports/report-builder/elements/photo-grid" />
+        <DocImage path="/reports/report-builder/elements/photo-grid" hideCaption={true} />
       </Section>
 
       <Section id="purpose" title="Purpose">

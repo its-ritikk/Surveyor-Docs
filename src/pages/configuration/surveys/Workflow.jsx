@@ -1,6 +1,7 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
+import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -19,6 +20,7 @@ export default function Workflow() {
       title="Workflow"
       description="Detailed technical guide to the interactive visual design workspace, drop targets, grid alignment, and multi-step section breaks."
       toc={toc}
+      hideImage={true}
     >
       <Section id="overview" title="Overview">
         <p>

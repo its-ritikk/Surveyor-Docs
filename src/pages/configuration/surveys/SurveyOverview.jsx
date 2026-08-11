@@ -72,8 +72,20 @@ export default function SurveyOverview() {
         <p>
           Every survey follows a strict operational lifecycle:
         </p>
-        <div className="p-4 my-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] font-mono text-xs text-ink-800 dark:text-[#E5E5E5] space-y-1">
-          <p>Draft Creation → Add Section Breaks → Drag &amp; Drop Fields → Configure Validations → Preview Mobile Simulator → Publish Locked Schema → Bind to Contract Dispatch → Mobile Execution → Quality Review</p>
+        <div className="my-4 flex flex-wrap items-center gap-2 text-xs font-mono">
+          <div className="px-2.5 py-1.5 rounded border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">1. Draft Creation</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">2. Section Breaks</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">3. Drag Fields</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">4. Validations</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] text-ink-800 dark:text-slate-200">5. Simulator</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 font-semibold">6. Publish Schema</div>
+          <span className="text-cyan-500 font-bold">→</span>
+          <div className="px-2.5 py-1.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-semibold">7. Contract Execution</div>
         </div>
       </Section>
 

@@ -27,34 +27,49 @@ export default function DropdownTopicPage({ topicKey }) {
       description={data.description}
       mediaId={data.mediaId}
       toc={toc}
+      hideImage={true}
     >
       {/* 1. OVERVIEW */}
       <Section id="overview" title="Overview">
         <p className="text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5]">{data.overview}</p>
 
         {key === "overview" && (
-          <div className="my-6">
-            <p className="text-xs font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-2">
-              Survey Builder Property Inspector — 4 Configuration Drawer Tabs
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DocImage
-                path="/configuration/surveys/field-dropdown"
-                imageKey="core-drawer"
-              />
-              <DocImage
-                path="/configuration/surveys/field-dropdown"
-                imageKey="options-drawer"
-              />
-              <DocImage
-                path="/configuration/surveys/field-dropdown"
-                imageKey="validations-drawer"
-              />
-              <DocImage
-                path="/configuration/surveys/field-dropdown"
-                imageKey="rules-drawer"
-              />
-            </div>
+          <div className="my-4">
+            <DocImage
+              path="/configuration/surveys/field-dropdown"
+              imageKey="core-drawer"
+              hideCaption={true}
+            />
+          </div>
+        )}
+
+        {key === "options-management" && (
+          <div className="my-4">
+            <DocImage
+              path="/configuration/surveys/field-dropdown"
+              imageKey="options-drawer"
+              hideCaption={true}
+            />
+          </div>
+        )}
+
+        {key === "validation" && (
+          <div className="my-4">
+            <DocImage
+              path="/configuration/surveys/field-dropdown"
+              imageKey="validations-drawer"
+              hideCaption={true}
+            />
+          </div>
+        )}
+
+        {key === "rules" && (
+          <div className="my-4">
+            <DocImage
+              path="/configuration/surveys/field-dropdown"
+              imageKey="rules-drawer"
+              hideCaption={true}
+            />
           </div>
         )}
       </Section>
@@ -100,27 +115,26 @@ export default function DropdownTopicPage({ topicKey }) {
 
       {/* 6. COMMON MISTAKES & TROUBLESHOOTING */}
       <Section id="common-mistakes" title="Common Mistakes &amp; Troubleshooting">
-        <Callout type="warning" title="Common Mistake to Avoid">
-          {data.commonMistakes}
+        <Callout type="warning" title="Common Configuration Error">
+          <p className="text-xs text-ink-700 dark:text-[#E5E5E5]">{data.commonMistakes}</p>
         </Callout>
         <div className="mt-3 p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-          <p className="font-semibold text-xs text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-1">Troubleshooting Workflow</p>
-          <p className="text-xs text-ink-800 dark:text-[#E5E5E5]">{data.troubleshooting}</p>
+          <p className="font-semibold text-xs text-ink-900 dark:text-[#FFFFFF] uppercase tracking-wider mb-1">Diagnostic Steps</p>
+          <p className="text-xs text-ink-650 dark:text-[#A3A3A3]">{data.troubleshooting}</p>
         </div>
       </Section>
 
-      {/* 8. RELATED MODULES */}
+      {/* 7. RELATED MODULES */}
       <Section id="related-modules" title="Related Modules">
-        <p className="text-xs text-ink-600 dark:text-[#A3A3A3] mb-3">Explore related documentation sections:</p>
-        <div className="grid gap-2 sm:grid-cols-3 text-xs font-medium">
-          <Link to="/configuration/surveys/field-checkbox" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
-            Checkbox Field Guide →
+        <div className="flex flex-wrap gap-2 text-xs">
+          <Link to="/configuration/surveys/field-dropdown/options-management" className="px-3 py-1.5 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 text-ink-700 dark:text-[#E5E5E5] font-semibold transition-colors">
+            Options Management &rarr;
           </Link>
-          <Link to="/configuration/surveys/field-library" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
-            Field Types Library →
+          <Link to="/configuration/surveys/field-dropdown/validation" className="px-3 py-1.5 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 text-ink-700 dark:text-[#E5E5E5] font-semibold transition-colors">
+            Dropdown Validations &rarr;
           </Link>
-          <Link to="/configuration/surveys/conditional-logic" className="p-3 rounded-lg border border-ink-900/10 dark:border-[#262626] hover:bg-cyan-500/5 text-cyan-700 dark:text-cyan-400">
-            Conditional Logic →
+          <Link to="/configuration/surveys/field-library" className="px-3 py-1.5 rounded-lg border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 text-ink-700 dark:text-[#E5E5E5] font-semibold transition-colors">
+            Field Library &rarr;
           </Link>
         </div>
       </Section>

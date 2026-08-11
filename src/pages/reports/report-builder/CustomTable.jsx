@@ -1,17 +1,18 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "purpose", label: "Purpose" },
-  { id: "how-it-works", label: "How It Works" },
-  { id: "layout", label: "Manual Layout Builder" },
-  { id: "mapping", label: "Variable Mapping" },
-  { id: "formatting", label: "Formatting Options" },
-  { id: "export", label: "Export Behaviour" },
-  { id: "rules", label: "Validation Rules" },
+  { id: "building-custom-table", label: "Building a Custom Table" },
+  { id: "cell-formatting", label: "Cell Formatting & Formulas" },
+  { id: "configuration", label: "Configuration" },
+  { id: "rules", label: "Rules" },
+  { id: "use-cases", label: "Common Use Cases" },
+  { id: "mistakes", label: "Common Mistakes" },
+  { id: "troubleshooting", label: "Troubleshooting" },
+  { id: "related", label: "Related Features" },
 ];
 
 export default function CustomTable() {
@@ -27,7 +28,6 @@ export default function CustomTable() {
         <p>
           The <strong>Custom Table</strong> element gives designers full manual control over the table structure — defining rows, merging cells, applying shading, and mixing static text with dynamic variable bindings in a single flexible grid.
         </p>
-        <DocImage path="/reports/report-builder/tables/custom" />
       </Section>
 
       <Section id="purpose" title="Purpose">

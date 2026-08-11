@@ -74,7 +74,7 @@ export default function Introduction() {
     <DocPage
       path="/introduction"
       eyebrow="Getting Started"
-      title="Welcome to CargoClave SMS"
+      title="Welcome to CargoClave"
       description="Your complete guide to managing maritime cargo inspections, survey checklists, contract workflows, and customer reports in one unified system."
       toc={toc}
     >
@@ -119,7 +119,7 @@ export default function Introduction() {
               </span>
               <h4 className="font-semibold text-ink-900 dark:text-slate-100 text-sm mb-1 break-words">Surveyor Management System</h4>
               <p className="text-xs leading-5 text-ink-650 dark:text-slate-400 break-words">
-                Your primary workspace for creating contracts, dispatching surveyors, performing mobile inspections, auditing quality, and sharing final reports.
+                Your primary workspace for creating contracts, Assigning surveyors, performing mobile inspections, auditing quality, and sharing final reports.
               </p>
             </div>
           </div>

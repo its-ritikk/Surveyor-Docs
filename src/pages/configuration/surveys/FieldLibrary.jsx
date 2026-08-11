@@ -6,7 +6,7 @@ const toc = [
   { id: "overview", label: "Overview" },
   { id: "available-fields", label: "Survey Builder Field Catalog" },
   { id: "field-specifications", label: "Detailed Field Specifications" },
-  { id: "best-practices", label: "Field Configuration Guidelines" },
+  { id: "guidelines", label: "Field Configuration Guidelines" },
 ];
 
 const surveyBuilderFields = [
@@ -254,7 +254,7 @@ export default function FieldLibrary() {
         </div>
       </Section>
 
-      <Section id="best-practices" title="Field Configuration Guidelines">
+      <Section id="guidelines" title="Field Configuration Guidelines">
         <Callout type="tip">
           <strong>Pro-tip for Survey Builders:</strong> Always prefer constrained input types like <code>Yes/No Toggle</code>, <code>Dropdown</code>, or <code>Barcode/QR Scan</code> over open <code>Text</code> fields. All dates use <code>DD-MM-YYYY</code> format. Constrained inputs prevent typos, speed up mobile check-ins, and allow automatic report chart aggregation.
         </Callout>

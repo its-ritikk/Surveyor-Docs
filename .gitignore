@@ -1,5 +1,26 @@
+# Node dependencies & nested node_modules (Never push to GitHub)
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# Build & Output directories
+dist/
+dist-ssr/
+build/
+.vite/
+.temp/
+
+# Environment files & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+
 # Logs
-/logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,16 +28,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# Editor & OS files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj

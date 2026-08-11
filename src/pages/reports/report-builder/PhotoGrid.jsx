@@ -1,7 +1,6 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import Callout from "../../../components/Callout";
-import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -25,7 +24,6 @@ export default function PhotoGrid() {
         <p>
           The <strong>Photo Grid</strong> element aggregates surveyor-uploaded inspection images and compiles them into a structured rows-and-columns grid within the report PDF. Rather than appending raw image attachments, the Photo Grid presents evidence in a visually clean, labelled layout.
         </p>
-        <DocImage path="/reports/report-builder/photo-grid" />
       </Section>
 
       <Section id="grouping" title="Grouping Options">
