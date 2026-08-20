@@ -292,13 +292,7 @@
     "module": "Configuration",
     "alt": "Upload Documents - Template Attachment Console UI",
     "caption": "Upload Documents interface for attaching PDF report layouts and document templates to inspection blueprints"
-  },
-  "inspection-template/8.3_inspection_temp.png": {
-    "docPath": "/configuration/inspection-templates/survey-selection/overview",
-    "sectionKey": "overview",
-    "module": "Configuration",
-    "alt": "Survey Selection & Sequence UI",
-    "caption": "Survey Selection console showing assigned check-sheets, mandatory flags, and execution sequence"
+
   },
   "inspection-survey/8.4_inspection_survey.png": {
     "docPath": "/configuration/inspection-templates/workflow-stages/overview",

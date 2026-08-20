@@ -520,19 +520,7 @@ export const mediaRegistry = {
       "caption": "Predefined Supervision Report Designer: Structured section cards (Primary Details, Equipment Details, Container Weighment Details, De-stuffing Details) bound live to PDF preview table"
     }
   },
-  "/configuration/inspection-templates/survey-selection/overview": {
-    "overview": {
-      "type": "image",
-      "src": "https://cargoclave-docs-media.s3.ap-south-1.amazonaws.com/inspection-template/images/8.3_inspection_temp.png",
-      "alt": "Survey Selection & Sequence UI",
-      "caption": "Survey Selection console showing assigned check-sheets, mandatory flags, and execution sequence",
-      "metadata": {
-        "module": "Configuration",
-        "originalFileName": "8.3_inspection_temp.png",
-        "updatedAt": 1786439880698
-      }
-    }
-  },
+
   "/configuration/inspection-templates/survey-selection/survey-library": {
     "overview": {
       "type": "image",
