@@ -168,7 +168,31 @@ export default function DocPage({
               <p className="text-[11px] font-bold text-ink-500 dark:text-[#A3A3A3] uppercase tracking-wider mb-3 select-none shrink-0">
                 On This Page
               </p>
-              <div className="doc-scroll overflow-y-auto pr-2 min-h-0 flex-1">
+              <div
+                className="doc-scroll overflow-y-auto pr-2 min-h-0 flex-1 outline-none"
+                onKeyDown={(e) => {
+                  if (["ArrowDown", "ArrowUp"].includes(e.key)) {
+                    const focusables = Array.from(
+                      e.currentTarget.querySelectorAll("a[href]")
+                    ).filter((el) => el.offsetWidth > 0 && el.offsetHeight > 0);
+
+                    if (focusables.length === 0) return;
+                    const currIdx = focusables.indexOf(document.activeElement);
+
+                    if (e.key === "ArrowDown") {
+                      e.preventDefault();
+                      const nextIdx = currIdx < focusables.length - 1 ? currIdx + 1 : 0;
+                      focusables[nextIdx].focus();
+                      focusables[nextIdx].scrollIntoView({ block: "nearest", behavior: "smooth" });
+                    } else if (e.key === "ArrowUp") {
+                      e.preventDefault();
+                      const prevIdx = currIdx > 0 ? currIdx - 1 : focusables.length - 1;
+                      focusables[prevIdx].focus();
+                      focusables[prevIdx].scrollIntoView({ block: "nearest", behavior: "smooth" });
+                    }
+                  }
+                }}
+              >
                 <ul className="space-y-2 border-l border-ink-900/10 dark:border-[#262626] pb-6">
                   {displayHeadings.map((h) => {
                     const isActive = activeId === h.id;
@@ -186,7 +210,7 @@ export default function DocPage({
                             }
                             window.history.pushState(null, "", `#${h.id}`);
                           }}
-                          className={`block pl-3.5 -ml-px border-l text-[13px] transition-colors leading-5 py-0.5 ${
+                          className={`block pl-3.5 -ml-px border-l text-[13px] transition-colors leading-5 py-0.5 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:rounded focus-visible:bg-cyan-500/10 ${
                             h.level === 3 ? "pl-6 text-[12px]" : "font-medium"
                           } ${
                             isActive

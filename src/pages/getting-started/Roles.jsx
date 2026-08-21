@@ -310,38 +310,6 @@ export default function Roles() {
           <p className="text-xs leading-6 text-ink-700 dark:text-slate-300">
             Custom roles are built on top of the same permission system. The Administrator selects which actions a custom role can perform, and any user assigned that role will see exactly those tools and no others.
           </p>
-
-          <div className="border-t border-amber-200 dark:border-amber-900/20 pt-3">
-            <h4 className="text-xs font-semibold text-ink-800 dark:text-slate-200 mb-2">
-              Examples of custom roles you can create
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A]">
-                <strong className="text-ink-900 dark:text-slate-100 block mb-1">Senior Operations Lead</strong>
-                <span className="text-ink-650 dark:text-slate-400">
-                  All Operations Head rights plus the ability to approve high-priority inspections and override SLA warnings.
-                </span>
-              </div>
-              <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A]">
-                <strong className="text-ink-900 dark:text-slate-100 block mb-1">Field Supervisor</strong>
-                <span className="text-ink-650 dark:text-slate-400">
-                  Can view team assignments, monitor surveyor progress, and inspect submitted photos and documents.
-                </span>
-              </div>
-              <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A]">
-                <strong className="text-ink-900 dark:text-slate-100 block mb-1">Read-Only Auditor</strong>
-                <span className="text-ink-650 dark:text-slate-400">
-                  Can view contracts, inspection records, and reports but cannot create or edit anything.
-                </span>
-              </div>
-              <div className="p-3 rounded-lg border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A]">
-                <strong className="text-ink-900 dark:text-slate-100 block mb-1">Client Manager</strong>
-                <span className="text-ink-650 dark:text-slate-400">
-                  Can view completed reports and status updates for specific client accounts only.
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <Callout type="note">

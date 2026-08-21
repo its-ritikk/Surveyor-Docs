@@ -1,16 +1,18 @@
 import React from "react";
 import DocPage, { Section } from "../../../components/DocPage";
 import { Link } from "react-router-dom";
+import Callout from "../../../components/Callout";
 import DocImage from "../../../components/DocImage";
 
 const toc = [
   { id: "overview", label: "Overview & 3-Panel Workspace" },
-  { id: "drawer-tabs", label: "4 Configuration Panel Tabs" },
+  { id: "drawer-tabs", label: "4 Property Inspector Tabs" },
   { id: "core-tab", label: "1. Core Settings Tab" },
   { id: "options-tab", label: "2. Options Management & API Data Sources" },
   { id: "validations-tab", label: "3. Custom & Text Validations" },
-  { id: "rules-tab", label: "4. Logic Rules (Visibility & Auto-Fill)" },
-  { id: "action-bar", label: "Action Bar (Cancel & Save Changes)" },
+  { id: "rules-tab", label: "4. Logic Rules & Visibility Triggers" },
+  { id: "action-bar", label: "Action Bar & Drawer Controls" },
+  { id: "subtopics", label: "Explore Sub-Topic Guides" },
 ];
 
 export default function FieldDropdownPage() {
@@ -19,193 +21,299 @@ export default function FieldDropdownPage() {
       path="/configuration/surveys/field-dropdown"
       eyebrow="Survey Builder › Field Library"
       title="Dropdown Field Guide"
-      description="Functional documentation for configuring Dropdown fields across the 4 Property Inspector tabs: Core, Options, Validations, and Rules."
+      description="Complete user guide for configuring Dropdown fields across the 4 Property Inspector tabs: Core, Options, Validations, and Rules."
       toc={toc}
       hideImage={true}
     >
       {/* ── OVERVIEW & 3-PANEL WORKSPACE ────────────────────────────────── */}
       <Section id="overview" title="Overview &amp; 3-Panel Workspace">
         <p className="text-[15px] leading-7 text-ink-700/90 dark:text-[#E5E5E5]">
-          The <strong>Dropdown Field</strong> presents a single-choice picklist menu on the survey form.
-          When building a survey, the 3-panel workspace displays:
+          The <strong>Dropdown Field</strong> presents a single-choice picklist menu on the mobile survey form. It enforces standardized data collection for vessel berths, cargo commodity grades, defect classifications, and port locations, eliminating spelling inconsistencies and typos.
         </p>
 
-        <DocImage
-          path="/configuration/surveys/field-dropdown"
-          imageKey="main-workspace"
-          hideCaption={true}
-        />
+        <div className="my-6 space-y-3">
+          <DocImage
+            path="/configuration/surveys/field-dropdown"
+            imageKey="main-workspace"
+            hideCaption={true}
+          />
+          <p className="text-xs text-ink-500 dark:text-[#A3A3A3] text-center italic">
+            Survey Builder workspace showing Dropdown field placement on the central step card and Property Inspector on the right.
+          </p>
+        </div>
 
-        <ul className="mt-3 space-y-2 text-xs text-ink-700 dark:text-[#E5E5E5] list-disc pl-5">
-          <li><strong>Left Panel (Available Fields):</strong> Contains 18 draggable field element tiles (Number, Calculated Field, Comparison Field, Dropdown, Multi Select, Radio, etc.).</li>
-          <li><strong>Center Panel (Survey Builder):</strong> Displays Step cards (Step 1, Step 2) with placed field elements equipped with drag handle (::), settings gear, copy, and delete controls.</li>
-          <li><strong>Right Panel (Field Configuration):</strong> Displays the 4 Property Inspector configuration tabs (Core, Options, Validations, Rules) for the selected survey field.</li>
-        </ul>
+        <div className="my-6 grid gap-3 sm:grid-cols-3 text-xs">
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 shadow-sm">
+            <span className="inline-block px-2 py-0.5 rounded text-[11px] font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">
+              Left Panel
+            </span>
+            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Available Fields Palette</p>
+            <p className="text-ink-650 dark:text-[#A3A3A3]">Contains 18 draggable field tiles with 6-dot drag handles. Select or drag the <strong>Dropdown</strong> tile onto any active step container.</p>
+          </div>
+
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 shadow-sm">
+            <span className="inline-block px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
+              Center Panel
+            </span>
+            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Survey Builder Canvas</p>
+            <p className="text-ink-650 dark:text-[#A3A3A3]">Displays Step cards (Step 1, Step 2) with placed field elements. Features drag-and-drop handles, settings gear icon, duplicate, and delete controls.</p>
+          </div>
+
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-2 shadow-sm">
+            <span className="inline-block px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              Right Panel
+            </span>
+            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Property Inspector</p>
+            <p className="text-ink-650 dark:text-[#A3A3A3]">Displays the 4 configuration tabs (<strong>Core</strong>, <strong>Options</strong>, <strong>Validations</strong>, <strong>Rules</strong>) for customizing the selected Dropdown field.</p>
+          </div>
+        </div>
       </Section>
 
       {/* ── 4 CONFIGURATION PANEL TABS ────────────────────────────────── */}
-      <Section id="drawer-tabs" title="4 Configuration Panel Tabs">
+      <Section id="drawer-tabs" title="4 Property Inspector Tabs">
         <p className="text-[14px] leading-6 text-ink-700/90 dark:text-[#E5E5E5] mb-4">
-          Selecting a Dropdown card on the Survey Builder activates the right panel with 4 Property Inspector drawer tabs:
+          Clicking a Dropdown field card in the central builder canvas opens the Right Property Inspector with 4 configuration tabs:
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-          <div className="p-3.5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-mono">Tab 1</span>
-            <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mt-1.5">Core</h4>
-            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Configures the Field Name displayed above the dropdown input on the step survey and mobile app.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm hover:border-cyan-500/40 transition-colors">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">1</span>
+              <span className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Core Settings Tab</span>
+            </div>
+            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] leading-relaxed !mb-0">
+              Configures the primary Field Name label displayed above the dropdown menu on the survey step card and mobile app screen.
+            </p>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-mono">Tab 2</span>
-            <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mt-1.5">Options</h4>
-            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Manages Unique Selection, API Data Source links (Packing List, Contract, MDM), and static Dropdown options.</p>
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm hover:border-cyan-500/40 transition-colors">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">2</span>
+              <span className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Options Management Tab</span>
+            </div>
+            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] leading-relaxed !mb-0">
+              Manages static option items, Unique Selection rules, and dynamic API Data Sources (Packing List, Contract, MDM System).
+            </p>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-mono">Tab 3</span>
-            <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mt-1.5">Validations</h4>
-            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Enforces Custom Validations (Allowed Values, Disallowed Values, Expected Value) and Text Validations (Required *).</p>
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm hover:border-cyan-500/40 transition-colors">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">3</span>
+              <span className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Validations Tab</span>
+            </div>
+            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] leading-relaxed !mb-0">
+              Enforces Custom Validations (Allowed Values, Disallowed Values, Expected Value) and Text Validations (Required *).
+            </p>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 font-mono">Tab 4</span>
-            <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mt-1.5">Rules</h4>
-            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mt-1">Defines IF/THEN Visibility Rules and Auto-fill conditions triggered by surveyor choices.</p>
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm hover:border-cyan-500/40 transition-colors">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">4</span>
+              <span className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Rules Tab</span>
+            </div>
+            <p className="text-xs text-ink-650 dark:text-[#A3A3A3] leading-relaxed !mb-0">
+              Sets up IF/THEN Visibility Rules and Auto-fill conditions that dynamically show, hide, or populate fields based on user selections.
+            </p>
           </div>
         </div>
       </Section>
 
       {/* ── 1. CORE SETTINGS TAB ──────────────────────────────────────── */}
       <Section id="core-tab" title="1. Core Settings Tab">
-        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
-          <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Core Settings Parameters:</p>
-          <ul className="list-disc pl-5 space-y-1.5 text-ink-700 dark:text-[#E5E5E5]">
-            <li><strong>Field name *:</strong> Input box specifying the header label displayed on the survey card and mobile inspection form (e.g. <code>Dropdown</code>).</li>
-          </ul>
+        <div className="space-y-4">
+          <DocImage
+            path="/configuration/surveys/field-dropdown"
+            imageKey="core-drawer"
+            hideCaption={true}
+          />
+
+          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-3 text-xs">
+            <h4 className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-cyan-500"></span>
+              Core Tab Configuration Parameters
+            </h4>
+            <ul className="list-disc pl-5 space-y-2 text-ink-700 dark:text-[#E5E5E5] leading-relaxed">
+              <li>
+                <strong>Field name *:</strong> Input box specifying the main label shown to surveyors (e.g. <code>Vessel Berth Number</code> or <code>Cargo Defect Classification</code>).
+              </li>
+              <li>
+                <strong>Variable Tag Binding:</strong> Auto-generates a unique database tag (e.g., <code>{`{Survey_Berth_Number}`}</code>) used in Report Builder templates.
+              </li>
+            </ul>
+          </div>
         </div>
       </Section>
 
       {/* ── 2. OPTIONS MANAGEMENT & API DATA SOURCES ────────────────────── */}
       <Section id="options-tab" title="2. Options Management &amp; API Data Sources">
-        <DocImage
-          path="/configuration/surveys/field-dropdown"
-          imageKey="options-drawer"
-          hideCaption={true}
-        />
-        <div className="space-y-3 text-xs">
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Unique Selection Checkbox</p>
-            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">
-              <strong>Unique selection:</strong> Checkbox with label <em>"Ensure options selected in one entry (card) cannot be selected in subsequent entries of this step."</em>
-            </p>
+        <div className="space-y-4">
+          <DocImage
+            path="/configuration/surveys/field-dropdown"
+            imageKey="options-drawer"
+            hideCaption={true}
+          />
+
+          <div className="grid gap-3 sm:grid-cols-3 text-xs">
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-1.5 shadow-sm">
+              <p className="font-bold text-sm text-cyan-600 dark:text-cyan-400">Unique Selection</p>
+              <p className="text-ink-650 dark:text-[#A3A3A3] leading-relaxed">
+                Prevents surveyors from picking the same option in subsequent repeated cards within the step (e.g. assigning unique hatch numbers).
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-1.5 shadow-sm">
+              <p className="font-bold text-sm text-cyan-600 dark:text-cyan-400">API Data Sources</p>
+              <p className="text-ink-650 dark:text-[#A3A3A3] leading-relaxed">
+                Links dropdown options dynamically to external live data APIs: <code>Packing List</code>, <code>Contract</code>, or <code>MDM System</code>.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] space-y-1.5 shadow-sm">
+              <p className="font-bold text-sm text-cyan-600 dark:text-cyan-400">Manual Options</p>
+              <p className="text-ink-650 dark:text-[#A3A3A3] leading-relaxed">
+                Add static menu options using <code>Enter option label</code> and <code>+ Add Option</code>. All options must have non-empty labels.
+              </p>
+            </div>
           </div>
 
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">API Data Source Section</p>
-            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1 mb-2">
-              <em>"Link this dropdown to data extracted from the Packing List, Contract, or MDM system. Options will be dynamically populated at survey execution time."</em>
-            </p>
-            <p className="text-ink-700 dark:text-[#E5E5E5]">
-              <strong>Data Source Selector:</strong> Dropdown picklist containing Packing List, Contract, or MDM System API integration channels.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Dropdown Options * &amp; Validation Message</p>
-            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">
-              Add custom menu choices via the <strong>Enter option label</strong> input row and <strong>+ Add Option</strong> button.
-              <br />
-              <span className="text-rose-600 dark:text-rose-400 font-semibold mt-1 inline-block">
-                Validation Warning: "All options must have a label. Fill or remove empty options."
-              </span>
-            </p>
-          </div>
+          <Callout type="note" title="Option Label Validation Alert">
+            If an empty option row is left in the list, the Property Inspector displays a red alert:
+            <span className="block mt-1 font-semibold text-rose-600 dark:text-rose-400">
+              "All options must have a label. Fill or remove empty options."
+            </span>
+          </Callout>
         </div>
       </Section>
 
       {/* ── 3. CUSTOM & TEXT VALIDATIONS ──────────────────────────────── */}
       <Section id="validations-tab" title="3. Custom &amp; Text Validations">
-        <DocImage
-          path="/configuration/surveys/field-dropdown"
-          imageKey="validations-drawer"
-          hideCaption={true}
-        />
-        <div className="grid gap-3 sm:grid-cols-2 text-xs">
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mb-2">CUSTOM VALIDATIONS</p>
-            <ul className="space-y-2 text-ink-700 dark:text-[#E5E5E5]">
-              <li>
-                <strong>Allowed Values (Checkbox):</strong> "Only selected values are allowed" &rarr; Input: <code>Select allowed values</code>.
-              </li>
-              <li>
-                <strong>Disallowed Values (Checkbox):</strong> "Selected values are not allowed" &rarr; Input: <code>Select disallowed values</code>.
-              </li>
-              <li>
-                <strong>Expected Value (Checkbox):</strong> "Value must match the expected answer" &rarr; Input: <code>Select expected value</code>.
-              </li>
-            </ul>
-          </div>
+        <div className="space-y-4">
+          <DocImage
+            path="/configuration/surveys/field-dropdown"
+            imageKey="validations-drawer"
+            hideCaption={true}
+          />
 
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] mb-2">TEXT VALIDATIONS</p>
-            <p className="text-ink-700 dark:text-[#E5E5E5]">
-              <strong>Required * (Checkbox):</strong> "Field must have a value" &rarr; Mandates non-empty selection before step submission.
-            </p>
+          <div className="grid gap-4 sm:grid-cols-2 text-xs">
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm space-y-3">
+              <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-cyan-500"></span>
+                Custom Validations
+              </p>
+              <ul className="space-y-2 text-ink-700 dark:text-[#E5E5E5] leading-relaxed">
+                <li className="p-2 rounded bg-ink-900/[0.02] dark:bg-white/[0.02] border border-ink-900/5 dark:border-white/5">
+                  <strong>Allowed Values:</strong> Restricts selection strictly to chosen approved options (<code>Select allowed values</code>).
+                </li>
+                <li className="p-2 rounded bg-ink-900/[0.02] dark:bg-white/[0.02] border border-ink-900/5 dark:border-white/5">
+                  <strong>Disallowed Values:</strong> Prohibits specific choices (e.g., disallowing "Pass" if defect condition exists).
+                </li>
+                <li className="p-2 rounded bg-ink-900/[0.02] dark:bg-white/[0.02] border border-ink-900/5 dark:border-white/5">
+                  <strong>Expected Value:</strong> Validates against a specific target answer for compliance auditing.
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm space-y-3">
+              <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Text Validations
+              </p>
+              <div className="p-3 rounded bg-emerald-500/5 border border-emerald-500/20 text-ink-700 dark:text-[#E5E5E5] space-y-1">
+                <p className="font-semibold text-emerald-700 dark:text-emerald-400">Required * Checkbox</p>
+                <p className="text-ink-650 dark:text-[#A3A3A3]">
+                  Enforces mandatory choice selection before the field surveyor can tap <code>Next Step</code> or submit the survey.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* ── 4. LOGIC RULES (VISIBILITY & AUTO-FILL) ────────────────────── */}
-      <Section id="rules-tab" title="4. Logic Rules (Visibility &amp; Auto-Fill)">
-        <DocImage
-          path="/configuration/surveys/field-dropdown"
-          imageKey="rules-drawer"
-          hideCaption={true}
-        />
-        <div className="space-y-3 text-xs">
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Visibility Rules (+ Add Rule)</p>
-            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1 mb-2">
-              <em>"This field stays visible when all enabled rules match values from the above steps or this step."</em>
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-ink-700 dark:text-[#E5E5E5]">
-              <li><strong>Source field:</strong> Dropdown selector (<code>Select a field</code>).</li>
-              <li><strong>Comparator:</strong> Logic comparator (<code>Equals</code>, <code>Not Equals</code>, <code>Contains</code>).</li>
-              <li><strong>Expected value:</strong> Input box (<code>Enter value to compare</code>).</li>
-            </ul>
-          </div>
+      {/* ── 4. LOGIC RULES & VISIBILITY TRIGGERS ────────────────────── */}
+      <Section id="rules-tab" title="4. Logic Rules &amp; Visibility Triggers">
+        <div className="space-y-4">
+          <DocImage
+            path="/configuration/surveys/field-dropdown"
+            imageKey="rules-drawer"
+            hideCaption={true}
+          />
 
-          <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A]">
-            <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Auto-fill Rules (+ Add Rule)</p>
-            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">
-              <em>"Auto-fill this field when the first matching rule condition is satisfied."</em> Displays <strong>+ Add Rule</strong> button.
-            </p>
+          <div className="space-y-3 text-xs">
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm space-y-2">
+              <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Visibility Rules (+ Add Rule)</p>
+              <p className="text-ink-650 dark:text-[#A3A3A3] leading-relaxed">
+                Determines when this dropdown field becomes visible on mobile devices based on answers to prior steps or fields:
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5 text-ink-700 dark:text-[#E5E5E5]">
+                <li><strong>Source Field:</strong> Select the trigger question (<code>Select a field</code>).</li>
+                <li><strong>Comparator:</strong> Choose comparison logic (<code>Equals</code>, <code>Not Equals</code>, <code>Contains</code>).</li>
+                <li><strong>Expected Value:</strong> Enter value to match (<code>Enter value to compare</code>).</li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm space-y-2">
+              <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Auto-fill Rules (+ Add Rule)</p>
+              <p className="text-ink-650 dark:text-[#A3A3A3] leading-relaxed">
+                Automatically populates this dropdown value when matching rule conditions are satisfied during field inspection execution.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
 
       {/* ── ACTION BAR ────────────────────────────────────────────────── */}
-      <Section id="action-bar" title="Action Bar (Cancel &amp; Save Changes)">
-        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-[#262626] bg-white dark:bg-[#0A0A0A] space-y-2 text-xs">
+      <Section id="action-bar" title="Action Bar &amp; Drawer Controls">
+        <div className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] shadow-sm space-y-2 text-xs">
           <p className="font-bold text-sm text-ink-900 dark:text-[#FFFFFF]">Drawer Action Controls:</p>
-          <ul className="list-disc pl-5 space-y-1 text-ink-700 dark:text-[#E5E5E5]">
-            <li><strong>Cancel Button:</strong> Discards uncommitted drawer edits and closes the Configuration panel.</li>
-            <li><strong>Save Changes Button (Orange):</strong> Commits and applies all configured Core, Options, Validations, and Rules settings directly to the survey field element.</li>
+          <ul className="list-disc pl-5 space-y-1.5 text-ink-700 dark:text-[#E5E5E5]">
+            <li><strong>Cancel Button:</strong> Discards uncommitted property drawer changes and closes the panel.</li>
+            <li><strong>Save Changes Button (Orange):</strong> Saves all Core, Options, Validations, and Rules settings directly to the survey blueprint.</li>
           </ul>
         </div>
+      </Section>
 
-        <div className="mt-4 flex items-center gap-2 text-xs font-medium text-cyan-600 dark:text-cyan-400">
-          <span>Explore sub-topics:</span>
-          <Link to="/configuration/surveys/field-dropdown/options-management" className="font-bold underline hover:text-cyan-700 dark:hover:text-cyan-300">
-            Options Management &rarr;
+      {/* ── SUBTOPICS ────────────────────────────────────────────────── */}
+      <Section id="subtopics" title="Explore Sub-Topic Guides">
+        <p className="text-xs text-ink-650 dark:text-[#A3A3A3] mb-3">
+          Dive deeper into specific Dropdown field configuration modules:
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <Link
+            to="/configuration/surveys/field-dropdown/options-management"
+            className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 transition-colors group"
+          >
+            <p className="font-bold text-ink-900 dark:text-[#FFFFFF] group-hover:text-cyan-600 dark:group-hover:text-cyan-400 flex items-center justify-between">
+              Options Management
+              <span>&rarr;</span>
+            </p>
+            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">Configure static option lists, unique selection, and API data sources.</p>
           </Link>
-          <span>|</span>
-          <Link to="/configuration/surveys/field-dropdown/validation" className="font-bold underline hover:text-cyan-700 dark:hover:text-cyan-300">
-            Dropdown Validations &rarr;
+
+          <Link
+            to="/configuration/surveys/field-dropdown/validation"
+            className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 transition-colors group"
+          >
+            <p className="font-bold text-ink-900 dark:text-[#FFFFFF] group-hover:text-cyan-600 dark:group-hover:text-cyan-400 flex items-center justify-between">
+              Dropdown Validations
+              <span>&rarr;</span>
+            </p>
+            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">Set allowed/disallowed value lists, compulsory rules, and expected answers.</p>
+          </Link>
+
+          <Link
+            to="/configuration/surveys/field-library"
+            className="p-4 rounded-xl border border-ink-900/10 dark:border-white/10 bg-white dark:bg-[#0A0A0A] hover:border-cyan-500/50 transition-colors group"
+          >
+            <p className="font-bold text-ink-900 dark:text-[#FFFFFF] group-hover:text-cyan-600 dark:group-hover:text-cyan-400 flex items-center justify-between">
+              Field Library
+              <span>&rarr;</span>
+            </p>
+            <p className="text-ink-650 dark:text-[#A3A3A3] mt-1">Return to the complete catalog of 18 draggable survey field elements.</p>
           </Link>
         </div>
       </Section>
     </DocPage>
   );
 }
+

@@ -63,8 +63,8 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
             <div className="my-6 space-y-8">
               {/* IMAGE 1: CORE SETTINGS DRAWER */}
               <div className="space-y-3">
-                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">1</span>
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2.5 leading-none">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs leading-none">1</span>
                   Core Settings Drawer
                 </h4>
                 <DocImage
@@ -87,8 +87,8 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
 
               {/* IMAGE 2: LAYOUT & DISPLAY DRAWER */}
               <div className="space-y-3">
-                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">2</span>
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2.5 leading-none">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs leading-none">2</span>
                   Layout &amp; Display Properties Drawer
                 </h4>
                 <DocImage
@@ -110,8 +110,8 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
 
               {/* IMAGE 3: VALIDATION RULES DRAWER */}
               <div className="space-y-3">
-                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">3</span>
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2.5 leading-none">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs leading-none">3</span>
                   Validation Rules Drawer
                 </h4>
                 <DocImage
@@ -133,8 +133,8 @@ export default function FieldDetailPage({ fieldKey: propFieldKey }) {
 
               {/* IMAGE 4: CONDITIONAL LOGIC RULES DRAWER */}
               <div className="space-y-3">
-                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs">4</span>
+                <h4 className="font-semibold text-sm text-ink-900 dark:text-slate-100 flex items-center gap-2.5 leading-none">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold text-xs leading-none">4</span>
                   Conditional Logic Rules Drawer
                 </h4>
                 <DocImage
